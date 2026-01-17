@@ -1,4 +1,4 @@
-# 20260115_options.md
+# 20260117_options.md
 # Options List Template (Canonical)
 
 ## Purpose
@@ -17,14 +17,38 @@ Generate a short, scannable shortlist of recipe ideas that:
 - Tag vocabulary (if present):
   - `tags.md`
 
-This file defines the **options-stage interface**: required inputs, required outputs, and options-specific formatting rules.
+This file defines the **options-stage interface**: required inputs, internal workflow outputs, and options-specific formatting rules.
+
+---
+
+## Emission policy (critical)
+
+### Internal-only workflow sections (compute but DO NOT emit)
+These sections are required for correctness and should be completed internally, but must NOT appear in the final user-visible output:
+- Occasion selection (binding)
+- Occasion directive extraction (required)
+- Research execution (binding)
+- Research outputs (required)
+
+Rules:
+- You must complete the internal-only sections before writing the Shortlist, because they drive ranking, phrasing, and the **Watch** lines.
+- In the final output, do not include the internal-only section headers or their contents.
+- If the user asks to see internal-only sections, include them only if explicitly requested.
+
+### Final output sections (emit in this order)
+1. Required inputs (filled before research)
+2. Shortlist (Top 5 to 8)
+3. Runner-Ups (5 to 10)
+4. Pick First / If You Want...
+5. Optional: Comparative Matrix (only if triggered)
+6. Sources (only if external browsing was performed; otherwise omit)
 
 ---
 
 ## Required inputs (fill before research)
 
 ### Title & Goal
-[2–3 sentences: what you want, time window, equipment preferences, vibe/flavor direction, and the target occasion.]
+[2-3 sentences: what you want, time window, equipment preferences, vibe/flavor direction, and the target occasion.]
 
 ### Context & Constraints
 - Serves:
@@ -39,41 +63,39 @@ This file defines the **options-stage interface**: required inputs, required out
 - Make-ahead preference: [none | partial | components day-before | full day-before OK]
 - Notes / assumptions:
 
+---
+
+## Internal-only workflow sections (do not emit)
+
 ### Occasion selection (binding)
-Select one base + optional modifiers **per `occasions.md`**.
+Select one base + optional modifiers per `occasions.md`.
 - Occasion base:
 - Occasion modifiers (optional):
   - setting:
   - service:
   - menu:
 
----
-
-## Occasion directive extraction (required)
+### Occasion directive extraction (required)
 Summarize the selected occasion entry from `occasions.md` into a constraint set used to rank options.
 Do not paste the full occasion block.
 
-- Optimize (2–6 bullets):
-- Avoid (2–6 bullets):
+- Optimize (2-6 bullets):
+- Avoid (2-6 bullets):
 - Assumptions to honor:
 - Options-directives (must shape option proposals):
 - Recipe-directives (carry-forward notes only; do not bloat shortlist):
 - Modifier validation note (only if used):
   - confirm selected modifiers are actual modifiers (setting/service/menu), not seasonal bases
 
----
-
-## Research execution (binding)
-Execute research **strictly per `meal_sources.md`**.
+### Research execution (binding)
+Execute research strictly per `meal_sources.md`.
 
 No protocol restatement here. The only requirement this file adds is:
-- The shortlist must be demonstrably informed by the Research Outputs section below.
+- The shortlist must be demonstrably informed by the Research outputs below.
 
----
-
-## Research outputs (required)
+### Research outputs (required)
 These are the distilled outputs of `meal_sources.md` that directly feed the shortlist.
-Failure modes and guardrails must primarily come from **comment-mining** and **cross-recipe comparisons**, not just the source author’s main recipe text.
+Failure modes and guardrails must primarily come from **comment-mining** and **cross-recipe comparisons**, not just the source author's main recipe text.
 
 - Recurring failure modes (>= 3):
   - 1)
@@ -93,6 +115,13 @@ Failure modes and guardrails must primarily come from **comment-mining** and **c
 ---
 
 ## Options-stage non-negotiables (formatting)
+
+### Structure and headers (readability)
+- Keep the section headers as written in the FINAL output sections list.
+- Leave at least one blank line between sections.
+- Each Shortlist option must be its own block and separated by a blank line.
+
+### URL and citation rules
 - Do NOT embed raw URLs in the Shortlist, Runner-Ups, or chooser rules.
 - Use numeric footnote markers like [1] only.
 - Put URLs only in the Sources section (plain URLs; one per line; strip tracking params when practical).
@@ -100,33 +129,39 @@ Failure modes and guardrails must primarily come from **comment-mining** and **c
 - If external browsing is not available: write "No external browsing performed; sources omitted."
   - Then omit footnotes and omit the Sources section entirely.
 
-Units policy (options-stage):
+### Units policy (options-stage)
 - Avoid quantities in options unless essential.
 - If you include quantities, use U.S. customary units.
-- Add metric in parentheses **only if pulled directly from a source**.
+- Add metric in parentheses only if pulled directly from a source.
+
+### Bolding rules (selective)
+- Bold the option name.
+- Bold field labels (e.g., **Description:**, **Watch:**, **Why it fits:**).
+- Optionally bold one key endpoint or decision per option (e.g., **broil 3-5 min**, **reduce sauce**, **sheet-pan finish**).
+- Do not bold whole sentences.
 
 ---
 
 ## Shortlist (Top 5 to 8)
 
 ### Shortlist rules (options-stage specific)
-- Each option is **5 lines max** (target 5; never exceed 6).
-- Each option must cite **one primary source** [n].
+- Each option must cite one primary source [n].
 - The shortlist as a whole should be supported by the full source set from `meal_sources.md`.
-  - Multiple options may map to the same source as needed, but research must still be cross-checked across the 5–7 sources.
+  - Multiple options may map to the same source as needed, but research must still be cross-checked across the 5-7 sources.
 - Each option must contain:
-  - a “Watch” line derived from Research Outputs (failure mode or guardrail),
-  - a “Why it fits” line explicitly referencing at least **one** Occasion directive (optimize/avoid/assumptions/options-directives).
-- The “Watch” line must reference one of the listed failure modes/guardrails **verbatim or near-verbatim** (not generic filler).
+  - a **Description** line (1-2 sentences; plain-language; no jargon),
+  - a **Watch** line derived from Research outputs (failure mode or guardrail),
+  - a **Why it fits** line explicitly referencing at least one Occasion directive (optimize/avoid/assumptions/options-directives).
+- The **Watch** line must reference one of the listed failure modes/guardrails verbatim or near-verbatim (not generic filler).
 - Do not mention every constraint in every option. Mention only what materially differentiates it.
 
 ### Distinctness guardrails
 Default (broad prompts):
-- Include at least **3 distinct formats** across the shortlist.
-- No more than **2** options in the same format.
-- No more than **2** options sharing the same primary protein/center-of-plate.
+- Include at least 3 distinct formats across the shortlist.
+- No more than 2 options in the same format.
+- No more than 2 options sharing the same primary protein/center-of-plate.
 
-If the Title & Goal or Occasion directives constrain the space (e.g., “grazing table,” “cocktail bites,” “bring-over,” “all sheet-pan,” “all pasta”):
+If the Title & Goal or Occasion directives constrain the space (e.g., "grazing table," "cocktail bites," "bring-over," "all sheet-pan," "all pasta"):
 - Treat that constraint as fixed.
 - Diversify across at least 3 of these axes:
   - protein/center-of-plate
@@ -136,15 +171,18 @@ If the Title & Goal or Occasion directives constrain the space (e.g., “grazing
   - holding strategy
   - make-ahead strategy
 
-### Per-option template (target 5 lines; max 6)
-- **[Option Name]** [tags: 3–5; format: ...; active: ~X min (est); effort: low|med|high]
-  Flavor profile: richness [light|med|rich]; acidity [low|med|high]; heat [none|low|med|high]; notes: [2–4 descriptors]; texture: [1–2 descriptors]
-  Make-ahead: [what]. Hold/Reheat: [how + cue] (use “Hold” for party/grazing contexts)
-  Watch: [1 failure mode or guardrail from Research Outputs]. Why it fits: [tie to goal + 1+ occasion directive]
-  Source [Blog|YT|IG|Forum|Authoritative]. [n]
+### Per-option template (target 6 lines; max 7)
+Formatting requirement: use a level-4 header per option and leave a blank line between options.
+
+#### 1) **[Option Name]** [tags: 3-5; format: ...; active: ~X min (est); effort: low|med|high]
+**Description:** [1-2 sentences: what it is and what it eats like.]
+**Flavor profile:** richness [light|med|rich]; acidity [low|med|high]; heat [none|low|med|high]; notes: [2-4 descriptors]; texture: [1-2 descriptors]
+**Make-ahead:** [what]. **Hold/Reheat:** [how + cue] (use "Hold" for party/grazing contexts)
+**Watch:** [1 failure mode or guardrail from Research outputs]. **Why it fits:** [tie to goal + 1+ occasion directive]
+**Source:** [Blog|YT|IG|Forum|Authoritative]. [n]
 
 Tag guidance:
-- Use 3–5 tags max.
+- Use 3-5 tags max.
 - If tags.md exists, select from it; do not invent a new taxonomy mid-list.
 
 Idea buckets (for diversity or pivoting; optional):
@@ -164,7 +202,7 @@ Footnote only if a runner-up is actually sourced.
 ---
 
 ## Pick First / If You Want...
-4–7 chooser rules routing to specific options (1–2 options per rule).
+4-7 chooser rules routing to specific options (1-2 options per rule).
 Chooser rules should reflect Occasion directives when relevant.
 - Fastest path to food:
 - Lowest coordination load:
@@ -180,5 +218,23 @@ Chooser rules should reflect Occasion directives when relevant.
 Use when a table clarifies selection.
 
 Trigger rules:
-- Use the matrix when there are **>= 6** shortlist options, OR
-- when the selected occasion implies holding/coordination tradeoffs (e.g., party-10
+- Use the matrix when there are >= 6 shortlist options, OR
+- when the selected occasion implies holding/coordination tradeoffs.
+
+Keep it compact; do not add new claims here.
+
+| Option | Format | Active (est) | Effort | Make-ahead | Hold/Reheat | Biggest watch | Why it fits |
+|---:|---|---:|---|---|---|---|---|
+| 1 |  |  |  |  |  |  |  |
+| 2 |  |  |  |  |  |  |  |
+| 3 |  |  |  |  |  |  |  |
+
+---
+
+## Sources
+Rules:
+- Plain URLs only, one per line.
+- Each URL number must match the in-text [n] markers used above.
+
+1. https://example.com/
+2. https://example.com/
