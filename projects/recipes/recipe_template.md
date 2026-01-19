@@ -1,12 +1,12 @@
-# 20260115_recipe_template_v2.md
+# 20260119_recipe_template_v3.md
 # [Recipe Title]
 
 ## Title & Overview
-[Write 3–5 sentences on flavor and what the dish is like to eat. Include origin/context if relevant. Keep it appetizing and concise. If make-ahead is relevant, say so plainly (no nutrition numbers).]
+[Write 3 to 5 sentences on flavor and what the dish is like to eat. Include origin/context if relevant. Keep it appetizing and concise. If make-ahead is relevant, say so plainly (no nutrition numbers).]
 
 ## Tags
-[List 3–8 tags. Use lowercase, hyphen-separated tags from `tags.md` when available.]
-- Prefer: 1–2 course/cuisine tags, 0–1 diet tag (only if user asked), 1 method tag, 1 time/effort tag, 0–2 key-ingredient tags.
+[List 3 to 8 tags. Use lowercase, hyphen-separated tags from `tags.md` when available.]
+- Prefer: 1 to 2 course/cuisine tags, 0 to 1 diet tag (only if user asked), 1 method tag, 1 time/effort tag, 0 to 2 key-ingredient tags.
 - Example: `tags: [main, weeknight, quick-and-easy, pasta, vegetarian]`
 
 ## Yield & Timing
@@ -19,22 +19,26 @@
 
 ## Grocery List
 Rule: Every ingredient appears exactly once in Grocery List under the correct category.
-Use the aisle/category taxonomy from `recipe_template.md` if it is stricter than the headings below.
+Use the aisle/category taxonomy from `recipe_template.md` (or your canonical grocery taxonomy file) if it is stricter than the headings below.
 
 ### Produce
 - [item]
+
 ### Pantry
 - [item]
+
 ### Dairy & Eggs
 - [item]
+
 ### Proteins
 - [item]
+
 ### Spices & Oils
 - [item]
 
 ## Equipment & Tools
 [List critical gear and helpful alternates; be specific about sizes/materials.]
-- [e.g., 12-in stainless skillet; 5–6 qt Dutch oven; sheet pan 13x18; fine-mesh sieve]
+- [e.g., 12-in stainless skillet; 5 to 6 qt Dutch oven; sheet pan 13x18; fine-mesh sieve]
 - [optional or substitute tools]
 
 ## Ingredients
@@ -57,35 +61,24 @@ Specify salted vs unsalted where relevant (broth/stock, butter).]
 - **Cross-contact note (optional):**
   - [If relevant, e.g., shared fryer, store-bought sauces, spice blends]
 
-## Prep Gotchas & QA (Optional)
-[Short bullets for things that commonly go wrong + simple checks. Keep tight; do not duplicate Error-proofing below.]
-- [Moisture management; pat dry; drain; reduce.]
-- [Avoid crowding; batch as needed.]
-- [Heat choice; smoke point; burner strength notes.]
-- [Stop points: where you can safely pause.]
+## Quick Overview
+[4 to 7 bullets. For each bullet, the main point before the colon must be bolded. Keep bullets tight and action-oriented.]
+- **What you are making:** [1 sentence; what the final dish is and how it should eat]
+- **Texture and doneness cues:** [1 sentence; the most important "until..." endpoints]
+- **Workflow:** [1 sentence; order of operations; include at least one "While X cooks, do Y"]
+- **Make-ahead:** [1 sentence; what can be done ahead and what improves with resting/chilling]
+- **Primary risks:** [1 sentence; 1 to 3 likely failure points]
 
-## Detailed Instructions
-[Directions must be free-form but structured as (A) Read Once (Plan) and (B) Cook Now (Steps).
-Use nested bullets. Avoid big paragraphs; keep to bullets and short sentences.
-Prefer cues first, clock second.
+## Instructions
+[Main flow is numbered steps: 1., 2., 3., 4. (minimum). Avoid big paragraphs; keep to bullets and short sentences.
+Prefer cues first, clock second. The final step should always include a taste-adjust loop.
 Do NOT repeat template rules or meta-instructions in the final recipe output.]
 
-A) Read Once (Plan) - 8 to 12 bullets total
-- What you are making: [1 sentence; what the final dish is and how it should eat]
-- Endpoint in plain terms: [1 sentence; final texture/consistency/doneness]
-- Key checkpoints (3 to 6 bullets): [the "until..." cues that matter most]
-- Workflow overview (3 to 6 bullets): [order of operations; what can overlap]
-  - Include at least one "While X cooks, do Y" workflow note.
-- Make-ahead stop(s): [where you can stop; how to cool/store; what changes after chilling]
-- Reheat plan: [how to reheat and the cue it is ready; how to restore texture]
-- Seasoning plan: [when salt enters; what acid/herbs finish; taste-adjust order at end]
-- Biggest risks (1 to 3 bullets): [most likely failure points; do not repeat Error-proofing]
-
-Formatting and nesting rules (required)
-- Main flow is numbered steps (1), 2), 3) ...).
+Formatting and nesting rules
+- Main flow is numbered steps: 1., 2., 3., 4., and onward.
 - Each numbered step must include nesting:
   - At least 1 bullet with sub-bullets.
-  - Across the whole recipe, include at least 2 "branch" sub-bullets (If X -> do Y -> cue its fixed).
+  - Across the whole recipe, include at least 2 branch sub-bullets in the form: *If X -> do Y -> cue it's fixed.*
 - Bold actual substance and settings the cook scans for (examples; not exhaustive):
   - Bold cooking verbs and actions such as: **Bake**, **Roast**, **Simmer**, **Saute**, **Boil**, **Sear**, **Brown**, **Deglaze**, **Whisk**, **Fold**, **Reduce**, **Rest**, **Blend**, **Chill**, **Freeze**.
   - Bold heat and temperature phrases: **medium heat**, **medium-high heat**, **low heat**, **425 deg F**.
@@ -94,36 +87,36 @@ Formatting and nesting rules (required)
 - Use italics for optional/conditional notes that can be skipped.
 - Use inline code only for exact literals/settings when needed: `425 deg F`, `medium-high`, `1/2-in`.
 
-Heat-step minimum detail (required whenever heat is involved)
-- Include: heat level or oven temp, a time range, and at least one sensory cue.
+Heat-step minimum detail
+- Whenever heat is involved, include: heat level or oven temp, a time range, and at least one sensory cue.
 - Prefer: "X to Y minutes, until [cue]" rather than exact minutes.
 - When cook time depends on size, specify thickness/size in the same step.
 
-B) Cook Now (Steps)
-1) [Phase title: e.g., "Stage and prep", "Build the base", "Simmer/roast", "Finish"]
+Step skeleton
+1. [Phase title]
    - [Main bullet: what to do]
      - [Sub-bullets: prep details affecting cook time (size/thickness), order of additions]
      - [Sub-bullets: **Heat**/**Oven** + time range + cue; include the "until..." endpoint]
      - *[While this runs: parallel task]*
      - **Checkpoint:** You are ready to proceed when [cue].
-     - *If [symptom], then [primary fix]; cue its fixed.*
+     - *If [symptom], then [primary fix]; cue it's fixed.*
 
-2) [Next phase title]
+2. [Next phase title]
    - [Main bullet]
      - [Sub-bullets: **Heat**/**Oven** + time range + cue]
      - [Sub-bullets: reduction/consistency test if relevant (what it should look like)]
      - **Checkpoint:** You are ready to proceed when [cue].
-     - *If [symptom], then [primary fix]; cue its fixed.*
+     - *If [symptom], then [primary fix]; cue it's fixed.*
 
-3) [Next phase title]
+3. [Next phase title]
    - [Main bullet]
      - [Sub-bullets: **Heat**/**Oven** + time range + cue; doneness cue for any protein]
      - **Checkpoint:** You are ready to proceed when [cue].
 
-4) Finish and taste-adjust (required final step)
+4. Finish and taste-adjust
    - [Main bullet: combine/rest as needed]
      - [Sub-bullets: final texture cue; whether to stop early if reheating later]
-     - Taste-adjust loop (required): acid -> salt -> heat -> herbs.
+     - Taste-adjust loop: acid -> salt -> heat -> herbs.
      - **Checkpoint:** Final dish is [key endpoint cue].
 
 ### Optional: Instruction Table
@@ -134,12 +127,17 @@ B) Cook Now (Steps)
 | 1 | [task] | [heat/temp] | [range] | [cue] | [notes] |
 | 2 | [task] | [heat/temp] | [range] | [cue] | [notes] |
 
-## Make-Ahead Map
-[Call out what can be done 1–3 days ahead; what freezes; thaw + reheat cues.]
+## Common Issues
+[Short bullets for things that commonly go wrong + simple fixes/checks. Keep tight; do not duplicate Troubleshooting below.]
+- **[Symptom]:** [Cause] -> [Simple fix] -> [Quick check]
+- **[Symptom]:** [Cause] -> [Simple fix] -> [Quick check]
+
+## Make-Ahead Notes
+[Call out what can be done 1 to 3 days ahead; what freezes; thaw + reheat cues.]
 - Fridge plan:
   - Stop after Step [#]: [how to cool/store; container guidance]
   - Holds: [X days]
-  - Reheat: [method] until [cue]; then [texture reset + re-season note]
+  - Serve/Reheat: [method] until [cue]; then [texture reset + re-season note]
 - Freezer plan:
   - Best freeze point: Step [#] or component [name]
   - Portioning: [portion size and container guidance]
@@ -147,46 +145,56 @@ B) Cook Now (Steps)
   - Thaw: [method]
   - Reheat: [method] until [cue]; then [texture reset + re-season note]
 
-## Error-proofing (required; 2 to 4 bullets total)
+## Troubleshooting
+[2 to 4 bullets total. Use the arrow format below.]
 - [Symptom] -> [Likely cause] -> [Primary fix] -> [Recovery cue]
 - [Symptom] -> [Likely cause] -> [Primary fix] -> [Recovery cue]
 
-## Troubleshooting (Optional Table)
+## Troubleshooting Table
+[Optional. Use when it clarifies common failure modes.]
+
 | Symptom | Likely Cause | Quick Fix |
 |---|---|---|
 | [Too salty] | [Over-salted or reduced too far] | [Add unsalted starch; splash of water/stock; acid to balance] |
 | [Too watery] | [Crowded pan / insufficient reduction] | [Reduce uncovered; finish hotter; small slurry if appropriate] |
 | [Split emulsion] | [Too hot / fat added too fast] | [Whisk in tsp warm water off heat; re-emulsify slowly] |
 
-## Geometry notes (include when relevant)
+## Geometry Notes
+[Include when relevant.]
 - Pan/pot size used:
 - Target thickness / layer depth:
 - Crowding rule:
 
-## Scaling & Batch Size (Optional)
-[How to halve/double; how geometry changes time; pan alternatives; burner/oven constraints.]
+## Scaling & Batch Size
+[Optional. How to halve/double; how geometry changes time; pan alternatives; burner/oven constraints.]
 - Scaling notes:
 - Batch strategy:
 - Pan swaps:
 
-## Special Notes & Variations
-- Storage & Reheat: [brief; include temps for safe reheating only when you’re explicitly citing a safety source]
+## Special Notes
+[Optional. Keep brief.]
+- Storage & reheat: [brief; include temps for safe reheating only when explicitly citing a safety source]
 - Serving ideas: [brief list of sides, sauces, garnishes]
-- Variations: [authentic alternatives; optional additions; spice toggles]
-- Dietary toggles (only if requested): [low-sodium / high-protein / low-FODMAP / gluten-free / dairy-free] with concrete swaps that preserve technique
-- Sodium (optional but recommended): [top 3 sodium drivers + concrete levers]
+- Sodium notes: [top 3 sodium drivers + concrete levers, if relevant]
 
-## Safety & Correctness Notes (Optional)
-[Only if needed. Document deviations from a traditional source for safety/correctness; explain “why” briefly.]
+## Variations
+[Include 2 to 4 variations that make it feel like a meaningfully different dish or use-case. Avoid micro-toggles.
+Each variation must be 1 to 2 sentences in a single short paragraph (no sub-bullets).]
+1. **[Variation name]:** [1 to 2 sentence description; call out the key change and how it changes the eating experience; include citations if derived from sources]
+2. **[Variation name]:** [1 to 2 sentence description]
+3. **[Variation name]:** [1 to 2 sentence description]
+
+## Safety & Correctness Notes
+[Optional. Only if needed. Document deviations from a traditional source for safety/correctness; explain "why" briefly.]
 
 ## Sources
-[Add numbered URLs that match any in-text footnotes. Use transparent tags: type, region, and why.
+[Add numbered sources that match any in-text footnotes. Use Markdown links for text + URL.
 Do not place raw URLs outside this section; cite with [n] in-text.]
-1. https://... - Creator or Source Name [type: YouTube; region: ...; why: firsthand method demo]
-2. https://... - Regional Blog Name [type: blog; region: ...; why: technique specifics]
-3. https://... - Forum thread [type: forum; why: failure modes + corrections]
-4. https://... - Authoritative ref [type: authoritative; why: safety/cooling/reheat fact (only if cited)]
+1. [Creator or Source Name - Title](https://example.com) [type: YouTube; region: TBD; why: firsthand method demo]
+2. [Regional Site - Title](https://example.com) [type: blog; region: TBD; why: technique specifics]
+3. [Forum Thread - Title](https://example.com) [type: forum; region: TBD; why: failure modes + corrections]
+4. [Authoritative Reference - Title](https://example.com) [type: authoritative; region: TBD; why: safety/cooling/reheat fact]
 
-[In-text citation examples to use above where appropriate:
-Bake at 425 deg F for 18 to 22 minutes for 1-in pieces [2].
-Bloom the spice paste 30 to 45 seconds until shiny, not browned [1 @2:41].]
+In-text citation examples to use above where appropriate
+- Bake at 425 deg F for 18 to 22 minutes for 1-in pieces [2].
+- Bloom the spice paste 30 to 45 seconds until shiny, not browned [1 @2:41].

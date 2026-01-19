@@ -30,6 +30,7 @@ Rule: Every ingredient appears exactly once in Grocery List under the correct ca
 - [ingredient, amount]
 - [ingredient, amount]
 
+
 ## Detailed Instructions
 [Directions must be free-form but structured as (A) Read Once (Plan) and (B) Cook Now (Steps). Use nested bullets. Avoid big paragraphs; keep to bullets and short sentences. Prefer cues first, clock second.]
 
