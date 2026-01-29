@@ -50,6 +50,7 @@ These are defaults for this project. The user can override at any time.
 - Very spicy heat levels (heavy chile-forward recipes). Mild heat is acceptable; provide heat as an optional toggle.
 - Greasy, high-oil preparations (deep-fry, shallow-fry, confit-style, heavy cream sauces).
 - High-sodium builds (salt-heavy marinades, salty stocks/bouillon, cured-meat-forward dishes) unless the user asks.
+- Mushroom-forward builds (large volumes of mushrooms, mushroom as the primary vegetable or main flavor driver) unless the user asks.
 
 ### 2c) Poultry stance (important nuance)
 - Poultry is acceptable as an ingredient.
@@ -68,6 +69,12 @@ These are defaults for this project. The user can override at any time.
 - Dairy-light by default.
 - Prefer lower-lactose options when dairy is used (yogurt, aged cheeses, lactose-free dairy) and avoid heavy cream reliance.
 - Keep dairy as a finish or accent rather than a bulk base unless user requests otherwise.
+
+### 2f) Mushroom stance (important nuance)
+- Mushrooms are acceptable as a minor ingredient, but default to **extremely light usage**.
+- Default: do not use mushrooms as a bulk vegetable, base, or primary flavor driver unless the user explicitly asks for a mushroom-forward dish.
+- If mushrooms are used under defaults: treat as an accent only (finely minced and cooked down; or a very small amount of dried powder) so they do not dominate texture or flavor.
+- Always offer a non-mushroom alternative path for umami depth when relevant (browning, tomato paste, caramelized onion, roasted peppers; fermented ingredients only as optional with sodium caveats).
 
 ---
 
@@ -216,6 +223,7 @@ It is acceptable to deviate from these constraints when:
 - Is the ~2-week planned eating horizon supported by a concrete fridge (3 to 5 days) + freezer (months) plan?
 - Are hard avoids respected (tilapia, catfish, chocolate) unless explicitly overridden?
 - Is poultry not being used as the main course protein unless requested?
+- Are mushrooms kept extremely light (accent-only) unless the user explicitly requested mushroom-forward?
 - Are there at least 2 vegetables (or an optional veg add-on/side is provided)?
 - Is fat managed (no oil slick; no heavy-cream base by default; fat stacking rule respected)?
 - Is sodium handled with technique first AND are sodium drivers + levers explicitly listed (without inventing numbers when not computed)?

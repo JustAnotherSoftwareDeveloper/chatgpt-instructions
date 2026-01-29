@@ -3,7 +3,7 @@
 ## Purpose
 Generate a short, scannable shortlist of recipe ideas that:
 - obeys default health constraints and avoidances (per `healthy_excludes.md`, unless the user overrides),
-- is grounded in authentic, cross-checked research (per `meal_sources.md`),
+- is grounded in **authentic, cross-checked research** (per `meal_sources.md`),
 - and is formatted for fast decision-making (this file).
 
 ---
@@ -16,7 +16,7 @@ Generate a short, scannable shortlist of recipe ideas that:
 - Tag vocabulary (if present):
   - `tags.md`
 
-This file defines the options-stage interface: required inputs, internal workflow outputs, and options-specific formatting rules.
+This file defines the **options-stage interface**: required inputs, internal workflow outputs, and options-specific formatting rules.
 
 ---
 
@@ -29,7 +29,7 @@ These sections are required for correctness and should be completed internally, 
 - Research outputs (required)
 
 Rules:
-- You must complete the internal-only sections before writing the Shortlist, because they drive ranking, phrasing, and the Watch lines.
+- You must complete the internal-only sections before writing the Shortlist, because they drive ranking, phrasing, and the **Watch** lines.
 - In the final output, do not include the internal-only section headers or their contents.
 - If the user asks to see internal-only sections, include them only if explicitly requested.
 
@@ -46,7 +46,7 @@ Rules:
 ## Required inputs (fill before research)
 
 ### Title & Goal
-[2-3 sentences: what you want, time window, equipment preferences, vibe/flavor direction, and what "healthy" means here (qualitative). State that options are sourced broadly with authenticity priority.]
+[2-3 sentences: what you want, time window, equipment preferences, vibe/flavor direction, and what "healthy" means here (qualitative).]
 
 ### Context & Constraints
 - Serves:
@@ -83,7 +83,7 @@ No protocol restatement here. The only requirement this file adds is:
 
 ### Research outputs (required)
 These are the distilled outputs of `meal_sources.md` that directly feed the shortlist.
-Failure modes and guardrails must primarily come from comment-mining and cross-recipe comparisons, not just the source author's main recipe text.
+Failure modes and guardrails must primarily come from **comment-mining** and **cross-recipe comparisons**, not just the source author's main recipe text.
 
 - Recurring failure modes (>= 3):
   - 1)
@@ -124,8 +124,8 @@ Failure modes and guardrails must primarily come from comment-mining and cross-r
 
 ### Bolding rules (selective)
 - Bold the option name.
-- Bold field labels (e.g., Description:, Watch:, Why it fits:).
-- Optionally bold one key endpoint or decision per option (e.g., broil 3-5 min, reduce sauce, sheet-pan finish).
+- Bold field labels (e.g., **Description:**, **Watch:**, **Why it fits:**).
+- Optionally bold one key endpoint or decision per option (e.g., **broil 3-5 min**, **reduce sauce**, **sheet-pan finish**).
 - Do not bold whole sentences.
 
 ---
@@ -137,10 +137,10 @@ Failure modes and guardrails must primarily come from comment-mining and cross-r
 - The shortlist as a whole should be supported by the full source set from `meal_sources.md`.
   - Multiple options may map to the same source as needed, but research must still be cross-checked across the 5-7 sources.
 - Each option must contain:
-  - a Description line (1-2 sentences; plain-language; no jargon),
-  - a Watch line derived from Research outputs (failure mode or guardrail),
-  - a Why it fits line tying back to the goal plus at least one constraint (user must/avoid or health default).
-- The Watch line must reference one of the listed failure modes/guardrails verbatim or near-verbatim (not generic filler).
+  - a **Description** line (1-2 sentences; plain-language; no jargon),
+  - a **Watch** line derived from Research outputs (failure mode or guardrail),
+  - a **Why it fits** line tying back to the goal plus at least one constraint (user must/avoid or health default).
+- The **Watch** line must reference one of the listed failure modes/guardrails verbatim or near-verbatim (not generic filler).
 - Do not mention every constraint in every option. Mention only what materially differentiates it.
 
 ### Distinctness guardrails
