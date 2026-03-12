@@ -106,13 +106,27 @@ Quickly identify:
 - approximate price clusters and market segmentation
 - obvious disqualifiers (wrong platform, missing must-haves)
 
+### Discovery breadth requirements (before narrowing)
+When the market supports it, the discovery pass must achieve:
+- At least 8-12 plausible candidates identified before applying tier or finalist gates.
+- At least 5 distinct brands/manufacturers represented in the initial pool.
+- At least one source family from each of the following, unless the category genuinely lacks it:
+  - primary/vendor sources
+  - independent specialist / expert / method-based sources
+  - owner/community sources
+- If any source family is absent for a legitimate category reason, state so explicitly. Do not silently produce a pool built from only one source type.
+- If the market is genuinely too narrow, state so explicitly. Do not silently accept prematurely thin pools.
+
 ### Discovery-only source policy
 Discovery-only sources:
 - are allowed for candidate enumeration and rough clustering only
 - do not count toward evidence minimums in `research_sources.md`
 - must not be used to support performance/reliability/safety conclusions
 - must not appear in the evidence sources list (Section 2)
-  - if retained, list separately as “Discovery-only (not evidence)”
+  - if retained, list separately as "Discovery-only (not evidence)"
+
+### Discovery-only auditability
+If discovery-only sources materially shaped tier geometry or the initial candidate pool (that is, without them, the pool or tier structure would have been significantly different), flag this fact. A Discovery-only note or ledger may be included in the output. Avoid premature narrowing caused by limited source-family diversity at this stage.
 
 ### Output of discovery scan (internal)
 - initial candidate pool

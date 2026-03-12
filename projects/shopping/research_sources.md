@@ -208,6 +208,28 @@ Guidance:
 ### Mode A minimums (DEFAULT)
 Require **7 distinct entities** with variety constraints.
 
+#### 7.0 Entity overuse cap (Mode A)
+In Mode A, no single non-primary entity may contribute:
+- more than **2 evidence artifacts**, OR
+- more than **25 percent** of total evidentiary weight
+
+unless the market is genuinely sparse. If the cap is waived, state so explicitly with a Coverage limitations note.
+
+Rationale: over-relying on one non-primary entity concentrates narrative ecosystem risk, even if that entity is high quality.
+
+#### 7.0a Category-appropriate diversity
+- Multiple URLs from the same publication family do not satisfy breadth goals; they count as one entity.
+- Multiple sources sharing the same narrative ecosystem (e.g., all from the same editorial network, all from the same brand-affiliated community) should be treated cautiously and disclosed.
+- Use `source_playbooks.md` when available to widen source discovery beyond generic defaults.
+
+#### 7.0b Source-compliance handoff
+Higher-level workflows and their templates may expose a compact Research Compliance summary showing whether minimums and variety rules were actually met. This file defines the standard; compliance visibility is the output layer's responsibility.
+
+#### 7.0c Discovery-only auditability
+Discovery-only sources can shape the candidate pool, but:
+- they do not count toward evidence minimums
+- if they materially influenced the shortlist (that is, without them, the pool would have been significantly narrower or differently composed), the output or audit layer should disclose that, e.g. via a discovery ledger
+
 #### 7.1 Primary / standards requirement (when available)
 - **At least 1** primary document OR standards/certification source **when available/applicable**.
 
@@ -251,6 +273,18 @@ Require **3–5 distinct entities**, typically:
 ### Mode C minimums (sparse coverage)
 Use the strongest available sources.
 Mandatory: include a **Coverage limitations** note.
+
+---
+
+## 7a) Vendor research: "distinct entities" note
+
+For vendor research (Workflow D), "distinct entities" should represent variety across:
+- vendor-controlled / primary sources (brand or manufacturer sites, official documentation)
+- independent specialist / expert / method-based sources (category-specific publications, trusted reviewers)
+- owner/community sources (from different platforms, not just one forum or one retailer review section)
+- seller/channel evidence when buying guidance is in scope
+
+The same entity overuse cap from Section 7.0 applies to vendor research.
 
 ---
 

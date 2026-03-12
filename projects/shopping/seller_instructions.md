@@ -36,8 +36,17 @@ For cross-seller comparison, this file uses **comparable total** by default:
 This is a **low-level policy module** used by:
 - `product_research.md` (when providing “where to buy” options)
 - `pricing_tiers.md` (when providing sellers per tier)
-- `research_sources.md` (when a “source” is a seller listing or store page)
+- `research_sources.md` (when a "source" is a seller listing or store page)
+- `vendor_research.md` (when vendor research requires policy clarity, legitimacy checks, return/warranty posture, or trust-tier classification for a vendor or channel)
 
+### Upstream workflow bridge note
+Upstream workflows \u2014 including `vendor_research.md` \u2014 may invoke this file for:
+- policy clarity (are policies discoverable, consistent, and non-trapping?)
+- legitimacy checks (does the seller/vendor have a real business identity?)
+- return / warranty posture (what return friction and warranty handling can a buyer expect?)
+- trust-tier classification (Tier 1 through Tier 6 per Section 4)
+
+This file does **not** decide which vendor is the best category fit, which brand ecosystem to recommend, or which manufacturer has the best product lineup. Those decisions belong to `vendor_research.md`. This file remains seller/channel policy only.
 ---
 
 ## 1) North star: risk-adjusted comparable total

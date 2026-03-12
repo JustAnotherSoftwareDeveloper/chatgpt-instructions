@@ -22,6 +22,8 @@ Produce an evidence-backed assessment of one or more products (often a shortlist
   - classify product class/type and apply risk posture/patterns
 - `research_sources.md`
   - source admissibility + weighting, mode defaults (A/B/C), minimum source requirements, and conflict resolution
+- `source_playbooks.md` (optional but recommended)
+  - category-specific source discovery guidance; widens discovery before evidence collection
 - `product_research_template.md`
   - required structured output for Mode A (and typically Mode B)
 
@@ -123,6 +125,13 @@ Otherwise:
 - identify obvious disqualifiers
 - map rough segmentation and price/feature clusters (only if needed for shortlisting)
 
+### Discovery breadth requirements (before narrowing)
+When the market supports it, the discovery pass must achieve:
+- At least 8-12 plausible candidates identified before applying hard gates.
+- At least 5 distinct brands/manufacturers represented in the initial pool.
+- At least 3 named segmentation clusters or obvious disqualifier patterns (e.g., budget, enthusiast, premium; or: too large, wrong platform, discontinued).
+- If the market is genuinely too narrow to support that breadth, state so explicitly. Do not silently accept a thin pool.
+
 ### Discovery-only sources policy
 Discovery-only sources:
 - are allowed for candidate enumeration and rough clustering
@@ -130,6 +139,9 @@ Discovery-only sources:
 - must not support performance/reliability/safety conclusions
 - should be omitted from the final evidence list
   - if included for transparency, list in a separate "Discovery-only (not evidence)" section
+
+### Discovery ledger
+If discovery-only sources materially shaped the candidate pool (that is, without them, the pool would have been significantly narrower or differently composed), flag this fact. The output or audit layer may include a discovery ledger noting which entities contributed candidate enumeration, market mapping, or segmentation clues, and why they were not treated as evidence.
 
 ---
 
@@ -150,7 +162,8 @@ Apply hard gates (in order):
 4. Rough tier/segment fit (only if user provided a budget or the category needs segmentation)
 
 Finalists target:
-- Prefer 3-6 finalists total for broad category research.
+- Prefer 5-8 finalists total for broad category research when the market supports it.
+- Fewer is acceptable only when constraints or market sparsity justify it; state the reason explicitly.
 - For narrow comparisons, finalists may equal the user-provided list size.
 
 If fewer finalists remain:
@@ -182,10 +195,13 @@ Define criteria buckets:
 - Safety/compliance (when applicable)
 - UX/software/firmware behavior (when applicable)
 - Total cost factors (consumables, subscriptions, accessories, warranty)
+- Design / aesthetic / enthusiast / brand-signaling fit (apply when the user's request makes this relevant: aesthetics, identity, collector appeal, community recognition, or brand equity are mentioned or strongly implied)
 
 For each bucket:
 - define "acceptable" thresholds where possible
 - define required evidence types per `research_sources.md` claim-type minimums
+
+Note on aesthetic/identity fit: when design, brand identity, collector appeal, or enthusiast credibility is a major component of the user's requirements, treat this as a first-class evaluation dimension, not a minor side preference. Do not subordinate it to purely functional criteria if the user's intent clearly includes it.
 
 ---
 
@@ -210,8 +226,7 @@ For each finalist:
   - firmware/software notes (versioning/recency-sensitive)
   - warranty/support posture (channel-dependent when listings are used)
 - apply:
-  - `reviews.md` for interpreting reviews/manipulation signals
-  - `research_sources.md` for weighting and conflict resolution
+  - `research_sources.md` for weighting and conflict resolution (routes to `reviews.md` for review-reading rules)
 - maintain claim-to-evidence mapping:
   - key claim -> supporting sources (entities) -> confidence
 
@@ -237,9 +252,13 @@ If pricing is out of scope:
   - then evidence-backed differentiators (reliability/performance/UX)
 - resolve conflicts explicitly (revision drift, methodology, sample bias, incentives)
 - produce:
-  - recommended pick(s) and who they are best for
-  - runner-up(s) and their tradeoffs
-  - explicit "why not" for excluded finalists
+  - 1 recommended pick and who it is best for
+  - 2-4 runner-ups and their tradeoffs
+  - explicit "why not" for excluded finalists when useful
+  - Exceptions to the 2-4 runner-up default:
+    - sparse market (fewer than 3 strong candidates)
+    - hard user constraints narrow the viable set to 1-2
+    - user explicitly asks for only one answer
 
 ### Confidence scale (use consistently)
 - High: strong triangulation across high-quality sources + low coverage gaps
@@ -276,6 +295,16 @@ If pricing is out of scope:
   - review interpretation via `reviews.md`; seller legitimacy via `seller_instructions.md` when listings are used.
 - Clarity:
   - recommendation explicit, tradeoffs clear, confidence stated.
+- Discovery breadth:
+  - broad category requests should have achieved the 8-12 candidate and 5-brand minimums before narrowing, or explicitly stated why the market is too narrow.
+
+### High-intensity escalation
+When any of the following are true, elevate diligence expectations beyond ordinary casual product work — prefer stronger breadth, fewer shortcuts, and more triangulation:
+- High price (typically $200+ or meaningfully high relative to the category)
+- Enthusiast, collector, or luxury category
+- Long ownership horizon (items not replaced frequently)
+- Strong risk posture from `product_types.md` patterns (counterfeit-prone, firmware-heavy, revision-sensitive, safety-critical, high unit variance)
+This does not replace `research_sources.md` minimums; it strengthens them.
 
 ---
 

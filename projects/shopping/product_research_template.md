@@ -12,6 +12,7 @@
 - ASCII-only punctuation and straight quotes.
 - Omit entire sections when N/A (use *_FULL_BLOCK_OR_EMPTY placeholders).
 - If fewer than 6 finalists are used, delete the unused finalist lines, decision-matrix rows, and finalist profile sections entirely (e.g., remove F4-F6 blocks).
+- If more than 6 finalists are used (up to 8), add the corresponding Fn lines, decision-matrix rows, and finalist profile sections using the same format (e.g., add F7, F8 blocks).
 - Any *_FULL_BLOCK_OR_EMPTY placeholder must include the full header + body (e.g., "## Pricing and Availability" + content) or be empty.
 - Any SOURCES_*_FULL_BLOCK_OR_EMPTY placeholder must include its own "#### Group Name" header + bullet list, or be empty.
 - PRICES_CHECKED_LINE_OR_EMPTY must be either empty or a full labeled line: "**Prices checked:** {YYYY-MM-DD hh:mm ET}  "
@@ -20,7 +21,26 @@
 - F*_NOTABLE_RISKS_BLOCK_OR_EMPTY must include its own bold label(s) (e.g., "**Notable risks:**") or be empty.
 - F*_BUYING_BLOCK_OR_EMPTY must include its own bold label(s) (e.g., "**Street price:**", "**Where to buy:**", "**Warranty/returns:**") or be empty.
 - OPTIONAL_ADDITIONAL_CLAIMS_BLOCK_OR_EMPTY must be either empty or one-or-more complete claim blocks matching the "Claim/Evidence/Confidence/Recency" format below.
+- Output contract: Workflow A returns 1 recommended pick plus 2-4 runner-ups by default. Reduce only when the market is sparse, hard constraints narrow viable options to fewer, or the user explicitly asks for only one answer. Unused runner-up rows must be deleted.
+- BUCKET_DESIGN_IDENTITY_FULL_BLOCK_OR_EMPTY: include this bucket when design, aesthetics, brand identity, collector appeal, or enthusiast credibility is relevant to the user's request. Include the "## Design / Aesthetic / Identity Fit" header. Omit entirely when not relevant.
+- DISCOVERY_LEDGER_SECTION_FULL_BLOCK_OR_EMPTY: include when discovery-only sources materially influenced the candidate pool. Include the "## Discovery Ledger (Discovery-only)" header. For each entity, show: entity name, role in discovery, and why it was not treated as evidence. Omit when discovery-only sources did not materially shape the pool.
 -->
+
+---
+
+## Research Compliance
+
+| **Field** | **Value** |
+|---|---|
+| Mode used | {COMPLIANCE_MODE_A_B_OR_C} |
+| Distinct entities counted | {COMPLIANCE_ENTITY_COUNT} |
+| Source types used | {COMPLIANCE_SOURCE_TYPES_COMMA_LIST} |
+| Primary/standards present? | {COMPLIANCE_PRIMARY_YES_NO} |
+| Method-based source present? | {COMPLIANCE_METHOD_BASED_YES_NO} |
+| Community/owner platforms counted | {COMPLIANCE_COMMUNITY_COUNT} |
+| Seller entities counted (if pricing in scope) | {COMPLIANCE_SELLER_COUNT_OR_N_A} |
+| Discovery-only influenced candidate pool? | {COMPLIANCE_DISCOVERY_INFLUENCED_YES_NO} |
+| Downgrade reason (if minimums not fully met) | {COMPLIANCE_DOWNGRADE_REASON_OR_N_A} |
 
 ---
 
@@ -35,8 +55,10 @@
 | **Slot** | **Pick** | **Why (short)** | **Top caveat** | **Confidence** | **Price band (if pricing in scope)** |
 |---|---|---|---|---|---|
 | **Recommended** | {RECOMMENDED_PICK} | {RECOMMENDED_WHY_SHORT} | {RECOMMENDED_CAVEAT} | {RECOMMENDED_CONFIDENCE_HML} | {RECOMMENDED_PRICE_BAND_OR_N_A} |
-| **Runner-up** | {RUNNER_UP_PICK} | {RUNNER_UP_WHY_SHORT} | {RUNNER_UP_CAVEAT} | {RUNNER_UP_CONFIDENCE_HML} | {RUNNER_UP_PRICE_BAND_OR_N_A} |
-{OPTIONAL_RECOMMENDATION_SNAPSHOT_TABLE_ROWS_BLOCK_OR_EMPTY}
+| **Runner-up 1** | {RUNNER_UP_1_PICK} | {RUNNER_UP_1_WHY_SHORT} | {RUNNER_UP_1_CAVEAT} | {RUNNER_UP_1_CONFIDENCE_HML} | {RUNNER_UP_1_PRICE_BAND_OR_N_A} |
+| **Runner-up 2** | {RUNNER_UP_2_PICK} | {RUNNER_UP_2_WHY_SHORT} | {RUNNER_UP_2_CAVEAT} | {RUNNER_UP_2_CONFIDENCE_HML} | {RUNNER_UP_2_PRICE_BAND_OR_N_A} |
+| **Runner-up 3** | {RUNNER_UP_3_PICK} | {RUNNER_UP_3_WHY_SHORT} | {RUNNER_UP_3_CAVEAT} | {RUNNER_UP_3_CONFIDENCE_HML} | {RUNNER_UP_3_PRICE_BAND_OR_N_A} |
+| **Runner-up 4** | {RUNNER_UP_4_PICK} | {RUNNER_UP_4_WHY_SHORT} | {RUNNER_UP_4_CAVEAT} | {RUNNER_UP_4_CONFIDENCE_HML} | {RUNNER_UP_4_PRICE_BAND_OR_N_A} |
 
 ---
 
@@ -77,6 +99,8 @@
 {BUCKET_SAFETY_COMPLIANCE_FULL_BLOCK_OR_EMPTY}
 
 {BUCKET_TOTAL_COST_FULL_BLOCK_OR_EMPTY}
+
+{BUCKET_DESIGN_IDENTITY_FULL_BLOCK_OR_EMPTY}
 
 ---
 
@@ -288,6 +312,8 @@
 ---
 
 {DISCOVERY_ONLY_SECTION_FULL_BLOCK_OR_EMPTY}
+
+{DISCOVERY_LEDGER_SECTION_FULL_BLOCK_OR_EMPTY}
 
 {COVERAGE_LIMITATIONS_SECTION_FULL_BLOCK_OR_EMPTY}
 

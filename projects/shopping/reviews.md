@@ -344,6 +344,9 @@ Notes:
 
 ## Minimum evidence requirements (risk-based: sources and variety)
 
+### Relationship to `research_sources.md` minimums
+The thresholds below are risk-based and supplement — they do not replace — the mode-based minimums in `research_sources.md` (Mode A: 7 entities, Mode B: 3–5, Mode C: best available). `research_sources.md` minimums always apply. When these risk-based thresholds are higher (e.g., High-impact requires 9–12), they raise the floor. When `research_sources.md` mode minimums are higher, those take precedence. In any conflict, apply the more demanding threshold and document the reason.
+
 ### Baseline (low-stakes / narrow claims)
 Minimum:
 - **4 distinct sources**
