@@ -100,6 +100,16 @@ Failure modes and guardrails must primarily come from **comment-mining** and **c
   - 1)
   - 2)
 
+### Breadth scan before ranking (required)
+Before finalizing the shortlist:
+- search the obvious dish/category directly,
+- search adjacent cuisines and regional analogs,
+- search by target eating experience,
+- search by equipment-fit,
+- search by constraint-fit / health-profile fit (sodium, fat, protein, make-ahead compatibility).
+
+Do not finalize a shortlist until at least 3 materially different buckets have been explored.
+
 ---
 
 ## Options-stage non-negotiables (formatting)
@@ -137,9 +147,13 @@ Failure modes and guardrails must primarily come from **comment-mining** and **c
 - The shortlist as a whole should be supported by the full source set from `meal_sources.md`.
   - Multiple options may map to the same source as needed, but research must still be cross-checked across the 5-7 sources.
 - Each option must contain:
-  - a **Description** line (1-2 sentences; plain-language; no jargon),
+  - a **Description** line that answers all of the following:
+    - what the dish is in plain English,
+    - what it eats like (texture/richness/sweetness-savoriness/density/crust-crumb as relevant),
+    - what makes it distinct from the other shortlisted options,
+    - one familiar comparison when the dish may be unfamiliar,
   - a **Watch** line derived from Research outputs (failure mode or guardrail),
-  - a **Why it fits** line tying back to the goal plus at least one constraint (user must/avoid or health default).
+  - a **Why it fits** line explicitly referencing at least one constraint (user must/avoid or health default) and equipment-fit.
 - The **Watch** line must reference one of the listed failure modes/guardrails verbatim or near-verbatim (not generic filler).
 - Do not mention every constraint in every option. Mention only what materially differentiates it.
 
@@ -163,7 +177,7 @@ If the Title & Goal or constraints strongly narrow the space (e.g., "all sheet-p
 Formatting requirement: use a level-4 header per option and leave a blank line between options.
 
 #### 1) **[Option Name]** [tags: 3-5; format: ...; active: ~X min (est); effort: low|med|high]
-**Description:** [1-2 sentences: what it is and what it eats like.]
+**Description:** [Must include what it is, what it eats like, what makes it distinct in this shortlist, and one familiar comparison when needed.]
 **Flavor profile:** richness [light|med|rich]; acidity [low|med|high]; heat [none|low|med|high]; notes: [2-4 descriptors]; texture: [1-2 descriptors]
 **Make-ahead:** [what]. **Hold/Reheat:** [how + cue] (use "Hold" for party/grazing contexts)
 **Watch:** [1 failure mode or guardrail from Research outputs]. **Why it fits:** [tie to goal + 1+ constraint]
@@ -183,7 +197,7 @@ One-liners only. Each must include:
 - a hook, and
 - either a key technique, main protein/center-of-plate, or why it was bumped.
 
-Footnote only if a runner-up is actually sourced.
+Footnote only if a runner-up is traceable to the main research pool (i.e., it came from actual sourced research, not brainstorm). In no-browse mode, all runner-ups are un-sourced brainstorm additions — omit footnotes entirely and do not invent citations.
 - [One-liner...]
 - ...
 

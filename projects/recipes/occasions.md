@@ -1,4 +1,4 @@
-# 20260114_occasion.md
+# 20260114_occasions.md
 
 ## How to use this file
 1) Choose **one primary occasion** (a base).
@@ -154,6 +154,51 @@ All entries use the same fields:
   - include cutting plan and room-temp storage notes
 - common-modifiers:
   - pairs well with: service-grazing-table, service-buffet
+
+---
+
+# Everyday occasions
+
+## weeknight-dinner
+- optimize:
+  - minimal active time and low coordination load
+  - reliable results with familiar techniques
+- avoid:
+  - multi-component timing dependencies that require simultaneous attention
+  - recipes requiring lengthy inactive waits that delay eating
+- assumptions:
+  - servings: 2–4 (adjust to user request)
+  - service: family-style or plated, informal
+  - duration: active time 20–40 minutes; total 30–60 minutes (longer OK if mostly hands-off)
+  - equipment: standard home kitchen
+- options-directives:
+  - prioritize one-pan, one-pot, and sheet-pan formats
+  - include at least one quick-turnaround option (under 30 min active)
+- recipe-directives:
+  - include pause points and hold notes when applicable
+  - include next-day or make-ahead notes by default
+- common-modifiers:
+  - common: cold-weather, hot-weather
+
+## meal-prep-batch
+- optimize:
+  - high yield with efficient active time
+  - components or full dishes that hold 4–5 days refrigerated or freeze well
+- avoid:
+  - recipes whose quality collapses after day 1
+  - recipes that require last-minute finishing work
+- assumptions:
+  - servings: 4–8 (intentionally large batch)
+  - service: stored, reheated, and eaten across multiple meals
+  - duration: active time 30–60 minutes; total can be 60–120 minutes
+  - equipment: standard home kitchen; batch-scale vessels preferred
+- options-directives:
+  - prioritize grains, braises, soups and stews, roasted proteins, and sturdy salads
+  - include at least one option with a strong freeze story
+- recipe-directives:
+  - include portion storage guidance, freeze steps, and full reheat protocol with cues
+- common-modifiers:
+  - common: menu-one-warm-anchor
 
 ---
 

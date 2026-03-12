@@ -36,9 +36,9 @@ Use the aisle/category taxonomy from `recipe_template.md` (or your canonical gro
 - [item]
 
 ## Equipment & Tools
-[List critical gear and helpful alternates; be specific about sizes/materials.]
-- [e.g., 12-in stainless skillet; 5 to 6 qt Dutch oven; sheet pan 13x18; fine-mesh sieve]
-- [optional or substitute tools]
+[Use `equipment.md` §1 item names. List critical tools first, then optional/alternate tools. Apply pan-color and glass-vs-metal calibration rules from `equipment.md` §Baking Vessels when relevant. Substitutions must follow `equipment.md` §3.]
+- [e.g., cast iron skillet — required for high-heat browning; 12-in stainless skillet; 5 to 6 qt Dutch oven; sheet pan 13x18]
+- [optional / substitute: carbon steel skillet; 9x9 dark tray instead of light — reduce temp 25 deg F]
 
 ## Ingredients
 [List in use order. Use U.S. units; include metric in parentheses only if taken from a source.
@@ -75,13 +75,20 @@ Specify salted vs unsalted where relevant (broth/stock, butter).]
 - **Reheat plan:** [1 sentence; best method + cue its ready; how to restore texture]
 - **Primary risks:** [1 sentence; 1 to 3 likely failure points]
 
+## Gather & Stage
+[Complete before starting Step 1. Treat this as a checklist, not a narrative.]
+- Measure and group all ingredients by phase; place them within reach.
+- Set out required equipment; line, grease, or preheat any vessels as directed.
+- Complete all **[pre-prep]** items that affect cook timing or sequencing.
+- **Checkpoint:** everything needed for Step 1 is ready and within reach.
+
 ## Instructions
 [Main flow is numbered steps: 1., 2., 3., 4. (minimum). Avoid big paragraphs; keep to bullets and short sentences.
 Prefer cues first, clock second. The final step should always include a taste-adjust loop.
 Do NOT repeat template rules or meta-instructions in the final recipe output.]
 
 Formatting and nesting rules
-- Main flow is numbered steps: 1., 2., 3., 4., and onward.
+- Main flow begins at step 1. The gather/stage phase lives in the dedicated **Gather & Stage** section above.
 - Each numbered step must include nesting:
   - At least 1 bullet with sub-bullets.
   - Across the whole recipe, include at least 2 branch sub-bullets in the form: *If X -> do Y -> cue it's fixed.*

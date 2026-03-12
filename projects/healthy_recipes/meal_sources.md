@@ -6,10 +6,28 @@
 
 ---
 
-## 1) Source Mix and Tiers (Use 5–7 per recipe)
+## 1) Source Mix and Tiers (Mode-Specific Targets)
+
+### Intensity levels
+- **Deep (default for all modes):** broad candidate discovery before narrowing; strict dedup across creators/domains/networks; active search for disagreements and failure reports; comment-mining and troubleshooting emphasis; origin-language and adjacent-dish searches when applicable.
+- **Lightweight (only when the user explicitly requests a quick answer, no-browse answer, or rough first-pass brainstorm):** reduce candidate pool; skip comment-mining and multilingual queries; state "lightweight research only" clearly in the output.
+
+### Research modes
+- **Options mode (breadth-first):**
+  - Candidate pool: **15–25** before narrowing.
+  - Final evidence set: **5–8 distinct source families**.
+  - Explore cuisine/format and health-constraint analogs before ranking.
+- **Recipe mode (synthesis):**
+  - Candidate pool: **10–14**.
+  - Final evidence set: **5–7 distinct source families**.
+  - Emphasize method details, geometry, and sequencing.
+- **Revisions mode (failure-driven):**
+  - Candidate pool: **8–15** centered on the failure mode.
+  - Final evidence set: **5–7 distinct source families**.
+  - Emphasize troubleshooting threads, disagreement resolution, and equipment-matched fixes.
 
 ### Hard requirements (always)
-- Use **5–7 distinct sources** per recipe (distinct URLs and creators; cross-posts count once).
+- Use the mode-specific source-family minimums above.
 - Include real variety (see §10 for how to spot low-signal sources):
   - **2+ Tier 1 individual creators** (distinct people/handles; not the same person republished).
   - **1+ long-form blog/personal site** (text-first; not an aggregator).
@@ -95,11 +113,17 @@ Optional domain targeting (use sparingly; do not over-filter):
 - Run **at least 1–2 queries** using the origin-language name/transliteration before finalizing the shortlist.
 
 ### Step 2: Build the candidate pool
-- Pull **10–14** candidates across blogs, video/social, and forums.
+- Pull candidates based on mode:
+  - Options: **15–25**
+  - Recipe: **10–14**
+  - Revisions: **8–15**
 - Bias toward candidates that look strong under §10, not just popular.
 
 ### Step 3: Shortlist
-- Shortlist **5–7** sources that satisfy the mix in §1.
+- Shortlist a final evidence set based on mode:
+  - Options: **5–8 distinct source families**
+  - Recipe: **5–7 distinct source families**
+  - Revisions: **5–7 distinct source families**
 - If region-linked, ensure the **Regional Anchor** is included.
 - Apply dedup rules; avoid “different mirrors of the same recipe.”
 
@@ -132,7 +156,11 @@ Comment-mining output must produce:
 
 ## 4) Extract These Data From Each Source
 
-From each source, capture:
+**Extraction tier:**
+- **Minimum (all candidates in the pool):** yield & vessel, time/temperature, core ratios, and any standout technique note. Use this to qualify or exclude candidates before investing in full extraction.
+- **Full (shortlisted sources only):** all fields below.
+
+From each shortlisted source, capture:
 - **Yield & vessel:** pan/tin dimensions, pot capacity, batch size.
 - **Time/temperature:** preheats, simmer/bake ranges, internal targets when applicable.
 - **Core ratios:** salt per lb (or %), hydration %, fat %, spice ratios, flour:liquid, etc.
@@ -163,15 +191,18 @@ From each source, capture:
 
 ---
 
-## 6) Citation / Attribution (Recipe Footer)
+## 6) Citation / Attribution
 
-List **2–4** top sources compactly:
-- **Author or Site** — *Title* (Year/Date). For videos/social, add timestamps if a specific segment informed the method.
-- Baseline recipe sites should not dominate top citations; keep them **[secondary]** unless they materially shaped a narrow sanity-check.
+Cite your top **2–4** sources. For videos/social, note timestamps if a specific segment informed the method.
+
+- Baseline recipe sites must not dominate; keep them **[secondary]** and never use them as the sole basis for a dish's flavor profile or cultural framing.
+- Citation format (in-text footnote markers, hyperlinks, and metadata fields) is governed by the target deliverable template. Follow `healthy_template.md §Sources` for recipes and revisions; follow `healthy_options.md §Sources` for options lists.
 
 ---
 
-## 7) Research Notes Template (Keep Outside the Recipe)
+## 7) Research Notes Template
+
+**Emission policy: internal-only. Do not include this template or its populated output in any user-visible artifact (recipe, options list, revised recipe, or audit report). Record it in your working context only.**
 
 ```yaml
 recipe: <working title>
@@ -293,7 +324,11 @@ Guidance:
 
 ## 11) Final QA (Pre-Publish)
 
-- **5–7** sources logged; dedup rules applied.
+- Mode-specific source-family threshold met:
+  - Options: **5–8**
+  - Recipe: **5–7**
+  - Revisions: **5–7**
+- Strict source-family dedup applied.
 - Platform mix satisfied: **2+ Tier 1 creators**, **1+ blog**, **1+ video/social**, **1+ discussion**.
 - Regional Anchor included when dish is region-linked.
 - Multilingual queries run when applicable.

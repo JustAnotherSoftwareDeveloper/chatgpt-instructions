@@ -4,7 +4,7 @@
 
 ### Count limits (by output mode)
 - Options-stage shortlist entry: **3–5** tags (per-option shorthand only)
-- Recipe (`recipe_template.md`): **3–8** tags
+- Recipe (`healthy_template.md`): **3–8** tags
 
 ### Selection preference (per recipe)
 - 1–2 course/cuisine tags
