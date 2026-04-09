@@ -1,7 +1,7 @@
-# healthy_constraints.md
+# healthy_excludes.md
 
 ## 0) Purpose and precedence
-This file defines default constraints for "healthy recipe" generation in this project.
+This file defines default constraints for "healthy recipe" generation in this project, with added emphasis on gut tolerance, macronutrient quality, ancestry-informed risk filtering, and freezer performance.
 
 Precedence order:
 1) The user's explicit request in the current prompt (wins).
@@ -16,25 +16,30 @@ Do not paste this file into recipe outputs. Recipes should reference only the re
 ---
 
 ## 1) Baseline stance (always on unless the user overrides)
-Baseline goal: make-ahead, nutrient-dense, repeatable recipes that store well, portion cleanly, and stay tasty.
+Baseline goal: make-ahead, nutrient-dense, macro-sound, repeatable recipes that store well, freeze well, portion cleanly, and stay tasty.
 
 Always-on baseline rules:
 - Batch size by default: target **10 portions**.
 - Portioning schema (required):
-  - Volumetric dishes (soups, stews, chilis, pasta-ish bowls): portion into **10 x ~1-cup containers**.
-  - Non-volumetric plates (sheet-pan meals, grain bowls with discrete components): portion into **10 portions** using a component plan (protein + veg + starch) and/or a grams-per-component target.
-  - Non-cup-friendly items (steaks, sandwiches, patties): portion into **10 portions** with a packaging plan (wrap, freeze, and reheat guidance), without forcing “cups.”
+  - Volumetric dishes (soups, stews, chilis, pasta-ish bowls): portion into **10 x ~2-cup containers**.
+  - Non-volumetric plates (sheet-pan meals, grain bowls with discrete components): portion into **10 meal-sized portions** using a component plan (protein + veg + starch) and/or a grams-per-component target that is broadly equivalent to a real 2-cup meal.
+  - Non-cup-friendly items (steaks, sandwiches, patties): portion into **10 meal-sized portions** with a packaging plan (wrap, freeze, and reheat guidance), without forcing "cups."
+  - For non-volumetric formats, the default target is a true meal portion, not a snack portion, unless the user explicitly asks for snack-sized output.
 - Planned eating horizon: **~2 weeks total**, achieved by:
   - Fridge: **3 to 5 days** of portions for near-term eating.
   - Freezer: the remaining portions, planned for **months** (quality-first) in portionable packages.
+- Freezer-friendliness is a primary design goal: prefer dishes, components, and textures that survive freezing and reheating with minimal quality loss.
 - Make-ahead required: include at least one meaningful pre-prep pathway (sauce/base, chop kit, marinate, par-cook starch, freezer portioning).
-- Veg-forward: include at least 2 distinct vegetables (not counting garlic/onion) unless the dish definition makes that unreasonable; if not, provide an optional veg add-on or side.
+- Freezer plan required: include a clear freeze point, packaging plan, thaw path, and reheat correction when the dish is intended for batch cooking.
+- Veg-forward: include at least 2 distinct vegetables unless the dish definition makes that unreasonable; if not, provide an optional veg add-on or side.
+- Alliums do not count toward the vegetable minimum.
 - Protein-present: include a clear primary protein (animal or plant) and avoid "carb-only" mains by default.
+- Good macronutrient structure is important: default to meals that are meaningfully protein-forward, include fiber where the dish supports it, and avoid recipes that are mostly starch + fat with token protein.
 - Added sugar minimal: avoid sugar-forward sauces and glazes by default; if sweetness is needed, keep it functional and explain why.
-- Sodium-aware by default: use technique and structure first (browning, aromatics, spice blooming, acid balancing) before relying on salt-heavy condiments.
+- Sodium-aware by default: use technique and structure first (browning, spice blooming, acid balancing, herbs, texture contrast) before relying on salt-heavy condiments.
 - Fat-managed by default: avoid greasy outcomes; prefer controlled fat additions and methods that do not leave pools of oil.
 - Technique realism: no steps that require restaurant-only gear or implied professional skill without providing fail-safes.
-- Flavor is non-negotiable: if a constraint threatens flavor, compensate with technique (browning, toasting spices, deglazing, acid balance, texture).
+- Flavor is non-negotiable: if a constraint threatens flavor, compensate with technique (browning, toasting spices, deglazing, acid balance, texture, herbs) rather than health gimmicks.
 
 ---
 
@@ -42,49 +47,179 @@ Always-on baseline rules:
 These are defaults for this project. The user can override at any time.
 
 ### 2a) Hard avoids (do not use unless explicitly requested)
-- Tilapia
-- Catfish
 - Chocolate (as an ingredient or flavor base)
+- Garlic in any meaningful amount
+- Onion in any meaningful amount
+- Mushrooms in any meaningful amount
 
-### 2b) Soft avoids (use sparingly; offer alternatives)
-- Very spicy heat levels (heavy chile-forward recipes). Mild heat is acceptable; provide heat as an optional toggle.
+### 2b) Trace-only exception policy (important nuance)
+The hard avoids above allow a narrow trace-only exception unless the user says zero tolerance.
+- "Trace" means an amount small enough that it is not a meaningful flavor base, bulk ingredient, or texture contributor in the finished dish.
+- Do not build recipes around garlic, onion, or mushroom as aromatic foundations, vegetable volume, or umami anchors under default rules.
+- If a trace amount is present through a minor seasoning blend, sauce, or background accent, disclose it clearly.
+- When in doubt, treat garlic, onion, and mushroom as excluded rather than trying to game the threshold.
+
+### 2c) Soft avoids (use sparingly; offer alternatives)
+- Extremely hot or aggressive chile-forward builds that push beyond a warm/medium heat baseline.
 - Greasy, high-oil preparations (deep-fry, shallow-fry, confit-style, heavy cream sauces).
 - High-sodium builds (salt-heavy marinades, salty stocks/bouillon, cured-meat-forward dishes) unless the user asks.
-- Mushroom-forward builds (large volumes of mushrooms, mushroom as the primary vegetable or main flavor driver) unless the user asks.
+- Gluten-grain-heavy builds by default; assume mild gluten sensitivity and prefer non-gluten or lower-gluten structures when the dish can support them cleanly.
 
-### 2c) Poultry stance (important nuance)
+### 2d) Poultry stance (important nuance)
 - Poultry is acceptable as an ingredient.
 - Default: do not use poultry as the **main course protein** unless the user explicitly asks for it.
 - Definition: main course protein = the largest named protein component by weight/serving (the centerpiece protein).
 - Poultry may be used in supporting roles (stock/broth; small amounts of sausage; mixed dishes where poultry is not the primary protein) unless it becomes the primary protein.
 
-### 2d) Generally compatible / preferred
+### 2e) Non-freezer-friendly protein stance (important nuance)
+- Proteins that usually freeze or reheat poorly are acceptable as ingredients.
+- Default: do not use a **non-freezer-friendly protein** as the main course protein unless the user explicitly asks for it.
+- Definition: main course protein = the largest named protein component by weight/serving (the centerpiece protein).
+- These proteins may be used in supporting roles or in recipes not intended for freezer batch prep unless they become the primary protein.
+- Treat this as a performance rule, not a moral one: if the protein predictably turns watery, tough, rubbery, dry, fishy, or otherwise degrades after freezing and reheating, it is a poor default centerpiece for this project.
+- Common examples include:
+  - delicate white fish fillets
+  - shrimp in formats that are reheated from frozen
+  - delicate seafood more broadly when the texture is likely to turn rubbery or watery
+  - any protein with a clear real-world pattern of poor freeze/reheat performance in the intended dish format
+- Judge this by observed freezer reliability in the finished dish, not by prestige, cuisine, or health halo.
+
+### 2f) Generally compatible / preferred
 - Red meat is generally well-tolerated; still manage saturated fat and portioning via cut choice and technique.
-- Beans/legumes are positive (both flavor and structure).
-- Tomatoes, garlic, and onion are generally acceptable.
+- Beans/legumes are positive when the dish supports them (both flavor and structure).
+- Tomatoes are generally acceptable.
 - Rice is generally acceptable; whole grains are optional and should be framed as a toggle, not a mandate.
+- Non-gluten and lower-gluten starch paths are generally preferred over gluten-grain-heavy builds when the dish can support them cleanly.
 - Avocado oil is the default cooking oil preference.
 
-### 2e) Dairy stance (default)
+### 2g) Dairy stance (default)
 - Dairy-light by default.
 - Prefer lower-lactose options when dairy is used (yogurt, aged cheeses, lactose-free dairy) and avoid heavy cream reliance.
 - Keep dairy as a finish or accent rather than a bulk base unless user requests otherwise.
 
-### 2f) Mushroom stance (important nuance)
-- Mushrooms are acceptable as a minor ingredient, but default to **extremely light usage**.
-- Default: do not use mushrooms as a bulk vegetable, base, or primary flavor driver unless the user explicitly asks for a mushroom-forward dish.
-- If mushrooms are used under defaults: treat as an accent only (finely minced and cooked down; or a very small amount of dried powder) so they do not dominate texture or flavor.
-- Always offer a non-mushroom alternative path for umami depth when relevant (browning, tomato paste, caramelized onion, roasted peppers; fermented ingredients only as optional with sodium caveats).
+### 2h) Aromatic replacement bias (default)
+When garlic/onion are excluded, recover flavor with realistic alternatives such as:
+- ginger
+- celery or fennel where structurally appropriate
+- citrus zest
+- herbs
+- toasted spices
+- tomato paste
+- browned meat or vegetable fond
+
+Conditional path only if explicitly acceptable in the current thread:
+- scallion greens
+- chives
+
+Rules:
+- Scallion greens and chives are not default-safe substitutes; use them only when the current thread explicitly confirms they are tolerated.
+- Do not rely on gimmick substitutes unless the user asks.
+
+### 2i) Ancestry-informed gut-risk layer (important nuance)
+This is a risk-management layer, not a diagnosis.
+- Use this layer to bias defaults toward high-yield exclusions that are plausibly relevant to Ashkenazi Jewish and Turkish ancestry.
+- Keep this layer narrow. Do not turn ancestry into a giant speculative blacklist.
+- Prefer soft blockers and conditional rules unless there is a strong reason for a hard stop.
+- If the user has been formally tested or has strong personal tolerance data, that overrides this layer.
+
+### 2j) Lactose-heavy dairy stance (important nuance)
+- Lactose-heavy dairy is acceptable as an ingredient.
+- Default: treat **lactose-heavy dairy** as a **soft blocker** unless the user explicitly wants it or has known good tolerance.
+- Definition: lactose-heavy dairy = dairy where lactose remains a meaningful load in the serving, especially when it is used as a bulk base rather than a minor accent.
+- Prefer lower-lactose dairy paths by default:
+  - yogurt
+  - aged hard cheeses
+  - lactose-free milk or lactose-free dairy products
+- Down-rank or avoid these as default backbone ingredients:
+  - regular milk
+  - half-and-half
+  - cream-heavy milk bases
+  - evaporated milk
+  - condensed milk
+  - ice cream
+  - milk powder or dry milk solids when used meaningfully
+  - whey-concentrate-heavy products
+  - fresh soft cheeses when used in large amounts
+- This is a gut-tolerance rule, not an anti-dairy rule. Small amounts of lower-lactose dairy may still be compatible.
+
+### 2k) Gluten-grain stance (important nuance)
+- Gluten grains are acceptable as ingredients.
+- Default: treat **gluten grains** as a **soft blocker** unless the user explicitly wants them or has known good tolerance.
+- Definition: gluten grains = wheat, barley, rye, and direct derivative ingredients that materially contribute gluten exposure.
+- This is broader than "lower wheat." If gluten is the issue, a wheat-only rule is too narrow.
+- Prefer non-gluten starch paths when the dish does not depend on gluten structure:
+  - rice
+  - potatoes
+  - cornmeal / polenta
+  - oats only when tolerated; if a stricter gluten-avoidance path is needed, use appropriately sourced oats or avoid them
+  - legumes
+  - mixed-starch builds that do not rely on wheat, barley, or rye structure
+- Down-rank or avoid these as default backbone ingredients:
+  - wheat flour
+  - bread flour
+  - semolina
+  - farro
+  - bulgur
+  - couscous
+  - barley
+  - rye
+  - spelt
+  - malt / malt extract / malt syrup
+  - regular beer in cooking
+  - wheat-based soy sauce unless the user explicitly accepts it
+- When gluten structure is central to the dish identity, keep the rest of the build supportive and offer a lower-gluten or gluten-free variation when feasible.
+
+### 2l) Fava / broad bean stance (conditional hard stop)
+- Fava beans and broad beans are acceptable as ingredients only under a specific condition.
+- Default: treat **fava beans / broad beans** as a **conditional hard stop** unless G6PD deficiency has been ruled out or the user explicitly accepts the risk.
+- Reason for the default: this is not mainly a GI rule; it is a safety-oriented ancestry-informed rule because fava beans are a classic trigger for hemolysis in G6PD deficiency.
+- This applies to:
+  - fresh fava beans
+  - dried fava beans
+  - broad bean purees
+  - dishes built around fava as a primary legume
+  - mixed legume dishes where fava is a meaningful component
+- If a cuisine-specific dish traditionally uses fava, flag it clearly rather than silently substituting.
+
+### 2m) Do not create broad ancestry-based food bans beyond the categories above
+Default rule:
+- Do **not** add broad bans for inflammatory bowel disease, familial Mediterranean fever, or other ancestry-linked conditions to the main excludes file unless there is a direct, high-yield, food-specific reason.
+- These conditions may matter clinically, but the evidence does not support a large default ancestry blacklist.
+- Keep weaker possibilities in a personal trigger log instead of the core excludes file unless the user has confirmed diagnosis or consistent symptom data.
+
+Examples of things that should stay out of the main excludes unless the user's own history supports them:
+- broad raw-vegetable bans
+- blanket legume bans
+- generic nut bans
+- tomato bans
+- nightshade bans
+- universal spicy-food bans
+- histamine-food bans
+- broad high-fiber bans outside of an explicit flare-management context
+
+### 2n) Personal-trigger watchlist (optional layer; not a default exclude list)
+Use this only when the user reports repeated personal reactions or has a confirmed related diagnosis.
+Potential watchlist categories:
+- very high-fat meals
+- very salty meals
+- rough or high-residue foods during an active flare-style period
+- alcohol-heavy foods or cooking methods
+- highly processed foods clearly associated with symptoms
+
+Rules:
+- Watchlist items are not default exclusions.
+- They become exclusions only when the user has a repeatable pattern, a formal diagnosis, or explicitly asks for stricter filtering.
 
 ---
 
 ## 3) Health orientation constraints (non-medical)
-This project uses practical, non-medical "generally healthy" defaults.
+This project uses practical, non-medical "generally healthy" defaults with added emphasis on gut tolerance and macro quality.
 
 ### 3a) Composition defaults (qualitative)
 Aim for meals that are:
 - Protein-forward relative to carbs.
-- Fiber-forward via legumes, vegetables, and optionally whole grains.
+- Fiber-forward via legumes, vegetables, and optionally whole grains when tolerated.
+- Macro-balanced enough to function as real meals rather than snack-shaped starch dishes.
 - "Healthy fats" forward:
   - Prefer fats that are predominantly mono- and polyunsaturated where they fit.
   - Prefer whole-food fat sources when they improve texture/flavor: avocado, nuts, seeds, tahini, nut/seed butters.
@@ -101,20 +236,33 @@ Aim for meals that are:
 - Prefer mixed meals (protein + fat + fiber) over refined-carb-only meals.
 - Use refined starches (like white rice) strategically as a supporting base, not the entire structure.
 - Avoid sugar-sweetened sauces as a primary flavor driver.
+- Prefer macro layouts that blunt a starch hit with adequate protein, fat, and fiber when the dish format allows.
 
-### 3c) GI / reflux guidance (pared down; a few hard limits + negotiables)
+### 3c) GI / gut-tolerance guidance (pared down; a few hard limits + negotiables)
 Hard limits (default):
 - No chocolate-based components.
+- No meaningful garlic or onion.
+- No meaningful mushroom.
 - Avoid very greasy outcomes (oil slicks, heavy fried textures).
-- Default heat: none to low (heat is a toggle).
+- Default heat: warm to medium is acceptable; extreme heat is optional, not default.
 
 Negotiables (default behavior, adjustable by user):
 - Acid is allowed; prefer late-stage adjustable acid (finish with lemon/vinegar) rather than aggressively sharp early acid.
 - Keep portion assumptions reasonable; avoid framing the dish as "eat a massive bowl right before bed."
 - Keep fats controlled and emulsified; prefer measured oil and sauces that stay integrated.
+- Prefer non-gluten, lower-gluten, or mixed-starch structures when feasible; do not force gluten-grain-heavy formats when a good rice-, potato-, corn-, oat-, or legume-based path exists.
 
 Flavor safeguard:
-- If GI defaults reduce flavor, compensate with non-irritant techniques first (browning, toasted spices, aromatics, herbs, zest), then offer acid/heat as optional finish toggles.
+- If gut-tolerance defaults reduce flavor, compensate with non-irritant techniques first (browning, toasted spices, ginger, herbs, zest, tomato paste, texture contrast), then offer acid/heat as adjustable finish toggles.
+
+### 3d) Freezer-performance bias
+For make-ahead cooking, prefer foods that:
+- reheat without turning greasy, mushy, watery, grainy, or rubbery,
+- portion cleanly into freezer containers or wraps,
+- tolerate thaw/reheat cycles with limited texture collapse,
+- and can be corrected on reheat with a clear texture-reset step when needed.
+
+Down-rank dishes that are known to freeze poorly unless the user specifically asks for them.
 
 ---
 
@@ -125,12 +273,14 @@ Flavor safeguard:
 - Roast/oven-bake/air-fry style (crisping without deep frying).
 - Braise/pressure-cook for bean-forward or tougher cuts (portion and fat managed).
 - Quick pickles and herb finishes for brightness without sugar.
+- Batch methods that freeze and reheat cleanly.
 
 ### 4b) Avoid by default
 - Deep frying.
 - Cream-heavy sauces as the core of the dish.
 - Sugar-forward glazes.
 - "Dump and bake" methods that produce bland results without corrective steps.
+- Gluten-grain-heavy builds when an equally good non-gluten or lower-gluten path exists.
 
 ### 4c) Sodium targets + explicit levers (default)
 Sodium levels are classification guidance, not a hard requirement unless the user requests low sodium.
@@ -152,7 +302,7 @@ Required behavior:
   - drain/rinse canned items
   - finish with acid/herbs instead of more salt
   - use no-salt-added tomato products
-  - split salty components into “optional finish” rather than base
+  - split salty components into "optional finish" rather than base
 
 ### 4d) Fat management playbook (default)
 - Measure oil; avoid "free-pour" unless explicitly requested.
@@ -161,13 +311,19 @@ Required behavior:
 - Prefer whole-food fat sources when they improve flavor and texture, and avoid redundant fat stacking.
 
 ### 4e) Spice and heat
-- Default heat: none to low.
-- Provide heat as an explicit toggle (add chile, hot sauce, pepper) rather than baking it into the base.
+- Default heat: warm to medium.
+- Heat should be integrated with control, not as a punishment-level gimmick.
+- Provide extreme heat as an explicit toggle rather than baking it into the base unless the user asks.
 
-### 4f) “Don’t be weird” constraint (health substitutions)
+### 4f) Gluten-grain and starch handling
+- Do not treat gluten grains as universally forbidden, but treat them as a soft blocker.
+- When gluten structure is central to the dish identity, keep the rest of the build supportive (protein, fiber, fat, sodium control) and offer a lower-gluten or gluten-free variation when feasible.
+- When gluten structure is not central, prefer rice, potatoes, cornmeal, oats when tolerated and appropriately sourced, legumes, or mixed-starch structures if they perform as well or better.
+
+### 4g) "Don't be weird" constraint (health substitutions)
 - Do not introduce "diet substitutions" that change the soul of the dish (cauliflower rice everywhere, fat-free cheese, odd sweeteners) unless:
   - the user asks for it, or
-  - the dish is explicitly a “lightened” version and the tradeoff is stated.
+  - the dish is explicitly a "lightened" version and the tradeoff is stated.
 - If a substitution materially changes the dish identity, it must be labeled as a Variation (not silently integrated into the base recipe).
 
 ---
@@ -185,7 +341,7 @@ If a specialty ingredient is used, provide:
 - a common substitute that preserves technique when feasible
 
 If a specialty ingredient is central to the dish:
-- provide a second “mainstream substitute” variant when feasible.
+- provide a second "mainstream substitute" variant when feasible.
 
 ---
 
@@ -193,6 +349,8 @@ If a specialty ingredient is central to the dish:
 Storage stance:
 - Prefer a few days in the fridge for near-term eating; freezer for the remainder.
 - Freezer plan should target months (quality-first) and be portionable.
+- Recipes that are explicitly batch-oriented should assume freezer use unless the user says otherwise.
+- Freezer instructions should be concrete: best freeze point, portioning format, packaging note, thaw path, reheat method, and texture-reset cue.
 
 Food safety baseline (default; keep brief, non-medical):
 - Cooling: portion hot food into shallow containers; cool promptly before refrigerating.
@@ -211,7 +369,7 @@ For full recipes and options lists:
 
 ## 8) Allowed deviations (when to break defaults)
 It is acceptable to deviate from these constraints when:
-- The user explicitly asks for a style that conflicts (e.g., "spicy," "cheesy," "restaurant-style rich").
+- The user explicitly asks for a style that conflicts (e.g., "extra spicy," "cheesy," "restaurant-style rich").
 - The traditional dish requires it and the user wants the traditional direction (note the tradeoff).
 - A constraint would materially harm the dish and there is no good compensating technique; explain briefly.
 
@@ -219,16 +377,25 @@ It is acceptable to deviate from these constraints when:
 
 ## 9) Constraint QA checklist (quick pass before final output)
 - Does the recipe meet the user's stated request and any explicit constraints?
-- Is the yield/portioning consistent with the 10-portion default (or explicitly overridden) and does the portioning schema fit the dish?
+- Is the yield/portioning consistent with the 10-portion default and the 10 x ~2-cup meal target (or explicitly overridden)?
 - Is the ~2-week planned eating horizon supported by a concrete fridge (3 to 5 days) + freezer (months) plan?
-- Are hard avoids respected (tilapia, catfish, chocolate) unless explicitly overridden?
+- Is freezer performance treated as a primary design concern when the dish is make-ahead or batch-oriented?
+- Are hard avoids respected (chocolate, meaningful garlic, meaningful onion, meaningful mushroom) unless explicitly overridden?
+- Are trace-only exceptions disclosed rather than hidden?
 - Is poultry not being used as the main course protein unless requested?
-- Are mushrooms kept extremely light (accent-only) unless the user explicitly requested mushroom-forward?
+- Are non-freezer-friendly proteins avoided as the main course protein unless requested?
+- Are lactose-heavy dairy ingredients being treated as a soft blocker unless explicitly requested?
+- Are gluten grains being treated as a soft blocker rather than only wheat?
+- Are fava / broad beans blocked unless G6PD deficiency has been ruled out or the user explicitly accepts them?
+- Did the recipe avoid inventing a broad ethnicity-based blacklist beyond the high-yield categories above?
+- If watchlist items were restricted, was that restriction tied to user history, diagnosis, or explicit request rather than ancestry alone?
 - Are there at least 2 vegetables (or an optional veg add-on/side is provided)?
+- Is macro structure sound (clear protein, not mostly starch + fat, fiber included where the dish supports it)?
 - Is fat managed (no oil slick; no heavy-cream base by default; fat stacking rule respected)?
 - Is sodium handled with technique first AND are sodium drivers + levers explicitly listed (without inventing numbers when not computed)?
-- Is heat optional unless requested?
-- Are make-ahead and leftovers instructions concrete and realistic (portioning, packaging, and reheat correction)?
+- Is heat warm/medium by default unless the user requested milder or hotter?
+- Are gluten grains handled as a soft blocker rather than a silent default, with a non-gluten or lower-gluten path when feasible?
+- Are make-ahead and leftovers instructions concrete and realistic (portioning, freezing, packaging, and reheat correction)?
 - Are specialty ingredients actually purchasable, with sourcing guidance and substitutes when feasible (and a mainstream variant if central)?
-- Are "diet substitutions" avoided unless requested (don’t be weird rule)?
+- Are "diet substitutions" avoided unless requested (don't be weird rule)?
 - Is the regional anchor appropriately cautious (no overstated authenticity)?
