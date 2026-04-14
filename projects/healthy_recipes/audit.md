@@ -75,7 +75,7 @@ Verify the artifact satisfies all required structural rules for its type.
 - Equipment & Tools: uses `equipment.md` §1 item names; lists critical tools first; pan-color and glass-vs-metal calibration notes present when relevant.
 - **Gather & Stage** section is present as a standalone section immediately before the numbered instructions, with a Checkpoint bullet; numbered instruction steps begin at 1; minimum 4 numbered steps total; every heat step includes heat level or oven temp + time range + sensory cue; minimum 2 branch sub-bullets in *If X → do Y → cue it's fixed* form across the recipe; Taste-adjust loop present in the final step.
 - **Reheat Plan** section is present (first-class section, not merged into Make-Ahead Notes); includes best method, texture reset cue, and at least one reheat failure branch.
-- **Nutrition Snapshot (per serving)** section is present; all required fields present or marked NA; follows `nutrition_calculation_method.md` (no invented numbers; field-by-field source attribution included).
+- **Nutrition Snapshot (per serving)** section is present and uses the table format from `healthy_template.md`; Nutrition Label Core and Vitamins and Minerals tables (Fat-Soluble Vitamins, Water-Soluble Vitamins, Minerals) are all present; all core label rows including fat sub-type rows and fiber sub-type rows, and all vitamin/mineral rows are present (NA is acceptable; rows must not be omitted); Source basis column is populated per row or per tightly grouped row set; Nutrition Provenance subsection is present; no invented numbers; no stale two-calculator requirement; no workflow-level hard stop; NA is used only for amounts unresolvable after source-tier escalation; -- is used for %DV when not displayed; calculator output does not outrank a cleaner ingredient-level source stack; branded-food handling follows Tier 2 (manufacturer) -> Tier 3 (USDA Branded) -> Tier 6 (calculator) fallback order; within a single branded ingredient, field-level fallback is permitted (Tier 2 for declared fields, lower tier for omitted fields) and must be recorded in Source basis; Added sugars follows the Role A/B/C/D derivation rules in `nutrition_calculation_method.md` step B — value is not inferred from Total sugars for Role D or ambiguous ingredients; follows `nutrition_calculation_method.md`.
 - **Diet toggles** in Allergy & Dietary Notes section present when relevant.
 - Troubleshooting: 2 to 4 entries; arrow format (Symptom → Likely cause → Primary fix → Recovery cue).
 - Variations: 2 to 4 entries, each 1 to 2 sentences; no sub-bullets.
@@ -120,7 +120,7 @@ Checks:
 - All in-text footnote markers [n] resolve to a numbered Sources section entry; no orphaned markers.
 - Baseline recipe sites are marked [secondary]; none is used as the sole basis for a dish's flavor profile or cultural framing.
 - If browsing was not available: sources section is absent (options artifact) or citations/URLs are properly omitted (recipe/revisions); no fabricated sources appear.
-- Nutrition calculator cited in Sources when Nutrition Snapshot is present; marked with `type: tool`.
+- Nutrition tool citations appear in Sources (marked `type: tool`) only when the tool materially contributed to the displayed Nutrition Snapshot; omission is correct when ingredient-level sources covered all fields without calculator assistance.
 
 Flag any invented or unverifiable citation as Critical.
 
@@ -186,17 +186,17 @@ Checks:
 - If the user stated health overrides: those overrides are applied and the deviation is acknowledged.
 - If the user requested deep research, the sources section reflects the mode-appropriate source-family minimum; a shallow evidence base is a Major issue.
 - Make-ahead preference is reflected in Make-Ahead Notes; a mismatch between the stated preference and the section's content is at least a Minor issue.
-- Nutrition Snapshot is present in recipe artifacts; if numbers could not be computed, "NA" is used (not omitted or approximated without attribution).
+- Nutrition Snapshot is present in recipe artifacts; uses the table format from `healthy_template.md`; NA is used only for amounts that could not be resolved after source-tier escalation (not omitted or approximated without attribution); -- is used for %DV when not displayed; nutrition data provenance is internally consistent with the displayed rows.
 
 ---
 
 ## 4) Severity Model
 
-| Severity | Definition |
-|---|---|
+| Severity     | Definition                                                                                                                                                                                            |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Critical** | Likely causes a cook failure, creates a safety risk, violates a hard health constraint (hard avoids, food safety), or directly violates an explicit user constraint. Fix is mandatory before re-emit. |
-| **Major** | High risk of reliability failure, strong inconsistency, silent health-constraint violation, or silent user-constraint violation. Fix is strongly recommended. |
-| **Minor** | Clarity gap, suboptimal phrasing, or low-failure-risk inconsistency. Fix improves output quality but does not block cooking. |
+| **Major**    | High risk of reliability failure, strong inconsistency, silent health-constraint violation, or silent user-constraint violation. Fix is strongly recommended.                                         |
+| **Minor**    | Clarity gap, suboptimal phrasing, or low-failure-risk inconsistency. Fix improves output quality but does not block cooking.                                                                          |
 
 A single root cause may produce multiple visible symptoms. Group related symptoms under one issue ID when they share a single fix.
 

@@ -135,10 +135,10 @@ Step skeleton
 ### Optional: Instruction Table
 [Use when timing/parallel tasks benefit from a grid. Keep cues concrete.]
 
-| Step | Task | Heat/Temp | Time Range | Sensory Cues | Tools/Notes |
-|---:|---|---|---:|---|---|
-| 1 | [task] | [heat/temp] | [range] | [cue] | [notes] |
-| 2 | [task] | [heat/temp] | [range] | [cue] | [notes] |
+| Step | Task   | Heat/Temp   | Time Range | Sensory Cues | Tools/Notes |
+| ---: | ------ | ----------- | ---------: | ------------ | ----------- |
+|    1 | [task] | [heat/temp] |    [range] | [cue]        | [notes]     |
+|    2 | [task] | [heat/temp] |    [range] | [cue]        | [notes]     |
 
 ## Common Issues
 [Short bullets for things that commonly go wrong + simple fixes/checks. Keep tight; do not duplicate Troubleshooting below.]
@@ -172,11 +172,11 @@ Step skeleton
 ## Troubleshooting Table
 [Optional. Use when it clarifies common failure modes.]
 
-| Symptom | Likely Cause | Quick Fix |
-|---|---|---|
-| [Too salty] | [Over-salted or reduced too far] | [Add unsalted starch; splash of water/stock; acid to balance] |
-| [Too watery] | [Crowded pan / insufficient reduction] | [Reduce uncovered; finish hotter; small slurry if appropriate] |
-| [Split emulsion] | [Too hot / fat added too fast] | [Whisk in tsp warm water off heat; re-emulsify slowly] |
+| Symptom          | Likely Cause                           | Quick Fix                                                      |
+| ---------------- | -------------------------------------- | -------------------------------------------------------------- |
+| [Too salty]      | [Over-salted or reduced too far]       | [Add unsalted starch; splash of water/stock; acid to balance]  |
+| [Too watery]     | [Crowded pan / insufficient reduction] | [Reduce uncovered; finish hotter; small slurry if appropriate] |
+| [Split emulsion] | [Too hot / fat added too fast]         | [Whisk in tsp warm water off heat; re-emulsify slowly]         |
 
 ## Geometry Notes
 [Include when relevant.]
@@ -191,35 +191,78 @@ Step skeleton
 - Pan swaps:
 
 ## Nutrition Snapshot (per serving)
-[Follow nutrition_calculation_method.md.
+[Follow nutrition_calculation_method.md. Use source-driven derivation first; calculator tools are execution aids only.
 
 Rules:
-- Never invent numbers.
-- Select calculator via Order of Operations + Coverage Check.
-- Report required fields first; include optional fields only if the chosen calculator provides explicit numeric values.
-- Use "NA" exactly for missing/ambiguous fields, or when a calculator shows "--" or "~" for that field.
-- Field-by-field source attribution is required (single-calculator is fine; multi-calculator mixing must be explicit).
-- Include "Nutrition Assumptions" only when needed (ambiguous conversions/substitutions that materially affect nutrition).]
+- Never invent values.
+- Match each ingredient to the best source tier before using a calculator.
+- NA = amount could not be resolved after source-tier escalation.
+- -- = %DV is not shown (always for Calories, Total sugars, Trans fat, Monounsaturated fat, Polyunsaturated fat, Soluble fiber, Insoluble fiber; also when amount is NA).
+- Keep all core label rows and Vitamins and Minerals rows visible; do not omit rows because a value is NA.
+- Source basis column is required per row or per tightly grouped row set.]
 
-- calories: [x or NA]
-- protein g: [x or NA]
-- fiber g: [x or NA]
-- fat g (sat g): [x (x) or NA]
-- sodium mg: [x or NA]
-- added sugar g: [x or NA] (optional)
-- potassium mg: [x or NA] (optional)
-- magnesium mg: [x or NA] (optional)
-- calcium mg: [x or NA] (optional)
-- iron mg: [x or NA] (optional)
-- zinc mg: [x or NA] (optional)
+### Nutrition Label Core
+| Nutrient               | Amount per serving |        %DV | Source basis                |
+| ---------------------- | -----------------: | ---------: | --------------------------- |
+| Calories               |          [x or NA] |         -- | [source tier or calculator] |
+| Total fat              |        [x g or NA] | [x% or --] | [...]                       |
+| -- Saturated fat       |        [x g or NA] | [x% or --] | [...]                       |
+| -- Trans fat           |        [x g or NA] |         -- | [...]                       |
+| -- Monounsaturated fat |        [x g or NA] |         -- | [...]                       |
+| -- Polyunsaturated fat |        [x g or NA] |         -- | [...]                       |
+| Cholesterol            |       [x mg or NA] | [x% or --] | [...]                       |
+| Sodium                 |       [x mg or NA] | [x% or --] | [...]                       |
+| Total carbohydrate     |        [x g or NA] | [x% or --] | [...]                       |
+| Dietary fiber          |        [x g or NA] | [x% or --] | [...]                       |
+| -- Soluble fiber       |        [x g or NA] |         -- | [...]                       |
+| -- Insoluble fiber     |        [x g or NA] |         -- | [...]                       |
+| Total sugars           |        [x g or NA] |         -- | [...]                       |
+| Added sugars           |        [x g or NA] | [x% or --] | [...]                       |
+| Protein                |        [x g or NA] |         -- | [...]                       |
+
+### Vitamins and Minerals
+
+#### Fat-Soluble Vitamins
+| Nutrient  | Amount per serving |        %DV | Source basis |
+| --------- | -----------------: | ---------: | ------------ |
+| Vitamin A |  [x mcg RAE or NA] | [x% or --] | [...]        |
+| Vitamin D |      [x mcg or NA] | [x% or --] | [...]        |
+| Vitamin E |       [x mg or NA] | [x% or --] | [...]        |
+| Vitamin K |      [x mcg or NA] | [x% or --] | [...]        |
+
+#### Water-Soluble Vitamins
+| Nutrient              | Amount per serving |        %DV | Source basis |
+| --------------------- | -----------------: | ---------: | ------------ |
+| Vitamin C             |       [x mg or NA] | [x% or --] | [...]        |
+| Thiamin (B1)          |       [x mg or NA] | [x% or --] | [...]        |
+| Riboflavin (B2)       |       [x mg or NA] | [x% or --] | [...]        |
+| Niacin (B3)           |    [x mg NE or NA] | [x% or --] | [...]        |
+| Pantothenic acid (B5) |       [x mg or NA] | [x% or --] | [...]        |
+| Vitamin B6            |       [x mg or NA] | [x% or --] | [...]        |
+| Folate (B9)           |  [x mcg DFE or NA] | [x% or --] | [...]        |
+| Vitamin B12           |      [x mcg or NA] | [x% or --] | [...]        |
+| Choline               |       [x mg or NA] | [x% or --] | [...]        |
+
+#### Minerals
+| Nutrient   | Amount per serving |        %DV | Source basis |
+| ---------- | -----------------: | ---------: | ------------ |
+| Potassium  |       [x mg or NA] | [x% or --] | [...]        |
+| Calcium    |       [x mg or NA] | [x% or --] | [...]        |
+| Phosphorus |       [x mg or NA] | [x% or --] | [...]        |
+| Magnesium  |       [x mg or NA] | [x% or --] | [...]        |
+| Iron       |       [x mg or NA] | [x% or --] | [...]        |
+| Zinc       |       [x mg or NA] | [x% or --] | [...]        |
+| Copper     |       [x mg or NA] | [x% or --] | [...]        |
+| Manganese  |       [x mg or NA] | [x% or --] | [...]        |
+| Selenium   |      [x mcg or NA] | [x% or --] | [...]        |
 
 Nutrition Assumptions (only when needed)
 - [assumption]
-- [assumption]
 
-Field sources (required)
-- [field group] -> [calculator name]
-- [field group] -> [calculator name]
+Nutrition Provenance
+- Primary source stack: [e.g., USDA Foundation Foods + official manufacturer labels]
+- Calculator assistance: [none, or tool names used only as accelerator / cross-check]
+- Notes: [only if there was a major mismatch or fallback path]
 
 ## Special Notes
 [Optional. Keep brief.]

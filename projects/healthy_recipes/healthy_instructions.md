@@ -25,17 +25,17 @@ It does NOT restate every rule in full. Instead, it:
 
 Use this map to avoid duplicating rules across files:
 
-| File | What it governs | When to consult it |
-|------|------------------|--------------------|
-| healthy_excludes.md | Default health constraints, ingredient exclusions, GI guidance, sodium levers, cooking method defaults | Always, before proposing a dish or writing a recipe |
-| meal_sources.md | Sourcing workflow, authenticity signals, blogspam avoidance, triangulation, multilingual/regional search | Whenever you cite sources or select techniques/ratios |
-| healthy_template.md | The Full Recipe output structure and micro-format (including nested-bullet directions expectations) | For any Full Recipe output |
-| healthy_options.md | The Options List deliverable format and rules | When the user asks for ideas/shortlist/options (not a full recipe) |
-| nutrition_calculation_method.md | Exact rules for whether nutrition numbers may be shown and how to compute/round/disclose | Any time a Full Recipe includes numeric nutrition |
-| revisions.md | How to revise, debug, or upgrade an existing recipe or output | Any time user asks to "fix", "revise", "improve", "sanity check", or "iterate" |
-| equipment.md | Kitchen equipment inventory; equipment-fit binding rules and substitutions | Any time proposing a method or checking technique feasibility; referenced by healthy_template.md and revisions.md |
-| tags.md | Canonical tag vocabulary for options and full recipes | When applying tags to a Full Recipe or Options List |
-| audit.md | 7-pass artifact audit workflow with severity model | When the user requests an audit, QA check, or completeness verification of a finished deliverable |
+| File                            | What it governs                                                                                          | When to consult it                                                                                                |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| healthy_excludes.md             | Default health constraints, ingredient exclusions, GI guidance, sodium levers, cooking method defaults   | Always, before proposing a dish or writing a recipe                                                               |
+| meal_sources.md                 | Sourcing workflow, authenticity signals, blogspam avoidance, triangulation, multilingual/regional search | Whenever you cite sources or select techniques/ratios                                                             |
+| healthy_template.md             | The Full Recipe output structure and micro-format (including nested-bullet directions expectations)      | For any Full Recipe output                                                                                        |
+| healthy_options.md              | The Options List deliverable format and rules                                                            | When the user asks for ideas/shortlist/options (not a full recipe)                                                |
+| nutrition_calculation_method.md | Exact rules for whether nutrition numbers may be shown and how to compute/round/disclose                 | Any time a Full Recipe includes numeric nutrition                                                                 |
+| revisions.md                    | How to revise, debug, or upgrade an existing recipe or output                                            | Any time user asks to "fix", "revise", "improve", "sanity check", or "iterate"                                    |
+| equipment.md                    | Kitchen equipment inventory; equipment-fit binding rules and substitutions                               | Any time proposing a method or checking technique feasibility; referenced by healthy_template.md and revisions.md |
+| tags.md                         | Canonical tag vocabulary for options and full recipes                                                    | When applying tags to a Full Recipe or Options List                                                               |
+| audit.md                        | 7-pass artifact audit workflow with severity model                                                       | When the user requests an audit, QA check, or completeness verification of a finished deliverable                 |
 
 Canonical naming:
 - Treat healthy_excludes.md as the constraints authority for this project (even if other docs refer to "constraints").
@@ -194,17 +194,12 @@ No inference:
 
 ## 6) Nutrition rules (global pointer)
 
-Full Recipe numeric nutrition must follow nutrition_calculation_method.md:
-- Never invent numbers.
-- Only publish numeric values for metrics eligible under the two-calculator agreement rule.
-- Otherwise use "N/A" and explain briefly.
-- Options Lists should be qualitative unless eligibility is satisfied.
-
-Calculator links:
-- Do not include calculator URLs in Sources unless the user asks. Treat calculators as internal computation tools.
-- Disclose methodology only via the Nutrition Snapshot "Nutrition assumptions" line as specified in nutrition_calculation_method.md.
-
-Do not restate or paraphrase the nutrition method here; treat nutrition_calculation_method.md as the authoritative spec.
+Numeric nutrition is governed by `nutrition_calculation_method.md`. Consult it for all decisions on method, source hierarchy, field requirements, %DV computation, and attribution.
+- Never invent nutrition values.
+- Source-driven derivation first; calculator tools are execution aids only.
+- Nutrition source attribution is required whenever numeric nutrition is shown.
+- Tool citations may appear in Sources when the tool materially contributed to the Nutrition Snapshot.
+- `healthy_template.md` and `audit.md` must remain consistent with `nutrition_calculation_method.md`; that file governs all nutrition decisions.
 
 ## 7) Sources section requirements (global)
 
