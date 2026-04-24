@@ -32,9 +32,10 @@ Always-on baseline rules:
 - Make-ahead required: include at least one meaningful pre-prep pathway (sauce/base, chop kit, marinate, par-cook starch, freezer portioning).
 - Freezer plan required: include a clear freeze point, packaging plan, thaw path, and reheat correction when the dish is intended for batch cooking.
 - Veg-forward: include at least 2 distinct vegetables unless the dish definition makes that unreasonable; if not, provide an optional veg add-on or side.
-- Alliums do not count toward the vegetable minimum.
+- Onion does not count toward the vegetable minimum because it is excluded by default.
 - Protein-present: include a clear primary protein (animal or plant) and avoid "carb-only" mains by default.
 - Good macronutrient structure is important: default to meals that are meaningfully protein-forward, include fiber where the dish supports it, and avoid recipes that are mostly starch + fat with token protein.
+- Fiber should be **fiber-appropriate**, not automatically maximized. Apply §9 for fiber-type, bran-heavy grain, and high-residue stacking rules.
 - Added sugar minimal: avoid sugar-forward sauces and glazes by default; if sweetness is needed, keep it functional and explain why.
 - Sodium-aware by default: use technique and structure first (browning, spice blooming, acid balancing, herbs, texture contrast) before relying on salt-heavy condiments.
 - Fat-managed by default: avoid greasy outcomes; prefer controlled fat additions and methods that do not leave pools of oil.
@@ -48,22 +49,22 @@ These are defaults for this project. The user can override at any time.
 
 ### 2a) Hard avoids (do not use unless explicitly requested)
 - Chocolate (as an ingredient or flavor base)
-- Garlic in any meaningful amount
 - Onion in any meaningful amount
 - Mushrooms in any meaningful amount
 
 ### 2b) Trace-only exception policy (important nuance)
 The hard avoids above allow a narrow trace-only exception unless the user says zero tolerance.
 - "Trace" means an amount small enough that it is not a meaningful flavor base, bulk ingredient, or texture contributor in the finished dish.
-- Do not build recipes around garlic, onion, or mushroom as aromatic foundations, vegetable volume, or umami anchors under default rules.
+- Do not build recipes around onion or mushroom as aromatic foundations, vegetable volume, or umami anchors under default rules.
 - If a trace amount is present through a minor seasoning blend, sauce, or background accent, disclose it clearly.
-- When in doubt, treat garlic, onion, and mushroom as excluded rather than trying to game the threshold.
+- When in doubt, treat onion and mushroom as excluded rather than trying to game the threshold.
 
 ### 2c) Soft avoids (use sparingly; offer alternatives)
 - Extremely hot or aggressive chile-forward builds that push beyond a warm/medium heat baseline.
 - Greasy, high-oil preparations (deep-fry, shallow-fry, confit-style, heavy cream sauces).
 - High-sodium builds (salt-heavy marinades, salty stocks/bouillon, cured-meat-forward dishes) unless the user asks.
 - Gluten-grain-heavy builds by default; assume mild gluten sensitivity and prefer non-gluten or lower-gluten structures when the dish can support them cleanly.
+- Bran-heavy or rough whole-grain builds by default; apply §9.
 
 ### 2d) Poultry stance (important nuance)
 - Poultry is acceptable as an ingredient.
@@ -86,9 +87,14 @@ The hard avoids above allow a narrow trace-only exception unless the user says z
 
 ### 2f) Generally compatible / preferred
 - Red meat is generally well-tolerated; still manage saturated fat and portioning via cut choice and technique.
-- Beans/legumes are positive when the dish supports them (both flavor and structure).
+- Garlic is tolerated and may be used as a normal aromatic, but avoid making it aggressively garlic-forward unless the user asks.
+- Beans/legumes are positive when the dish supports them, especially when well-cooked and used in moderate portions. Apply §9 when beans are paired with whole grains, raw vegetables, seeds/nuts, or high-fat sauces.
 - Tomatoes are generally acceptable.
-- Rice is generally acceptable; whole grains are optional and should be framed as a toggle, not a mandate.
+- Non-bran rice is generally acceptable:
+  - White rice, sushi rice, jasmine rice, and similar non-bran rice paths are preferred by default when GI tolerance matters.
+  - Brown rice is downranked by default under §9 because it is bran-intact and higher-residue.
+- Whole grains are optional and should be framed as a toggle, not a mandate.
+- Bran-heavy whole grains are a separate tolerance concern from gluten; apply §9 for examples and mitigation rules.
 - Non-gluten and lower-gluten starch paths are generally preferred over gluten-grain-heavy builds when the dish can support them cleanly.
 - Avocado oil is the default cooking oil preference.
 
@@ -97,8 +103,11 @@ The hard avoids above allow a narrow trace-only exception unless the user says z
 - Prefer lower-lactose options when dairy is used (yogurt, aged cheeses, lactose-free dairy) and avoid heavy cream reliance.
 - Keep dairy as a finish or accent rather than a bulk base unless user requests otherwise.
 
-### 2h) Aromatic replacement bias (default)
-When garlic/onion are excluded, recover flavor with realistic alternatives such as:
+### 2h) Aromatic handling (default)
+Garlic is acceptable; onion is excluded by default. Build flavor with normal culinary technique while avoiding onion as a base.
+
+Default aromatic/flavor tools:
+- garlic, used moderately unless the user requests garlic-forward
 - ginger
 - celery or fennel where structurally appropriate
 - citrus zest
@@ -112,6 +121,8 @@ Conditional path only if explicitly acceptable in the current thread:
 - chives
 
 Rules:
+- Do not use onion as an aromatic foundation, vegetable volume, or bulk sweetness source unless the user explicitly requests it.
+- Scallion greens and chives are related to onion and should not be assumed safe.
 - Scallion greens and chives are not default-safe substitutes; use them only when the current thread explicitly confirms they are tolerated.
 - Do not rely on gimmick substitutes unless the user asks.
 
@@ -147,6 +158,8 @@ This is a risk-management layer, not a diagnosis.
 - Default: treat **gluten grains** as a **soft blocker** unless the user explicitly wants them or has known good tolerance.
 - Definition: gluten grains = wheat, barley, rye, and direct derivative ingredients that materially contribute gluten exposure.
 - This is broader than "lower wheat." If gluten is the issue, a wheat-only rule is too narrow.
+- Bran-heavy grains are also downranked under §9. This applies even when gluten is not the suspected issue.
+- Some foods, such as barley, farro, bulgur, and spelt, may be downranked under both gluten-grain and fiber-type rules.
 - Prefer non-gluten starch paths when the dish does not depend on gluten structure:
   - rice
   - potatoes
@@ -209,6 +222,7 @@ Potential watchlist categories:
 Rules:
 - Watchlist items are not default exclusions.
 - They become exclusions only when the user has a repeatable pattern, a formal diagnosis, or explicitly asks for stricter filtering.
+- The rough/high-residue category is a flare-state escalation, not a blanket ban. In ordinary recipe generation, apply §9 instead.
 
 ---
 
@@ -218,7 +232,7 @@ This project uses practical, non-medical "generally healthy" defaults with added
 ### 3a) Composition defaults (qualitative)
 Aim for meals that are:
 - Protein-forward relative to carbs.
-- Fiber-forward via legumes, vegetables, and optionally whole grains when tolerated.
+- Fiber-appropriate via legumes, vegetables, and optionally whole grains when tolerated. Apply §9 for fiber type, bran-heavy grains, and high-residue stacking.
 - Macro-balanced enough to function as real meals rather than snack-shaped starch dishes.
 - "Healthy fats" forward:
   - Prefer fats that are predominantly mono- and polyunsaturated where they fit.
@@ -229,6 +243,7 @@ Aim for meals that are:
     - Multiple fat sources are allowed.
     - Default to **1 to 3** major fat sources where each has a distinct purpose (cooking medium vs emulsion vs finish).
     - If using 3+, briefly justify each; avoid redundant additions that only increase calories.
+    - Apply §9 when fat is paired with bran-heavy grains, high-residue ingredients, legumes, seeds, or nuts.
 - Added-sugar-minimized.
 - Sodium-aware with explicit targets (see 4c).
 
@@ -237,23 +252,27 @@ Aim for meals that are:
 - Use refined starches (like white rice) strategically as a supporting base, not the entire structure.
 - Avoid sugar-sweetened sauces as a primary flavor driver.
 - Prefer macro layouts that blunt a starch hit with adequate protein, fat, and fiber when the dish format allows.
+- Mixed meals should still respect GI tolerance; apply §9 to avoid overbuilt bowls that combine several high-residue components.
 
 ### 3c) GI / gut-tolerance guidance (pared down; a few hard limits + negotiables)
 Hard limits (default):
 - No chocolate-based components.
-- No meaningful garlic or onion.
+- No meaningful onion.
 - No meaningful mushroom.
 - Avoid very greasy outcomes (oil slicks, heavy fried textures).
 - Default heat: warm to medium is acceptable; extreme heat is optional, not default.
 
 Negotiables (default behavior, adjustable by user):
+- Garlic is tolerated and may be used normally; keep garlic-forward intensity optional unless requested.
 - Acid is allowed; prefer late-stage adjustable acid (finish with lemon/vinegar) rather than aggressively sharp early acid.
 - Keep portion assumptions reasonable; avoid framing the dish as "eat a massive bowl right before bed."
 - Keep fats controlled and emulsified; prefer measured oil and sauces that stay integrated.
 - Prefer non-gluten, lower-gluten, or mixed-starch structures when feasible; do not force gluten-grain-heavy formats when a good rice-, potato-, corn-, oat-, or legume-based path exists.
+- Apply §9 when the dish uses bran-heavy grains, rough/high-residue ingredients, large legume portions, raw vegetables, seeds/nuts, or high-fat sauces.
+- Prefer cohesive, moisture-rich starch formats over dry grain bowls when GI tolerance is a priority.
 
 Flavor safeguard:
-- If gut-tolerance defaults reduce flavor, compensate with non-irritant techniques first (browning, toasted spices, ginger, herbs, zest, tomato paste, texture contrast), then offer acid/heat as adjustable finish toggles.
+- If gut-tolerance defaults reduce flavor, compensate with non-irritant techniques first (browning, toasted spices, garlic when appropriate, ginger, herbs, zest, tomato paste, texture contrast), then offer acid/heat as adjustable finish toggles.
 
 ### 3d) Freezer-performance bias
 For make-ahead cooking, prefer foods that:
@@ -274,6 +293,7 @@ Down-rank dishes that are known to freeze poorly unless the user specifically as
 - Braise/pressure-cook for bean-forward or tougher cuts (portion and fat managed).
 - Quick pickles and herb finishes for brightness without sugar.
 - Batch methods that freeze and reheat cleanly.
+- Moist, integrated formats for higher-fiber meals: stews, braises, saucy bowls, pressure-cooked legumes, and softer cooked starches.
 
 ### 4b) Avoid by default
 - Deep frying.
@@ -281,6 +301,7 @@ Down-rank dishes that are known to freeze poorly unless the user specifically as
 - Sugar-forward glazes.
 - "Dump and bake" methods that produce bland results without corrective steps.
 - Gluten-grain-heavy builds when an equally good non-gluten or lower-gluten path exists.
+- Dry grain-bowl formats that stack bran-heavy grains, legumes, raw vegetables, seeds/nuts, and high-fat sauces without a clear mitigation strategy. Apply §9 as the central rule.
 
 ### 4c) Sodium targets + explicit levers (default)
 Sodium levels are classification guidance, not a hard requirement unless the user requests low sodium.
@@ -309,6 +330,7 @@ Required behavior:
 - Choose leaner cuts when the dish supports it; for fattier cuts, balance with high-veg and use fat-discard steps when appropriate.
 - Use emulsification (pan sauce, yogurt-based sauce, blended beans/veg) to avoid oily mouthfeel.
 - Prefer whole-food fat sources when they improve flavor and texture, and avoid redundant fat stacking.
+- Apply §9 when fat is paired with bran-heavy grains, high-residue ingredients, legumes, seeds, or nuts.
 
 ### 4e) Spice and heat
 - Default heat: warm to medium.
@@ -317,8 +339,13 @@ Required behavior:
 
 ### 4f) Gluten-grain and starch handling
 - Do not treat gluten grains as universally forbidden, but treat them as a soft blocker.
+- Treat bran-heavy grains as a separate downrank category from gluten. This rule applies even when gluten is not the suspected issue.
+- Apply §9 as the central authority for bran-heavy grain examples, meal-composition guardrails, and mitigation strategies.
+- Some foods, such as barley, farro, bulgur, and spelt, may be downranked under both gluten-grain and fiber-type rules.
 - When gluten structure is central to the dish identity, keep the rest of the build supportive (protein, fiber, fat, sodium control) and offer a lower-gluten or gluten-free variation when feasible.
 - When gluten structure is not central, prefer rice, potatoes, cornmeal, oats when tolerated and appropriately sourced, legumes, or mixed-starch structures if they perform as well or better.
+- Prefer cohesive starch formats over dry grain bowls when gut tolerance is part of the recipe goal.
+- If using whole grains, prefer softer cooking, higher hydration, and simpler pairings over chewy/separate grains plus multiple other fiber sources.
 
 ### 4g) "Don't be weird" constraint (health substitutions)
 - Do not introduce "diet substitutions" that change the soul of the dish (cauliflower rice everywhere, fat-free cheese, odd sweeteners) unless:
@@ -375,22 +402,82 @@ It is acceptable to deviate from these constraints when:
 
 ---
 
-## 9) Constraint QA checklist (quick pass before final output)
+## 9) Fiber-Type and Texture Tolerance Guidance
+This section centralizes the fiber and starch-selection rules used throughout the file.
+
+Core principle:
+- Do not treat "high fiber" as automatically better. Prioritize fiber type, preparation, portion size, moisture, and overall meal composition.
+
+Prefer by default:
+- Soluble/gel-forming or softer-cooked fiber patterns:
+  - oats when tolerated
+  - well-cooked legumes in moderate portions
+  - peeled or softly cooked vegetables
+  - stews, braises, saucy bowls, and pressure-cooked formats
+  - potatoes, white rice, cornmeal/polenta, and other cohesive starch bases when appropriate
+
+Downrank by default:
+- Bran-heavy or rough/high-residue foods, especially when used as the starch base:
+  - brown rice
+  - wheat bran
+  - wheat berries
+  - farro
+  - bulgur
+  - barley
+  - bran cereals
+  - very coarse whole-grain breads or grain bowls
+- Large rough plant-structure loads:
+  - raw crucifers
+  - thick vegetable skins
+  - large seed or nut loads
+  - raw greens used as a major bulk component
+  - chewy/separate-grain formats with minimal moisture
+
+Meal-composition guardrails:
+- Downrank meals that stack several rough/high-residue fiber sources unless the recipe uses soft cooking, moderate portions, and enough moisture.
+- Be especially cautious with combinations like:
+  - bran-heavy grain + legumes + raw vegetables
+  - whole grain + seeds/nuts + high-fat dressing
+  - brown rice + beans + raw greens
+  - barley/farro/bulgur + legumes + high-sodium sauce
+- Avoid high fat + high insoluble-fiber pairings by default. If used, simplify the rest of the dish and keep the format moist.
+- Use white rice, potatoes, cornmeal/polenta, oats when tolerated, or moderate well-cooked legumes as default starch/fiber anchors when the dish does not require a bran-heavy grain.
+
+Mitigation strategies when whole grains are requested:
+- Use smaller portions.
+- Cook softer and wetter than usual.
+- Pair with a moist sauce, stew base, or braise.
+- Avoid adding multiple other rough fiber sources.
+- Keep fat measured and integrated rather than oily.
+- Keep sodium drivers controlled and move salty elements to optional finishes where feasible.
+
+---
+
+## 10) Constraint QA checklist (quick pass before final output)
 - Does the recipe meet the user's stated request and any explicit constraints?
 - Is the yield/portioning consistent with the 10-portion default and the 10 x ~2-cup meal target (or explicitly overridden)?
 - Is the ~2-week planned eating horizon supported by a concrete fridge (3 to 5 days) + freezer (months) plan?
 - Is freezer performance treated as a primary design concern when the dish is make-ahead or batch-oriented?
-- Are hard avoids respected (chocolate, meaningful garlic, meaningful onion, meaningful mushroom) unless explicitly overridden?
+- Are hard avoids respected (chocolate, meaningful onion, meaningful mushroom) unless explicitly overridden?
 - Are trace-only exceptions disclosed rather than hidden?
+- Is garlic treated as tolerated and usable, rather than excluded?
+- Is onion still excluded unless explicitly requested?
 - Is poultry not being used as the main course protein unless requested?
 - Are non-freezer-friendly proteins avoided as the main course protein unless requested?
 - Are lactose-heavy dairy ingredients being treated as a soft blocker unless explicitly requested?
 - Are gluten grains being treated as a soft blocker rather than only wheat?
+- Are bran-heavy grains handled as a separate downrank category from gluten?
+- Is brown rice downranked by default unless requested or clearly mitigated?
 - Are fava / broad beans blocked unless G6PD deficiency has been ruled out or the user explicitly accepts them?
 - Did the recipe avoid inventing a broad ethnicity-based blacklist beyond the high-yield categories above?
 - If watchlist items were restricted, was that restriction tied to user history, diagnosis, or explicit request rather than ancestry alone?
 - Are there at least 2 vegetables (or an optional veg add-on/side is provided)?
 - Is macro structure sound (clear protein, not mostly starch + fat, fiber included where the dish supports it)?
+- Fiber-type check:
+  - Is fiber treated as fiber-appropriate rather than automatically maximized?
+  - Are soluble/gel-forming or softly cooked fiber paths preferred when gut tolerance matters?
+  - Does the recipe avoid stacking several rough/high-residue fiber sources unless mitigated by soft cooking, moderate portions, and enough moisture?
+  - Does the recipe avoid high-fat + high-insoluble-fiber pairings unless clearly mitigated?
 - Is fat managed (no oil slick; no heavy-cream base by default; fat stacking rule respected)?
 - Is sodium handled with technique first AND are sodium drivers + levers explicitly listed (without inventing numbers when not computed)?
 - Is heat warm/medium by default unless the user requested milder or hotter?
