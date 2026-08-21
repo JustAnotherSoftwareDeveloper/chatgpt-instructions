@@ -66,7 +66,7 @@ If a proposed fix conflicts with a lock:
 - provide a compliant alternative; or
 - clearly identify the conflict and ask only if permission is genuinely required.
 
-Do not silently drop or introduce an occasion modifier during revision. Do not convert legacy/simple `meal-prep-batch` into `workflow-meal-prep` unless the user actually requests the personalized workflow.
+Do not silently drop or introduce an occasion modifier during revision.
 
 ---
 
@@ -90,7 +90,7 @@ When storage/reheat is part of the artifact or failure, also check:
 - whether components should have been stored separately;
 - whether batch scaling changed geometry.
 
-`workflow-meal-prep` makes this stored/reheated-state analysis mandatory when relevant. `meal-prep-batch` retains its simpler storage/reheat requirements without loading personalized constraints.
+`workflow-meal-prep` makes this stored/reheated-state analysis mandatory when relevant.
 
 ---
 
@@ -211,8 +211,6 @@ For `workflow-meal-prep`, require:
 - Nutrition Snapshot by default unless explicitly opted out;
 - personalized Meal Prep ASCII/output contract.
 
-For legacy/simple `meal-prep-batch`, retain its portion storage, freeze, and full reheat protocol without adding personalized health/nutrition/ASCII requirements.
-
 ### D) Optional Validation Plan
 2 to 5 next-cook checks when useful.
 
@@ -221,7 +219,6 @@ For legacy/simple `meal-prep-batch`, retain its portion storage, freeze, and ful
 ## Final QA
 - Occasion context unchanged unless the user changed it.
 - `general-cooking` used when no specialized base is justified.
-- Legacy/simple `meal-prep-batch` not silently converted to personalized Meal Prep.
 - All locked decisions preserved.
 - Every modification maps to a hypothesis.
 - No new contradiction between ingredients, instructions, seasonality, service/holding, storage, and reheat.
