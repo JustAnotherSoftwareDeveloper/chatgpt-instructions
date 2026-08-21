@@ -10,7 +10,7 @@ Every file that makes equipment decisions must consult §1 and §2 of this file:
 | `options.md` §Breadth scan | Equipment-fit search axis | §2 fit rules for down-ranking incompatible options |
 | `recipe_template.md` §Equipment & Tools | Gear list in recipe body | §1 names, §3 substitutions, §Baking Vessels adjustments |
 | `revisions.md` §6 | Equipment-fit and geometry pass | §1 inventory, §3 substitution hierarchy, §4 buy policy |
-| `audit.md` §2 Pass 4 | Equipment-fit audit pass | Verify all recipe tools are in §1 or have a §3 substitute |
+| `audit.md` Pass 4 | Equipment-fit audit pass | Verify all recipe tools are in §1 or have a §3 substitute |
 
 When this file is silent on a specific item (user confirms they own something not listed), apply §3 and add the item to §1 for future use.
 
@@ -103,7 +103,8 @@ Status values: `preferred` | `reliable` | `avoid-unless-necessary` | `retired`
 These rules apply in every workflow. Match all equipment references in output to a §1 item by name.
 
 **All modes:**
-- Use §1 item names exactly as written when listing equipment in any output.
+- Use §1 item names exactly as written when listing equipment in any output, except for punctuation-only normalization required by an active output contract.
+- If an active output contract requires ASCII-only output, preserve item identity while normalizing punctuation only: `—` -> `-`, `×` -> `x`, `°F` -> `deg F`, and equivalent typographic punctuation -> ASCII. This is not an equipment substitution and does not change the canonical inventory entry.
 - Keep geometry explicit every time: vessel size, batch depth, crowding limit.
 - Keep heat-path explicit: burner level or oven temp, covered vs uncovered, when the lid or foil comes off.
 - Do not assume tools outside §1 unless the user explicitly confirms ownership.
@@ -114,7 +115,7 @@ These rules apply in every workflow. Match all equipment references in output to
 - State equipment-fit reasoning explicitly in each option's **Why it fits** line.
 
 **Recipe drafting** (see `recipe_template.md` §Equipment & Tools):
-- List only §1 items or §3 substitutes; use §1 names throughout.
+- List only §1 items or §3 substitutes; use §1 names throughout, subject to the punctuation-only output normalization above.
 - When pan color or material changes outcome, apply the calibration rule from §Baking Vessels.
 - List the preferred tool first; put the §3 alternate in parentheses.
 
@@ -122,8 +123,9 @@ These rules apply in every workflow. Match all equipment references in output to
 - Diagnose against the actual §1 inventory; never diagnose against generic ideal equipment.
 - Do not prescribe tools absent from §1 without meeting §4 recommendation policy.
 
-**Audits** (see `audit.md` §2 Pass 4):
+**Audits** (see `audit.md` Pass 4):
 - Verify every recipe tool is a §1 item or has a documented §3 substitute.
+- Treat punctuation-only ASCII normalization under an active output contract as the same canonical equipment item.
 - Flag any tool assumption that goes beyond §1 without user confirmation as a Major issue.
 
 ---
@@ -173,7 +175,7 @@ When recommending:
 
 When emitting equipment lists in recipes, revisions, and audits:
 - List critical tools first, then optional or alternate tools.
-- Name items exactly as they appear in §1.
+- Name items exactly as they appear in §1, subject to punctuation-only normalization required by an active output contract.
 - Add size and material where they affect outcome.
 - When pan color matters, include the calibration rule from §Baking Vessels.
 - Include a one-sentence reason when a specific tool is critical to method success.
