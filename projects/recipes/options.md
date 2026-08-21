@@ -1,56 +1,44 @@
-# 20260117_options.md
 # Options List Template (Canonical)
 
 ## Purpose
-Generate a short, scannable shortlist of recipe ideas that:
-- obeys **Occasion directives** (from `occasions.md`),
-- is grounded in **authentic, cross-checked research** (per `meal_sources.md`),
-- and is formatted for fast decision-making (this file).
+Generate a short, scannable shortlist that:
+- obeys occasion directives from `occasions.md`;
+- is grounded in authentic, cross-checked research per `meal_sources.md`;
+- obeys the active profile selected by `instructions.md`;
+- is formatted for fast decision-making.
+
+When `meal-prep` is active, also apply `meal_prep.md`, `meal_prep_health_guidelines.md`, and `meal_prep_personal_health.md`.
 
 ---
 
-## Authoritative references (do not restate)
-- Research, sourcing, authenticity checks, disagreement reconciliation, comment-mining, and safety/correctness discipline:
-  - `meal_sources.md`
-- Occasion selection, modifiers, and directive schema (optimize/avoid/assumptions/options-directives/recipe-directives):
-  - `occasions.md`
-- Tag vocabulary (if present):
-  - `tags.md`
+## Emission policy
 
-This file defines the **options-stage interface**: required inputs, internal workflow outputs, and options-specific formatting rules.
+### Internal-only workflow sections
+Compute before drafting but do not emit unless explicitly requested:
+- Active profile confirmation
+- Occasion selection
+- Occasion directive extraction
+- Meal Prep constraint extraction (Meal Prep only)
+- Research execution
+- Research outputs
 
----
-
-## Emission policy (critical)
-
-### Internal-only workflow sections (compute but DO NOT emit)
-These sections are required for correctness and should be completed internally, but must NOT appear in the final user-visible output:
-- Occasion selection (binding)
-- Occasion directive extraction (required)
-- Research execution (binding)
-- Research outputs (required)
-
-Rules:
-- You must complete the internal-only sections before writing the Shortlist, because they drive ranking, phrasing, and the **Watch** lines.
-- In the final output, do not include the internal-only section headers or their contents.
-- If the user asks to see internal-only sections, include them only if explicitly requested.
-
-### Final output sections (emit in this order)
-1. Required inputs (filled before research)
+### Final output sections
+1. Required inputs
 2. Shortlist (Top 5 to 8)
 3. Runner-Ups (5 to 10)
 4. Pick First / If You Want...
-5. Optional: Comparative Matrix (only if triggered)
-6. Sources (only if external browsing was performed; otherwise omit)
+5. Optional Comparative Matrix
+6. Sources (only if external browsing was performed)
 
 ---
 
-## Required inputs (fill before research)
+## Required inputs
 
 ### Title & Goal
-[2-3 sentences: what you want, time window, equipment preferences, vibe/flavor direction, and the target occasion.]
+[2-3 sentences: desired food, time window, equipment preferences, vibe/flavor direction, target occasion, and active profile when relevant.]
 
 ### Context & Constraints
+- Profile: [standard | meal-prep]
 - Serves:
 - Time:
   - Active:
@@ -59,186 +47,149 @@ Rules:
 - Anti-target model:
 - Effort tolerance: [low | med | high]
 - Skill level: [novice | comfortable | advanced]
-- Equipment on hand: [default is the full `equipment.md` §1 inventory; list only confirmed exceptions or additions]
+- Equipment on hand: [default `equipment.md` inventory; list only exceptions/additions]
 - Allergies / avoidances:
 - Heat tolerance: [mild | medium | hot]
 - Make-ahead preference: [none | partial | components day-before | full day-before OK]
 - Notes / assumptions:
 
+For Meal Prep, include batch/portion/freezer requirements here when they materially differ from the profile defaults.
+
 ---
 
-## Internal-only workflow sections (do not emit)
+## Internal workflow
 
-### Occasion selection (binding)
+### Active profile confirmation
+- Profile:
+- Why active:
+- Thread overrides to profile defaults:
+
+### Occasion selection
 Select one base + optional modifiers per `occasions.md`.
-- Occasion base:
-- Occasion modifiers (optional):
-  - setting:
-  - service:
-  - menu:
 
-### Occasion directive extraction (required)
-Summarize the selected occasion entry from `occasions.md` into a constraint set used to rank options.
-Do not paste the full occasion block.
+### Occasion directive extraction
+- Optimize (2-6 bullets)
+- Avoid (2-6 bullets)
+- Assumptions to honor
+- Options-directives
+- Recipe-directives to carry forward
 
-- Optimize (2-6 bullets):
-- Avoid (2-6 bullets):
-- Assumptions to honor:
-- Options-directives (must shape option proposals):
-- Recipe-directives (carry-forward notes only; do not bloat shortlist):
-- Modifier validation note (only if used):
-  - confirm selected modifiers are actual modifiers (setting/service/menu), not seasonal bases
+### Meal Prep constraint extraction (only when active)
+Summarize without emitting:
+- Batch/portion target
+- Fridge/freezer strategy
+- Freezer/reheat constraints
+- General composition defaults applied
+- Personal defaults applied
+- Personal/profile defaults overridden
+- Notes to carry forward to full recipe
 
-### Research execution (binding)
-Execute research strictly per `meal_sources.md`.
+Do not replace occasion directives with Meal Prep constraints; apply both.
 
-No protocol restatement here. The only requirement this file adds is:
-- The shortlist must be demonstrably informed by the Research outputs below.
+### Research execution
+Follow `meal_sources.md` for quality, deduplication, authenticity, disagreement handling, regional anchors, and comment mining.
 
-### Research outputs (required)
-These are the distilled outputs of `meal_sources.md` that directly feed the shortlist.
-Failure modes and guardrails must primarily come from **comment-mining** and **cross-recipe comparisons**, not just the source author's main recipe text.
+Research budget:
+- Standard: use `meal_sources.md` mode-specific targets.
+- Meal Prep: use the profile budget in `meal_prep.md` unless the user requests Standard-depth source counts.
 
-- Recurring failure modes (>= 3):
-  - 1)
-  - 2)
-  - 3)
-- Guardrails / corrective adjustments (>= 3):
-  - 1)
-  - 2)
-  - 3)
-- Key disagreements discovered (temps/times/ratios/sequence) and how reconciled (brief):
-  - 1)
-  - 2)
-- Notes to carry forward to the recipe step (from recipe-directives + notable source constraints):
-  - 1)
-  - 2)
+### Research outputs
+- Recurring failure modes (>= 3)
+- Guardrails / corrective adjustments (>= 3)
+- Key disagreements and reconciliation
+- Notes to carry forward to recipe step
 
-### Breadth scan before ranking (required)
-Before finalizing the shortlist:
-- search the obvious dish/category directly,
-- search adjacent cuisines and regional analogs,
-- search by target eating experience,
-- search by equipment-fit,
-- search by occasion-fit.
+In Meal Prep, at least one failure-mode/guardrail should address storage, freezing, reheating, batch geometry, or portioning when materially relevant.
 
-Do not finalize a shortlist until at least 3 materially different buckets have been explored.
+### Breadth scan before ranking
+Search at least 3 materially different buckets:
+- obvious dish/category;
+- adjacent cuisines/regional analogs;
+- target eating experience;
+- equipment fit;
+- occasion fit;
+- Meal Prep only: freezer/reheat/constraint fit.
 
 ---
 
-## Options-stage non-negotiables (formatting)
-
-### Structure and headers (readability)
-- Keep the section headers as written in the FINAL output sections list.
-- Leave at least one blank line between sections.
-- Each Shortlist option must be its own block and separated by a blank line.
-
-### URL and citation rules
-- Do NOT embed raw URLs in the Shortlist, Runner-Ups, or chooser rules.
-- Use numeric footnote markers like [1] only.
-- Put URLs only in the Sources section (plain URLs; one per line; strip tracking params when practical).
+## Formatting rules
+- Preserve section headers and order.
+- Each shortlist option is its own block separated by a blank line.
+- No raw URLs in shortlist/runner-ups/chooser rules.
+- Use numeric footnote markers `[n]` for sourced claims.
+- URLs belong only in Sources.
 - Never invent links.
-- If external browsing is not available: write "No external browsing performed; sources omitted."
-  - Then omit footnotes and omit the Sources section entirely.
-
-### Units policy (options-stage)
-- Avoid quantities in options unless essential.
-- If you include quantities, use U.S. customary units.
-- Add metric in parentheses only if pulled directly from a source.
-
-### Bolding rules (selective)
-- Bold the option name.
-- Bold field labels (e.g., **Description:**, **Watch:**, **Why it fits:**).
-- Optionally bold one key endpoint or decision per option (e.g., **broil 3-5 min**, **reduce sauce**, **sheet-pan finish**).
-- Do not bold whole sentences.
+- If no external browsing occurred, omit footnotes and Sources; do not fabricate placeholders.
+- Avoid quantities unless essential.
+- Use U.S. customary units by default.
+- Bold option names and field labels; do not bold whole sentences.
 
 ---
 
 ## Shortlist (Top 5 to 8)
+Each option must include:
+- one primary source `[n]` when browsing occurred;
+- what the dish is;
+- what it eats like;
+- what distinguishes it from the other options;
+- a familiar comparison when useful;
+- one research-derived Watch item;
+- Why it fits, tied to occasion directives and equipment;
+- Meal Prep only: Why it fits must also address at least one meaningful profile constraint such as freezer/reheat reliability, portionability, batch geometry, or configured food constraints.
 
-### Shortlist rules (options-stage specific)
-- Each option must cite one primary source [n].
-- The shortlist as a whole should be supported by the full source set from `meal_sources.md`.
-  - Multiple options may map to the same source as needed, but options-stage research must still be cross-checked across 8-12 distinct source families.
-- Each option must contain:
-  - a **Description** line that answers all of the following:
-    - what the dish is in plain English,
-    - what it eats like (texture/richness/sweetness-savoriness/density/crust-crumb as relevant),
-    - what makes it distinct from the other shortlisted options,
-    - one familiar comparison when the dish may be unfamiliar,
-  - a **Watch** line derived from Research outputs (failure mode or guardrail),
-  - a **Why it fits** line explicitly referencing at least one Occasion directive (optimize/avoid/assumptions/options-directives) and equipment-fit.
-- The **Watch** line must reference one of the listed failure modes/guardrails verbatim or near-verbatim (not generic filler).
-- Do not mention every constraint in every option. Mention only what materially differentiates it.
-- Avoid vague cultural-label-only descriptions.
+Source-family counts:
+- Standard: follow `meal_sources.md`.
+- Meal Prep: follow `meal_prep.md`.
 
 ### Distinctness guardrails
-Default (broad prompts):
-- Include at least 3 distinct formats across the shortlist.
-- No more than 2 options in the same format.
-- No more than 2 options sharing the same primary protein/center-of-plate.
+For broad prompts:
+- at least 3 distinct formats;
+- no more than 2 options in the same format;
+- no more than 2 sharing the same primary protein/center-of-plate.
 
-If the Title & Goal or Occasion directives constrain the space (e.g., "grazing table," "cocktail bites," "bring-over," "all sheet-pan," "all pasta"):
-- Treat that constraint as fixed.
-- Diversify across at least 3 of these axes:
-  - protein/center-of-plate
-  - sauce/base style
-  - cooking method within format
-  - flavor profile
-  - holding strategy
-  - make-ahead strategy
+When the user constrains format, diversify across at least 3 of:
+- protein/center-of-plate;
+- sauce/base style;
+- method;
+- flavor profile;
+- holding strategy;
+- make-ahead strategy;
+- Meal Prep: freezer/reheat strategy.
 
-### Per-option template (target 6 lines; max 7)
-Formatting requirement: use a level-4 header per option and leave a blank line between options.
-
+### Per-option template
 #### 1) **[Option Name]** [tags: 3-5; format: ...; active: ~X min (est); effort: low|med|high]
-**Description:** [Must include what it is, what it eats like, what makes it distinct in this shortlist, and one familiar comparison when needed.]
-**Flavor profile:** richness [light|med|rich]; acidity [low|med|high]; heat [none|low|med|high]; notes: [2-4 descriptors]; texture: [1-2 descriptors]
-**Make-ahead:** [what]. **Hold/Reheat:** [how + cue] (use "Hold" for party/grazing contexts)
-**Watch:** [1 failure mode or guardrail from Research outputs]. **Why it fits:** [tie to goal + 1+ occasion directive + equipment-fit]
+**Description:** [what it is + eating experience + distinctiveness + familiar comparison when needed]
+**Flavor profile:** richness [light|med|rich]; acidity [low|med|high]; heat [none|low|med|high]; notes: [2-4]; texture: [1-2]
+**Make-ahead:** [what]. **Hold/Reheat:** [how + cue]
+**Watch:** [research-derived failure mode/guardrail]. **Why it fits:** [goal + occasion + equipment + Meal Prep constraint if active]
 **Source:** [Blog|YT|IG|Forum|Authoritative]. [n]
 
-Tag guidance:
-- Use 3-5 tags max.
-- If tags.md exists, select from it; do not invent a new taxonomy mid-list.
-
-Idea buckets (for diversity or pivoting; optional):
-- quick skillet, sheet-pan/roast, grill/smoker, braise/stew, stir-fry, filled items, one-pot pasta/risotto, breads/doughs, sauces/condiments, sandwiches/tacos/wraps, no-cook assemblies, party bites, boards/grazing.
+Tag guidance: 3-5 tags from `tags.md`.
 
 ---
 
 ## Runner-Ups (5 to 10)
-One-liners only. Each must include:
-- a hook, and
-- either a key technique, main protein/center-of-plate, or why it was bumped.
-
-Footnote only if a runner-up is traceable to the main research pool (i.e., it came from actual sourced research, not brainstorm). In no-browse mode, all runner-ups are un-sourced brainstorm additions — omit footnotes entirely and do not invent citations.
-- [One-liner...]
-- ...
+One-liners only. Each needs a hook plus a key technique/protein or why it was bumped.
+Only footnote runner-ups traceable to the researched source pool.
 
 ---
 
 ## Pick First / If You Want...
-4-7 chooser rules routing to specific options (1-2 options per rule).
-Chooser rules should reflect Occasion directives when relevant.
-- Fastest path to food:
-- Lowest coordination load:
-- Best make-ahead / holding:
-- Minimal cleanup:
-- Most impressive for the effort:
-- Most crowd-friendly:
-- Easiest allergy/avoidance-friendly with trivial swaps (if relevant):
+Use 4-7 chooser rules routing to specific options.
+Recommended axes:
+- Fastest path to food
+- Lowest coordination load
+- Best make-ahead / holding
+- Minimal cleanup
+- Most impressive for effort
+- Most crowd-friendly
+- Easiest allergy/avoidance-friendly with trivial swaps
+- Meal Prep only: best freezer/reheat performance
 
 ---
 
-## Optional: Comparative Matrix
-Use when a table clarifies selection.
-
-Trigger rules:
-- Use the matrix when there are >= 6 shortlist options, OR
-- when the selected occasion implies holding/coordination tradeoffs.
-
-Keep it compact; do not add new claims here.
+## Optional Comparative Matrix
+Use when there are >= 6 shortlist options or when occasion/profile constraints create meaningful holding, freezer, or coordination tradeoffs.
 
 | Option | Format | Active (est) | Effort | Make-ahead | Hold/Reheat | Biggest watch | Why it fits |
 |---:|---|---:|---|---|---|---|---|
@@ -249,9 +200,4 @@ Keep it compact; do not add new claims here.
 ---
 
 ## Sources
-Rules:
-- Plain URLs only, one per line.
-- Each URL number must match the in-text [n] markers used above.
-
-1. https://example.com/
-2. https://example.com/
+Plain URLs only, one per numbered entry, matching in-text `[n]` markers.
