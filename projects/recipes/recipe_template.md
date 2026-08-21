@@ -1,12 +1,14 @@
 # Recipe Template (Canonical)
 # [Recipe Title]
 
-This is the canonical full-recipe format for both profiles. Apply sections marked **Meal Prep only** only when `meal-prep` is active. Do not emit profile labels or internal instructions unless useful to the user.
+This is the canonical full-recipe format for the shared recipe engine. Apply ordinary occasion directives from `occasions.md` and any conditional sections required by active `special-instructions`.
+
+Do not emit internal occasion-resolution labels or instruction-file commentary unless useful to the user.
 
 ## Title & Overview
-[3 to 5 sentences: flavor, eating experience, origin/context when relevant, and make-ahead characteristics when relevant. If the dish has a common non-English name, include it and a useful transliteration when supported by the research.]
+[3 to 5 sentences: flavor, eating experience, origin/context when relevant, and make-ahead characteristics when relevant. If the dish has a common non-English name, include it and a useful transliteration when supported by research.]
 
-**Meal Prep only:** include 1 to 2 concise sentences on why the recipe fits the profile (batch/storage/reheat/composition) without making medical claims or inventing nutrition numbers.
+**When `workflow-meal-prep` is active:** include 1 to 2 concise sentences on why the recipe fits repeated batch/storage/reheat use without making medical claims or inventing nutrition numbers.
 
 ## Tags
 Use lowercase, hyphen-separated tags from `tags.md` according to its count/selection rules.
@@ -21,7 +23,7 @@ Use lowercase, hyphen-separated tags from `tags.md` according to its count/selec
 - **Total:** [time]
 - **Make-ahead:** [what holds, what freezes, thaw/reheat summary]
 
-**Meal Prep only:** default yield/portioning and fridge/freezer horizon come from `meal_prep.md` unless overridden. State the actual portioning plan rather than blindly writing cups.
+Apply any active occasion assumptions. When `workflow-meal-prep` is active, default yield/portioning and fridge/freezer horizon come from that occasion's `special-instructions` unless overridden. State the actual portioning plan rather than blindly using cups for every food.
 
 ## Grocery List
 Every ingredient appears exactly once under the correct category. Omit empty categories.
@@ -58,7 +60,7 @@ Include only relevant items.
 - **Hard swaps:** [swap -> why it breaks method -> alternative]
 - **Cross-contact note:** [only if relevant]
 
-**Meal Prep only:** when useful, include concrete toggles that follow `meal_prep_health_guidelines.md` and `meal_prep_personal_health.md`, such as low-sodium, high-protein, low-FODMAP, gluten-free/lower-gluten, dairy/lactose, or other current-thread constraints. Do not list irrelevant toggles merely because the profile exists.
+When active special instructions load dietary/composition authorities, include only useful concrete toggles. For `workflow-meal-prep`, examples include low-sodium, high-protein, low-FODMAP, gluten-free/lower-gluten, dairy/lactose, or current-thread constraints. Do not list irrelevant toggles merely because a workflow is active.
 
 ## Quick Overview
 4 to 8 tight bullets. Bold the label before each colon.
@@ -67,8 +69,10 @@ Include only relevant items.
 - **Workflow:** [order of operations; include parallel work when useful]
 - **Make-ahead:** [what can happen early]
 - **Primary risks:** [1 to 3 likely failure points]
-- **Meal Prep only - Portioning:** [how the batch becomes individual meals]
-- **Meal Prep only - Reheat:** [best reheat path + texture reset]
+
+When `workflow-meal-prep` is active also include:
+- **Portioning:** [how the batch becomes individual meals]
+- **Reheat:** [best reheat path + texture reset]
 
 ## Gather & Stage
 Complete before Step 1.
@@ -89,6 +93,7 @@ Formatting rules:
 - Every heat step includes heat/temp + time range + sensory cue.
 - Specify size/thickness when timing depends on geometry.
 - Final step includes a taste-adjust loop: acid -> salt -> heat -> herbs, adapted as appropriate to the dish.
+- Apply any active occasion-specific output contract. `workflow-meal-prep` requires ASCII-only emitted deliverables and `deg F` temperatures.
 
 Example skeleton:
 1. [Phase]
@@ -141,10 +146,12 @@ Include as a standard full-recipe section; keep it concise when make-ahead is no
   - Thaw path
   - Reheat + texture reset
 
-**Meal Prep only:** this section is required and must implement the actual profile portioning/fridge/freezer plan unless the user overrides freezer use.
+When `workflow-meal-prep` is active, this section is required and must implement its actual 3-5-day fridge split plus remaining freezer plan when freezer-compatible, unless the user overrides freezer use.
 
 ## Reheat Plan
-**Required in Meal Prep; optional in Standard when useful.**
+Required when an active occasion/special instruction requires first-class reheat handling; optional otherwise when useful.
+
+`workflow-meal-prep` requires:
 - **Best method:** [microwave/stovetop/oven/air fryer] -> [power/temp] -> [time range] -> until [cue]
 - **Texture reset:** [how to restore sauce/crispness/moisture] -> [cue]
 - **Acceptable alternate:** [if useful]
@@ -162,20 +169,26 @@ Include as a standard full-recipe section; keep it concise when make-ahead is no
 | Split emulsion | excess heat / addition too fast | cool slightly; re-emulsify gradually |
 
 ## Geometry Notes
-Include when relevant; **required in Meal Prep when batch size materially affects cooking.**
+Include when relevant. An active occasion may make this required.
 - Pan/pot size:
 - Target layer depth/thickness:
 - Crowding rule:
 
+`workflow-meal-prep`: required when the batch size materially affects cooking.
+
 ## Scaling & Batch Size
-Include when useful; **required in Meal Prep when profile/default yield differs materially from source recipes.**
+Include when useful. An active occasion may make this required.
 - Scaling notes
 - Batch strategy
 - Pan/vessel swaps
 - Whether doubling requires multiple pans/batches rather than simply longer cook time
 
+`workflow-meal-prep`: required when the workflow/default yield differs materially from source recipes.
+
 ## Nutrition Snapshot (per serving)
-**Meal Prep default full-recipe section.** Include unless the user explicitly opts out of numeric nutrition. Governed exclusively by `meal_prep_nutrition.md`. Omit this entire section in Standard unless the user explicitly requests nutrition.
+Include when requested by the user or required by active `special-instructions`.
+
+`workflow-meal-prep` requires this section by default unless the user explicitly opts out. Numeric nutrition is governed exclusively by `meal_prep_nutrition.md` when that authority is loaded. Ordinary recipes with no nutrition request and no active nutrition special instruction omit this section.
 
 ### Nutrition Label Core
 | Nutrient | Amount per serving | %DV | Source basis |
@@ -240,14 +253,16 @@ Include when useful; **required in Meal Prep when profile/default yield differs 
 - Unresolved fields: [...]
 
 ## Special Notes
-Optional in Standard. In Meal Prep, sodium notes are required.
+Optional unless an active occasion requires something here.
 - Storage/reheat: [brief]
 - Serving ideas: [brief]
-- **Meal Prep sodium notes:** top 3 sodium drivers + 2 to 4 concrete levers, even when numeric nutrition contains `NA`.
-- **Meal Prep sodium density:** when Calories and Sodium are numeric, report sodium per 1000 kcal.
+
+When `workflow-meal-prep` is active:
+- **Sodium notes:** top 3 sodium drivers + 2 to 4 concrete levers, even when numeric nutrition contains `NA`.
+- **Sodium density:** when Calories and Sodium are numeric, report sodium per 1000 kcal.
 
 ## Variations
-Default full-recipe behavior: include 2 to 4 meaningful variants, each 1 to 2 sentences with no sub-bullets. Omit only when the user explicitly requests a stripped/companion format or variations would be nonsensical. Variations must not silently violate locked constraints or Meal Prep personal defaults.
+Default full-recipe behavior: include 2 to 4 meaningful variants, each 1 to 2 sentences with no sub-bullets. Omit only when the user explicitly requests a stripped/companion format or variations would be nonsensical. Variations must not silently violate locked constraints or active occasion special instructions.
 
 ## Safety & Correctness Notes
 Optional; use only for relevant safety/correctness deviations and source them appropriately.
@@ -255,12 +270,12 @@ Optional; use only for relevant safety/correctness deviations and source them ap
 ## Sources
 Numbered sources matching in-text `[n]` markers. Do not invent sources.
 
-Standard full-recipe source entry format:
+Default full-recipe source entry format:
 1. [Creator or Source Name - Title](https://example.com) [type: YouTube; region: TBD; why: firsthand method demo]
 2. [Regional Site - Title](https://example.com) [type: blog; region: TBD; why: technique specifics]
 3. [Forum Thread - Title](https://example.com) [type: forum; region: TBD; why: failure modes + corrections]
 4. [Authoritative Reference - Title](https://example.com) [type: authoritative; region: TBD; why: safety/cooling/reheat fact]
 
-**Meal Prep only:** follow the URL/ASCII contract in `meal_prep.md`. Each source entry should still identify source name, URL, source type, supported region when known, and why it was used. Add a nutrition tool source only when that tool materially contributed to displayed nutrition values.
+Apply any active occasion-specific URL/output contract. `workflow-meal-prep` requires the richer source metadata specified in its `special-instructions`. Add a nutrition tool source only when that tool materially contributed to displayed nutrition values.
 
 Do not place raw URLs elsewhere unless the user explicitly requested inline links.
