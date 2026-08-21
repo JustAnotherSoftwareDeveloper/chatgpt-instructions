@@ -6,19 +6,20 @@ Resolve one composable occasion context for every options, recipe, revision, or 
 1. Choose **one primary occasion** (a base).
 2. Optionally add modifiers:
    - **0-1 workflow modifier**
+   - **0-1 seasonal modifier**
    - **0-1 setting modifier**
    - **0-1 service style modifier**
    - **0-1 menu shape modifier**
 3. Apply the base directives and all selected modifier directives together.
 4. If any selected entry declares `special-instructions`, load and apply those instructions before drafting the deliverable.
 
-Keep modifiers minimal. A workflow modifier is different from the base occasion: it changes how the recipe is designed/executed without consuming context such as `weeknight-dinner`, `date-night`, `party-10-25`, or `christmas`.
+Keep modifiers minimal. A workflow modifier is different from the base occasion: it changes how the recipe is designed/executed without consuming context such as `weeknight-dinner`, `date-night`, `party-10-25`, or a holiday base. Seasonal context likewise modifies a base rather than replacing it.
 
 Examples:
 - weeknight-dinner + workflow-meal-prep
 - date-night + hot-weather
-- party-10-25 + service-buffet + setting-outdoor
-- christmas + workflow-meal-prep + menu-dessert-forward
+- party-10-25 + hot-weather + service-buffet + setting-outdoor
+- christmas + workflow-meal-prep + cold-weather + menu-dessert-forward
 
 ## Entry schema
 Every base/modifier may use:
@@ -53,9 +54,10 @@ Rules:
 Apply the resolved context in this order:
 1. base occasion;
 2. workflow modifier;
-3. setting modifier;
-4. service modifier;
-5. menu modifier.
+3. seasonal modifier;
+4. setting modifier;
+5. service modifier;
+6. menu modifier.
 
 Later modifiers may specialize an earlier directive but should not erase it silently. If directives materially conflict:
 - prefer the user's explicit request;
@@ -157,6 +159,62 @@ Later modifiers may specialize an earlier directive but should not erase it sile
   - user-overrides:
     - any non-safety default may be overridden explicitly and the override remains sticky for the thread
     - examples: 6 portions, all-fridge/no-freezer, intentionally rich/traditional version, normally downranked ingredient, omit numeric nutrition, allow a normally avoided protein/starch
+
+## Seasonal modifiers (0-1)
+
+### hot-weather
+- optimize:
+  - minimal oven use and lighter profiles
+  - quick cooking and cold components
+- avoid:
+  - long simmering and heavy bakes by default
+- assumptions:
+  - servings: unchanged from base
+  - service: food may sit out intermittently
+  - duration: 60-180 minutes
+  - equipment: grill and no-cook options are preferred when available
+- options-directives:
+  - prioritize no-cook, grill, quick sear, big salads, and cold sauces
+- recipe-directives:
+  - include a keep-the-kitchen-cool workflow and safe holding notes
+- common-modifiers:
+  - common: setting-outdoor, service-grazing-table
+
+### cold-weather
+- optimize:
+  - warm comfort and warm-hold tolerance
+  - leftovers that improve
+- avoid:
+  - delicate chilled dishes by default
+- assumptions:
+  - servings: unchanged from base
+  - service: served warm, reheating likely
+  - duration: flexible
+  - equipment: oven and stove are usually acceptable
+- options-directives:
+  - prioritize soups, stews, braises, baked pastas, and roasts
+- recipe-directives:
+  - include reheat guidance and day-two notes
+- common-modifiers:
+  - common: workflow-meal-prep, menu-one-warm-anchor, service-buffet
+
+### grilling-season
+- optimize:
+  - grill as the primary heat source
+  - sides that hold well outdoors
+- avoid:
+  - heavy indoor cooking while guests are outside
+- assumptions:
+  - servings: unchanged from base
+  - service: outdoor-friendly, often self-serve
+  - duration: 90-180 minutes
+  - equipment: grill plus basic staging space
+- options-directives:
+  - propose grillable main plus 2 sturdy sides plus 1 sauce as the default shape
+- recipe-directives:
+  - include grill timing cues, resting plan, and serve sequence
+- common-modifiers:
+  - common: setting-outdoor, service-buffet
 
 ## Setting modifiers (0-1)
 
@@ -575,61 +633,3 @@ Later modifiers may specialize an earlier directive but should not erase it sile
   - include fallbacks for missing tools and simplified workflow alternatives
 - common-modifiers:
   - common: workflow-meal-prep, menu-one-warm-anchor
-
----
-
-# Seasonal occasions (core)
-
-## hot-weather
-- optimize:
-  - minimal oven use and lighter profiles
-  - quick cooking and cold components
-- avoid:
-  - long simmering and heavy bakes by default
-- assumptions:
-  - servings: unchanged from base
-  - service: food may sit out intermittently
-  - duration: 60-180 minutes
-  - equipment: grill and no-cook options are preferred when available
-- options-directives:
-  - prioritize no-cook, grill, quick sear, big salads, and cold sauces
-- recipe-directives:
-  - include a keep-the-kitchen-cool workflow and safe holding notes
-- common-modifiers:
-  - common: setting-outdoor, service-grazing-table
-
-## cold-weather
-- optimize:
-  - warm comfort and warm-hold tolerance
-  - leftovers that improve
-- avoid:
-  - delicate chilled dishes by default
-- assumptions:
-  - servings: unchanged from base
-  - service: served warm, reheating likely
-  - duration: flexible
-  - equipment: oven and stove are usually acceptable
-- options-directives:
-  - prioritize soups, stews, braises, baked pastas, and roasts
-- recipe-directives:
-  - include reheat guidance and day-two notes
-- common-modifiers:
-  - common: workflow-meal-prep, menu-one-warm-anchor, service-buffet
-
-## grilling-season
-- optimize:
-  - grill as the primary heat source
-  - sides that hold well outdoors
-- avoid:
-  - heavy indoor cooking while guests are outside
-- assumptions:
-  - servings: unchanged from base
-  - service: outdoor-friendly, often self-serve
-  - duration: 90-180 minutes
-  - equipment: grill plus basic staging space
-- options-directives:
-  - propose grillable main plus 2 sturdy sides plus 1 sauce as the default shape
-- recipe-directives:
-  - include grill timing cues, resting plan, and serve sequence
-- common-modifiers:
-  - common: setting-outdoor, service-buffet
