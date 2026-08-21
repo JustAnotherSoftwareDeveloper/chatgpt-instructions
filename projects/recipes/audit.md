@@ -1,238 +1,372 @@
-# 20260311_audit.md
 # Audit Workflow
 
-**Single responsibility:** audit workflow, severity model, issue reporting format, and corrected re-emit behavior for all recipe artifacts (options lists, full recipes, and revised recipes).
+## Purpose
+Audit recipe artifacts for template compliance, carry-forward, source quality, equipment/geometry, timing, internal consistency, user-request compliance, occasion-directive compliance, and specialized-authority compliance/isolation.
 
-**Boundary:** this file does not restate sourcing rules (`meal_sources.md`), equipment inventory (`equipment.md`), occasion directives (`occasions.md`), or template formats (`options.md`, `recipe_template.md`, `revisions.md`). It references those files by name and applies them as pass-specific criteria. Do not duplicate their rules here.
+Authorities:
+- orchestration/precedence: `instructions.md`
+- occasions/special-instruction hooks: `occasions.md`
+- options: `options.md`
+- full recipe: `recipe_template.md`
+- revisions: `revisions.md`
+- research: `meal_sources.md`
+- equipment: `equipment.md`
+- tags: `tags.md`
+- specialized authorities: only those loaded by the resolved occasion context or explicit request
 
----
-
-## 1) Triggers and Output Modes
-
-### Trigger phrases
-See `instructions.md` routing section for the canonical trigger phrase list. All routing for the audit deliverable is governed there.
-
-### Artifact-type detection (required first step)
-Before running any pass, identify what is being audited:
-- **Options artifact**: submission conforms to `options.md` shortlist structure.
-- **Recipe artifact**: submission conforms to `recipe_template.md` structure.
-- **Revisions artifact**: submission contains a diagnosis + updated recipe per `revisions.md`.
-- **Unknown / mixed**: treat as recipe artifact by default; state the assumption in the output.
-
-### Output modes
-Choose based on explicit user request:
-- **Issue list only**: output all issues in severity order; do not re-emit the artifact.
-- **Corrected re-emit**: apply fixes and output the full corrected artifact in canonical format.
-- Default (no explicit preference stated): issue list only.
+Do not duplicate authority files' full rules here; audit against them.
 
 ---
 
-## 2) Pre-Audit Intake
+## 1) Output mode
+Determine artifact type first:
+- Options artifact
+- Recipe artifact
+- Revisions artifact
+- Unknown/mixed: treat as recipe unless context clearly indicates otherwise
 
-Before running any pass, recover the thread constraint set from conversation history:
-- Selected option or variation (if locked)
-- Equipment limits and pan/tray count
-- Ingredient-source constraints (brands, origins, exclusions)
-- Format requests (ordering, naming, length, special sections)
-- Rejected paths that must not reappear (techniques, ingredients, formats)
-- Any explicit user overrides or exceptions to defaults
+Then resolve/recover:
+- base occasion;
+- workflow modifier;
+- seasonal modifier;
+- setting modifier;
+- service modifier;
+- menu modifier;
+- loaded occasion `special-instructions`;
+- request-scoped specialized authorities.
 
-Record which constraints are recoverable. Flag any that are ambiguous. These drive Pass 2.
+Audit output:
+- issue list only; or
+- corrected full re-emit when explicitly requested.
 
----
-
-## 3) Required Audit Passes
-
-Run all passes in order. Do not skip a pass. Record "no issues found" only after completing the checks.
-
----
-
-### Pass 1 — Template Compliance
-
-Verify the artifact satisfies all required structural rules for its type.
-
-**Options artifact** — check against `options.md`:
-- Required inputs section is present and all fields are filled (Title & Goal, Context & Constraints including Serves, Time, Equipment on hand, Allergies/avoidances, etc.).
-- Shortlist contains 5 to 8 entries; Runner-Ups contains 5 to 10.
-- Each shortlist entry conforms to the per-option template in `options.md`:
-  - Level-4 header with option name, tags (3–5), format, active time estimate, and effort level.
-  - **Description** line addresses all 4 required sub-points: what the dish is, what it eats like, what makes it distinct from the other shortlisted options, and one familiar comparison when the dish may be unfamiliar.
-  - **Flavor profile** line is present with richness, acidity, heat, notes, and texture fields.
-  - **Make-ahead** and **Hold/Reheat** lines are present.
-  - **Watch** line is derived from Research outputs (a specific failure mode or guardrail); not generic filler.
-  - **Why it fits** line references at least one specific occasion directive (optimize/avoid/assumptions/options-directives) and equipment-fit.
-  - **Source** field is present per option.
-- Pick First / If You Want section is present.
-- Internal-only workflow sections (Occasion selection, Directive extraction, Research execution, Research outputs) are **not** visible in the final output unless the user explicitly requested them.
-- Sources section is present only if external browsing was performed; absent (not placeholder) if no browsing occurred.
-
-**Recipe artifact** — check against `recipe_template.md`:
-- Required sections present and in canonical order: Title & Overview, Tags, Yield & Timing, Grocery List, Equipment & Tools, Ingredients, Allergy & Dietary Notes, Quick Overview, Instructions, Common Issues, Make-Ahead Notes, Troubleshooting, (Variations if present), Sources.
-- Tags: 3 to 8 tags; lowercase, hyphen-separated; drawn from `tags.md` vocabulary where applicable.
-- Yield & Timing: all five time fields present (Active Prep, Inactive Prep / Hands-Off, Cook, Total, Make-ahead).
-- Grocery List: every ingredient appears exactly once under a correct category; no category present but empty.
-- Equipment & Tools: uses `equipment.md` §1 item names; lists critical tools first; pan-color and glass-vs-metal calibration notes present when relevant.
-- **Gather & Stage** section is present as a standalone section immediately before the numbered instructions, with a Checkpoint bullet; numbered instruction steps begin at 1 (not Step 0); minimum 4 numbered steps total; every heat step includes heat level or oven temp + time range + sensory cue; minimum 2 branch sub-bullets in *If X → do Y → cue it's fixed* form across the recipe; Taste-adjust loop present in the final step.
-- Troubleshooting: 2 to 4 entries; arrow format (Symptom → Likely cause → Primary fix → Recovery cue).
-- Variations: 2 to 4 entries, each 1 to 2 sentences; no sub-bullets.
-
-**Revisions artifact** — check against `revisions.md`:
-- Failure classification stated (§1; 1 to 3 failure classes from the taxonomy).
-- Locked decisions and carry-forward constraints listed before proposed changes (§2).
-- Root-cause hypotheses present with confidence levels (§4; minimum Hypothesis A; each implies a falsifiable test).
-- Every proposed change maps explicitly to Hypothesis A or B; unmapped changes are flagged.
-- Diagnosis Summary + What Changes and Why sections are both present (§8A and §8B).
-- Updated Recipe is a full drop-in in `recipe_template.md` format and contains: inventory-aware equipment list, explicit geometry limits, explicit covered/uncovered and reduction plan, Step 0, and troubleshooting entries for the observed failure mode.
+Default: issue list only.
 
 ---
 
-### Pass 2 — Carry-Forward
+## 2) Pre-audit intake
+Recover:
+- resolved occasion context;
+- selected option/variation;
+- equipment/pan limits;
+- ingredient-source/brand constraints;
+- format requests;
+- rejected paths;
+- overrides to occasion/specialized-authority defaults;
+- explicit user constraints;
+- request-scoped health/nutrition/personal constraints when present.
 
-Verify all locked thread constraints recovered in §2 are preserved in the artifact.
-
-For each constraint, check:
-- **Selected option/variation**: the artifact is consistent with the chosen option; variations the user rejected do not reappear as core methods.
-- **Equipment limits and pan/tray count**: no item in Equipment & Tools exceeds on-hand inventory per `equipment.md` §1 without a §3-compliant substitution documented inline.
-- **Ingredient-source constraints**: user-specified brands, origins, or exclusions are honored; no silent substitution.
-- **Format requests**: section ordering, naming conventions, and output length match user-stated preferences.
-- **Rejected paths**: techniques, ingredients, or formats the user explicitly rejected do not reappear anywhere in the artifact, including Variations.
-
-Any silent deviation from a locked constraint is at minimum a Major issue.
-
----
-
-### Pass 3 — Source Quality
-
-Verify the sources section against `meal_sources.md`.
-
-Checks:
-- Mode-specific source-family minimum is met: options mode = 8–12 families; recipe mode = 6–9; revisions mode = 6–10.
-- Required source-type mix is present: 2+ Tier 1 individual creators (distinct people/handles), 1+ long-form blog/personal site, 1+ video/social source, 1+ discussion/feedback-loop source (forum thread or substantial comment section with troubleshooting).
-- Regional Anchor source is present when the dish has clear regional or cultural provenance.
-- Strict dedup rules followed: cross-posts, same creator across platforms, same domain/author, same publication network, or template-shared content each count as one family — not multiple.
-- No invented citations or non-verifiable URLs.
-- All in-text footnote markers [n] resolve to a numbered Sources section entry; no orphaned markers.
-- Baseline recipe sites are marked [secondary]; none is used as the sole basis for a dish's flavor profile or cultural framing.
-- If browsing was not available: sources section is absent (options artifact) or citations/URLs are properly omitted (recipe/revisions); no fabricated sources appear.
-
-Flag any invented or unverifiable citation as Critical.
+Verify:
+- `general-cooking` is used when no specialized base is actually justified;
+- no inactive specialized authority leaked into the artifact;
+- request-scoped authorities were loaded narrowly rather than dragging in sibling Meal Prep rules;
+- active special instructions/current-thread overrides were not dropped.
 
 ---
 
-### Pass 4 — Equipment Fit and Geometry
+## 3) Required passes
+Run all applicable passes in order. Do not claim "no issues found" until every applicable pass is complete.
 
-Verify all equipment decisions against `equipment.md`.
+### Pass 1 - Template, occasion, and specialized-authority compliance
+#### Options
+Check against `options.md`:
+- required user-facing inputs populated;
+- user-facing output does not expose base/workflow/seasonal/setting/service/menu IDs unless requested;
+- internal occasion resolution is valid;
+- 5 to 8 shortlist entries and 5 to 10 runner-ups;
+- each shortlist entry uses 3 to 5 valid tags and required per-option fields;
+- target length/shape is respected unless user requested more detail;
+- Watch is research-derived;
+- Why it fits references relevant occasion/use-case + equipment;
+- if specialized authorities materially shape ranking, Why it fits reflects at least one relevant constraint;
+- internal workflow sections are not emitted unless requested;
+- if browsing occurred, Sources/footnotes resolve correctly;
+- if browsing did not occur, the exact no-browse sentence is present and Sources/footnotes are omitted;
+- active occasion output-format rules are followed.
 
-Checks:
-- Every tool listed in Equipment & Tools exists in `equipment.md` §1 inventory, or has a §3-compliant substitution documented inline.
-- Substitution hierarchy followed: on-hand preferred → common household substitute → purchase recommendation only when justified by §4 criteria (cannot physically perform task, repeated quality failures likely, high ROI for frequent use, or result is meaningfully easier/safer/more repeatable).
-- Pan-color and material calibration rules applied (§Baking Vessels): dark metal in place of light → reduce oven temp ~25°F or check doneness 5 min early; glass in place of metal → expect slower edge browning, longer heat retention, may need 5–10 extra minutes.
-- Batch depth and crowding limits are explicit when the method creates crowding risk (surface area vs. portion count).
-- Covered/uncovered and reduction plan are explicit when the method requires evaporation or moisture management.
-- Vessel capacity is consistent with stated yield: Instant Pot 6 QT max fill line; stand mixer bowl ~5 QT; bread maker 2 lb loaf max.
-- Any tool with status `avoid-unless-necessary` or `retired` in `equipment.md` §1 has an explicit justification for its inclusion.
-- Ceramic nonstick items are not specified for high-heat searing or broiling steps (hard constraint per `equipment.md`).
+#### Full recipe
+Check `recipe_template.md` required sections/order and formatting:
+- Title & Overview
+- Tags
+- Yield & Timing
+- Grocery List
+- Equipment & Tools
+- Ingredients
+- Allergy & Dietary Notes
+- Quick Overview
+- Gather & Stage
+- Instructions
+- Common Issues
+- Make-Ahead Notes
+- Reheat Plan when occasion/special-instruction/recipe requires it
+- Troubleshooting
+- Geometry/Scaling when relevant or required
+- Nutrition Snapshot when user/active specialized authority requires it
+- Special Notes when required
+- Variations unless explicitly omitted by user/format
+- Safety/Sources as applicable
+
+Structural checks:
+- 3 to 8 valid recipe tags from `tags.md`;
+- Yield & Timing includes Active Prep, Inactive Prep / Hands-Off / Rest, Cook, Total, and Make-ahead;
+- ordinary no-occasion yield defaults to a useful home-cooking/leftovers yield unless user specifies otherwise;
+- Grocery List has exact ingredient parity and no empty category headings;
+- Equipment uses `equipment.md` names/substitutions;
+- >= 4 numbered instruction steps;
+- heat steps include heat/temp + time range + sensory cue;
+- >= 2 recovery branches;
+- final taste-adjust loop;
+- Troubleshooting has 2 to 4 entries;
+- Variations has 2 to 4 meaningful entries when present;
+- ingredient parity across Grocery List / Ingredients / Instructions.
+
+Occasion checks:
+- base optimize/avoid directives are reflected;
+- workflow/seasonal/setting/service/menu directives are reflected without silently erasing each other;
+- required seasonal/hold/service/transport/make-ahead guidance exists when the occasion calls for it;
+- yield and immediate service count compose according to `instructions.md`;
+- active `special-instructions` requirements are present.
+
+When `workflow-meal-prep` is active, additionally require unless explicitly overridden:
+- default 10 meal-sized portions, with approximately 2-cup portions for volumetric dishes, unless explicit/base audience yield requires another count;
+- concrete 3-5-day fridge + remaining freezer plan when freezer-compatible;
+- quality-first freezer horizon stated realistically;
+- first-class Reheat Plan;
+- batch geometry/scaling notes when batch size affects cooking;
+- loaded personal/composition constraints;
+- qualitative health/composition fit in the overview;
+- Nutrition Snapshot by default unless explicitly opted out;
+- top 3 sodium drivers + 2 to 4 sodium levers;
+- sodium per 1000 kcal when Calories and Sodium are numeric;
+- ASCII-only/`deg F` output contract.
+
+When only request-scoped numeric nutrition is active:
+- Nutrition Snapshot follows `meal_prep_nutrition.md`;
+- no personalized Meal Prep batch/storage/personal-health rules leaked in.
+
+When only request-scoped general health guidance is active:
+- practical qualitative health/composition goal is reflected;
+- personalized ingredient/tolerance constraints do not appear unless separately requested.
+
+#### Revisions
+Check against `revisions.md`:
+- failure classification;
+- occasion + locked-decision carry-forward;
+- falsifiable hypothesis A (and B if used);
+- every change maps to a hypothesis;
+- Diagnosis Summary;
+- What Changes and Why;
+- full Updated Recipe under the same occasion context;
+- validation plan only when useful;
+- any occasion-required failure analysis or special revision hook completed;
+- request-scoped authorities preserved only while still in scope.
+
+When `workflow-meal-prep` is active, additionally require:
+- storage/freezer/reheat failure analysis when relevant;
+- internal failure-tailored variant matrix;
+- Nutrition Snapshot in Updated Recipe unless explicitly opted out.
 
 ---
 
-### Pass 5 — Timing Plausibility
+### Pass 2 - Carry-forward and specialized-authority isolation
+For every recoverable constraint:
+- base occasion preserved;
+- workflow/seasonal/setting/service/menu modifiers preserved;
+- selected option/variation preserved;
+- equipment limits preserved;
+- ingredient-source constraints preserved;
+- format requests preserved;
+- rejected paths absent;
+- occasion/specialized-authority overrides preserved.
 
-Verify all stated times are internally consistent and physically plausible.
+Critical isolation checks:
+- no occasion-loaded specialized authority is applied unless its declaring occasion/modifier is active;
+- no request-scoped authority expands beyond the explicitly requested topic;
+- active special instructions are not silently dropped;
+- project/chat memory alone did not activate a special instruction or personal constraint;
+- base occasion directives remain active alongside all modifiers.
 
-Checks:
-- Active Prep + Inactive / Hands-Off + Cook ≈ Total (within ±10 minutes; flag discrepancies larger than this).
-- Time ranges in each instructional step are plausible for the stated method, heat level, vessel size, and portion count.
-- Parallel tasks flagged in instructions (While X cooks, do Y) are achievable within the stated Active Prep time.
-- Sensory cues align with the stated time range: a "2 to 3 minute" step must not claim a cue that typically requires 8 to 10 minutes; a "30 to 40 minute" braise must not claim a cue consistent with 10 minutes.
-- If the dish has a well-established timing norm (e.g., stock, braise, bread proof), flag outliers that are unexpectedly short or long without explanation.
-- Make-ahead hold times: refrigerator holds are within commonly accepted safe storage windows for the product type; freeze durations are plausible for the product type.
-- Rest times for proteins and baked goods are present where they materially affect the final texture or carryover cooking.
-
----
-
-### Pass 6 — Internal Contradiction
-
-Check the artifact for intra-document conflicts.
-
-Checks:
-- **Ingredient list vs. Instructions**: every ingredient used in the instructions appears in the Ingredients list; every item in the Ingredients list is used somewhere in the instructions.
-- **Ingredients vs. Grocery List**: every ingredient appears exactly once in the Grocery List under a plausible category; no duplicates; no missing items; no item in Grocery List that is absent from Ingredients.
-- **Temperature and heat references**: oven temp stated in Equipment & Tools or Yield & Timing matches oven temp in instructions; no two steps specify conflicting temps for the same phase.
-- **Yield vs. vessel capacity**: stated yield is achievable in the listed vessel without exceeding known crowd or fill limits.
-- **Troubleshooting vs. Instructions**: troubleshooting entries do not contradict the method they supplement (e.g., troubleshooting must not suggest a step that the instructions already prohibit).
-- **Allergy & Dietary Notes**: "Contains" list is consistent with the actual Ingredients list; no undisclosed allergen present in ingredients but absent from the Contains field.
-- **Common Issues vs. Troubleshooting**: the two sections do not flatly contradict each other on the same symptom.
-- **Variations**: no variation silently contradicts a locked thread constraint or a core method the user selected.
+Silent violation of an explicit lock or active specialized authority is at least Major.
 
 ---
 
-### Pass 7 — User-Request Compliance
+### Pass 3 - Source quality
+Follow `meal_sources.md` quality requirements.
 
-Verify explicit user requests are satisfied and rejected paths are absent.
+Source-family count:
+- default: mode-specific counts from `meal_sources.md`;
+- if active occasion special instructions override counts, use those counts only while preserving all quality requirements.
 
-Checks:
-- Every direct user request in the current thread is reflected in the artifact, or its absence is acknowledged with a reason.
-- No excluded ingredient, technique, equipment item, or flavor direction reappears anywhere, including Variations.
-- Occasion directives from `occasions.md` are honored: the optimize and avoid axes are visible in the artifact's method choices, framing, and sequencing.
-- If the user requested deep research, the sources section reflects the mode-appropriate source-family minimum; a shallow evidence base is a Major issue.
-- Make-ahead preference (none / partial / full day-before) is reflected in Make-Ahead Notes; a mismatch between the stated preference and the section's content is at least a Minor issue.
+Verify:
+- independent source families and strict dedup;
+- required 2+ Tier 1 creators + blog + video/social + discussion/feedback-loop mix;
+- regional anchor when applicable;
+- multilingual/origin-language search when applicable;
+- comment-mined failures and guardrails completed for deep research;
+- baseline/secondary sources not defining cuisine identity alone;
+- no fabricated/unverifiable citations;
+- in-text markers resolve;
+- target deliverable source formatting is followed;
+- no Sources section when no browsing occurred.
+
+Nutrition provenance from a loaded nutrition authority is separate from recipe-source counts.
+
+Invented citation = Critical.
 
 ---
 
-## 4) Severity Model
+### Pass 4 - Equipment, geometry, yield, and occasion fit
+Check `equipment.md`:
+- listed tools exist or have compliant substitutions;
+- pan/material calibration applied;
+- crowding/layer depth explicit where important;
+- covered/uncovered and evaporation plan explicit;
+- vessel capacity matches yield;
+- avoid-unless-necessary/retired gear justified;
+- ceramic nonstick not used for inappropriate high-heat searing/broiling.
 
+Also verify geometry supports the resolved occasion: serving count, seasonal execution, holding plan, travel plan, and any batch workflow must be physically realistic.
+
+When `workflow-meal-prep` is active:
+- batch does not exceed realistic vessel surface area/capacity;
+- doubling is not implemented by merely extending cook time when batching is required;
+- portion count matches the composed batch/service plan.
+
+---
+
+### Pass 5 - Timing, holding, storage, and reheat plausibility
+Check:
+- Active Prep + Inactive / Hands-Off + Cook is approximately consistent with Total; flag discrepancies greater than about 10 minutes unless overlapping/parallel timing explains them;
+- step times plausible for heat, geometry, and portion size;
+- parallel tasks fit active-prep estimate;
+- sensory cues align with ranges;
+- rests present when materially needed;
+- hold/service windows are plausible for the selected occasion;
+- seasonal directives do not contradict heat path or service plan.
+
+When storage/reheat instructions are present or required:
+- fridge/freezer plan internally coherent;
+- freeze point makes culinary sense;
+- thaw path matches food format;
+- reheat method/time matches portion size and starting state;
+- texture-reset step addresses likely degradation;
+- Make-Ahead Notes and Reheat Plan do not contradict each other.
+
+For personalized Meal Prep, verify rapid-cooling/refrigeration/freezing guidance is practical and specific safety claims are sourced when browsing is available.
+
+---
+
+### Pass 6 - Internal contradiction
+Verify:
+- every ingredient used is listed and every listed ingredient is used;
+- Grocery List parity and no duplicates;
+- heat/temperature references do not conflict;
+- yield fits vessel capacity;
+- troubleshooting does not contradict instructions;
+- allergen/Contains line matches ingredients;
+- variations do not violate locks;
+- Common Issues and Troubleshooting agree;
+- occasion directives do not contradict seasonal/serving/hold/storage instructions;
+- active specialized-authority sections agree with the base recipe and each other.
+
+When `workflow-meal-prep` is active:
+- storage/freezer/reheat instructions agree;
+- loaded diet/personal toggles are coherent with base ingredients;
+- no loaded hard/default avoid reappears in a variation unless explicitly overridden;
+- Nutrition Snapshot serving definition matches composed recipe yield/portioning.
+
+---
+
+### Pass 7 - User, occasion, and specialized-authority compliance
+Verify:
+- every direct user request is satisfied or explicitly acknowledged;
+- rejected ingredients/techniques/formats absent;
+- occasion optimize/avoid axes are reflected in method/serving choices;
+- workflow/seasonal/setting/service/menu modifiers are justified;
+- requested research depth met;
+- make-ahead preference honored;
+- every active special instruction/request-scoped authority was applied;
+- inactive specialized authorities did not leak.
+
+When `workflow-meal-prep` is active:
+- batch/portioning matches workflow + base audience composition or explicit override;
+- `meal_prep_health_guidelines.md` followed unless overridden;
+- `meal_prep_personal_health.md` followed unless overridden;
+- freezer/reheat quality treated as design constraint;
+- sodium drivers/levers handled as required;
+- nutrition methodology follows `meal_prep_nutrition.md` unless explicitly opted out;
+- ASCII-only output contract followed.
+
+---
+
+### Pass 8 - Nutrition provenance (when Nutrition Snapshot is present/required)
+If `meal_prep_nutrition.md` is the active nutrition authority, check:
+- Nutrition Snapshot is present when required;
+- all mandatory core rows present;
+- vitamins/minerals tables present as required by `recipe_template.md`;
+- `NA` used only after source-tier exhaustion;
+- `--` used for non-displayed %DV and `NA` rows;
+- Source basis populated per row/tightly grouped set;
+- branded-food hierarchy follows manufacturer -> USDA Branded -> calculator fallback;
+- field-level fallback documented where used;
+- Added sugars follows Role A/B/C/D logic;
+- no partial nutrient sums silently exclude unresolved ingredients;
+- serving count matches recipe yield;
+- Nutrition Provenance present;
+- calculator does not outrank better ingredient-level data;
+- calculator/tool appears in Sources only if it materially contributed to displayed nutrition values.
+
+Invented nutrition values = Critical.
+
+---
+
+## 4) Severity
 | Severity | Definition |
 |---|---|
-| **Critical** | Likely causes a cook failure, creates a safety risk, or directly violates an explicit user constraint. Fix is mandatory before re-emit. |
-| **Major** | High risk of reliability failure, strong inconsistency, or silent constraint violation. Fix is strongly recommended. |
-| **Minor** | Clarity gap, suboptimal phrasing, or low-failure-risk inconsistency. Fix improves output quality but does not block cooking. |
+| **Critical** | Likely cook failure, safety risk, fabricated source/nutrition data, or direct violation of an explicit hard constraint. |
+| **Major** | High reliability risk, silent occasion/specialized-authority/lock violation, or major structural inconsistency. |
+| **Minor** | Clarity/format/low-risk inconsistency that improves quality but does not block cooking. |
 
-A single root cause may produce multiple visible symptoms. Group related symptoms under one issue ID when they share a single fix.
+Group symptoms that share one root cause/fix.
 
 ---
 
-## 5) Issue Format
+## 5) Issue format
+For each issue:
 
-For each issue, record:
-
-```
+```text
 ISSUE-[N]
 Severity:       [Critical | Major | Minor]
-Pass:           [Pass 1 – 7 and label, e.g., "Pass 4 — Equipment Fit"]
-Location:       [Section > subsection or step; e.g., "Instructions > Step 2 > time range"]
-Problem:        [1–2 sentences: what is wrong; what was found vs. what was expected.]
-Why it matters: [1 sentence: the likely consequence if unfixed.]
-Required fix:   [Specific and actionable; reference the authority file section when the fix rule lives there.]
+Pass:           [Pass N - label]
+Location:       [section/step]
+Problem:        [specific mismatch]
+Why it matters: [likely consequence]
+Required fix:   [specific correction + authority]
 ```
 
-Do not use vague language ("unclear", "could be improved"). Name the specific value, field, or rule that is violated.
+Avoid vague language.
 
 ---
 
-## 6) Corrected Re-Emit Rules
-
-When the user requests a corrected re-emit:
-
-1. Apply all Critical fixes without exception.
-2. Apply all Major fixes without exception.
-3. Apply Minor fixes only when they do not reduce clarity, change the dish's method intent, or conflict with a locked constraint.
-4. Re-emit the full artifact in canonical format per its target template (`options.md`, `recipe_template.md`, or `revisions.md`).
-5. Do not include audit chain-of-thought, the issue list, pre-audit intake notes, or any internal-only workflow sections in the re-emitted artifact.
-6. After the re-emitted artifact, append exactly one summary line: `[N Critical, N Major, N Minor fixes applied; N Minor issues noted but not applied.]`
+## 6) Corrected re-emit
+When requested:
+1. Apply all Critical fixes.
+2. Apply all Major fixes.
+3. Apply Minor fixes unless they reduce clarity or violate intent/locks.
+4. Re-emit the complete artifact using the same resolved occasion context unless the user changed it.
+5. Do not emit internal audit chain-of-thought/workflow notes.
+6. Append one summary line: `[N Critical, N Major, N Minor fixes applied; N Minor issues noted but not applied.]`
 
 ---
 
-## 7) Audit Completion Checklist
-
-Before finalizing audit output:
-- [ ] Artifact type identified and stated.
-- [ ] Thread constraints recovered (§2 Pre-Audit Intake).
-- [ ] All 7 passes completed; none skipped.
-- [ ] Each issue has: ID, severity, pass label, location, problem, why-it-matters, required fix.
-- [ ] Issues ordered: Critical first, Major second, Minor last.
-- [ ] If re-emit requested: corrected artifact is full, in canonical format, and contains no audit artifacts.
-- [ ] Fix summary line appended after re-emit.
-
----
-
-**Boundary reminder:** sourcing rules live in `meal_sources.md`; equipment inventory and fit rules live in `equipment.md`; template structure requirements live in `options.md`, `recipe_template.md`, and `revisions.md`; occasion directives live in `occasions.md`. This file applies those rules as audit criteria — it does not restate them.
+## Completion checklist
+- artifact type identified;
+- occasion context identified, including neutral fallback;
+- special-instruction hooks resolved;
+- request-scoped authorities resolved narrowly;
+- thread locks recovered;
+- all applicable passes completed;
+- specialized-authority isolation checked;
+- yield/service composition checked;
+- issues severity-ordered;
+- corrected artifact uses same occasion context unless user changed it;
+- nutrition pass completed when applicable.

@@ -1,11 +1,16 @@
-# 20260115_main.md
-# Recipe-Generation Assistant — Project Entrypoint
+# Recipe-Generation Assistant - Project Entrypoint
 
-This project’s entrypoint is `instructions.md`.
+This project uses one shared recipe engine with composable occasion context.
+
+Entrypoint: `instructions.md`.
 
 - Read `instructions.md` first and follow it as the orchestration layer.
-- Do not use other project files directly unless `instructions.md` routes you to them.
-- If there is a conflict between files, `instructions.md` defines the precedence rules and routing.
+- `instructions.md` resolves one base occasion plus optional workflow/seasonal/setting/service/menu modifiers.
+- `occasions.md` defines ordinary directives and optional `special-instructions` hooks.
+- Use `general-cooking` as the neutral base when no specialized occasion is justified.
+- `workflow-meal-prep` is the personalized Meal Prep workflow modifier and may load specialized health/personal/nutrition authorities.
+- An explicit nutrition/health/personal-constraint request may load the relevant specialized authority narrowly without activating `workflow-meal-prep`.
+- Do not load specialized authority files through project/chat memory alone.
 
 Primary file:
 - `/mnt/data/instructions.md`
