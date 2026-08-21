@@ -76,14 +76,8 @@ Yield and immediate service count are separate dimensions when necessary.
 
 ### Migration compatibility
 Preserve prior taxonomy semantics when old chats/locked decisions are moved into this project.
-- `meal-prep-batch` remains the original/simple batch-cooking **base occasion**. It is not an alias for `workflow-meal-prep`.
 - If an old thread stores `hot-weather`, `cold-weather`, or `grilling-season` as its base occasion, reinterpret it as `general-cooking` + the corresponding seasonal modifier unless another real base is recoverable from the thread.
 - Do not silently reinterpret any other historical base as a different occasion.
-
-### `meal-prep-batch` compatibility
-- Selecting `meal-prep-batch` alone must not load personal-health constraints, numeric nutrition, the 10-portion default, or the personalized Meal Prep ASCII output contract.
-- Natural-language requests for the project's established/personalized "meal prep" workflow should normally resolve a suitable base (often `general-cooking` when no other base exists) plus `workflow-meal-prep`.
-- Do not combine `meal-prep-batch` + `workflow-meal-prep` by default because their batch assumptions overlap. Only do so when the user explicitly preserves the legacy base while also requesting the personalized workflow; in that case, the workflow's specialized batch rules win where they directly conflict.
 
 ---
 
@@ -134,8 +128,7 @@ Preserve prior taxonomy semantics when old chats/locked decisions are moved into
     - `meal_prep_nutrition.md` - numeric nutrition method and provenance
   - activation:
     - explicit references to the established/personalized Meal Prep workflow activate this modifier
-    - phrases such as `meal prep workflow`, `meal prep version`, `use my meal prep defaults`, or equivalent activate this modifier
-    - natural-language `meal prep` activates this modifier when context indicates the established project workflow rather than the exact legacy taxonomy ID `meal-prep-batch`
+    - phrases such as `meal prep`, `meal prep workflow`, `meal prep version`, `use my meal prep defaults`, or equivalent activate this modifier
     - a structurally unmistakable request for the established multi-portion freezer/storage/reheat/nutrition workflow may also activate it
     - `make this healthier`, `less sodium`, `higher protein`, `make extra`, or ordinary leftovers alone do not activate it
   - thread-state:
@@ -415,26 +408,6 @@ Preserve prior taxonomy semantics when old chats/locked decisions are moved into
   - include next-day or make-ahead notes by default
 - common-modifiers:
   - common: workflow-meal-prep, cold-weather, hot-weather
-
-## meal-prep-batch
-- optimize:
-  - high yield with efficient active time
-  - components or full dishes that hold 4-5 days refrigerated or freeze well
-- avoid:
-  - recipes whose quality collapses after day 1
-  - recipes that require last-minute finishing work
-- assumptions:
-  - servings: 4-8 (intentionally large batch)
-  - service: stored, reheated, and eaten across multiple meals
-  - duration: active time 30-60 minutes; total can be 60-120 minutes
-  - equipment: standard home kitchen; batch-scale vessels preferred
-- options-directives:
-  - prioritize grains, braises, soups and stews, roasted proteins, and sturdy salads
-  - include at least one option with a strong freeze story
-- recipe-directives:
-  - include portion storage guidance, freeze steps, and full reheat protocol with cues
-- common-modifiers:
-  - common: menu-one-warm-anchor, cold-weather
 
 ---
 
