@@ -51,7 +51,7 @@ Pick 1 to 3:
 ## 2) Locked decisions and occasion carry-forward
 Before proposing fixes, recover and preserve:
 - base occasion;
-- workflow/setting/service/menu modifiers;
+- workflow/seasonal/setting/service/menu modifiers;
 - selected option/variation;
 - equipment limits and pan/tray count;
 - ingredient-source/brand constraints;
@@ -76,7 +76,7 @@ Check before research:
 - sequence integrity (acid/dairy/emulsion/rests);
 - crowding/surface area;
 - substitutions and ingredient state;
-- active occasion directives that affect hold/service/transport/storage.
+- active occasion directives that affect seasonality, hold/service, transport, or storage.
 
 When `workflow-meal-prep` is active, also check:
 - whether the fresh recipe was good but storage/reheat broke it;
@@ -136,7 +136,7 @@ Required:
 - covered/uncovered plan;
 - reduction/evaporation path;
 - realistic vessel capacity;
-- compatibility with active occasion hold/service/transport directives.
+- compatibility with active seasonal/service/setting/transport directives.
 
 When `workflow-meal-prep` is active, explicitly test whether the default batch requires multiple pans/batches rather than extending cook time in one crowded vessel.
 
@@ -212,7 +212,7 @@ For `workflow-meal-prep`, require:
 - Occasion context unchanged unless the user changed it.
 - All locked decisions preserved.
 - Every modification maps to a hypothesis.
-- No new contradiction between ingredients, instructions, service/holding, storage, and reheat.
+- No new contradiction between ingredients, instructions, seasonality, service/holding, storage, and reheat.
 - Every active special instruction was applied.
 - No inactive special instruction leaked into the revision.
 - When `workflow-meal-prep` is active, variant matrix completed internally and Nutrition Snapshot present unless explicitly opted out.
