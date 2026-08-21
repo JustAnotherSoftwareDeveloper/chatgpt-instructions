@@ -12,7 +12,9 @@ This is a preference/tolerance policy, not a diagnosis. The user's current-threa
 2. Food safety and explicit allergen constraints.
 3. Confirmed/repeated personal tolerance observations in this file.
 4. Conservative risk-management defaults in this file.
-5. General guidance in `meal_prep_health_guidelines.md`.
+5. General guidance in `meal_prep_health_guidelines.md` only when that authority is independently active.
+
+This file does not implicitly load `meal_prep_health_guidelines.md` or `meal_prep_nutrition.md` when used request-scoped outside `workflow-meal-prep`.
 
 ---
 
@@ -48,6 +50,8 @@ A minor background amount in a seasoning blend or prepared sauce may be acceptab
 - Do not default to a protein as the centerpiece if it predictably becomes watery, tough, rubbery, dry, or fishy after freeze/reheat.
 - Delicate white fish, shrimp reheated from frozen, and other delicate seafood are common examples.
 - This is a performance preference, not a nutritional judgment.
+
+Apply the freezer-performance preference only when storage/freezing is actually part of the active request/workflow; it should not distort an otherwise fresh-only request-scoped use of this file.
 
 ### Generally compatible
 - Red meat is acceptable; use cut choice, portioning, and fat management rather than treating it as categorically undesirable.
@@ -141,12 +145,14 @@ When one such element is central to the dish, simplify and soften the rest of th
 The user may explicitly relax any non-safety preference in this file. Record that relaxation in the thread's locked-decisions ledger and do not silently restore the old default later.
 
 ## QA
-Before emitting a deliverable while `workflow-meal-prep` is active:
+Before emitting a deliverable whenever this authority is active, check:
 - hard/default avoids absent unless overridden;
 - trace exceptions disclosed when meaningful;
 - onion not silently reintroduced through aromatic substitutions;
-- poultry/freezer-fragile proteins not silently promoted to centerpiece;
+- poultry not silently promoted to centerpiece unless requested;
+- freezer-fragile proteins handled according to this file only when storage/freezing is in scope;
 - dairy/gluten/bran-heavy ingredients handled according to their soft-blocker status;
 - fava safety flag respected;
 - no broad speculative blacklist created;
-- current-thread tolerance observations and overrides take precedence.
+- current-thread tolerance observations and overrides take precedence;
+- request-scoped use did not implicitly activate sibling Meal Prep authorities or batch/freezer defaults.
