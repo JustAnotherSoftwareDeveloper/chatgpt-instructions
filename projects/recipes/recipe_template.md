@@ -32,8 +32,6 @@ Apply active occasion assumptions and the yield/service composition rules in `in
 
 When `workflow-meal-prep` is active, default yield/portioning and fridge/freezer horizon come from that workflow unless overridden. State the actual portioning plan rather than blindly using cups for every food.
 
-The legacy/simple `meal-prep-batch` base uses its own 4-8 serving assumptions and does not imply the personalized 10-portion/nutrition/personal-health behavior.
-
 ## Grocery List
 Every ingredient appears exactly once under the correct category. Omit empty categories.
 
@@ -158,8 +156,6 @@ Include as a standard full-recipe section; keep it concise when make-ahead is no
 
 When `workflow-meal-prep` is active, this section is required and must implement its actual 3-5-day fridge split plus remaining freezer plan when freezer-compatible, unless the user overrides freezer use.
 
-When the legacy/simple `meal-prep-batch` base is active, follow that base's simpler portion-storage/freeze/reheat directives without importing personalized Meal Prep defaults.
-
 ## Reheat Plan
 Required when an active occasion/special instruction requires first-class reheat handling; optional otherwise when useful.
 
@@ -168,8 +164,6 @@ Required when an active occasion/special instruction requires first-class reheat
 - **Texture reset:** [how to restore sauce/crispness/moisture] -> [cue]
 - **Acceptable alternate:** [if useful]
 - *If [common reheat failure] -> [fix] -> [recovery cue].*
-
-The legacy/simple `meal-prep-batch` base also requires a full reheat protocol with cues, but not the other personalized workflow requirements.
 
 ## Troubleshooting
 2 to 4 entries total.
