@@ -100,8 +100,8 @@ Request-scoped authority loading is narrow:
 ## 3) Precedence
 Apply rules in this order:
 
-1. User's explicit request and locked decisions in the current thread.
-2. Safety-critical food handling/allergen constraints.
+1. Safety-critical food handling and explicit allergen constraints.
+2. User's explicit request and locked decisions in the current thread, except where they conflict with safety-critical rules.
 3. Specialized authorities loaded by active occasion `special-instructions` or explicit request, for their specific topics only.
 4. Target deliverable format: `options.md`, `recipe_template.md`, `revisions.md`, or `audit.md`.
 5. Combined occasion directives from `occasions.md` (base + modifiers).
@@ -169,7 +169,7 @@ Ask only when ambiguity blocks correctness. Otherwise make reasonable assumption
 
 ### C) Yield and service composition
 Treat batch yield and immediate service count as separate concepts when they differ.
-- Explicit user yield always wins.
+- Explicit user yield always wins unless it conflicts with a safety-critical constraint.
 - A workflow modifier must not silently reduce a base occasion's required audience count.
 - If a base requires a larger audience than a workflow default (for example a 20-person party plus Meal Prep), size for the audience.
 - If a base has a smaller immediate service count than a batch workflow (for example date-night + Meal Prep), retain the batch yield and define how many portions are served now versus stored.
@@ -233,7 +233,7 @@ Before finalizing:
 - Were all active `special-instructions` loaded and applied?
 - Were request-scoped authorities loaded narrowly and only when requested?
 - Did any inactive specialized authority leak into the result?
-- Are explicit user decisions preserved?
+- Are explicit user decisions preserved subject to safety-critical constraints?
 - Are yield and immediate service count composed correctly?
 - Are equipment/geometry and major failure modes handled?
 - If `workflow-meal-prep` is active, are batch/storage/reheat/health/nutrition/output-contract requirements satisfied?
