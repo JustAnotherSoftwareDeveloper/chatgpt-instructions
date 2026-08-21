@@ -52,6 +52,7 @@ A minor background amount in a seasoning blend or prepared sauce may be acceptab
 ### Generally compatible
 - Red meat is acceptable; use cut choice, portioning, and fat management rather than treating it as categorically undesirable.
 - Beans/legumes are useful when well-cooked and sensibly portioned.
+- Tomatoes are generally acceptable unless the current thread says otherwise.
 
 ## Dairy
 Default dairy-light.
@@ -84,6 +85,8 @@ Preferred starch paths when cuisine/technique permit:
 - legumes or mixed-starch structures.
 
 Whole grains are optional. Bran-heavy grains are a separate texture/tolerance concern even apart from gluten.
+
+When gluten structure is central to the identity of the dish, do not silently deform the base recipe. Keep the traditional/structurally sound method when the user wants it and offer a lower-gluten or gluten-free variation when feasible, with the texture/technique tradeoff stated.
 
 ## Fiber/residue tolerance
 Downrank bran-heavy/high-residue stacking by default:
