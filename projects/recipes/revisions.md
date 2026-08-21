@@ -13,7 +13,7 @@ When `meal-prep` is active, also apply:
 - `meal_prep.md`;
 - `meal_prep_health_guidelines.md`;
 - `meal_prep_personal_health.md`;
-- `meal_prep_nutrition.md` when numeric nutrition is required/requested.
+- `meal_prep_nutrition.md` for the default full-recipe Nutrition Snapshot unless explicitly opted out.
 
 ---
 
@@ -29,7 +29,7 @@ Helpful when available:
 - layer depth/thickness;
 - whether the failure occurred fresh, after refrigeration, after freezing, or on reheat.
 
-Ask only when ambiguity blocks a reliable fix.
+Ask only when ambiguity blocks a reliable fix. Meal Prep additionally follows the max-2-question rule in `meal_prep.md`.
 
 ---
 
@@ -107,6 +107,20 @@ Research budget:
 
 For Meal Prep reheat/freezer failures, specifically seek evidence on the stored/reheated state, not only fresh preparation.
 
+### Meal Prep internal variant matrix
+When Meal Prep is active, build a failure-tailored comparison matrix internally before selecting the fix. Include the drivers that matter to the observed failure, such as:
+- yield/batch size;
+- vessel/layer depth/crowding;
+- time/temperature;
+- covered vs uncovered path;
+- reduction endpoint;
+- key ingredient ratios;
+- salinity inputs;
+- emulsion/acid/dairy sequence;
+- freeze point/thaw/reheat state when relevant.
+
+Prefer ratio bands and recurring patterns over one source's point estimate. Record why the chosen path best matches the user's geometry and failure mode. Do not emit the matrix unless requested.
+
 ---
 
 ## 6) Equipment, geometry, and moisture pass
@@ -121,7 +135,15 @@ Required:
 
 ---
 
-## 7) Fix design
+## 7) Safety and correctness pass
+Follow `meal_sources.md` safety/correctness rules before finalizing.
+- Verify time/temperature claims are physically plausible for the stated geometry.
+- When making specific food-safety time/temperature/storage claims, use an authoritative source when browsing is available.
+- Keep safety corrections concise and relevant to the actual failure.
+
+---
+
+## 8) Fix design
 - Keep fixes minimal but decisive.
 - Prefer ratio bands and sensory cues over brittle point estimates.
 - Add a preventive guardrail for each high-confidence failure.
@@ -132,12 +154,12 @@ For Meal Prep:
 - fix both fresh and reheat performance when both matter;
 - do not solve storage problems with a component that violates configured personal defaults;
 - update fridge/freezer/reheat instructions whenever the diagnosis changes them;
-- recalculate numeric nutrition only when changed quantities materially alter the snapshot and nutrition is in scope.
+- recalculate numeric nutrition whenever changed quantities materially alter the snapshot, unless the user explicitly opted out of nutrition.
 
 ---
 
 ## Emission policy
-Internal-only: intake, classification, locks, triage, hypotheses, research, equipment analysis, fix design.
+Internal-only: intake, classification, locks, triage, hypotheses, research, variant matrix, equipment analysis, safety pass, fix design.
 
 Emit in this order:
 
@@ -167,7 +189,8 @@ Additional Meal Prep requirements:
 - Make-Ahead Notes;
 - first-class Reheat Plan;
 - freezer guidance when used;
-- Nutrition Snapshot when required by the active profile/user request.
+- Nutrition Snapshot by default unless explicitly opted out;
+- Meal Prep ASCII/formatting contract.
 
 ### D) Optional Validation Plan
 2 to 5 next-cook checks when useful.
@@ -181,3 +204,5 @@ Additional Meal Prep requirements:
 - No new contradiction between ingredients, instructions, storage, and reheat.
 - Standard revision does not leak Meal Prep personal constraints.
 - Meal Prep revision satisfies current profile constraints and storage/reheat behavior.
+- Meal Prep variant matrix completed internally.
+- Meal Prep Nutrition Snapshot present unless explicitly opted out.
