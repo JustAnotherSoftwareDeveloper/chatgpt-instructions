@@ -5,7 +5,7 @@ This is the single entry point for the Recipes ChatGPT Project. It routes every 
 
 There are no recipe profiles. Behavior is composed from:
 - one base occasion;
-- optional workflow, setting, service, and menu modifiers;
+- optional workflow, seasonal, setting, service, and menu modifiers;
 - optional `special-instructions` declared by any selected occasion/modifier.
 
 `workflow-meal-prep` is the first special-instruction workflow. It is an occasion-system modifier, not a parallel recipe engine.
@@ -48,6 +48,7 @@ Choose exactly one base occasion from `occasions.md`.
 ### Optional modifiers
 Select at most one from each axis when useful:
 - workflow;
+- seasonal;
 - setting;
 - service;
 - menu.
@@ -167,7 +168,7 @@ Convert research into concrete failure-mode guardrails, technique choices, geome
 ### E) Locked decisions ledger
 Carry forward accepted decisions and hard constraints through options, recipes, revisions, and audits:
 - base occasion;
-- workflow/setting/service/menu modifiers;
+- workflow/seasonal/setting/service/menu modifiers;
 - selected option/variation;
 - equipment limits and pan/tray count;
 - ingredient-source constraints;
@@ -183,7 +184,7 @@ Do not silently change the occasion context or restore an overridden special-ins
 When any active occasion/modifier declares `special-instructions`:
 1. load the declared authority files;
 2. apply its interaction/research/output/revision/audit hooks as applicable;
-3. apply its options/recipe directives alongside the base occasion;
+3. apply its options/recipe directives alongside the base occasion and other modifiers;
 4. preserve all user overrides;
 5. skip those special rules entirely when the declaring occasion/modifier is inactive.
 
@@ -207,7 +208,7 @@ If the user asks for the basis/sources/why a method was chosen:
 ## 8) Final QA
 Before finalizing:
 - Is the base occasion correct?
-- Are the selected modifiers justified and compatible?
+- Are workflow/seasonal/setting/service/menu modifiers justified and compatible?
 - Were all active `special-instructions` loaded and applied?
 - Did any inactive special instruction leak into the result?
 - Are explicit user decisions preserved?
