@@ -1,7 +1,7 @@
 # Meal Prep Nutrition Calculation Method
 
 ## Goal
-Generate a reliable `Nutrition Snapshot (per serving)` for Meal Prep recipes using source-driven, calculator-assisted arithmetic.
+Generate a reliable `Nutrition Snapshot (per serving)` using source-driven, calculator-assisted arithmetic when this authority is loaded by an active occasion special instruction.
 
 Principles:
 - Ingredient-level authoritative sources are preferred.
@@ -11,7 +11,7 @@ Principles:
 - One unresolved nutrient does not invalidate the entire snapshot.
 - Source attribution is required per row or tightly grouped row set.
 
-**Default scope:** Full recipes in Meal Prep profile include the Nutrition Snapshot unless the user explicitly opts out. Standard-profile recipes do not inherit this requirement. This file also governs numeric nutrition whenever the user explicitly requests it.
+**Activation:** `occasions.md` loads this file through `workflow-meal-prep` `special-instructions`. Full recipes under that workflow include the Nutrition Snapshot unless the user explicitly opts out. Outside that workflow, use this file only when the user explicitly requests numeric nutrition or another active occasion explicitly loads it.
 
 ---
 
@@ -48,45 +48,56 @@ Always attempt when sourceable:
 
 ### Extended vitamins/minerals
 Attempt when reasonably sourceable:
-- Vitamin E, Vitamin K
-- Thiamin (B1), Riboflavin (B2), Niacin (B3), Pantothenic acid (B5), Vitamin B6
+- Vitamin E
+- Vitamin K
+- Thiamin (B1)
+- Riboflavin (B2)
+- Niacin (B3)
+- Pantothenic acid (B5)
+- Vitamin B6
 - Choline
-- Phosphorus, Zinc, Copper, Manganese, Selenium
+- Phosphorus
+- Zinc
+- Copper
+- Manganese
+- Selenium
 
-If a field remains unresolved after source-tier escalation:
-- Amount = `NA`
-- %DV = `--`
-- Keep required rows visible.
-- Do not publish a partial recipe-level sum that silently excludes unresolved ingredient contributions.
-
-A recipe-level nutrient can be numeric only when every included ingredient contribution for that nutrient is numeric in compatible units/forms.
+Operational rules:
+- Manufacturer Nutrition Facts panels often omit fat sub-types, soluble/insoluble fiber, and many voluntary vitamins/minerals. Treat absent fields as unresolved unless a lower source tier resolves them.
+- If a field remains unresolved after source-tier escalation: Amount = `NA`; %DV = `--`.
+- Keep required rows visible even when `NA`.
+- Fat sub-type rows and fiber sub-type rows always use `%DV = --`.
+- A recipe-level nutrient may be numeric only when every included ingredient contribution for that nutrient is numeric in compatible units/forms.
+- If any included ingredient remains unresolved for a nutrient after source-tier exhaustion, the recipe-level row becomes `NA`; do not publish a partial sum.
 
 ---
 
 ## Source hierarchy
-### Tier 1 — USDA FoodData Central Foundation Foods
+### Tier 1 - USDA FoodData Central Foundation Foods
 Default for raw/generic/minimally processed ingredients.
 - Source: https://fdc.nal.usda.gov/
 
-### Tier 2 — official manufacturer nutrition source
+### Tier 2 - official manufacturer nutrition source
 Default for branded packaged foods. Prefer exact current SKU:
 1. manufacturer product page;
 2. manufacturer PDF/spec sheet;
 3. package label text explicitly provided.
 
-Field-level fallback is allowed: use Tier 2 for declared fields and descend only for omitted fields.
+Do not use a manufacturer source that is clearly outdated or mismatched.
 
-### Tier 3 — USDA FoodData Central Branded Foods
+Field-level fallback is allowed: if Tier 2 provides some required fields but omits others, descend only for missing fields. Record the tier used per field or tightly grouped field set.
+
+### Tier 3 - USDA FoodData Central Branded Foods
 Fallback for branded products when manufacturer data is unavailable/stale.
 - Source: https://fdc.nal.usda.gov/
 
-### Tier 4 — USDA FNDDS / SR Legacy / other prepared-food entries
+### Tier 4 - USDA FNDDS / SR Legacy / other prepared-food entries
 For generic prepared/mixed foods without a better ingredient-level match.
 
-### Tier 5 — USDA yield/portion corrections
-Use for drained weight, edible portion, cooked yield, or similar conversion corrections. These modify quantities; they are not the primary nutrient authority.
+### Tier 5 - USDA yield/portion corrections
+Use for drained weight, edible portion, cooked yield, or similar conversion corrections. These modify quantities; they are not primary nutrient authorities.
 
-### Tier 6 — public recipe calculators
+### Tier 6 - public recipe calculators
 - MyFoodData Recipe Nutrition Calculator: https://tools.myfooddata.com/recipe-nutrition-calculator
 - HappyForks Recipe Analyzer: https://happyforks.com/analyzer
 - Verywell Fit Recipe Nutrition Analyzer: https://www.verywellfit.com/recipe-nutrition-analyzer-4157076
@@ -98,14 +109,15 @@ Use only to:
 
 Calculator output never outranks a cleaner ingredient-level source stack.
 
-### Tier 7 — premium/future data source
+### Tier 7 - premium/future data source
 A licensed research-grade database such as NCC/NCCDB may be used when available. It is an optional future upgrade path, not a public-workflow requirement.
 
 ---
 
 ## No-hard-stop rule
 - Tool/calculator failure never causes the full Nutrition Snapshot to disappear.
-- If one calculator fails, try another only when useful; otherwise continue with ingredient-level derivation.
+- If the first public calculator tried fails and calculator use is still useful, escalate to another Tier 6 tool.
+- If calculators fail, continue with ingredient-level derivation from Tiers 1-5.
 - If one nutrient remains unresolved, set only that nutrient to `NA` and continue.
 - Do not fabricate missing micronutrients simply to complete the table.
 
@@ -163,14 +175,14 @@ Use current FDA Daily Values on a 2,000 kcal basis:
 
 ## Workflow
 ### A) Define serving
-Confirm recipe yield and what constitutes one serving. If ambiguous, choose a plausible meal-prep serving and disclose it in Nutrition Assumptions.
+Confirm recipe yield and what constitutes one serving. If ambiguous, choose the most plausible serving for the active occasion and disclose it in Nutrition Assumptions.
 
 ### B) Parse ingredients
 For each ingredient:
 - record recipe quantity;
 - classify as generic whole ingredient, branded packaged product, generic prepared food, or custom sub-component;
 - classify Added Sugars role:
-  - Role A: discrete added sweetener without declared Added sugars -> its sugars count as added sugar;
+  - Role A: discrete added sweetener without declared Added sugars -> all sugar contributed by the sweetener counts as added sugar;
   - Role B: unsweetened whole food -> no added-sugar contribution;
   - Role C: product with declared Added sugars -> use declared value;
   - Role D: processed/packaged item without declared Added sugars -> Added sugars = `NA` for that ingredient.
@@ -182,11 +194,12 @@ For each ingredient:
 - Generic prepared/mixed food -> Tier 4 first.
 - Apply Tier 5 only as a correction layer.
 - Descend per missing field rather than rematching the whole ingredient unnecessarily.
+- If no tier yields a match for a nutrient field, set that field to `NA` for that ingredient and continue.
 
 ### D) Normalize quantities and nutrient forms
-Prefer exact grams when available; otherwise use precise source-native serving units.
+Prefer exact grams when already present; otherwise use precise source-native serving units.
 - Only force gram conversion when arithmetic/source format requires it.
-- For an ambiguous household-size ingredient (for example, `1 large [produce item]`), use the most typical U.S. retail size supported by the selected source and disclose the assumption in Nutrition Assumptions.
+- For an ambiguous household-size ingredient, use the most typical U.S. retail size supported by the selected source and disclose the assumption in Nutrition Assumptions.
 
 Normalize display forms:
 - Vitamin A = mcg RAE
@@ -197,11 +210,13 @@ Normalize display forms:
 Do not mix incompatible nutrient forms. If an authoritative conversion is unavailable, use `NA` for that ingredient/field.
 
 ### E) Apply yield/drained/edible corrections
-Use documented yield factors when materially relevant and disclose them.
+Use documented Tier 5 yield factors when materially relevant and disclose them.
 
 ### F) Compute ingredient contributions
 For each nutrient:
 `ingredient quantity / source serving size * source nutrient per serving`
+
+Only compute contributions normalized to the display unit/form.
 
 ### G) Sum recipe totals
 Only sum a nutrient when every included ingredient contribution is resolved numerically. Otherwise the recipe-level field is `NA`.
@@ -210,20 +225,21 @@ Only sum a nutrient when every included ingredient contribution is resolved nume
 Per-serving nutrient = recipe total / servings.
 
 ### I) Populate `recipe_template.md` Nutrition Snapshot
-Include Source basis for each row or tightly grouped set.
+Include Source basis for each row or tightly grouped set and compute %DV using the table above.
 
 ### J) Calculator use
 If a calculator helps:
-- feed it source-resolved quantities where practical;
+- feed it source-resolved ingredient quantities where practical;
 - compare its result against source-derived arithmetic;
 - prefer source-derived totals when materially different;
+- if a calculator fills a specific Tier 1-5 gap, use it only when units/forms can be normalized exactly;
 - cite the tool only if it materially contributed to displayed values.
 
 ---
 
 ## Sub-recipes and retained fractions
 For sauces, marinades, dressings, rubs, fillings, or other custom components:
-- calculate the component independently;
+- calculate the component independently using the same workflow;
 - roll the consumed fraction into the parent recipe;
 - for marinade or other partial-retention cases, apply a documented retention assumption rather than pretending all liquid is consumed.
 
@@ -237,8 +253,16 @@ For sauces, marinades, dressings, rubs, fillings, or other custom components:
 
 ---
 
+## Source policy
+- Source attribution is required per displayed nutrient row or tightly grouped row set.
+- Cite the source tier or specific source (for example USDA Foundation FDC identifier, manufacturer label, or named calculator).
+- Tool citations appear in Sources only when the tool materially contributed to the Nutrition Snapshot.
+- Nutrition source attribution is governed by this file; generic recipe-source rules in `meal_sources.md` do not govern nutrient data selection.
+
+---
+
 ## Reporting format
-Use the Meal Prep conditional Nutrition Snapshot in `recipe_template.md`.
+Use the Nutrition Snapshot table format in `recipe_template.md`.
 
 Required conventions:
 - `NA` = unresolved after source-tier exhaustion.
