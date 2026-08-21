@@ -1,16 +1,18 @@
 # Recipe Revisions Instruction Set
 
 ## Purpose
-Diagnose a recipe failure, corroborate the likely cause, and emit a corrected recipe that preserves the active profile and locked user decisions.
+Diagnose a recipe failure, corroborate the likely cause, and emit a corrected recipe that preserves the resolved occasion context and locked user decisions.
 
 Shared authorities:
 - research/sourcing: `meal_sources.md`;
+- occasions/special-instruction hooks: `occasions.md`;
 - equipment/geometry: `equipment.md`;
 - final recipe format: `recipe_template.md`;
-- profile selection/precedence: `instructions.md`.
+- orchestration/precedence: `instructions.md`.
 
-When `meal-prep` is active, also apply:
-- `meal_prep.md`;
+Load additional authorities only when the active occasion/modifier declares them through `special-instructions`.
+
+When `workflow-meal-prep` is active, load:
 - `meal_prep_health_guidelines.md`;
 - `meal_prep_personal_health.md`;
 - `meal_prep_nutrition.md` for the default full-recipe Nutrition Snapshot unless explicitly opted out.
@@ -29,7 +31,7 @@ Helpful when available:
 - layer depth/thickness;
 - whether the failure occurred fresh, after refrigeration, after freezing, or on reheat.
 
-Ask only when ambiguity blocks a reliable fix. Meal Prep additionally follows the max-2-question rule in `meal_prep.md`.
+Ask only when ambiguity blocks a reliable fix. Apply any active occasion interaction rules; `workflow-meal-prep` permits at most 2 clarifying questions.
 
 ---
 
@@ -41,26 +43,27 @@ Pick 1 to 3:
 - Workflow/complexity
 - Equipment/geometry/scaling
 - Substitution breakage
-- **Meal Prep only:** storage/freezer/reheat degradation
-- **Meal Prep only:** profile-constraint conflict (a substitution preserved compliance but broke the dish)
+- Storage/freezer/reheat degradation (when relevant)
+- Occasion/special-instruction conflict (a compliant change broke the dish or service goal)
 
 ---
 
-## 2) Locked decisions and profile carry-forward
+## 2) Locked decisions and occasion carry-forward
 Before proposing fixes, recover and preserve:
-- active profile;
+- base occasion;
+- workflow/setting/service/menu modifiers;
 - selected option/variation;
 - equipment limits and pan/tray count;
 - ingredient-source/brand constraints;
 - format requests;
 - rejected paths;
-- user-stated profile overrides.
-
-In Meal Prep, also preserve current-thread overrides to personal/health defaults. Do not silently re-enable a default the user already relaxed or remove one they explicitly reinforced.
+- user-stated overrides to occasion/special-instruction defaults.
 
 If a proposed fix conflicts with a lock:
 - provide a compliant alternative; or
 - clearly identify the conflict and ask only if permission is genuinely required.
+
+Do not silently drop or introduce an occasion modifier during revision.
 
 ---
 
@@ -72,9 +75,10 @@ Check before research:
 - reduction and salinity concentration;
 - sequence integrity (acid/dairy/emulsion/rests);
 - crowding/surface area;
-- substitutions and ingredient state.
+- substitutions and ingredient state;
+- active occasion directives that affect hold/service/transport/storage.
 
-**Meal Prep only:** also check:
+When `workflow-meal-prep` is active, also check:
 - whether the fresh recipe was good but storage/reheat broke it;
 - freeze point and packaging;
 - thaw method;
@@ -90,7 +94,7 @@ State internally at least one falsifiable hypothesis:
 - Hypothesis A: [cause] - confidence high|med|low
 - Hypothesis B (optional): [cause] - confidence high|med|low
 
-Each hypothesis must imply a cue/test that could disprove it. Every proposed change must map to A or B; remove unrelated "improvements" from the minimal fix.
+Each hypothesis must imply a cue/test that could disprove it. Every proposed change must map to A or B; remove unrelated improvements from the minimal fix.
 
 ---
 
@@ -102,13 +106,15 @@ Follow `meal_sources.md` end-to-end.
 - Reconcile disagreements using failure specificity + physics consistency.
 
 Research budget:
-- Standard: `meal_sources.md` revisions target.
-- Meal Prep: `meal_prep.md` revisions target unless user requests Standard-depth counts.
+- default: use `meal_sources.md` revisions target;
+- if an active occasion declares a research-budget override, use that count while retaining all `meal_sources.md` quality rules.
 
-For Meal Prep reheat/freezer failures, specifically seek evidence on the stored/reheated state, not only fresh preparation.
+When storage/reheat is part of the failure, seek evidence on the stored/reheated state, not only fresh preparation.
 
-### Meal Prep internal variant matrix
-When Meal Prep is active, build a failure-tailored comparison matrix internally before selecting the fix. Include the drivers that matter to the observed failure, such as:
+### Special-instruction variant matrix
+When an active occasion requires a variant matrix, build it internally before selecting the fix.
+
+`workflow-meal-prep` requires a failure-tailored comparison including the material drivers relevant to the observed failure, such as:
 - yield/batch size;
 - vessel/layer depth/crowding;
 - time/temperature;
@@ -123,15 +129,16 @@ Prefer ratio bands and recurring patterns over one source's point estimate. Reco
 
 ---
 
-## 6) Equipment, geometry, and moisture pass
+## 6) Equipment, geometry, moisture, and occasion pass
 Required:
 - on-hand-compatible vessel/tools;
 - explicit batch depth/crowding limits;
 - covered/uncovered plan;
 - reduction/evaporation path;
-- realistic vessel capacity.
+- realistic vessel capacity;
+- compatibility with active occasion hold/service/transport directives.
 
-**Meal Prep only:** explicitly test whether the profile batch size requires multiple pans/batches rather than extending cook time in one crowded vessel.
+When `workflow-meal-prep` is active, explicitly test whether the default batch requires multiple pans/batches rather than extending cook time in one crowded vessel.
 
 ---
 
@@ -140,6 +147,7 @@ Follow `meal_sources.md` safety/correctness rules before finalizing.
 - Verify time/temperature claims are physically plausible for the stated geometry.
 - When making specific food-safety time/temperature/storage claims, use an authoritative source when browsing is available.
 - Keep safety corrections concise and relevant to the actual failure.
+- Apply any stronger safety-sourcing rule declared by the active occasion.
 
 ---
 
@@ -148,18 +156,18 @@ Follow `meal_sources.md` safety/correctness rules before finalizing.
 - Prefer ratio bands and sensory cues over brittle point estimates.
 - Add a preventive guardrail for each high-confidence failure.
 - Preserve cuisine/flavor intent.
-- Preserve user/profile constraints unless explicitly overridden.
+- Preserve user/occasion/special-instruction constraints unless explicitly overridden.
 
-For Meal Prep:
+When `workflow-meal-prep` is active:
 - fix both fresh and reheat performance when both matter;
-- do not solve storage problems with a component that violates configured personal defaults;
+- do not solve storage problems with a component that violates loaded personal defaults;
 - update fridge/freezer/reheat instructions whenever the diagnosis changes them;
 - recalculate numeric nutrition whenever changed quantities materially alter the snapshot, unless the user explicitly opted out of nutrition.
 
 ---
 
 ## Emission policy
-Internal-only: intake, classification, locks, triage, hypotheses, research, variant matrix, equipment analysis, safety pass, fix design.
+Internal-only: intake, classification, locks, triage, hypotheses, research, any required variant matrix, equipment/occasion analysis, safety pass, fix design.
 
 Emit in this order:
 
@@ -171,26 +179,29 @@ Emit in this order:
 ### B) What Changes and Why
 - old -> new changes;
 - why each maps to a hypothesis;
-- any lock/profile conflict and resolution.
+- any lock/occasion/special-instruction conflict and resolution.
 
 ### C) Updated Recipe
-Full drop-in replacement using `recipe_template.md` under the same active profile.
+Full drop-in replacement using `recipe_template.md` under the same resolved occasion context.
 
-Required regardless of profile:
+Required regardless of occasion:
 - inventory-aware equipment;
 - geometry/crowding limits when relevant;
 - explicit moisture/reduction plan;
 - Gather & Stage;
-- troubleshooting entries for the observed failure.
+- troubleshooting entries for the observed failure;
+- all ordinary recipe directives from the active base/modifiers.
 
-Additional Meal Prep requirements:
-- profile-compliant ingredients;
+Additional requirements come from active `special-instructions`.
+
+For `workflow-meal-prep`, require:
+- loaded-constraint-compliant ingredients;
 - portion/batch strategy;
 - Make-Ahead Notes;
 - first-class Reheat Plan;
 - freezer guidance when used;
 - Nutrition Snapshot by default unless explicitly opted out;
-- Meal Prep ASCII/formatting contract.
+- Meal Prep ASCII/output contract.
 
 ### D) Optional Validation Plan
 2 to 5 next-cook checks when useful.
@@ -198,11 +209,10 @@ Additional Meal Prep requirements:
 ---
 
 ## Final QA
-- Active profile unchanged unless user changed it.
+- Occasion context unchanged unless the user changed it.
 - All locked decisions preserved.
-- Each modification maps to a hypothesis.
-- No new contradiction between ingredients, instructions, storage, and reheat.
-- Standard revision does not leak Meal Prep personal constraints.
-- Meal Prep revision satisfies current profile constraints and storage/reheat behavior.
-- Meal Prep variant matrix completed internally.
-- Meal Prep Nutrition Snapshot present unless explicitly opted out.
+- Every modification maps to a hypothesis.
+- No new contradiction between ingredients, instructions, service/holding, storage, and reheat.
+- Every active special instruction was applied.
+- No inactive special instruction leaked into the revision.
+- When `workflow-meal-prep` is active, variant matrix completed internally and Nutrition Snapshot present unless explicitly opted out.
