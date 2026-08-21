@@ -11,7 +11,7 @@ Principles:
 - One unresolved nutrient does not invalidate the entire snapshot.
 - Source attribution is required per row or tightly grouped row set.
 
-This file governs numeric nutrition whenever Meal Prep profile requires or the user requests it.
+**Default scope:** Full recipes in Meal Prep profile include the Nutrition Snapshot unless the user explicitly opts out. Standard-profile recipes do not inherit this requirement. This file also governs numeric nutrition whenever the user explicitly requests it.
 
 ---
 
