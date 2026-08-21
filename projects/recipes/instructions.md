@@ -9,7 +9,7 @@ There are no recipe profiles. Behavior is composed from:
 - optional `special-instructions` declared by any selected occasion/modifier;
 - optional request-scoped authorities explicitly invoked by the user's request.
 
-`workflow-meal-prep` is the personalized Meal Prep workflow modifier. It is not a parallel recipe engine and it is distinct from the legacy/simple `meal-prep-batch` base occasion.
+`workflow-meal-prep` is the personalized Meal Prep workflow modifier. It is not a parallel recipe engine.
 
 Do not duplicate detailed rules from canonical files. Route to them.
 
@@ -45,7 +45,6 @@ Choose exactly one base occasion from `occasions.md`.
 - Use the user's explicit occasion when supplied.
 - Otherwise infer a real base only when the request supports one.
 - If there is no meaningful event/use-case base, use `general-cooking`. Do not force a generic recipe into `weeknight-dinner`, `date-night`, or another specialized base merely to fill the field.
-- Exact references to the existing taxonomy ID `meal-prep-batch` select that simple batch-cooking base; they do not load personal-health or nutrition authorities.
 
 ### Optional modifiers
 Select at most one from each axis when useful:
@@ -72,8 +71,7 @@ Do **not** activate `workflow-meal-prep` merely because the user says:
 - "less sodium";
 - "higher protein";
 - "make extra";
-- requests ordinary leftovers;
-- or explicitly selects the legacy/simple `meal-prep-batch` base occasion.
+- requests ordinary leftovers.
 
 Once `workflow-meal-prep` is active in a conversation, keep it active until the user removes it or clearly asks for a one-off non-Meal-Prep result. Record one-off exceptions without destroying the underlying workflow state.
 
@@ -175,7 +173,6 @@ Treat batch yield and immediate service count as separate concepts when they dif
 - A workflow modifier must not silently reduce a base occasion's required audience count.
 - If a base requires a larger audience than a workflow default (for example a 20-person party plus Meal Prep), size for the audience.
 - If a base has a smaller immediate service count than a batch workflow (for example date-night + Meal Prep), retain the batch yield and define how many portions are served now versus stored.
-- `meal-prep-batch` uses its own 4-8 serving base defaults unless explicitly combined with another supported modifier or overridden by the user.
 
 ### D) Research behavior
 Default to deep research per `meal_sources.md` unless the user explicitly requests a quick/lightweight/no-browse answer.
