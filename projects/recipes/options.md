@@ -69,7 +69,7 @@ Resolve per `occasions.md`:
 - Why each modifier is active:
 - Thread overrides to occasion defaults:
 
-Use `general-cooking` when no specialized base is justified. Preserve exact legacy `meal-prep-batch` as the simple batch-cooking base rather than converting it to `workflow-meal-prep`.
+Use `general-cooking` when no specialized base is justified.
 
 ### Occasion directive extraction
 Combine the base and modifiers without silently discarding constraints.
