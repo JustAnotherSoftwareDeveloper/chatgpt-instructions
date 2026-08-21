@@ -66,6 +66,7 @@ A recipe-level nutrient can be numeric only when every included ingredient contr
 ## Source hierarchy
 ### Tier 1 — USDA FoodData Central Foundation Foods
 Default for raw/generic/minimally processed ingredients.
+- Source: https://fdc.nal.usda.gov/
 
 ### Tier 2 — official manufacturer nutrition source
 Default for branded packaged foods. Prefer exact current SKU:
@@ -77,6 +78,7 @@ Field-level fallback is allowed: use Tier 2 for declared fields and descend only
 
 ### Tier 3 — USDA FoodData Central Branded Foods
 Fallback for branded products when manufacturer data is unavailable/stale.
+- Source: https://fdc.nal.usda.gov/
 
 ### Tier 4 — USDA FNDDS / SR Legacy / other prepared-food entries
 For generic prepared/mixed foods without a better ingredient-level match.
@@ -85,7 +87,10 @@ For generic prepared/mixed foods without a better ingredient-level match.
 Use for drained weight, edible portion, cooked yield, or similar conversion corrections. These modify quantities; they are not the primary nutrient authority.
 
 ### Tier 6 — public recipe calculators
-Examples: MyFoodData, HappyForks, Verywell Fit.
+- MyFoodData Recipe Nutrition Calculator: https://tools.myfooddata.com/recipe-nutrition-calculator
+- HappyForks Recipe Analyzer: https://happyforks.com/analyzer
+- Verywell Fit Recipe Nutrition Analyzer: https://www.verywellfit.com/recipe-nutrition-analyzer-4157076
+
 Use only to:
 - accelerate arithmetic;
 - cross-check source-derived totals;
