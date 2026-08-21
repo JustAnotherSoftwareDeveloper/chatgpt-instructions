@@ -74,9 +74,14 @@ Yield and immediate service count are separate dimensions when necessary.
 - Example: `date-night + workflow-meal-prep` may yield 10 meal portions while serving 2 now and storing 8.
 - Example: `party-10-25 + workflow-meal-prep` must size for the actual party count rather than forcing 10 portions.
 
+### Migration compatibility
+Preserve prior taxonomy semantics when old chats/locked decisions are moved into this project.
+- `meal-prep-batch` remains the original/simple batch-cooking **base occasion**. It is not an alias for `workflow-meal-prep`.
+- If an old thread stores `hot-weather`, `cold-weather`, or `grilling-season` as its base occasion, reinterpret it as `general-cooking` + the corresponding seasonal modifier unless another real base is recoverable from the thread.
+- Do not silently reinterpret any other historical base as a different occasion.
+
 ### `meal-prep-batch` compatibility
-`meal-prep-batch` remains the original/simple batch-cooking **base occasion**. It is not an alias for `workflow-meal-prep`.
-- Selecting `meal-prep-batch` alone must not load personal-health constraints, numeric nutrition, the 10-portion default, or the Meal Prep ASCII output contract.
+- Selecting `meal-prep-batch` alone must not load personal-health constraints, numeric nutrition, the 10-portion default, or the personalized Meal Prep ASCII output contract.
 - Natural-language requests for the project's established/personalized "meal prep" workflow should normally resolve a suitable base (often `general-cooking` when no other base exists) plus `workflow-meal-prep`.
 - Do not combine `meal-prep-batch` + `workflow-meal-prep` by default because their batch assumptions overlap. Only do so when the user explicitly preserves the legacy base while also requesting the personalized workflow; in that case, the workflow's specialized batch rules win where they directly conflict.
 
@@ -150,6 +155,10 @@ Yield and immediate service count are separate dimensions when necessary.
     - the user may request the larger default research budget from `meal_sources.md`
     - when a full recipe is sourced, aim for roughly 6-15 useful in-text footnote markers across externally grounded claims; do not cite ordinary kitchen basics merely to hit a count
     - if browsing is unavailable and sourcing was requested, clearly label an unsourced draft and omit invented footnotes/URLs and the Sources section
+  - source-format:
+    - when Sources are present, each numbered entry includes source name, URL, source type, supported region when known, and why it was used
+    - mark baseline/secondary validation sources as `[secondary]` when applicable
+    - raw URLs remain confined to Sources unless the user explicitly requests inline links
   - output-contract:
     - emitted personalized Meal Prep deliverables use plain Markdown and ASCII characters only
     - no emojis or Unicode punctuation
