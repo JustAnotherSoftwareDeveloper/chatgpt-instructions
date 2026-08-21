@@ -2,12 +2,12 @@
 
 ## Purpose
 Generate a short, scannable shortlist that:
-- obeys occasion directives from `occasions.md`;
+- obeys the resolved occasion context from `occasions.md`;
 - is grounded in authentic, cross-checked research per `meal_sources.md`;
-- obeys the active profile selected by `instructions.md`;
+- obeys any `special-instructions` loaded by the active occasion/modifiers;
 - is formatted for fast decision-making.
 
-When `meal-prep` is active, also apply `meal_prep.md`, `meal_prep_health_guidelines.md`, and `meal_prep_personal_health.md`.
+When `workflow-meal-prep` is active, load and apply the special authorities declared by that occasion entry.
 
 ---
 
@@ -15,10 +15,9 @@ When `meal-prep` is active, also apply `meal_prep.md`, `meal_prep_health_guideli
 
 ### Internal-only workflow sections
 Compute before drafting but do not emit unless explicitly requested:
-- Active profile confirmation
-- Occasion selection
+- Occasion context resolution
 - Occasion directive extraction
-- Meal Prep constraint extraction (Meal Prep only)
+- Special-instruction extraction (only when active)
 - Research execution
 - Research outputs
 
@@ -35,10 +34,14 @@ Compute before drafting but do not emit unless explicitly requested:
 ## Required inputs
 
 ### Title & Goal
-[2-3 sentences: desired food, time window, equipment preferences, vibe/flavor direction, target occasion, and active profile when relevant.]
+[2-3 sentences: desired food, time window, equipment preferences, vibe/flavor direction, and target occasion context when relevant.]
 
 ### Context & Constraints
-- Profile: [standard | meal-prep]
+- Base occasion:
+- Workflow modifier: [none | active modifier]
+- Setting modifier: [none | active modifier]
+- Service modifier: [none | active modifier]
+- Menu modifier: [none | active modifier]
 - Serves:
 - Time:
   - Active:
@@ -53,46 +56,56 @@ Compute before drafting but do not emit unless explicitly requested:
 - Make-ahead preference: [none | partial | components day-before | full day-before OK]
 - Notes / assumptions:
 
-For Meal Prep, include batch/portion/freezer requirements here when they materially differ from the profile defaults.
+When `workflow-meal-prep` is active, include batch/portion/freezer requirements here only when they materially differ from the workflow defaults.
 
 ---
 
 ## Internal workflow
 
-### Active profile confirmation
-- Profile:
-- Why active:
-- Thread overrides to profile defaults:
-
-### Occasion selection
-Select one base + optional modifiers per `occasions.md`.
+### Occasion context resolution
+Resolve per `occasions.md`:
+- Base occasion:
+- Workflow modifier:
+- Setting modifier:
+- Service modifier:
+- Menu modifier:
+- Why each modifier is active:
+- Thread overrides to occasion defaults:
 
 ### Occasion directive extraction
+Combine the base and modifiers without silently discarding constraints.
 - Optimize (2-6 bullets)
 - Avoid (2-6 bullets)
 - Assumptions to honor
 - Options-directives
 - Recipe-directives to carry forward
-- If modifiers are used, confirm they are valid setting/service/menu modifiers rather than another occasion base.
+- If modifiers are used, validate that each belongs to the correct axis.
 
-### Meal Prep constraint extraction (only when active)
-Summarize without emitting:
-- Batch/portion target
-- Fridge/freezer strategy
-- Freezer/reheat constraints
-- General composition defaults applied
-- Personal defaults applied
-- Personal/profile defaults overridden
-- Notes to carry forward to full recipe
+### Special-instruction extraction (only when active)
+For each selected occasion/modifier with `special-instructions`:
+- Files loaded
+- Interaction rules
+- Research-budget overrides
+- Output/format rules relevant to options
+- User overrides to those defaults
+- Notes to carry forward to a full recipe
 
-Do not replace occasion directives with Meal Prep constraints; apply both.
+For `workflow-meal-prep`, this must include:
+- batch/portion target;
+- fridge/freezer strategy;
+- freezer/reheat constraints;
+- general composition defaults applied;
+- personal defaults applied;
+- personal/workflow defaults overridden.
+
+Do not replace base occasion directives with workflow constraints; apply both.
 
 ### Research execution
-Follow `meal_sources.md` for quality, deduplication, authenticity, disagreement handling, regional anchors, and comment mining.
+Follow `meal_sources.md` for quality, deduplication, authenticity, disagreement handling, regional anchors, no-inference, safety, and comment mining.
 
 Research budget:
-- Standard: use `meal_sources.md` mode-specific targets.
-- Meal Prep: use the profile budget in `meal_prep.md` unless the user requests Standard-depth source counts.
+- default: use `meal_sources.md` mode-specific targets;
+- if an active occasion declares a research-budget override, use that count while retaining all `meal_sources.md` quality rules.
 
 ### Research outputs
 - Recurring failure modes (>= 3)
@@ -100,7 +113,7 @@ Research budget:
 - Key disagreements and reconciliation
 - Notes to carry forward to recipe step
 
-In Meal Prep, at least one failure-mode/guardrail should address storage, freezing, reheating, batch geometry, or portioning when materially relevant.
+When `workflow-meal-prep` is active, at least one failure-mode/guardrail should address storage, freezing, reheating, batch geometry, or portioning when materially relevant.
 
 ### Breadth scan before ranking
 Search at least 3 materially different buckets:
@@ -109,11 +122,11 @@ Search at least 3 materially different buckets:
 - target eating experience;
 - equipment fit;
 - occasion fit;
-- Meal Prep only: freezer/reheat/constraint fit.
+- active special-instruction fit.
 
 Do not finalize until at least 3 materially different buckets have actually been explored.
 
-Optional idea buckets when the search space is getting repetitive: quick skillet, sheet-pan/roast, grill/smoker, braise/stew, stir-fry, filled items, one-pot pasta/risotto, breads/doughs, sauces/condiments, sandwiches/tacos/wraps, no-cook assemblies, party bites, boards/grazing.
+Optional idea buckets when the search space is repetitive: quick skillet, sheet-pan/roast, grill/smoker, braise/stew, stir-fry, filled items, one-pot pasta/risotto, breads/doughs, sauces/condiments, sandwiches/tacos/wraps, no-cook assemblies, party bites, boards/grazing.
 
 ---
 
@@ -129,7 +142,7 @@ Optional idea buckets when the search space is getting repetitive: quick skillet
 - Avoid quantities unless essential.
 - Use U.S. customary units by default.
 - Bold option names and field labels; do not bold whole sentences.
-- Meal Prep additionally follows the ASCII-only output contract in `meal_prep.md`.
+- Apply any active occasion-specific output contract. `workflow-meal-prep` uses the ASCII-only contract in `occasions.md`.
 
 ---
 
@@ -142,13 +155,13 @@ Each option must include:
 - a familiar comparison when useful;
 - one research-derived Watch item;
 - Why it fits, tied to occasion directives and equipment;
-- Meal Prep only: Why it fits must also address at least one meaningful profile constraint such as freezer/reheat reliability, portionability, batch geometry, or configured food constraints.
+- when special instructions are active, Why it fits must also address at least one material special-instruction constraint.
 
 Avoid vague cultural-label-only descriptions. Describe the actual dish, eating experience, and meaningful differentiator.
 
 Source-family counts:
-- Standard: follow `meal_sources.md`.
-- Meal Prep: follow `meal_prep.md`.
+- default: follow `meal_sources.md`;
+- active occasion research-budget overrides take precedence for counts only.
 
 ### Distinctness guardrails
 For broad prompts:
@@ -156,21 +169,21 @@ For broad prompts:
 - no more than 2 options in the same format;
 - no more than 2 sharing the same primary protein/center-of-plate.
 
-When the user constrains format, diversify across at least 3 of:
+When the user/occasion strongly constrains format, diversify across at least 3 of:
 - protein/center-of-plate;
 - sauce/base style;
 - method;
 - flavor profile;
 - holding strategy;
 - make-ahead strategy;
-- Meal Prep: freezer/reheat strategy.
+- storage/reheat strategy when relevant.
 
 ### Per-option template
 #### 1) **[Option Name]** [tags: 3-5; format: ...; active: ~X min (est); effort: low|med|high]
 **Description:** [what it is + eating experience + distinctiveness + familiar comparison when needed]
 **Flavor profile:** richness [light|med|rich]; acidity [low|med|high]; heat [none|low|med|high]; notes: [2-4]; texture: [1-2]
 **Make-ahead:** [what]. **Hold/Reheat:** [how + cue; use Hold terminology for party/grazing contexts]
-**Watch:** [research-derived failure mode/guardrail]. **Why it fits:** [goal + occasion + equipment + Meal Prep constraint if active]
+**Watch:** [research-derived failure mode/guardrail]. **Why it fits:** [goal + occasion + equipment + active special-instruction constraint if applicable]
 **Source:** [Blog|YT|IG|Forum|Authoritative]. [n]
 
 Tag guidance: 3-5 tags from `tags.md`.
@@ -193,12 +206,12 @@ Recommended axes:
 - Most impressive for effort
 - Most crowd-friendly
 - Easiest allergy/avoidance-friendly with trivial swaps
-- Meal Prep only: best freezer/reheat performance
+- Best fit for an active workflow special instruction (for Meal Prep: freezer/reheat performance)
 
 ---
 
 ## Optional Comparative Matrix
-Use when there are >= 6 shortlist options or when occasion/profile constraints create meaningful holding, freezer, or coordination tradeoffs.
+Use when there are >= 6 shortlist options or when occasion/special-instruction constraints create meaningful holding, storage, or coordination tradeoffs.
 
 | Option | Format | Active (est) | Effort | Make-ahead | Hold/Reheat | Biggest watch | Why it fits |
 |---:|---|---:|---|---|---|---|---|
@@ -209,6 +222,6 @@ Use when there are >= 6 shortlist options or when occasion/profile constraints c
 ---
 
 ## Sources
-**Standard:** plain URLs only, one per numbered entry, matching in-text `[n]` markers.
+**Default:** plain URLs only, one per numbered entry, matching in-text `[n]` markers.
 
-**Meal Prep:** preserve the former profile's richer source metadata: each numbered entry includes source name, raw URL, source type, supported region when known, and why it was used. Raw URLs remain confined to this section unless the user requests inline links.
+If an active occasion defines richer source metadata, follow it. `workflow-meal-prep` preserves source name, raw URL, source type, supported region when known, and why the source was used. Raw URLs remain confined to this section unless the user requests inline links.
