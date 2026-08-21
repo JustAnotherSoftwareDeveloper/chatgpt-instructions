@@ -4,10 +4,8 @@
 Generate a short, scannable shortlist that:
 - obeys the resolved occasion context from `occasions.md`;
 - is grounded in authentic, cross-checked research per `meal_sources.md`;
-- obeys any `special-instructions` loaded by the active occasion/modifiers;
+- obeys any specialized authorities loaded by the active occasion or explicit user request;
 - is formatted for fast decision-making.
-
-When `workflow-meal-prep` is active, load and apply the special authorities declared by that occasion entry.
 
 ---
 
@@ -17,7 +15,7 @@ When `workflow-meal-prep` is active, load and apply the special authorities decl
 Compute before drafting but do not emit unless explicitly requested:
 - Occasion context resolution
 - Occasion directive extraction
-- Special-instruction extraction (only when active)
+- Specialized-authority extraction (only when active)
 - Research execution
 - Research outputs
 
@@ -34,15 +32,10 @@ Compute before drafting but do not emit unless explicitly requested:
 ## Required inputs
 
 ### Title & Goal
-[2-3 sentences: desired food, time window, equipment preferences, vibe/flavor direction, and target occasion context when relevant.]
+[2-3 sentences: desired food, time window, equipment preferences, vibe/flavor direction, and occasion/use case when relevant. If a health/composition authority materially shapes ranking, describe the practical goal in plain language without naming internal files or resolver state.]
 
 ### Context & Constraints
-- Base occasion:
-- Workflow modifier: [none | active modifier]
-- Seasonal modifier: [none | active modifier]
-- Setting modifier: [none | active modifier]
-- Service modifier: [none | active modifier]
-- Menu modifier: [none | active modifier]
+- Occasion / use case: [plain-language only; omit when not meaningful]
 - Serves:
 - Time:
   - Active:
@@ -57,7 +50,9 @@ Compute before drafting but do not emit unless explicitly requested:
 - Make-ahead preference: [none | partial | components day-before | full day-before OK]
 - Notes / assumptions:
 
-When `workflow-meal-prep` is active, include batch/portion/freezer requirements here only when they materially differ from the workflow defaults.
+Do not expose internal base/modifier IDs in this user-visible section unless the user explicitly asks to inspect occasion resolution.
+
+When `workflow-meal-prep` is active, include batch/portion/freezer requirements here only when they materially differ from workflow defaults.
 
 ---
 
@@ -74,6 +69,8 @@ Resolve per `occasions.md`:
 - Why each modifier is active:
 - Thread overrides to occasion defaults:
 
+Use `general-cooking` when no specialized base is justified. Preserve exact legacy `meal-prep-batch` as the simple batch-cooking base rather than converting it to `workflow-meal-prep`.
+
 ### Occasion directive extraction
 Combine the base and modifiers without silently discarding constraints.
 - Optimize (2-6 bullets)
@@ -82,9 +79,10 @@ Combine the base and modifiers without silently discarding constraints.
 - Options-directives
 - Recipe-directives to carry forward
 - If modifiers are used, validate that each belongs to the correct axis.
+- Resolve audience/yield versus batch-yield semantics per `instructions.md`.
 
-### Special-instruction extraction (only when active)
-For each selected occasion/modifier with `special-instructions`:
+### Specialized-authority extraction (only when active)
+For each selected occasion/modifier with `special-instructions`, or each explicit request-scoped authority:
 - Files loaded
 - Interaction rules
 - Research-budget overrides
@@ -99,6 +97,8 @@ For `workflow-meal-prep`, this must include:
 - general composition defaults applied;
 - personal defaults applied;
 - personal/workflow defaults overridden.
+
+For request-scoped health/composition guidance, apply only the requested health goal; do not activate Meal Prep batch/storage/personal defaults. For request-scoped numeric nutrition, carry the nutrition requirement forward without changing option ranking unless the user supplied a nutrient target.
 
 Do not replace base or seasonal/setting/service/menu directives with workflow constraints; apply all selected axes.
 
@@ -124,7 +124,7 @@ Search at least 3 materially different buckets:
 - target eating experience;
 - equipment fit;
 - occasion fit;
-- active special-instruction fit.
+- active specialized-authority fit when relevant.
 
 Do not finalize until at least 3 materially different buckets have actually been explored.
 
@@ -157,7 +157,7 @@ Each option must include:
 - a familiar comparison when useful;
 - one research-derived Watch item;
 - Why it fits, tied to occasion directives and equipment;
-- when special instructions are active, Why it fits must also address at least one material special-instruction constraint.
+- when specialized authorities materially shape selection, Why it fits must also address at least one relevant constraint.
 
 Avoid vague cultural-label-only descriptions. Describe the actual dish, eating experience, and meaningful differentiator.
 
@@ -185,7 +185,7 @@ When the user/occasion strongly constrains format, diversify across at least 3 o
 **Description:** [what it is + eating experience + distinctiveness + familiar comparison when needed]
 **Flavor profile:** richness [light|med|rich]; acidity [low|med|high]; heat [none|low|med|high]; notes: [2-4]; texture: [1-2]
 **Make-ahead:** [what]. **Hold/Reheat:** [how + cue; use Hold terminology for party/grazing contexts]
-**Watch:** [research-derived failure mode/guardrail]. **Why it fits:** [goal + resolved occasion context + equipment + active special-instruction constraint if applicable]
+**Watch:** [research-derived failure mode/guardrail]. **Why it fits:** [goal + resolved occasion/use case + equipment + material specialized constraint if applicable]
 **Source:** [Blog|YT|IG|Forum|Authoritative]. [n]
 
 Tag guidance: 3-5 tags from `tags.md`.
@@ -208,12 +208,12 @@ Recommended axes:
 - Most impressive for effort
 - Most crowd-friendly
 - Easiest allergy/avoidance-friendly with trivial swaps
-- Best fit for an active workflow special instruction (for Meal Prep: freezer/reheat performance)
+- Best fit for an active workflow constraint (for personalized Meal Prep: freezer/reheat performance)
 
 ---
 
 ## Optional Comparative Matrix
-Use when there are >= 6 shortlist options or when occasion/special-instruction constraints create meaningful holding, storage, or coordination tradeoffs.
+Use when there are >= 6 shortlist options or when occasion/specialized constraints create meaningful holding, storage, or coordination tradeoffs.
 
 | Option | Format | Active (est) | Effort | Make-ahead | Hold/Reheat | Biggest watch | Why it fits |
 |---:|---|---:|---|---|---|---|---|
