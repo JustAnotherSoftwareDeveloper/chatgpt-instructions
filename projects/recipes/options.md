@@ -73,6 +73,7 @@ Select one base + optional modifiers per `occasions.md`.
 - Assumptions to honor
 - Options-directives
 - Recipe-directives to carry forward
+- If modifiers are used, confirm they are valid setting/service/menu modifiers rather than another occasion base.
 
 ### Meal Prep constraint extraction (only when active)
 Summarize without emitting:
@@ -110,19 +111,25 @@ Search at least 3 materially different buckets:
 - occasion fit;
 - Meal Prep only: freezer/reheat/constraint fit.
 
+Do not finalize until at least 3 materially different buckets have actually been explored.
+
+Optional idea buckets when the search space is getting repetitive: quick skillet, sheet-pan/roast, grill/smoker, braise/stew, stir-fry, filled items, one-pot pasta/risotto, breads/doughs, sauces/condiments, sandwiches/tacos/wraps, no-cook assemblies, party bites, boards/grazing.
+
 ---
 
 ## Formatting rules
 - Preserve section headers and order.
 - Each shortlist option is its own block separated by a blank line.
+- Target about 6 lines per shortlist option; maximum 7 unless the user requests more detail.
 - No raw URLs in shortlist/runner-ups/chooser rules.
 - Use numeric footnote markers `[n]` for sourced claims.
 - URLs belong only in Sources.
 - Never invent links.
-- If no external browsing occurred, omit footnotes and Sources; do not fabricate placeholders.
+- If no external browsing occurred, write exactly: `No external browsing performed; sources omitted.` Then omit footnotes and omit the Sources section.
 - Avoid quantities unless essential.
 - Use U.S. customary units by default.
 - Bold option names and field labels; do not bold whole sentences.
+- Meal Prep additionally follows the ASCII-only output contract in `meal_prep.md`.
 
 ---
 
@@ -136,6 +143,8 @@ Each option must include:
 - one research-derived Watch item;
 - Why it fits, tied to occasion directives and equipment;
 - Meal Prep only: Why it fits must also address at least one meaningful profile constraint such as freezer/reheat reliability, portionability, batch geometry, or configured food constraints.
+
+Avoid vague cultural-label-only descriptions. Describe the actual dish, eating experience, and meaningful differentiator.
 
 Source-family counts:
 - Standard: follow `meal_sources.md`.
@@ -160,7 +169,7 @@ When the user constrains format, diversify across at least 3 of:
 #### 1) **[Option Name]** [tags: 3-5; format: ...; active: ~X min (est); effort: low|med|high]
 **Description:** [what it is + eating experience + distinctiveness + familiar comparison when needed]
 **Flavor profile:** richness [light|med|rich]; acidity [low|med|high]; heat [none|low|med|high]; notes: [2-4]; texture: [1-2]
-**Make-ahead:** [what]. **Hold/Reheat:** [how + cue]
+**Make-ahead:** [what]. **Hold/Reheat:** [how + cue; use Hold terminology for party/grazing contexts]
 **Watch:** [research-derived failure mode/guardrail]. **Why it fits:** [goal + occasion + equipment + Meal Prep constraint if active]
 **Source:** [Blog|YT|IG|Forum|Authoritative]. [n]
 
@@ -170,7 +179,7 @@ Tag guidance: 3-5 tags from `tags.md`.
 
 ## Runner-Ups (5 to 10)
 One-liners only. Each needs a hook plus a key technique/protein or why it was bumped.
-Only footnote runner-ups traceable to the researched source pool.
+Only footnote runner-ups traceable to the researched source pool. In no-browse mode, runner-ups are unsourced brainstorm additions and receive no footnotes.
 
 ---
 
