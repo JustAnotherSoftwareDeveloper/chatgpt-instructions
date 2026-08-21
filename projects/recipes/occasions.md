@@ -13,13 +13,13 @@ Resolve one composable occasion context for every options, recipe, revision, or 
 3. Apply the base directives and all selected modifier directives together.
 4. If any selected entry declares `special-instructions`, load and apply those instructions before drafting the deliverable.
 
-Keep modifiers minimal. A workflow modifier is different from the base occasion: it changes how the recipe is designed/executed without consuming context such as `weeknight-dinner`, `date-night`, `party-10-25`, or a holiday base. Seasonal context likewise modifies a base rather than replacing it.
+Keep modifiers minimal. A workflow modifier changes how the recipe is designed/executed without consuming event/use-case context. Seasonal context likewise modifies a base rather than replacing it.
 
 Examples:
-- weeknight-dinner + workflow-meal-prep
-- date-night + hot-weather
-- party-10-25 + hot-weather + service-buffet + setting-outdoor
-- christmas + workflow-meal-prep + cold-weather + menu-dessert-forward
+- `general-cooking + workflow-meal-prep`
+- `weeknight-dinner + workflow-meal-prep`
+- `date-night + hot-weather`
+- `party-10-25 + hot-weather + service-buffet + setting-outdoor`
 
 ## Entry schema
 Every base/modifier may use:
@@ -40,7 +40,7 @@ Any entry may additionally define `special-instructions` when ordinary directive
 - add output-format rules;
 - add revision/audit checks;
 - define interaction defaults;
-- define sticky thread behavior or aliases.
+- define sticky thread behavior.
 
 Rules:
 - Most occasions should not need `special-instructions`; use ordinary directives whenever possible.
@@ -65,10 +65,20 @@ Later modifiers may specialize an earlier directive but should not erase it sile
 - otherwise preserve both by choosing a method that satisfies both;
 - surface a tradeoff only when it materially affects the result.
 
-## Legacy alias
-`meal-prep-batch` is a compatibility alias for `workflow-meal-prep`.
-- Do not treat `meal-prep-batch` as the base occasion.
-- When it is requested or recovered from an older thread, activate `workflow-meal-prep` and independently resolve the most appropriate base occasion from the current context.
+### Yield and service composition
+Yield and immediate service count are separate dimensions when necessary.
+- Explicit user yield always wins.
+- A modifier must never silently reduce a base occasion's required audience count.
+- If the base audience minimum is larger than a workflow batch default, size for the base audience.
+- If the base immediate service count is smaller than a workflow batch default, keep the batch yield and state how many portions are served immediately versus stored.
+- Example: `date-night + workflow-meal-prep` may yield 10 meal portions while serving 2 now and storing 8.
+- Example: `party-10-25 + workflow-meal-prep` must size for the actual party count rather than forcing 10 portions.
+
+### `meal-prep-batch` compatibility
+`meal-prep-batch` remains the original/simple batch-cooking **base occasion**. It is not an alias for `workflow-meal-prep`.
+- Selecting `meal-prep-batch` alone must not load personal-health constraints, numeric nutrition, the 10-portion default, or the Meal Prep ASCII output contract.
+- Natural-language requests for the project's established/personalized "meal prep" workflow should normally resolve a suitable base (often `general-cooking` when no other base exists) plus `workflow-meal-prep`.
+- Do not combine `meal-prep-batch` + `workflow-meal-prep` by default because their batch assumptions overlap. Only do so when the user explicitly preserves the legacy base while also requesting the personalized workflow; in that case, the workflow's specialized batch rules win where they directly conflict.
 
 ---
 
@@ -88,7 +98,7 @@ Later modifiers may specialize an earlier directive but should not erase it sile
   - batch plans that exceed realistic vessel geometry
   - diet-gimmick substitutions that distort the dish
 - assumptions:
-  - portions: 10 meal-sized portions unless overridden
+  - portions: 10 meal-sized portions unless user/base audience requires another count
   - eating horizon: roughly 2 weeks
   - refrigerator: approximately 3-5 days of portions
   - freezer: remaining portions when freezer-compatible; quality-first horizon measured in months
@@ -96,35 +106,36 @@ Later modifiers may specialize an earlier directive but should not erase it sile
   - equipment: use `equipment.md`; split into multiple vessels/batches when geometry requires it
 - options-directives:
   - rank freezer/reheat reliability, batch geometry, portionability, make-ahead leverage, and flavor after reheating
-  - apply the configured health/composition and personal food/tolerance defaults
+  - apply configured general composition and personal food/tolerance defaults
   - preserve cuisine identity; prefer culinary technique over gimmick substitutions
   - include at least one storage/reheat/batch failure-mode guardrail when materially relevant
 - recipe-directives:
-  - volumetric dishes default to 10 x approximately 2-cup meal portions
+  - volumetric dishes default to 10 x approximately 2-cup meal portions unless yield composition requires more/fewer
   - component meals use a practical protein + vegetable + starch (or equivalent) portion plan
-  - non-volumetric foods use 10 real meal-sized units/servings with a packaging plan
+  - non-volumetric foods use real meal-sized units/servings with a packaging plan
   - require a concrete fridge/freezer strategy when freezer-compatible
   - require a meaningful make-ahead pathway
   - require a first-class Reheat Plan with best method, cue, texture reset, and failure recovery
-  - require batch geometry/scaling notes when the batch size materially affects cooking
+  - require batch geometry/scaling notes when batch size materially affects cooking
   - require a Nutrition Snapshot by default unless the user explicitly opts out
   - identify the top 3 sodium drivers + 2-4 concrete sodium levers
   - report sodium per 1000 kcal when Calories and Sodium are numeric
 - common-modifiers:
-  - pairs well with: weeknight-dinner, cozy-night-in, bring-over, lunchbox-style requests, hot-weather, cold-weather
+  - common: hot-weather, cold-weather, setting-outdoor
 - special-instructions:
   - load-files:
     - `meal_prep_health_guidelines.md` - general composition and cooking defaults
     - `meal_prep_personal_health.md` - configured personal ingredient/tolerance defaults
     - `meal_prep_nutrition.md` - numeric nutrition method and provenance
   - activation:
-    - explicit phrases such as `meal prep`, `meal-prep workflow`, `meal prep version`, `use my meal prep defaults`, or equivalent activate this workflow modifier
+    - explicit references to the established/personalized Meal Prep workflow activate this modifier
+    - phrases such as `meal prep workflow`, `meal prep version`, `use my meal prep defaults`, or equivalent activate this modifier
+    - natural-language `meal prep` activates this modifier when context indicates the established project workflow rather than the exact legacy taxonomy ID `meal-prep-batch`
     - a structurally unmistakable request for the established multi-portion freezer/storage/reheat/nutrition workflow may also activate it
-    - `meal-prep-batch` is an alias
-    - `make this healthier`, `less sodium`, `higher protein`, or `make extra` alone do not activate the workflow
+    - `make this healthier`, `less sodium`, `higher protein`, `make extra`, or ordinary leftovers alone do not activate it
   - thread-state:
-    - once activated, keep `workflow-meal-prep` active in the current conversation until the user removes it or clearly requests a one-off non-meal-prep result
-    - record explicit overrides to these defaults in the locked-decisions ledger
+    - once activated, keep `workflow-meal-prep` active in the current conversation until the user removes it or clearly requests a one-off non-Meal-Prep result
+    - record explicit overrides in the locked-decisions ledger
     - project/chat memory may provide recipe history, but must not activate this workflow or its personal constraints by itself
   - interaction:
     - ask at most 2 clarifying questions and only when missing information materially changes correctness
@@ -140,15 +151,16 @@ Later modifiers may specialize an earlier directive but should not erase it sile
     - when a full recipe is sourced, aim for roughly 6-15 useful in-text footnote markers across externally grounded claims; do not cite ordinary kitchen basics merely to hit a count
     - if browsing is unavailable and sourcing was requested, clearly label an unsourced draft and omit invented footnotes/URLs and the Sources section
   - output-contract:
-    - emitted Meal Prep deliverables use plain Markdown and ASCII characters only
+    - emitted personalized Meal Prep deliverables use plain Markdown and ASCII characters only
     - no emojis or Unicode punctuation
     - temperatures use `425 deg F`, not a degree symbol
     - use U.S. customary units by default; metric may appear when source-derived or precision-critical
     - raw URLs appear only in Sources unless the user explicitly requests inline links
   - food-safety-sourcing:
-    - keep cooling/storage/reheat guidance practical and concise
-    - when making specific food-safety time/temperature/storage claims, corroborate with an authoritative source such as USDA/FDA/Cooperative Extension when browsing is available
-    - never invent safety citations
+    - portion large batches into shallow containers or otherwise use a practical rapid-cooling plan rather than leaving a deep hot mass to cool slowly
+    - refrigerate near-term portions promptly and freeze portions intended beyond the near-term refrigerator window
+    - when a specific mixed-leftover reheat target is appropriate, use 165 deg F and corroborate specific food-safety time/temperature/storage claims with an authoritative source such as USDA/FDA/Cooperative Extension when browsing is available
+    - keep safety guidance concise and never invent safety citations
   - revisions:
     - diagnose fresh-cook and stored/reheated performance when relevant
     - build an internal failure-tailored variant matrix comparing material drivers such as ratios, layer depth, covered/uncovered path, reduction endpoint, sequence, salinity, and storage/reheat state before selecting the fix
@@ -353,7 +365,26 @@ Later modifiers may specialize an earlier directive but should not erase it sile
 
 ---
 
-# Everyday occasions
+# General / everyday occasions
+
+## general-cooking
+- optimize:
+  - direct fit to the user's requested dish and eating experience
+  - reliable execution without inventing event-specific constraints
+- avoid:
+  - adding arbitrary time, service, holding, transport, or crowd assumptions
+- assumptions:
+  - servings: use explicit user yield; otherwise ordinary home-cooking yield with useful leftovers
+  - service: ordinary home meal unless context says otherwise
+  - duration: driven by the dish and user constraints
+  - equipment: use `equipment.md`
+- options-directives:
+  - preserve broad format/cuisine diversity when the prompt is broad
+  - rank for request fit, technique reliability, and equipment compatibility
+- recipe-directives:
+  - use the canonical recipe workflow with no extra event-specific service requirements
+- common-modifiers:
+  - common: workflow-meal-prep, hot-weather, cold-weather, grilling-season
 
 ## weeknight-dinner
 - optimize:
@@ -375,6 +406,26 @@ Later modifiers may specialize an earlier directive but should not erase it sile
   - include next-day or make-ahead notes by default
 - common-modifiers:
   - common: workflow-meal-prep, cold-weather, hot-weather
+
+## meal-prep-batch
+- optimize:
+  - high yield with efficient active time
+  - components or full dishes that hold 4-5 days refrigerated or freeze well
+- avoid:
+  - recipes whose quality collapses after day 1
+  - recipes that require last-minute finishing work
+- assumptions:
+  - servings: 4-8 (intentionally large batch)
+  - service: stored, reheated, and eaten across multiple meals
+  - duration: active time 30-60 minutes; total can be 60-120 minutes
+  - equipment: standard home kitchen; batch-scale vessels preferred
+- options-directives:
+  - prioritize grains, braises, soups and stews, roasted proteins, and sturdy salads
+  - include at least one option with a strong freeze story
+- recipe-directives:
+  - include portion storage guidance, freeze steps, and full reheat protocol with cues
+- common-modifiers:
+  - common: menu-one-warm-anchor, cold-weather
 
 ---
 
