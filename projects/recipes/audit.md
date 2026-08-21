@@ -1,7 +1,7 @@
 # Audit Workflow
 
 ## Purpose
-Audit recipe artifacts for template compliance, carry-forward, source quality, equipment/geometry, timing, internal consistency, user-request compliance, occasion-directive compliance, and active special-instruction compliance.
+Audit recipe artifacts for template compliance, carry-forward, source quality, equipment/geometry, timing, internal consistency, user-request compliance, occasion-directive compliance, and specialized-authority compliance/isolation.
 
 Authorities:
 - orchestration/precedence: `instructions.md`
@@ -12,7 +12,7 @@ Authorities:
 - research: `meal_sources.md`
 - equipment: `equipment.md`
 - tags: `tags.md`
-- special authorities: only those loaded by the resolved occasion context
+- specialized authorities: only those loaded by the resolved occasion context or explicit request
 
 Do not duplicate authority files' full rules here; audit against them.
 
@@ -25,14 +25,15 @@ Determine artifact type first:
 - Revisions artifact
 - Unknown/mixed: treat as recipe unless context clearly indicates otherwise
 
-Then resolve/recover the active occasion context:
+Then resolve/recover:
 - base occasion;
 - workflow modifier;
 - seasonal modifier;
 - setting modifier;
 - service modifier;
 - menu modifier;
-- loaded `special-instructions`.
+- loaded occasion `special-instructions`;
+- request-scoped specialized authorities.
 
 Audit output:
 - issue list only; or
@@ -50,27 +51,34 @@ Recover:
 - ingredient-source/brand constraints;
 - format requests;
 - rejected paths;
-- overrides to occasion/special-instruction defaults;
-- explicit user constraints.
+- overrides to occasion/specialized-authority defaults;
+- explicit user constraints;
+- request-scoped health/nutrition/personal constraints when present.
 
-Verify that no inactive special-instruction authority leaked into the artifact. When an active occasion loads specialized authorities, recover their current-thread overrides before auditing.
+Verify:
+- `general-cooking` is used when no specialized base is actually justified;
+- exact legacy/simple `meal-prep-batch` was not converted to personalized `workflow-meal-prep`;
+- no inactive specialized authority leaked into the artifact;
+- request-scoped authorities were loaded narrowly rather than dragging in sibling Meal Prep rules;
+- active special instructions/current-thread overrides were not dropped.
 
 ---
 
 ## 3) Required passes
 Run all applicable passes in order. Do not claim "no issues found" until every applicable pass is complete.
 
-### Pass 1 - Template, occasion, and special-instruction compliance
+### Pass 1 - Template, occasion, and specialized-authority compliance
 #### Options
 Check against `options.md`:
-- required inputs populated;
-- base occasion and workflow/seasonal/setting/service/menu modifiers are correctly resolved;
+- required user-facing inputs populated;
+- user-facing output does not expose base/workflow/seasonal/setting/service/menu IDs unless requested;
+- internal occasion resolution is valid;
 - 5 to 8 shortlist entries and 5 to 10 runner-ups;
 - each shortlist entry uses 3 to 5 valid tags and required per-option fields;
 - target length/shape is respected unless user requested more detail;
 - Watch is research-derived;
-- Why it fits references relevant occasion directives + equipment;
-- if special instructions are active, Why it fits reflects at least one material special-instruction constraint;
+- Why it fits references relevant occasion/use-case + equipment;
+- if specialized authorities materially shape ranking, Why it fits reflects at least one relevant constraint;
 - internal workflow sections are not emitted unless requested;
 - if browsing occurred, Sources/footnotes resolve correctly;
 - if browsing did not occur, the exact no-browse sentence is present and Sources/footnotes are omitted;
@@ -93,7 +101,7 @@ Check `recipe_template.md` required sections/order and formatting:
 - Reheat Plan when occasion/special-instruction/recipe requires it
 - Troubleshooting
 - Geometry/Scaling when relevant or required
-- Nutrition Snapshot when user/active special instruction requires it
+- Nutrition Snapshot when user/active specialized authority requires it
 - Special Notes when required
 - Variations unless explicitly omitted by user/format
 - Safety/Sources as applicable
@@ -101,6 +109,7 @@ Check `recipe_template.md` required sections/order and formatting:
 Structural checks:
 - 3 to 8 valid recipe tags from `tags.md`;
 - Yield & Timing includes Active Prep, Inactive Prep / Hands-Off / Rest, Cook, Total, and Make-ahead;
+- ordinary no-occasion yield defaults to a useful home-cooking/leftovers yield unless user specifies otherwise;
 - Grocery List has exact ingredient parity and no empty category headings;
 - Equipment uses `equipment.md` names/substitutions;
 - >= 4 numbered instruction steps;
@@ -115,21 +124,34 @@ Occasion checks:
 - base optimize/avoid directives are reflected;
 - workflow/seasonal/setting/service/menu directives are reflected without silently erasing each other;
 - required seasonal/hold/service/transport/make-ahead guidance exists when the occasion calls for it;
-- any active `special-instructions` requirements are present.
+- yield and immediate service count compose according to `instructions.md`;
+- active `special-instructions` requirements are present.
 
 When `workflow-meal-prep` is active, additionally require unless explicitly overridden:
-- 10 x approximately 2-cup portions for volumetric dishes by default, or equivalent real meal portions for other formats;
+- default 10 meal-sized portions, with approximately 2-cup portions for volumetric dishes, unless explicit/base audience yield requires another count;
 - concrete 3-5-day fridge + remaining freezer plan when freezer-compatible;
 - quality-first freezer horizon stated realistically;
 - first-class Reheat Plan;
 - batch geometry/scaling notes when batch size affects cooking;
 - loaded personal/composition constraints;
+- qualitative health/composition fit in the overview;
 - Nutrition Snapshot by default unless explicitly opted out;
 - top 3 sodium drivers + 2 to 4 sodium levers;
 - sodium per 1000 kcal when Calories and Sodium are numeric;
 - ASCII-only/`deg F` output contract.
 
-If a loaded dietary toggle is materially relevant, verify it is coherent with actual ingredients and method.
+When legacy/simple `meal-prep-batch` is active without `workflow-meal-prep`:
+- yield remains 4-8 unless overridden;
+- strong freeze/storage/reheat behavior is present;
+- no personalized health defaults, default numeric Nutrition Snapshot, 10-portion assumption, or ASCII-only Meal Prep contract leaked in.
+
+When only request-scoped numeric nutrition is active:
+- Nutrition Snapshot follows `meal_prep_nutrition.md`;
+- no personalized Meal Prep batch/storage/personal-health rules leaked in.
+
+When only request-scoped general health guidance is active:
+- practical qualitative health/composition goal is reflected;
+- personalized ingredient/tolerance constraints do not appear unless separately requested.
 
 #### Revisions
 Check against `revisions.md`:
@@ -141,7 +163,8 @@ Check against `revisions.md`:
 - What Changes and Why;
 - full Updated Recipe under the same occasion context;
 - validation plan only when useful;
-- any occasion-required failure analysis or special revision hook completed.
+- any occasion-required failure analysis or special revision hook completed;
+- request-scoped authorities preserved only while still in scope.
 
 When `workflow-meal-prep` is active, additionally require:
 - storage/freezer/reheat failure analysis when relevant;
@@ -150,7 +173,7 @@ When `workflow-meal-prep` is active, additionally require:
 
 ---
 
-### Pass 2 - Carry-forward and special-instruction isolation
+### Pass 2 - Carry-forward and specialized-authority isolation
 For every recoverable constraint:
 - base occasion preserved;
 - workflow/seasonal/setting/service/menu modifiers preserved;
@@ -159,15 +182,17 @@ For every recoverable constraint:
 - ingredient-source constraints preserved;
 - format requests preserved;
 - rejected paths absent;
-- occasion/special-instruction overrides preserved.
+- occasion/specialized-authority overrides preserved.
 
 Critical isolation checks:
-- no special-instruction authority is applied unless its declaring occasion/modifier is active;
+- no occasion-loaded specialized authority is applied unless its declaring occasion/modifier is active;
+- no request-scoped authority expands beyond the explicitly requested topic;
 - active special instructions are not silently dropped;
-- project/chat memory alone did not activate a special instruction;
-- base occasion directives remain active alongside all modifiers.
+- project/chat memory alone did not activate a special instruction or personal constraint;
+- base occasion directives remain active alongside all modifiers;
+- `meal-prep-batch` and `workflow-meal-prep` remain semantically distinct.
 
-Silent violation of an explicit lock or active special instruction is at least Major.
+Silent violation of an explicit lock or active specialized authority is at least Major.
 
 ---
 
@@ -196,7 +221,7 @@ Invented citation = Critical.
 
 ---
 
-### Pass 4 - Equipment, geometry, and occasion fit
+### Pass 4 - Equipment, geometry, yield, and occasion fit
 Check `equipment.md`:
 - listed tools exist or have compliant substitutions;
 - pan/material calibration applied;
@@ -209,9 +234,9 @@ Check `equipment.md`:
 Also verify geometry supports the resolved occasion: serving count, seasonal execution, holding plan, travel plan, and any batch workflow must be physically realistic.
 
 When `workflow-meal-prep` is active:
-- default batch does not exceed realistic vessel surface area/capacity;
+- batch does not exceed realistic vessel surface area/capacity;
 - doubling is not implemented by merely extending cook time when batching is required;
-- portion count matches stated batch plan.
+- portion count matches the composed batch/service plan.
 
 ---
 
@@ -233,6 +258,8 @@ When storage/reheat instructions are present or required:
 - texture-reset step addresses likely degradation;
 - Make-Ahead Notes and Reheat Plan do not contradict each other.
 
+For personalized Meal Prep, verify rapid-cooling/refrigeration/freezing guidance is practical and specific safety claims are sourced when browsing is available.
+
 ---
 
 ### Pass 6 - Internal contradiction
@@ -246,17 +273,17 @@ Verify:
 - variations do not violate locks;
 - Common Issues and Troubleshooting agree;
 - occasion directives do not contradict seasonal/serving/hold/storage instructions;
-- active special-instruction sections agree with the base recipe and each other.
+- active specialized-authority sections agree with the base recipe and each other.
 
 When `workflow-meal-prep` is active:
 - storage/freezer/reheat instructions agree;
 - loaded diet/personal toggles are coherent with base ingredients;
 - no loaded hard/default avoid reappears in a variation unless explicitly overridden;
-- Nutrition Snapshot serving definition matches recipe yield/portioning.
+- Nutrition Snapshot serving definition matches composed recipe yield/portioning.
 
 ---
 
-### Pass 7 - User, occasion, and special-instruction compliance
+### Pass 7 - User, occasion, and specialized-authority compliance
 Verify:
 - every direct user request is satisfied or explicitly acknowledged;
 - rejected ingredients/techniques/formats absent;
@@ -264,11 +291,11 @@ Verify:
 - workflow/seasonal/setting/service/menu modifiers are justified;
 - requested research depth met;
 - make-ahead preference honored;
-- every active special instruction was applied;
-- inactive special instructions did not leak.
+- every active special instruction/request-scoped authority was applied;
+- inactive specialized authorities did not leak.
 
 When `workflow-meal-prep` is active:
-- batch/portioning matches the workflow or explicit override;
+- batch/portioning matches workflow + base audience composition or explicit override;
 - `meal_prep_health_guidelines.md` followed unless overridden;
 - `meal_prep_personal_health.md` followed unless overridden;
 - freezer/reheat quality treated as design constraint;
@@ -280,7 +307,7 @@ When `workflow-meal-prep` is active:
 
 ### Pass 8 - Nutrition provenance (when Nutrition Snapshot is present/required)
 If `meal_prep_nutrition.md` is the active nutrition authority, check:
-- Nutrition Snapshot is present when required unless explicitly opted out;
+- Nutrition Snapshot is present when required;
 - all mandatory core rows present;
 - vitamins/minerals tables present as required by `recipe_template.md`;
 - `NA` used only after source-tier exhaustion;
@@ -303,7 +330,7 @@ Invented nutrition values = Critical.
 | Severity | Definition |
 |---|---|
 | **Critical** | Likely cook failure, safety risk, fabricated source/nutrition data, or direct violation of an explicit hard constraint. |
-| **Major** | High reliability risk, silent occasion/special-instruction/lock violation, or major structural inconsistency. |
+| **Major** | High reliability risk, silent occasion/specialized-authority/lock violation, or major structural inconsistency. |
 | **Minor** | Clarity/format/low-risk inconsistency that improves quality but does not block cooking. |
 
 Group symptoms that share one root cause/fix.
@@ -340,11 +367,13 @@ When requested:
 
 ## Completion checklist
 - artifact type identified;
-- occasion context identified;
+- occasion context identified, including neutral fallback/legacy batch distinction;
 - special-instruction hooks resolved;
+- request-scoped authorities resolved narrowly;
 - thread locks recovered;
 - all applicable passes completed;
-- special-instruction isolation checked;
+- specialized-authority isolation checked;
+- yield/service composition checked;
 - issues severity-ordered;
 - corrected artifact uses same occasion context unless user changed it;
 - nutrition pass completed when applicable.
