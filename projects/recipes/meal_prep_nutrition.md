@@ -93,6 +93,9 @@ Use only to:
 
 Calculator output never outranks a cleaner ingredient-level source stack.
 
+### Tier 7 — premium/future data source
+A licensed research-grade database such as NCC/NCCDB may be used when available. It is an optional future upgrade path, not a public-workflow requirement.
+
 ---
 
 ## No-hard-stop rule
@@ -177,6 +180,8 @@ For each ingredient:
 
 ### D) Normalize quantities and nutrient forms
 Prefer exact grams when available; otherwise use precise source-native serving units.
+- Only force gram conversion when arithmetic/source format requires it.
+- For an ambiguous household-size ingredient (for example, `1 large [produce item]`), use the most typical U.S. retail size supported by the selected source and disclose the assumption in Nutrition Assumptions.
 
 Normalize display forms:
 - Vitamin A = mcg RAE
