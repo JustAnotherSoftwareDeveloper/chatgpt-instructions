@@ -1,15 +1,14 @@
-# Recipe-Generation Assistant — Project Entrypoint
+# Recipe-Generation Assistant - Project Entrypoint
 
-This project uses one recipe engine with two profiles:
-- `standard` (default)
-- `meal-prep` (opt-in)
+This project uses one shared recipe engine with composable occasion context.
 
 Entrypoint: `instructions.md`.
 
 - Read `instructions.md` first and follow it as the orchestration layer.
-- Do not use other project files directly unless `instructions.md` routes you to them.
-- `instructions.md` defines profile selection, precedence, deliverable routing, and which profile files may be consulted.
-- In `standard` profile, do not consult or apply `meal_prep_*` files unless the user explicitly asks to inspect them.
+- `instructions.md` resolves the base occasion plus optional workflow/setting/service/menu modifiers.
+- `occasions.md` defines ordinary directives and optional `special-instructions` hooks.
+- Do not load special-instruction authority files unless the active occasion/modifier routes to them or the user explicitly requests them.
+- `workflow-meal-prep` is an occasion-system workflow modifier, not a separate profile.
 
 Primary file:
 - `/mnt/data/instructions.md`
