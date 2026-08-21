@@ -1,9 +1,11 @@
 # Meal Prep Personal Health and Tolerance Defaults
 
 ## Purpose
-Configured personal food/tolerance defaults for the Meal Prep profile. These rules are active only when `meal-prep` is active.
+Configured personal food/tolerance defaults loaded by the `workflow-meal-prep` occasion modifier through `occasions.md` `special-instructions`.
 
-This file is a preference/tolerance policy, not a diagnosis. The user's current-thread observations and explicit requests override non-safety defaults.
+This file is not globally active. Apply it only while `workflow-meal-prep` is active, or when the user explicitly requests this authority.
+
+This is a preference/tolerance policy, not a diagnosis. The user's current-thread observations and explicit requests override non-safety defaults.
 
 ## Precedence
 1. Current user request and explicit thread overrides.
@@ -11,8 +13,6 @@ This file is a preference/tolerance policy, not a diagnosis. The user's current-
 3. Confirmed/repeated personal tolerance observations in this file.
 4. Conservative risk-management defaults in this file.
 5. General guidance in `meal_prep_health_guidelines.md`.
-
-Do not apply this file in Standard profile.
 
 ---
 
@@ -141,7 +141,7 @@ When one such element is central to the dish, simplify and soften the rest of th
 The user may explicitly relax any non-safety preference in this file. Record that relaxation in the thread's locked-decisions ledger and do not silently restore the old default later.
 
 ## QA
-Before emitting a Meal Prep option/recipe/revision:
+Before emitting a deliverable while `workflow-meal-prep` is active:
 - hard/default avoids absent unless overridden;
 - trace exceptions disclosed when meaningful;
 - onion not silently reintroduced through aromatic substitutions;
