@@ -1,20 +1,20 @@
 # Audit Workflow
 
 ## Purpose
-Audit recipe artifacts for template compliance, carry-forward, source quality, equipment/geometry, timing, internal consistency, and user-request compliance. Apply additional Meal Prep passes when that profile is active.
+Audit recipe artifacts for template compliance, carry-forward, source quality, equipment/geometry, timing, internal consistency, user-request compliance, occasion-directive compliance, and active special-instruction compliance.
 
 Authorities:
-- profile/routing: `instructions.md`
+- orchestration/precedence: `instructions.md`
+- occasions/special-instruction hooks: `occasions.md`
 - options: `options.md`
 - full recipe: `recipe_template.md`
 - revisions: `revisions.md`
 - research: `meal_sources.md`
-- occasion: `occasions.md`
 - equipment: `equipment.md`
 - tags: `tags.md`
-- Meal Prep overlay: `meal_prep.md`, `meal_prep_health_guidelines.md`, `meal_prep_personal_health.md`, `meal_prep_nutrition.md`
+- special authorities: only those loaded by the resolved occasion context
 
-Do not duplicate those files' full rules here; audit against them.
+Do not duplicate authority files' full rules here; audit against them.
 
 ---
 
@@ -25,9 +25,13 @@ Determine artifact type first:
 - Revisions artifact
 - Unknown/mixed: treat as recipe unless context clearly indicates otherwise
 
-Then determine active profile:
-- Standard
-- Meal Prep
+Then resolve/recover the active occasion context:
+- base occasion;
+- workflow modifier;
+- setting modifier;
+- service modifier;
+- menu modifier;
+- loaded `special-instructions`.
 
 Audit output:
 - issue list only; or
@@ -39,41 +43,40 @@ Default: issue list only.
 
 ## 2) Pre-audit intake
 Recover:
-- active profile;
+- resolved occasion context;
 - selected option/variation;
 - equipment/pan limits;
 - ingredient-source/brand constraints;
 - format requests;
 - rejected paths;
-- profile overrides;
+- overrides to occasion/special-instruction defaults;
 - explicit user constraints.
 
-For Standard, verify Meal Prep-only constraints did not leak into the artifact.
-For Meal Prep, recover the currently active personal/profile defaults and overrides.
+Verify that no inactive special-instruction authority leaked into the artifact. When an active occasion loads specialized authorities, recover their current-thread overrides before auditing.
 
 ---
 
 ## 3) Required passes
 Run all applicable passes in order. Do not claim "no issues found" until every applicable pass is complete.
 
-### Pass 1 — Template and profile compliance
+### Pass 1 - Template, occasion, and special-instruction compliance
 #### Options
 Check against `options.md`:
 - required inputs populated;
-- Profile field is correct;
+- base occasion and modifiers are correctly resolved;
 - 5 to 8 shortlist entries and 5 to 10 runner-ups;
-- each shortlist entry uses 3 to 5 valid tags and the required per-option fields;
-- target length/shape is respected unless the user requested more detail;
+- each shortlist entry uses 3 to 5 valid tags and required per-option fields;
+- target length/shape is respected unless user requested more detail;
 - Watch is research-derived;
-- Why it fits references occasion + equipment;
-- Standard: no implicit Meal Prep constraints;
-- Meal Prep: Why it fits also reflects meaningful Meal Prep constraints and profile extraction occurred internally;
+- Why it fits references relevant occasion directives + equipment;
+- if special instructions are active, Why it fits reflects at least one material special-instruction constraint;
 - internal workflow sections are not emitted unless requested;
 - if browsing occurred, Sources/footnotes resolve correctly;
-- if browsing did not occur, the explicit no-browse sentence is present and Sources/footnotes are omitted.
+- if browsing did not occur, the exact no-browse sentence is present and Sources/footnotes are omitted;
+- active occasion output-format rules are followed.
 
 #### Full recipe
-Check `recipe_template.md` required Standard sections/order and formatting:
+Check `recipe_template.md` required sections/order and formatting:
 - Title & Overview
 - Tags
 - Yield & Timing
@@ -86,10 +89,10 @@ Check `recipe_template.md` required Standard sections/order and formatting:
 - Instructions
 - Common Issues
 - Make-Ahead Notes
-- Reheat Plan when profile/recipe requires it
+- Reheat Plan when occasion/special-instruction/recipe requires it
 - Troubleshooting
-- Geometry/Scaling when relevant
-- Nutrition Snapshot when profile/user requires it
+- Geometry/Scaling when relevant or required
+- Nutrition Snapshot when user/active special instruction requires it
 - Special Notes when required
 - Variations unless explicitly omitted by user/format
 - Safety/Sources as applicable
@@ -107,62 +110,72 @@ Structural checks:
 - Variations has 2 to 4 meaningful entries when present;
 - ingredient parity across Grocery List / Ingredients / Instructions.
 
-Meal Prep additionally requires unless explicitly overridden:
-- profile yield/portioning, including 10 x approximately 2-cup portions for volumetric dishes by default;
-- concrete 3-to-5-day fridge + remaining freezer plan when freezer-compatible;
+Occasion checks:
+- base optimize/avoid directives are reflected;
+- workflow/setting/service/menu directives are reflected without silently erasing each other;
+- required hold/service/transport/make-ahead guidance exists when the occasion calls for it;
+- any active `special-instructions` requirements are present.
+
+When `workflow-meal-prep` is active, additionally require unless explicitly overridden:
+- 10 x approximately 2-cup portions for volumetric dishes by default, or equivalent real meal portions for other formats;
+- concrete 3-5-day fridge + remaining freezer plan when freezer-compatible;
 - quality-first freezer horizon stated realistically;
 - first-class Reheat Plan;
 - batch geometry/scaling notes when batch size affects cooking;
-- profile-compliant ingredients;
+- loaded personal/composition constraints;
 - Nutrition Snapshot by default unless explicitly opted out;
 - top 3 sodium drivers + 2 to 4 sodium levers;
 - sodium per 1000 kcal when Calories and Sodium are numeric;
-- Meal Prep ASCII-only/`deg F` formatting contract.
+- ASCII-only/`deg F` output contract.
 
-If a Meal Prep diet toggle is materially relevant (for example sodium, protein, low-FODMAP, gluten, dairy/lactose), verify the toggle is coherent with the actual ingredients and method.
+If a loaded dietary toggle is materially relevant, verify it is coherent with actual ingredients and method.
 
 #### Revisions
 Check against `revisions.md`:
 - failure classification;
-- locked/profile carry-forward;
+- occasion + locked-decision carry-forward;
 - falsifiable hypothesis A (and B if used);
 - every change maps to a hypothesis;
 - Diagnosis Summary;
 - What Changes and Why;
-- full Updated Recipe in the same active profile;
-- validation plan only when useful.
+- full Updated Recipe under the same occasion context;
+- validation plan only when useful;
+- any occasion-required failure analysis or special revision hook completed.
 
-Meal Prep revisions additionally require:
+When `workflow-meal-prep` is active, additionally require:
 - storage/freezer/reheat failure analysis when relevant;
-- the internal failure-tailored variant matrix;
-- Nutrition Snapshot in the Updated Recipe unless explicitly opted out.
+- internal failure-tailored variant matrix;
+- Nutrition Snapshot in Updated Recipe unless explicitly opted out.
 
 ---
 
-### Pass 2 — Carry-forward and cross-profile isolation
+### Pass 2 - Carry-forward and special-instruction isolation
 For every recoverable constraint:
+- base occasion preserved;
+- workflow/setting/service/menu modifiers preserved;
 - selected option/variation preserved;
 - equipment limits preserved;
 - ingredient-source constraints preserved;
 - format requests preserved;
 - rejected paths absent;
-- profile overrides preserved.
+- occasion/special-instruction overrides preserved.
 
-Critical profile isolation checks:
-- Standard artifact must not silently apply `meal_prep_personal_health.md` or other Meal Prep-only defaults.
-- Meal Prep artifact must not silently drop profile constraints or reset user overrides.
-- Occasion directives remain active in both profiles.
+Critical isolation checks:
+- no special-instruction authority is applied unless its declaring occasion/modifier is active;
+- active special instructions are not silently dropped;
+- project/chat memory alone did not activate a special instruction;
+- base occasion directives remain active alongside workflow directives.
 
-Silent violation of an explicit lock/profile override is at least Major.
+Silent violation of an explicit lock or active special instruction is at least Major.
 
 ---
 
-### Pass 3 — Source quality
+### Pass 3 - Source quality
 Follow `meal_sources.md` quality requirements.
 
 Source-family count:
-- Standard: mode-specific counts from `meal_sources.md`.
-- Meal Prep: counts from `meal_prep.md` unless Standard-depth counts were requested.
+- default: mode-specific counts from `meal_sources.md`;
+- if active occasion special instructions override counts, use those counts only while preserving all quality requirements.
 
 Verify:
 - independent source families and strict dedup;
@@ -176,13 +189,13 @@ Verify:
 - target deliverable source formatting is followed;
 - no Sources section when no browsing occurred.
 
-For Meal Prep nutrition, recipe-source counts do not substitute for nutrition provenance. `meal_prep_nutrition.md` governs nutrient data separately.
+Nutrition provenance from a loaded nutrition authority is separate from recipe-source counts.
 
 Invented citation = Critical.
 
 ---
 
-### Pass 4 — Equipment, geometry, and batch fit
+### Pass 4 - Equipment, geometry, and occasion fit
 Check `equipment.md`:
 - listed tools exist or have compliant substitutions;
 - pan/material calibration applied;
@@ -192,32 +205,35 @@ Check `equipment.md`:
 - avoid-unless-necessary/retired gear justified;
 - ceramic nonstick not used for inappropriate high-heat searing/broiling.
 
-Meal Prep additionally:
-- profile batch does not exceed realistic vessel surface area/capacity;
+Also verify geometry supports the resolved occasion: serving count, holding plan, travel plan, and any batch workflow must be physically realistic.
+
+When `workflow-meal-prep` is active:
+- default batch does not exceed realistic vessel surface area/capacity;
 - doubling is not implemented by merely extending cook time when batching is required;
-- portion count matches the stated batch plan.
+- portion count matches stated batch plan.
 
 ---
 
-### Pass 5 — Timing, storage, and reheat plausibility
+### Pass 5 - Timing, holding, storage, and reheat plausibility
 Check:
 - Active Prep + Inactive / Hands-Off + Cook is approximately consistent with Total; flag discrepancies greater than about 10 minutes unless overlapping/parallel timing explains them;
 - step times plausible for heat, geometry, and portion size;
 - parallel tasks fit active-prep estimate;
 - sensory cues align with ranges;
-- rests present when materially needed.
+- rests present when materially needed;
+- hold/service windows are plausible for the selected occasion.
 
-Meal Prep additionally:
+When storage/reheat instructions are present or required:
 - fridge/freezer plan internally coherent;
 - freeze point makes culinary sense;
 - thaw path matches food format;
 - reheat method/time matches portion size and starting state;
-- texture-reset step actually addresses likely degradation;
+- texture-reset step addresses likely degradation;
 - Make-Ahead Notes and Reheat Plan do not contradict each other.
 
 ---
 
-### Pass 6 — Internal contradiction
+### Pass 6 - Internal contradiction
 Verify:
 - every ingredient used is listed and every listed ingredient is used;
 - Grocery List parity and no duplicates;
@@ -226,38 +242,43 @@ Verify:
 - troubleshooting does not contradict instructions;
 - allergen/Contains line matches ingredients;
 - variations do not violate locks;
-- Common Issues and Troubleshooting agree.
+- Common Issues and Troubleshooting agree;
+- occasion directives do not contradict serving/hold/storage instructions;
+- active special-instruction sections agree with the base recipe and each other.
 
-Meal Prep additionally:
-- storage/freezer/reheat instructions agree with each other;
-- diet/personal toggles are coherent with base ingredients;
-- no Meal Prep hard/default avoid reappears in a variation unless explicitly overridden;
+When `workflow-meal-prep` is active:
+- storage/freezer/reheat instructions agree;
+- loaded diet/personal toggles are coherent with base ingredients;
+- no loaded hard/default avoid reappears in a variation unless explicitly overridden;
 - Nutrition Snapshot serving definition matches recipe yield/portioning.
 
 ---
 
-### Pass 7 — User, occasion, and profile compliance
+### Pass 7 - User, occasion, and special-instruction compliance
 Verify:
 - every direct user request is satisfied or explicitly acknowledged;
 - rejected ingredients/techniques/formats absent;
 - occasion optimize/avoid axes are reflected in method/serving choices;
+- selected modifiers are justified;
 - requested research depth met;
-- make-ahead preference honored.
+- make-ahead preference honored;
+- every active special instruction was applied;
+- inactive special instructions did not leak.
 
-Meal Prep additionally:
-- batch/portioning matches `meal_prep.md` or explicit override;
-- general composition follows `meal_prep_health_guidelines.md` unless overridden;
-- personal defaults follow `meal_prep_personal_health.md` unless overridden;
-- freezer/reheat quality is treated as a design constraint;
+When `workflow-meal-prep` is active:
+- batch/portioning matches the workflow or explicit override;
+- `meal_prep_health_guidelines.md` followed unless overridden;
+- `meal_prep_personal_health.md` followed unless overridden;
+- freezer/reheat quality treated as design constraint;
 - sodium drivers/levers handled as required;
-- nutrition methodology follows `meal_prep_nutrition.md` unless nutrition was explicitly opted out;
+- nutrition methodology follows `meal_prep_nutrition.md` unless explicitly opted out;
 - ASCII-only output contract followed.
 
 ---
 
-### Pass 8 — Meal Prep nutrition provenance (Meal Prep only unless user opted out)
-Check:
-- Nutrition Snapshot is present in full recipes/updated recipes unless explicitly opted out;
+### Pass 8 - Nutrition provenance (when Nutrition Snapshot is present/required)
+If `meal_prep_nutrition.md` is the active nutrition authority, check:
+- Nutrition Snapshot is present when required unless explicitly opted out;
 - all mandatory core rows present;
 - vitamins/minerals tables present as required by `recipe_template.md`;
 - `NA` used only after source-tier exhaustion;
@@ -280,7 +301,7 @@ Invented nutrition values = Critical.
 | Severity | Definition |
 |---|---|
 | **Critical** | Likely cook failure, safety risk, fabricated source/nutrition data, or direct violation of an explicit hard constraint. |
-| **Major** | High reliability risk, silent profile/lock violation, or major structural inconsistency. |
+| **Major** | High reliability risk, silent occasion/special-instruction/lock violation, or major structural inconsistency. |
 | **Minor** | Clarity/format/low-risk inconsistency that improves quality but does not block cooking. |
 
 Group symptoms that share one root cause/fix.
@@ -309,7 +330,7 @@ When requested:
 1. Apply all Critical fixes.
 2. Apply all Major fixes.
 3. Apply Minor fixes unless they reduce clarity or violate intent/locks.
-4. Re-emit the complete artifact using the correct shared template + active profile.
+4. Re-emit the complete artifact using the same resolved occasion context unless the user changed it.
 5. Do not emit internal audit chain-of-thought/workflow notes.
 6. Append one summary line: `[N Critical, N Major, N Minor fixes applied; N Minor issues noted but not applied.]`
 
@@ -317,10 +338,11 @@ When requested:
 
 ## Completion checklist
 - artifact type identified;
-- profile identified;
+- occasion context identified;
+- special-instruction hooks resolved;
 - thread locks recovered;
 - all applicable passes completed;
-- cross-profile isolation checked;
+- special-instruction isolation checked;
 - issues severity-ordered;
-- corrected artifact uses same profile unless user changed it;
-- Meal Prep nutrition pass completed unless explicitly opted out.
+- corrected artifact uses same occasion context unless user changed it;
+- nutrition pass completed when applicable.
