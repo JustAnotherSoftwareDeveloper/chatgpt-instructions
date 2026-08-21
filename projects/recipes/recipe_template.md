@@ -1,24 +1,29 @@
-# 20260119_recipe_template_v3.md
+# Recipe Template (Canonical)
 # [Recipe Title]
 
+This is the canonical full-recipe format for both profiles. Apply sections marked **Meal Prep only** only when `meal-prep` is active. Do not emit profile labels or internal instructions unless useful to the user.
+
 ## Title & Overview
-[Write 3 to 5 sentences on flavor and what the dish is like to eat. Include origin/context if relevant. Keep it appetizing and concise. If make-ahead is relevant, say so plainly (no nutrition numbers).]
+[3 to 5 sentences: flavor, eating experience, origin/context when relevant, and make-ahead characteristics when relevant.]
+
+**Meal Prep only:** include 1 to 2 concise sentences on why the recipe fits the profile (batch/storage/reheat/composition) without making medical claims or inventing nutrition numbers.
 
 ## Tags
-[List tags per count limits and selection preference rules in `tags.md`. Use lowercase, hyphen-separated tags from the `tags.md` vocabulary only.]
+Use lowercase, hyphen-separated tags from `tags.md` according to its count/selection rules.
 - Example: `tags: [main, weeknight, quick, pasta, vegetarian]`
 
 ## Yield & Timing
-- **Yield:** [servings; default: yields leftovers unless user requests otherwise]
+- **Yield:** [servings]
 - **Active Prep:** [time]
 - **Inactive Prep / Hands-Off / Rest:** [time]
 - **Cook:** [time]
 - **Total:** [time]
-- **Make-ahead:** [what holds X days; what freezes Y months; how to thaw and reheat]
+- **Make-ahead:** [what holds, what freezes, thaw/reheat summary]
+
+**Meal Prep only:** default yield/portioning and fridge/freezer horizon come from `meal_prep.md` unless overridden. State the actual portioning plan rather than blindly writing cups.
 
 ## Grocery List
-Rule: Every ingredient appears exactly once in Grocery List under the correct category.
-Use the aisle/category taxonomy from `recipe_template.md` (or your canonical grocery taxonomy file) if it is stricter than the headings below.
+Every ingredient appears exactly once under the correct category. Omit empty categories.
 
 ### Produce
 - [item]
@@ -36,171 +41,215 @@ Use the aisle/category taxonomy from `recipe_template.md` (or your canonical gro
 - [item]
 
 ## Equipment & Tools
-[Use `equipment.md` §1 item names. List critical tools first, then optional/alternate tools. Apply pan-color and glass-vs-metal calibration rules from `equipment.md` §Baking Vessels when relevant. Substitutions must follow `equipment.md` §3.]
-- [e.g., cast iron skillet — required for high-heat browning; 9×5 metal loaf pan (light)]
-- [optional / substitute: carbon steel skillet; 9×9 dark tray instead of light — reduce temp 25°F]
+Use `equipment.md` inventory names. Critical tools first; optional/substitutes second. Apply vessel material/color calibration and substitution hierarchy where relevant.
 
 ## Ingredients
-[List in use order. Use U.S. units; include metric in parentheses only if taken from a source.
-For small or precision-critical items, provide grams in parentheses.
-Mark advance-prep items with **[pre-prep]**.
-Specify drained/rinsed where relevant (canned beans, canned fish).
-Specify salted vs unsalted where relevant (broth/stock, butter).]
-- [ingredient, amount] **[pre-prep]**
-- [ingredient, amount]
-- [ingredient, amount]
+List in use order.
+- Use U.S. customary units by default.
+- Include metric when source-derived or precision-critical.
+- Mark advance prep with **[pre-prep]**.
+- Specify drained/rinsed, salted/unsalted, cut size, and other state details when method-relevant.
 
 ## Allergy & Dietary Notes
-[Only include what is relevant for this recipe. Be concrete; do not be exhaustive.]
-- **Contains:** [e.g., dairy, wheat/gluten, egg, soy, nuts, sesame, fish/shellfish, alcohol]
-- **Easy swaps (keep technique intact):**
-  - [Swap] -> [Impact on texture/flavor] -> [Any technique change]
-- **Hard swaps (not recommended / major change):**
-  - [Swap] -> [Why it breaks the method] -> [If you must, what to do instead]
-- **Cross-contact note (optional):**
-  - [If relevant, e.g., shared fryer, store-bought sauces, spice blends]
+Include only relevant items.
+- **Contains:** [actual allergens/diet-relevant ingredients]
+- **Easy swaps:** [swap -> texture/flavor impact -> technique change]
+- **Hard swaps:** [swap -> why it breaks method -> alternative]
+- **Cross-contact note:** [only if relevant]
+
+**Meal Prep only:** when useful, include concrete toggles that follow `meal_prep_health_guidelines.md` and `meal_prep_personal_health.md`, such as sodium, protein, gluten, dairy/lactose, or other current-thread constraints. Do not list irrelevant toggles merely because the profile exists.
 
 ## Quick Overview
-[4 to 7 bullets. For each bullet, the main point before the colon must be bolded. Keep bullets tight and action-oriented.]
-- **What you are making:** [1 sentence; what the final dish is and how it should eat]
-- **Texture and doneness cues:** [1 sentence; the most important "until..." endpoints]
-- **Workflow:** [1 sentence; order of operations; include at least one "While X cooks, do Y"]
-- **Make-ahead:** [1 sentence; what can be done ahead and what improves with resting/chilling]
-- **Primary risks:** [1 sentence; 1 to 3 likely failure points]
+4 to 8 tight bullets. Bold the label before each colon.
+- **What you are making:** [final dish/eating experience]
+- **Texture and doneness cues:** [key endpoints]
+- **Workflow:** [order of operations; include parallel work when useful]
+- **Make-ahead:** [what can happen early]
+- **Primary risks:** [1 to 3 likely failure points]
+- **Meal Prep only - Portioning:** [how the batch becomes individual meals]
+- **Meal Prep only - Reheat:** [best reheat path + texture reset]
 
 ## Gather & Stage
-[Complete before starting Step 1. Treat this as a checklist, not a narrative.]
-- Measure and group all ingredients by phase; place them within reach.
-- Set out required equipment; line, grease, or preheat any vessels as directed.
-- Complete all **[pre-prep]** items that affect cook timing or sequencing.
-- **Checkpoint:** everything needed for Step 1 is ready and within reach.
+Complete before Step 1.
+- Measure and group ingredients by phase.
+- Set out required equipment; line/grease/preheat as directed.
+- Complete timing-sensitive **[pre-prep]**.
+- **Checkpoint:** everything needed for Step 1 is ready.
 
 ## Instructions
-[Main flow is numbered steps: 1., 2., 3., 4. (minimum). Avoid big paragraphs; keep to bullets and short sentences.
-Prefer cues first, clock second. The final step should always include a taste-adjust loop.
-Do NOT repeat template rules or meta-instructions in the final recipe output.]
+Minimum 4 numbered steps. Avoid large paragraphs. Prefer cues first, clock second.
 
-Formatting and nesting rules
-- Main flow begins at step 1. The gather/stage phase lives in the dedicated **Gather & Stage** section above.
-- Each numbered step must include nesting:
-  - At least 1 bullet with sub-bullets.
-  - Across the whole recipe, include at least 2 branch sub-bullets in the form: *If X -> do Y -> cue it's fixed.*
-- Bold actual substance and settings the cook scans for (examples; not exhaustive):
-  - Bold cooking verbs and actions such as: **Bake**, **Roast**, **Simmer**, **Saute**, **Boil**, **Sear**, **Brown**, **Deglaze**, **Whisk**, **Fold**, **Reduce**, **Rest**, **Blend**, **Chill**, **Freeze**.
-  - Bold heat and temperature phrases: **medium heat**, **medium-high heat**, **low heat**, **425 deg F**.
-  - Optionally bold one key endpoint phrase per step (keep it to one).
-  - Do not bold whole sentences; bold phrases only.
-- Use italics for optional/conditional notes that can be skipped.
-- Use inline code only for exact literals/settings when needed: `425 deg F`, `medium-high`, `1/2-in`.
+Formatting rules:
+- Each numbered step has at least one bullet with sub-bullets.
+- Across the recipe, include at least 2 conditional recovery branches: *If X -> do Y -> cue it's fixed.*
+- Bold scan-critical cooking actions, heat settings, and temperatures; do not bold whole sentences.
+- Italics may mark optional/conditional notes.
+- Every heat step includes heat/temp + time range + sensory cue.
+- Specify size/thickness when timing depends on geometry.
+- Final step includes a taste-adjust loop: acid -> salt -> heat -> herbs, adapted as appropriate to the dish.
 
-Heat-step minimum detail
-- Whenever heat is involved, include: heat level or oven temp, a time range, and at least one sensory cue.
-- Prefer: "X to Y minutes, until [cue]" rather than exact minutes.
-- When cook time depends on size, specify thickness/size in the same step.
+Example skeleton:
+1. [Phase]
+   - [Main action]
+     - [order/cut/geometry details]
+     - **Heat/temp**, X to Y minutes, until [cue].
+     - *While this runs: [parallel task].*
+     - **Checkpoint:** [cue].
+     - *If [symptom] -> [fix] -> [recovery cue].*
 
-Step skeleton
-1. [Phase title]
-   - [Main bullet: what to do]
-     - [Sub-bullets: prep details affecting cook time (size/thickness), order of additions]
-     - [Sub-bullets: **Heat**/**Oven** + time range + cue; include the "until..." endpoint]
-     - *[While this runs: parallel task]*
-     - **Checkpoint:** You are ready to proceed when [cue].
-     - *If [symptom], then [primary fix]; cue it's fixed.*
+2. [Next phase]
+   - [Main action]
+     - [reduction/emulsion/texture details]
+     - **Checkpoint:** [cue].
 
-2. [Next phase title]
-   - [Main bullet]
-     - [Sub-bullets: **Heat**/**Oven** + time range + cue]
-     - [Sub-bullets: reduction/consistency test if relevant (what it should look like)]
-     - **Checkpoint:** You are ready to proceed when [cue].
-     - *If [symptom], then [primary fix]; cue it's fixed.*
-
-3. [Next phase title]
-   - [Main bullet]
-     - [Sub-bullets: **Heat**/**Oven** + time range + cue; doneness cue for any protein]
-     - **Checkpoint:** You are ready to proceed when [cue].
+3. [Next phase]
+   - [Main action]
+     - [doneness cue]
+     - **Checkpoint:** [cue].
 
 4. Finish and taste-adjust
-   - [Main bullet: combine/rest as needed]
-     - [Sub-bullets: final texture cue; whether to stop early if reheating later]
-     - Taste-adjust loop: acid -> salt -> heat -> herbs.
-     - **Checkpoint:** Final dish is [key endpoint cue].
+   - [combine/rest/finish]
+     - [final texture cue]
+     - Taste-adjust: acid -> salt -> heat -> herbs.
+     - **Checkpoint:** [final endpoint].
 
-### Optional: Instruction Table
-[Use when timing/parallel tasks benefit from a grid. Keep cues concrete.]
+### Optional Instruction Table
+Use only when timing/parallel work benefits from a grid.
 
 | Step | Task | Heat/Temp | Time Range | Sensory Cues | Tools/Notes |
 |---:|---|---|---:|---|---|
-| 1 | [task] | [heat/temp] | [range] | [cue] | [notes] |
-| 2 | [task] | [heat/temp] | [range] | [cue] | [notes] |
+| 1 |  |  |  |  |  |
+| 2 |  |  |  |  |  |
 
 ## Common Issues
-[Short bullets for things that commonly go wrong + simple fixes/checks. Keep tight; do not duplicate Troubleshooting below.]
-- **[Symptom]:** [Cause] -> [Simple fix] -> [Quick check]
-- **[Symptom]:** [Cause] -> [Simple fix] -> [Quick check]
+Short, non-duplicative bullets.
+- **[Symptom]:** [Cause] -> [simple fix] -> [quick check]
 
 ## Make-Ahead Notes
-[Call out what can be done 1 to 3 days ahead; what freezes; thaw + reheat cues.]
+Always concrete when make-ahead is relevant.
 - Fridge plan:
-  - Stop after Step [#]: [how to cool/store; container guidance]
-  - Holds: [X days]
-  - Serve/Reheat: [method] until [cue]; then [texture reset + re-season note]
-- Freezer plan:
-  - Best freeze point: Step [#] or component [name]
-  - Portioning: [portion size and container guidance]
-  - Freeze: [Y months]
-  - Thaw: [method]
-  - Reheat: [method] until [cue]; then [texture reset + re-season note]
+  - Stop after Step [#] / component [name]
+  - Cool/store: [method/container]
+  - Holds: [duration when reliably sourced or conservative]
+  - Serve/reheat: [method + cue + texture reset]
+- Freezer plan when appropriate:
+  - Best freeze point
+  - Portioning/packaging
+  - Freeze quality horizon
+  - Thaw path
+  - Reheat + texture reset
+
+**Meal Prep only:** this section is required and must implement the actual profile portioning/fridge/freezer plan unless the user overrides freezer use.
+
+## Reheat Plan
+**Required in Meal Prep; optional in Standard when useful.**
+- **Best method:** [microwave/stovetop/oven/air fryer] -> [power/temp] -> [time range] -> until [cue]
+- **Texture reset:** [how to restore sauce/crispness/moisture] -> [cue]
+- **Acceptable alternate:** [if useful]
+- *If [common reheat failure] -> [fix] -> [recovery cue].*
 
 ## Troubleshooting
-[2 to 4 bullets total. Use the arrow format below.]
-- [Symptom] -> [Likely cause] -> [Primary fix] -> [Recovery cue]
+2 to 4 entries total.
 - [Symptom] -> [Likely cause] -> [Primary fix] -> [Recovery cue]
 
-## Troubleshooting Table
-[Optional. Use when it clarifies common failure modes.]
-
+### Optional Troubleshooting Table
 | Symptom | Likely Cause | Quick Fix |
 |---|---|---|
-| [Too salty] | [Over-salted or reduced too far] | [Add unsalted starch; splash of water/stock; acid to balance] |
-| [Too watery] | [Crowded pan / insufficient reduction] | [Reduce uncovered; finish hotter; small slurry if appropriate] |
-| [Split emulsion] | [Too hot / fat added too fast] | [Whisk in tsp warm water off heat; re-emulsify slowly] |
+| Too salty | reduced too far / salty inputs | dilute or add unsalted bulk; rebalance |
+| Too watery | crowding / insufficient evaporation | reduce uncovered / widen vessel |
+| Split emulsion | excess heat / addition too fast | cool slightly; re-emulsify gradually |
 
 ## Geometry Notes
-[Include when relevant.]
-- Pan/pot size used:
-- Target thickness / layer depth:
+Include when relevant; **required in Meal Prep when batch size materially affects cooking.**
+- Pan/pot size:
+- Target layer depth/thickness:
 - Crowding rule:
 
 ## Scaling & Batch Size
-[Optional. How to halve/double; how geometry changes time; pan alternatives; burner/oven constraints.]
-- Scaling notes:
-- Batch strategy:
-- Pan swaps:
+Include when useful; **required in Meal Prep when profile/default yield differs materially from source recipes.**
+- Scaling notes
+- Batch strategy
+- Pan/vessel swaps
+- Whether doubling requires multiple pans/batches rather than simply longer cook time
 
 ## Special Notes
-[Optional. Keep brief.]
-- Storage & reheat: [brief; include temps for safe reheating only when explicitly citing a safety source]
-- Serving ideas: [brief list of sides, sauces, garnishes]
-- Sodium notes: [top 3 sodium drivers + concrete levers, if relevant]
+Optional.
+- Storage/reheat
+- Serving ideas
+- Sodium notes when relevant
+
+**Meal Prep only:** identify top sodium drivers + practical levers when sodium is materially important; never invent numeric sodium without `meal_prep_nutrition.md` support.
+
+## Nutrition Snapshot (per serving)
+**Meal Prep only when required by the active profile/user request.** Governed exclusively by `meal_prep_nutrition.md`.
+
+### Nutrition Label Core
+| Nutrient | Amount per serving | %DV | Source basis |
+|---|---:|---:|---|
+| Calories | [x or NA] | -- | [...] |
+| Total fat | [x g or NA] | [x% or --] | [...] |
+| -- Saturated fat | [x g or NA] | [x% or --] | [...] |
+| -- Trans fat | [x g or NA] | -- | [...] |
+| -- Monounsaturated fat | [x g or NA] | -- | [...] |
+| -- Polyunsaturated fat | [x g or NA] | -- | [...] |
+| Cholesterol | [x mg or NA] | [x% or --] | [...] |
+| Sodium | [x mg or NA] | [x% or --] | [...] |
+| Total carbohydrate | [x g or NA] | [x% or --] | [...] |
+| Dietary fiber | [x g or NA] | [x% or --] | [...] |
+| -- Soluble fiber | [x g or NA] | -- | [...] |
+| -- Insoluble fiber | [x g or NA] | -- | [...] |
+| Total sugars | [x g or NA] | -- | [...] |
+| Added sugars | [x g or NA] | [x% or --] | [...] |
+| Protein | [x g or NA] | -- | [...] |
+
+### Vitamins and Minerals
+#### Fat-Soluble Vitamins
+| Nutrient | Amount per serving | %DV | Source basis |
+|---|---:|---:|---|
+| Vitamin A | [x mcg RAE or NA] | [x% or --] | [...] |
+| Vitamin D | [x mcg or NA] | [x% or --] | [...] |
+| Vitamin E | [x mg or NA] | [x% or --] | [...] |
+| Vitamin K | [x mcg or NA] | [x% or --] | [...] |
+
+#### Water-Soluble Vitamins
+| Nutrient | Amount per serving | %DV | Source basis |
+|---|---:|---:|---|
+| Vitamin C | [x mg or NA] | [x% or --] | [...] |
+| Thiamin (B1) | [x mg or NA] | [x% or --] | [...] |
+| Riboflavin (B2) | [x mg or NA] | [x% or --] | [...] |
+| Niacin (B3) | [x mg NE or NA] | [x% or --] | [...] |
+| Pantothenic acid (B5) | [x mg or NA] | [x% or --] | [...] |
+| Vitamin B6 | [x mg or NA] | [x% or --] | [...] |
+| Folate (B9) | [x mcg DFE or NA] | [x% or --] | [...] |
+| Vitamin B12 | [x mcg or NA] | [x% or --] | [...] |
+| Choline | [x mg or NA] | [x% or --] | [...] |
+
+#### Minerals
+| Nutrient | Amount per serving | %DV | Source basis |
+|---|---:|---:|---|
+| Potassium | [x mg or NA] | [x% or --] | [...] |
+| Calcium | [x mg or NA] | [x% or --] | [...] |
+| Phosphorus | [x mg or NA] | [x% or --] | [...] |
+| Magnesium | [x mg or NA] | [x% or --] | [...] |
+| Iron | [x mg or NA] | [x% or --] | [...] |
+| Zinc | [x mg or NA] | [x% or --] | [...] |
+| Copper | [x mg or NA] | [x% or --] | [...] |
+| Manganese | [x mg or NA] | [x% or --] | [...] |
+| Selenium | [x mcg or NA] | [x% or --] | [...] |
+
+### Nutrition Assumptions
+[Only when needed.]
+
+### Nutrition Provenance
+- Primary source stack: [...]
+- Calculator assistance: [none or tool]
+- Unresolved fields: [...]
 
 ## Variations
-[Include 2 to 4 variations that make it feel like a meaningfully different dish or use-case. Avoid micro-toggles.
-Each variation must be 1 to 2 sentences in a single short paragraph (no sub-bullets).]
-1. **[Variation name]:** [1 to 2 sentence description; call out the key change and how it changes the eating experience; include citations if derived from sources]
-2. **[Variation name]:** [1 to 2 sentence description]
-3. **[Variation name]:** [1 to 2 sentence description]
+2 to 4 meaningful variants when useful; each 1 to 2 sentences, no sub-bullets. Variations must not silently violate locked constraints or Meal Prep personal defaults.
 
 ## Safety & Correctness Notes
-[Optional. Only if needed. Document deviations from a traditional source for safety/correctness; explain "why" briefly.]
+Optional; use only for relevant safety/correctness deviations and source them appropriately.
 
 ## Sources
-[Add numbered sources that match any in-text footnotes. Use Markdown links for text + URL.
-Do not place raw URLs outside this section; cite with [n] in-text.]
-1. [Creator or Source Name - Title](https://example.com) [type: YouTube; region: TBD; why: firsthand method demo]
-2. [Regional Site - Title](https://example.com) [type: blog; region: TBD; why: technique specifics]
-3. [Forum Thread - Title](https://example.com) [type: forum; region: TBD; why: failure modes + corrections]
-4. [Authoritative Reference - Title](https://example.com) [type: authoritative; region: TBD; why: safety/cooling/reheat fact]
-
-In-text citation examples to use above where appropriate
-- Bake at 425 deg F for 18 to 22 minutes for 1-in pieces [2].
-- Bloom the spice paste 30 to 45 seconds until shiny, not browned [1 @2:41].
+Numbered sources matching in-text `[n]` markers. Raw URLs belong here, not scattered through the recipe. Do not invent sources.
