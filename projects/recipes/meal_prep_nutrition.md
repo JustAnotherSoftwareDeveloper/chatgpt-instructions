@@ -1,7 +1,7 @@
 # Meal Prep Nutrition Calculation Method
 
 ## Goal
-Generate a reliable `Nutrition Snapshot (per serving)` using source-driven, calculator-assisted arithmetic when this authority is loaded by an active occasion special instruction.
+Generate a reliable `Nutrition Snapshot (per serving)` using source-driven, calculator-assisted arithmetic whenever this authority is active, whether loaded by an occasion special instruction or by an explicit request-scoped numeric nutrition request.
 
 Principles:
 - Ingredient-level authoritative sources are preferred.
