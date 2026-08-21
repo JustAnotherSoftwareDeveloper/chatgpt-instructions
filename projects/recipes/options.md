@@ -39,6 +39,7 @@ Compute before drafting but do not emit unless explicitly requested:
 ### Context & Constraints
 - Base occasion:
 - Workflow modifier: [none | active modifier]
+- Seasonal modifier: [none | active modifier]
 - Setting modifier: [none | active modifier]
 - Service modifier: [none | active modifier]
 - Menu modifier: [none | active modifier]
@@ -66,6 +67,7 @@ When `workflow-meal-prep` is active, include batch/portion/freezer requirements 
 Resolve per `occasions.md`:
 - Base occasion:
 - Workflow modifier:
+- Seasonal modifier:
 - Setting modifier:
 - Service modifier:
 - Menu modifier:
@@ -98,7 +100,7 @@ For `workflow-meal-prep`, this must include:
 - personal defaults applied;
 - personal/workflow defaults overridden.
 
-Do not replace base occasion directives with workflow constraints; apply both.
+Do not replace base or seasonal/setting/service/menu directives with workflow constraints; apply all selected axes.
 
 ### Research execution
 Follow `meal_sources.md` for quality, deduplication, authenticity, disagreement handling, regional anchors, no-inference, safety, and comment mining.
@@ -183,7 +185,7 @@ When the user/occasion strongly constrains format, diversify across at least 3 o
 **Description:** [what it is + eating experience + distinctiveness + familiar comparison when needed]
 **Flavor profile:** richness [light|med|rich]; acidity [low|med|high]; heat [none|low|med|high]; notes: [2-4]; texture: [1-2]
 **Make-ahead:** [what]. **Hold/Reheat:** [how + cue; use Hold terminology for party/grazing contexts]
-**Watch:** [research-derived failure mode/guardrail]. **Why it fits:** [goal + occasion + equipment + active special-instruction constraint if applicable]
+**Watch:** [research-derived failure mode/guardrail]. **Why it fits:** [goal + resolved occasion context + equipment + active special-instruction constraint if applicable]
 **Source:** [Blog|YT|IG|Forum|Authoritative]. [n]
 
 Tag guidance: 3-5 tags from `tags.md`.
