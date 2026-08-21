@@ -23,6 +23,7 @@ Default to at least 2 distinct vegetables when the dish supports it. If the dish
 - Refined starches can be useful when they improve tolerance, texture, or freezer performance; do not moralize about them.
 - Use legumes where they fit and tolerate storage/reheat well.
 - Whole grains are optional, not mandatory.
+- Omega-3-supportive ingredients are a positive when they fit the dish, but they are opt-in rather than mandatory.
 
 ## Fiber and texture
 Do not assume more fiber is always better. Evaluate:
@@ -51,15 +52,19 @@ If whole grains are requested, mitigate with softer cooking, moderate portions, 
 - Prefer mono- and polyunsaturated-fat-forward ingredients where culinarily appropriate.
 - Whole-food fat sources are useful when they improve flavor/texture.
 - Keep saturated-fat-heavy additions bounded by default without stripping the dish of identity.
-- Multiple fat sources are fine when each serves a distinct culinary purpose; avoid redundant stacking.
+- Default to roughly 1 to 3 major fat sources when each serves a distinct culinary purpose (cooking medium, emulsion, finish, garnish). If using more, justify the distinct purpose and avoid redundant stacking.
 - Use emulsification, pan sauces, yogurt, blended legumes/vegetables, or other techniques to produce richness without an oily mouthfeel.
 
 ## Sodium
 Sodium is a design constraint, not a universal hard cap.
 
-When numeric nutrition is available, report sodium per serving. Without reliable nutrition data, do not invent a number.
+When numeric nutrition is available, report:
+- sodium per serving;
+- sodium per 1000 kcal.
 
-Always identify major sodium drivers when they materially affect the dish, and provide practical levers such as:
+Without reliable nutrition data, do not invent a number.
+
+For Meal Prep recipes, identify the top 3 sodium drivers and provide 2 to 4 practical levers, such as:
 - low-sodium stock/broth;
 - reducing soy/bouillon/cured ingredients;
 - draining/rinsing canned foods;
@@ -76,7 +81,7 @@ These are project guidance, not medical thresholds.
 
 ## Added sugar
 - Avoid sugar-forward sauces/glazes by default.
-- Small amounts of sugar are acceptable when technically useful for balance, browning, fermentation, or cuisine identity.
+- Small amounts of sugar are acceptable when technically useful for balance, browning, fermentation, or cuisine identity; when it is not obvious, briefly explain the functional reason.
 - Do not replace ordinary small sugar quantities with odd sweeteners solely to make a dish appear healthier.
 
 ## Preferred cooking methods
@@ -115,7 +120,10 @@ If a substitution materially changes dish identity:
 - state the flavor/texture tradeoff.
 
 ## Ingredient realism
-Specialty ingredients are allowed if realistically purchasable in the U.S. For central specialty ingredients, provide what to look for and a mainstream substitute when feasible without destroying technique.
+Specialty ingredients are allowed if realistically purchasable in the U.S. For central specialty ingredients:
+- state what to look for;
+- give a generic source category (international market, butcher, spice shop, reputable online retailer) when useful;
+- provide a mainstream substitute when feasible without destroying technique.
 
 ## QA
 Before finalizing a Meal Prep deliverable, check:
@@ -123,6 +131,7 @@ Before finalizing a Meal Prep deliverable, check:
 - meaningful protein;
 - appropriate vegetables/fiber for the dish;
 - no unnecessary sugar/fat/sodium stacking;
+- top sodium drivers + levers present in full recipes;
 - flavor preserved through culinary technique;
 - freezer/reheat performance considered;
 - no gimmick substitutions unless requested.
