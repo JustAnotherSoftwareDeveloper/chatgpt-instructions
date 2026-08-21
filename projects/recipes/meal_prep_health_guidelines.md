@@ -1,7 +1,9 @@
 # Meal Prep Health Guidelines
 
 ## Purpose
-General, non-medical composition and cooking defaults for the Meal Prep profile. These are culinary design defaults, not diagnoses or mandatory restrictions.
+General, non-medical composition and cooking defaults loaded by the `workflow-meal-prep` occasion modifier through `occasions.md` `special-instructions`.
+
+This file is not globally active. Apply it only while `workflow-meal-prep` is active, or when the user explicitly requests this authority.
 
 The user's explicit request wins over these defaults unless food safety is involved.
 
@@ -126,7 +128,7 @@ Specialty ingredients are allowed if realistically purchasable in the U.S. For c
 - provide a mainstream substitute when feasible without destroying technique.
 
 ## QA
-Before finalizing a Meal Prep deliverable, check:
+Before finalizing a deliverable while `workflow-meal-prep` is active, check:
 - real meal-sized portions;
 - meaningful protein;
 - appropriate vegetables/fiber for the dish;
