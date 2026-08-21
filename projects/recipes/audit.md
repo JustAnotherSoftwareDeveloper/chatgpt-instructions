@@ -54,7 +54,7 @@ For Meal Prep, recover the currently active personal/profile defaults and overri
 ---
 
 ## 3) Required passes
-Run all applicable passes in order.
+Run all applicable passes in order. Do not claim "no issues found" until every applicable pass is complete.
 
 ### Pass 1 — Template and profile compliance
 #### Options
@@ -62,13 +62,15 @@ Check against `options.md`:
 - required inputs populated;
 - Profile field is correct;
 - 5 to 8 shortlist entries and 5 to 10 runner-ups;
-- per-option fields present;
+- each shortlist entry uses 3 to 5 valid tags and the required per-option fields;
+- target length/shape is respected unless the user requested more detail;
 - Watch is research-derived;
 - Why it fits references occasion + equipment;
 - Standard: no implicit Meal Prep constraints;
 - Meal Prep: Why it fits also reflects meaningful Meal Prep constraints and profile extraction occurred internally;
 - internal workflow sections are not emitted unless requested;
-- Sources only when browsing occurred.
+- if browsing occurred, Sources/footnotes resolve correctly;
+- if browsing did not occur, the explicit no-browse sentence is present and Sources/footnotes are omitted.
 
 #### Full recipe
 Check `recipe_template.md` required Standard sections/order and formatting:
@@ -83,26 +85,41 @@ Check `recipe_template.md` required Standard sections/order and formatting:
 - Gather & Stage
 - Instructions
 - Common Issues
-- Make-Ahead Notes when relevant
+- Make-Ahead Notes
+- Reheat Plan when profile/recipe requires it
 - Troubleshooting
 - Geometry/Scaling when relevant
-- Variations/Safety/Sources as applicable
+- Nutrition Snapshot when profile/user requires it
+- Special Notes when required
+- Variations unless explicitly omitted by user/format
+- Safety/Sources as applicable
 
-Instruction checks:
-- >= 4 numbered steps;
+Structural checks:
+- 3 to 8 valid recipe tags from `tags.md`;
+- Yield & Timing includes Active Prep, Inactive Prep / Hands-Off / Rest, Cook, Total, and Make-ahead;
+- Grocery List has exact ingredient parity and no empty category headings;
+- Equipment uses `equipment.md` names/substitutions;
+- >= 4 numbered instruction steps;
 - heat steps include heat/temp + time range + sensory cue;
 - >= 2 recovery branches;
 - final taste-adjust loop;
+- Troubleshooting has 2 to 4 entries;
+- Variations has 2 to 4 meaningful entries when present;
 - ingredient parity across Grocery List / Ingredients / Instructions.
 
-Meal Prep additionally requires when applicable:
-- profile yield/portioning or explicit override;
-- concrete fridge/freezer plan;
+Meal Prep additionally requires unless explicitly overridden:
+- profile yield/portioning, including 10 x approximately 2-cup portions for volumetric dishes by default;
+- concrete 3-to-5-day fridge + remaining freezer plan when freezer-compatible;
+- quality-first freezer horizon stated realistically;
 - first-class Reheat Plan;
-- batch geometry/scaling notes;
+- batch geometry/scaling notes when batch size affects cooking;
 - profile-compliant ingredients;
-- Nutrition Snapshot when required/requested;
-- sodium drivers/levers when materially relevant.
+- Nutrition Snapshot by default unless explicitly opted out;
+- top 3 sodium drivers + 2 to 4 sodium levers;
+- sodium per 1000 kcal when Calories and Sodium are numeric;
+- Meal Prep ASCII-only/`deg F` formatting contract.
+
+If a Meal Prep diet toggle is materially relevant (for example sodium, protein, low-FODMAP, gluten, dairy/lactose), verify the toggle is coherent with the actual ingredients and method.
 
 #### Revisions
 Check against `revisions.md`:
@@ -115,7 +132,10 @@ Check against `revisions.md`:
 - full Updated Recipe in the same active profile;
 - validation plan only when useful.
 
-Meal Prep revisions must also cover storage/freezer/reheat failure when that was part of the problem.
+Meal Prep revisions additionally require:
+- storage/freezer/reheat failure analysis when relevant;
+- the internal failure-tailored variant matrix;
+- Nutrition Snapshot in the Updated Recipe unless explicitly opted out.
 
 ---
 
@@ -146,11 +166,14 @@ Source-family count:
 
 Verify:
 - independent source families and strict dedup;
-- required creator/blog/video/discussion mix;
+- required 2+ Tier 1 creators + blog + video/social + discussion/feedback-loop mix;
 - regional anchor when applicable;
+- multilingual/origin-language search when applicable;
+- comment-mined failures and guardrails completed for deep research;
 - baseline/secondary sources not defining cuisine identity alone;
 - no fabricated/unverifiable citations;
 - in-text markers resolve;
+- target deliverable source formatting is followed;
 - no Sources section when no browsing occurred.
 
 For Meal Prep nutrition, recipe-source counts do not substitute for nutrition provenance. `meal_prep_nutrition.md` governs nutrient data separately.
@@ -178,7 +201,7 @@ Meal Prep additionally:
 
 ### Pass 5 — Timing, storage, and reheat plausibility
 Check:
-- time totals internally plausible;
+- Active Prep + Inactive / Hands-Off + Cook is approximately consistent with Total; flag discrepancies greater than about 10 minutes unless overlapping/parallel timing explains them;
 - step times plausible for heat, geometry, and portion size;
 - parallel tasks fit active-prep estimate;
 - sensory cues align with ranges;
@@ -226,13 +249,15 @@ Meal Prep additionally:
 - general composition follows `meal_prep_health_guidelines.md` unless overridden;
 - personal defaults follow `meal_prep_personal_health.md` unless overridden;
 - freezer/reheat quality is treated as a design constraint;
-- sodium drivers/levers handled when relevant;
-- nutrition methodology follows `meal_prep_nutrition.md` when numeric nutrition is present.
+- sodium drivers/levers handled as required;
+- nutrition methodology follows `meal_prep_nutrition.md` unless nutrition was explicitly opted out;
+- ASCII-only output contract followed.
 
 ---
 
-### Pass 8 — Meal Prep nutrition provenance (Meal Prep only, when Nutrition Snapshot is present/required)
+### Pass 8 — Meal Prep nutrition provenance (Meal Prep only unless user opted out)
 Check:
+- Nutrition Snapshot is present in full recipes/updated recipes unless explicitly opted out;
 - all mandatory core rows present;
 - vitamins/minerals tables present as required by `recipe_template.md`;
 - `NA` used only after source-tier exhaustion;
@@ -244,7 +269,8 @@ Check:
 - no partial nutrient sums silently exclude unresolved ingredients;
 - serving count matches recipe yield;
 - Nutrition Provenance present;
-- calculator does not outrank better ingredient-level data.
+- calculator does not outrank better ingredient-level data;
+- calculator/tool appears in Sources only if it materially contributed to displayed nutrition values.
 
 Invented nutrition values = Critical.
 
@@ -297,4 +323,4 @@ When requested:
 - cross-profile isolation checked;
 - issues severity-ordered;
 - corrected artifact uses same profile unless user changed it;
-- Meal Prep nutrition pass completed when applicable.
+- Meal Prep nutrition pass completed unless explicitly opted out.
