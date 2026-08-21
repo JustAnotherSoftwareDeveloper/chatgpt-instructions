@@ -8,8 +8,8 @@ This file is not globally active. Apply it only while `workflow-meal-prep` is ac
 This is a preference/tolerance policy, not a diagnosis. The user's current-thread observations and explicit requests override non-safety defaults.
 
 ## Precedence
-1. Current user request and explicit thread overrides.
-2. Food safety and explicit allergen constraints.
+1. Food safety and explicit allergen constraints.
+2. Current user request and explicit thread overrides, except where they conflict with safety-critical rules.
 3. Confirmed/repeated personal tolerance observations in this file.
 4. Conservative risk-management defaults in this file.
 5. General guidance in `meal_prep_health_guidelines.md` only when that authority is independently active.
@@ -154,5 +154,5 @@ Before emitting a deliverable whenever this authority is active, check:
 - dairy/gluten/bran-heavy ingredients handled according to their soft-blocker status;
 - fava safety flag respected;
 - no broad speculative blacklist created;
-- current-thread tolerance observations and overrides take precedence;
+- current-thread tolerance observations and overrides take precedence over non-safety defaults;
 - request-scoped use did not implicitly activate sibling Meal Prep authorities or batch/freezer defaults.
