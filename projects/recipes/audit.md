@@ -57,7 +57,6 @@ Recover:
 
 Verify:
 - `general-cooking` is used when no specialized base is actually justified;
-- exact legacy/simple `meal-prep-batch` was not converted to personalized `workflow-meal-prep`;
 - no inactive specialized authority leaked into the artifact;
 - request-scoped authorities were loaded narrowly rather than dragging in sibling Meal Prep rules;
 - active special instructions/current-thread overrides were not dropped.
@@ -140,11 +139,6 @@ When `workflow-meal-prep` is active, additionally require unless explicitly over
 - sodium per 1000 kcal when Calories and Sodium are numeric;
 - ASCII-only/`deg F` output contract.
 
-When legacy/simple `meal-prep-batch` is active without `workflow-meal-prep`:
-- yield remains 4-8 unless overridden;
-- strong freeze/storage/reheat behavior is present;
-- no personalized health defaults, default numeric Nutrition Snapshot, 10-portion assumption, or ASCII-only Meal Prep contract leaked in.
-
 When only request-scoped numeric nutrition is active:
 - Nutrition Snapshot follows `meal_prep_nutrition.md`;
 - no personalized Meal Prep batch/storage/personal-health rules leaked in.
@@ -189,8 +183,7 @@ Critical isolation checks:
 - no request-scoped authority expands beyond the explicitly requested topic;
 - active special instructions are not silently dropped;
 - project/chat memory alone did not activate a special instruction or personal constraint;
-- base occasion directives remain active alongside all modifiers;
-- `meal-prep-batch` and `workflow-meal-prep` remain semantically distinct.
+- base occasion directives remain active alongside all modifiers.
 
 Silent violation of an explicit lock or active specialized authority is at least Major.
 
@@ -367,7 +360,7 @@ When requested:
 
 ## Completion checklist
 - artifact type identified;
-- occasion context identified, including neutral fallback/legacy batch distinction;
+- occasion context identified, including neutral fallback;
 - special-instruction hooks resolved;
 - request-scoped authorities resolved narrowly;
 - thread locks recovered;
