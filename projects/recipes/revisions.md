@@ -1,7 +1,7 @@
 # Recipe Revisions Instruction Set
 
 ## Purpose
-Diagnose a recipe failure, corroborate the likely cause, and emit a corrected recipe that preserves the resolved occasion context and locked user decisions.
+Diagnose a recipe failure, corroborate the likely cause, and emit a corrected recipe that preserves the resolved occasion context, active specialized authorities, and locked user decisions.
 
 Shared authorities:
 - research/sourcing: `meal_sources.md`;
@@ -10,12 +10,14 @@ Shared authorities:
 - final recipe format: `recipe_template.md`;
 - orchestration/precedence: `instructions.md`.
 
-Load additional authorities only when the active occasion/modifier declares them through `special-instructions`.
+Load additional authorities only when the active occasion/modifier declares them through `special-instructions` or the user's revision request explicitly invokes their topic.
 
 When `workflow-meal-prep` is active, load:
 - `meal_prep_health_guidelines.md`;
 - `meal_prep_personal_health.md`;
 - `meal_prep_nutrition.md` for the default full-recipe Nutrition Snapshot unless explicitly opted out.
+
+An ordinary revision with an explicit numeric nutrition request may load `meal_prep_nutrition.md` alone without activating personalized Meal Prep. An ordinary revision explicitly asking to make the dish healthier may load `meal_prep_health_guidelines.md` alone.
 
 ---
 
@@ -44,7 +46,7 @@ Pick 1 to 3:
 - Equipment/geometry/scaling
 - Substitution breakage
 - Storage/freezer/reheat degradation (when relevant)
-- Occasion/special-instruction conflict (a compliant change broke the dish or service goal)
+- Occasion/specialized-authority conflict (a compliant change broke the dish or service goal)
 
 ---
 
@@ -57,13 +59,14 @@ Before proposing fixes, recover and preserve:
 - ingredient-source/brand constraints;
 - format requests;
 - rejected paths;
-- user-stated overrides to occasion/special-instruction defaults.
+- user-stated overrides to occasion/specialized-authority defaults;
+- request-scoped constraints explicitly established for the revision/thread.
 
 If a proposed fix conflicts with a lock:
 - provide a compliant alternative; or
 - clearly identify the conflict and ask only if permission is genuinely required.
 
-Do not silently drop or introduce an occasion modifier during revision.
+Do not silently drop or introduce an occasion modifier during revision. Do not convert legacy/simple `meal-prep-batch` into `workflow-meal-prep` unless the user actually requests the personalized workflow.
 
 ---
 
@@ -78,7 +81,7 @@ Check before research:
 - substitutions and ingredient state;
 - active occasion directives that affect seasonality, hold/service, transport, or storage.
 
-When `workflow-meal-prep` is active, also check:
+When storage/reheat is part of the artifact or failure, also check:
 - whether the fresh recipe was good but storage/reheat broke it;
 - freeze point and packaging;
 - thaw method;
@@ -86,6 +89,8 @@ When `workflow-meal-prep` is active, also check:
 - sauce/starch moisture migration;
 - whether components should have been stored separately;
 - whether batch scaling changed geometry.
+
+`workflow-meal-prep` makes this stored/reheated-state analysis mandatory when relevant. `meal-prep-batch` retains its simpler storage/reheat requirements without loading personalized constraints.
 
 ---
 
@@ -114,7 +119,7 @@ When storage/reheat is part of the failure, seek evidence on the stored/reheated
 ### Special-instruction variant matrix
 When an active occasion requires a variant matrix, build it internally before selecting the fix.
 
-`workflow-meal-prep` requires a failure-tailored comparison including the material drivers relevant to the observed failure, such as:
+`workflow-meal-prep` requires a failure-tailored comparison including material drivers relevant to the observed failure, such as:
 - yield/batch size;
 - vessel/layer depth/crowding;
 - time/temperature;
@@ -136,9 +141,10 @@ Required:
 - covered/uncovered plan;
 - reduction/evaporation path;
 - realistic vessel capacity;
-- compatibility with active seasonal/service/setting/transport directives.
+- compatibility with active seasonal/service/setting/transport directives;
+- yield/service composition consistent with `instructions.md`.
 
-When `workflow-meal-prep` is active, explicitly test whether the default batch requires multiple pans/batches rather than extending cook time in one crowded vessel.
+When `workflow-meal-prep` is active, explicitly test whether the batch requires multiple pans/batches rather than extending cook time in one crowded vessel.
 
 ---
 
@@ -156,13 +162,15 @@ Follow `meal_sources.md` safety/correctness rules before finalizing.
 - Prefer ratio bands and sensory cues over brittle point estimates.
 - Add a preventive guardrail for each high-confidence failure.
 - Preserve cuisine/flavor intent.
-- Preserve user/occasion/special-instruction constraints unless explicitly overridden.
+- Preserve user/occasion/specialized-authority constraints unless explicitly overridden.
 
 When `workflow-meal-prep` is active:
 - fix both fresh and reheat performance when both matter;
 - do not solve storage problems with a component that violates loaded personal defaults;
 - update fridge/freezer/reheat instructions whenever the diagnosis changes them;
 - recalculate numeric nutrition whenever changed quantities materially alter the snapshot, unless the user explicitly opted out of nutrition.
+
+When numeric nutrition is request-scoped outside Meal Prep, recalculate only because nutrition remains in scope; do not add Meal Prep storage/personal constraints.
 
 ---
 
@@ -179,7 +187,7 @@ Emit in this order:
 ### B) What Changes and Why
 - old -> new changes;
 - why each maps to a hypothesis;
-- any lock/occasion/special-instruction conflict and resolution.
+- any lock/occasion/specialized-authority conflict and resolution.
 
 ### C) Updated Recipe
 Full drop-in replacement using `recipe_template.md` under the same resolved occasion context.
@@ -192,7 +200,7 @@ Required regardless of occasion:
 - troubleshooting entries for the observed failure;
 - all ordinary recipe directives from the active base/modifiers.
 
-Additional requirements come from active `special-instructions`.
+Additional requirements come from active `special-instructions` and request-scoped authorities.
 
 For `workflow-meal-prep`, require:
 - loaded-constraint-compliant ingredients;
@@ -201,7 +209,9 @@ For `workflow-meal-prep`, require:
 - first-class Reheat Plan;
 - freezer guidance when used;
 - Nutrition Snapshot by default unless explicitly opted out;
-- Meal Prep ASCII/output contract.
+- personalized Meal Prep ASCII/output contract.
+
+For legacy/simple `meal-prep-batch`, retain its portion storage, freeze, and full reheat protocol without adding personalized health/nutrition/ASCII requirements.
 
 ### D) Optional Validation Plan
 2 to 5 next-cook checks when useful.
@@ -210,9 +220,12 @@ For `workflow-meal-prep`, require:
 
 ## Final QA
 - Occasion context unchanged unless the user changed it.
+- `general-cooking` used when no specialized base is justified.
+- Legacy/simple `meal-prep-batch` not silently converted to personalized Meal Prep.
 - All locked decisions preserved.
 - Every modification maps to a hypothesis.
 - No new contradiction between ingredients, instructions, seasonality, service/holding, storage, and reheat.
-- Every active special instruction was applied.
-- No inactive special instruction leaked into the revision.
+- Every active special instruction and request-scoped authority was applied narrowly.
+- No inactive specialized authority leaked into the revision.
+- Yield and immediate service count remain coherent.
 - When `workflow-meal-prep` is active, variant matrix completed internally and Nutrition Snapshot present unless explicitly opted out.
