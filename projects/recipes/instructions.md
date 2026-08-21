@@ -77,7 +77,7 @@ Specialization wins within its topic. In Meal Prep profile:
 - `meal_prep_personal_health.md` governs configured personal tolerance/avoidance defaults.
 - `meal_prep_health_guidelines.md` governs general health-oriented composition defaults.
 - `meal_prep_nutrition.md` governs numeric nutrition.
-- `meal_prep.md` governs batch/storage/reheat/profile behavior.
+- `meal_prep.md` governs batch/storage/reheat/profile behavior and Meal Prep-specific formatting.
 
 User preference may override non-safety defaults. Safety-critical rules are not waived by preference.
 
@@ -102,6 +102,14 @@ Follow `revisions.md`, then emit an updated recipe using `recipe_template.md` an
 Triggers include "audit", "QA", "double check", "validate", "find problems", "compare to template".
 Follow `audit.md`; validate both the shared engine and the active profile.
 
+### Multiple deliverables when explicitly requested
+Preserve the established ordering rules:
+- Options -> Recipe: emit options first, then the recipe for the selected option; if no selection exists and the user explicitly requested both, use the Pick First recommendation or Option 1 when no chooser clearly applies.
+- Recipe + research basis: recipe first, research basis second.
+- Revisions + Updated Recipe: follow `revisions.md` emission order.
+
+Meal Prep may retain its old preference for one clean deliverable by default, but an explicit user request for multiple deliverables is allowed; this is an intentional capability expansion, not a profile switch.
+
 ---
 
 ## 5) Shared workflow glue
@@ -116,7 +124,7 @@ Resolve as applicable:
 - make-ahead/holding expectations;
 - active profile.
 
-Ask only when ambiguity blocks correctness. Otherwise make reasonable assumptions and surface them in the target template.
+Ask only when ambiguity blocks correctness. Otherwise make reasonable assumptions and surface them in the target template. Meal Prep additionally follows the max-2-question rule in `meal_prep.md`.
 
 ### B) Occasion handling always remains available
 Occasion logic is shared by both profiles.
@@ -128,6 +136,8 @@ Occasion logic is shared by both profiles.
 ### C) Research behavior
 Default to deep research per `meal_sources.md` unless the user explicitly requests a quick/lightweight/no-browse answer.
 Meal Prep may define profile-specific research-budget adjustments in `meal_prep.md`; all source-quality, deduplication, authenticity, comment-mining, and safety rules still come from `meal_sources.md`.
+
+If browsing is unavailable, follow the target deliverable's no-browse behavior. Never invent citations or URLs.
 
 ### D) Distill before drafting
 Convert research into concrete failure-mode guardrails, technique choices, geometry, sequencing, and troubleshooting before emitting the deliverable.
@@ -151,7 +161,7 @@ When `meal-prep` is active:
 1. Read `meal_prep.md`.
 2. Apply `meal_prep_health_guidelines.md` and `meal_prep_personal_health.md` before proposing dishes or ingredients.
 3. Use the shared `options.md`, `recipe_template.md`, `revisions.md`, and `audit.md`; follow their conditional Meal Prep sections.
-4. Use `meal_prep_nutrition.md` whenever numeric nutrition is required or requested.
+4. Full Meal Prep recipes include numeric nutrition by default using `meal_prep_nutrition.md`, unless the user explicitly opts out. Options lists do not require numeric nutrition unless requested.
 5. Preserve occasion directives in addition to Meal Prep constraints.
 
 When `standard` is active, skip this entire section operationally.
@@ -173,6 +183,7 @@ Before finalizing:
 - Are explicit user decisions preserved?
 - Are occasion directives honored?
 - Are equipment/geometry and major failure modes handled?
-- If Meal Prep is active, are its required batch/storage/reheat/health/nutrition checks satisfied?
+- If Meal Prep is active, are its required batch/storage/reheat/health checks satisfied?
+- If Meal Prep full recipe is active, is the Nutrition Snapshot present unless explicitly opted out?
 - Are citations/URLs handled according to the target deliverable?
 - Is the final deliverable free of internal instruction-file commentary?
