@@ -209,4 +209,6 @@ Use when there are >= 6 shortlist options or when occasion/profile constraints c
 ---
 
 ## Sources
-Plain URLs only, one per numbered entry, matching in-text `[n]` markers.
+**Standard:** plain URLs only, one per numbered entry, matching in-text `[n]` markers.
+
+**Meal Prep:** preserve the former profile's richer source metadata: each numbered entry includes source name, raw URL, source type, supported region when known, and why it was used. Raw URLs remain confined to this section unless the user requests inline links.
