@@ -28,6 +28,7 @@ Determine artifact type first:
 Then resolve/recover the active occasion context:
 - base occasion;
 - workflow modifier;
+- seasonal modifier;
 - setting modifier;
 - service modifier;
 - menu modifier;
@@ -63,7 +64,7 @@ Run all applicable passes in order. Do not claim "no issues found" until every a
 #### Options
 Check against `options.md`:
 - required inputs populated;
-- base occasion and modifiers are correctly resolved;
+- base occasion and workflow/seasonal/setting/service/menu modifiers are correctly resolved;
 - 5 to 8 shortlist entries and 5 to 10 runner-ups;
 - each shortlist entry uses 3 to 5 valid tags and required per-option fields;
 - target length/shape is respected unless user requested more detail;
@@ -112,8 +113,8 @@ Structural checks:
 
 Occasion checks:
 - base optimize/avoid directives are reflected;
-- workflow/setting/service/menu directives are reflected without silently erasing each other;
-- required hold/service/transport/make-ahead guidance exists when the occasion calls for it;
+- workflow/seasonal/setting/service/menu directives are reflected without silently erasing each other;
+- required seasonal/hold/service/transport/make-ahead guidance exists when the occasion calls for it;
 - any active `special-instructions` requirements are present.
 
 When `workflow-meal-prep` is active, additionally require unless explicitly overridden:
@@ -152,7 +153,7 @@ When `workflow-meal-prep` is active, additionally require:
 ### Pass 2 - Carry-forward and special-instruction isolation
 For every recoverable constraint:
 - base occasion preserved;
-- workflow/setting/service/menu modifiers preserved;
+- workflow/seasonal/setting/service/menu modifiers preserved;
 - selected option/variation preserved;
 - equipment limits preserved;
 - ingredient-source constraints preserved;
@@ -164,7 +165,7 @@ Critical isolation checks:
 - no special-instruction authority is applied unless its declaring occasion/modifier is active;
 - active special instructions are not silently dropped;
 - project/chat memory alone did not activate a special instruction;
-- base occasion directives remain active alongside workflow directives.
+- base occasion directives remain active alongside all modifiers.
 
 Silent violation of an explicit lock or active special instruction is at least Major.
 
@@ -205,7 +206,7 @@ Check `equipment.md`:
 - avoid-unless-necessary/retired gear justified;
 - ceramic nonstick not used for inappropriate high-heat searing/broiling.
 
-Also verify geometry supports the resolved occasion: serving count, holding plan, travel plan, and any batch workflow must be physically realistic.
+Also verify geometry supports the resolved occasion: serving count, seasonal execution, holding plan, travel plan, and any batch workflow must be physically realistic.
 
 When `workflow-meal-prep` is active:
 - default batch does not exceed realistic vessel surface area/capacity;
@@ -221,7 +222,8 @@ Check:
 - parallel tasks fit active-prep estimate;
 - sensory cues align with ranges;
 - rests present when materially needed;
-- hold/service windows are plausible for the selected occasion.
+- hold/service windows are plausible for the selected occasion;
+- seasonal directives do not contradict heat path or service plan.
 
 When storage/reheat instructions are present or required:
 - fridge/freezer plan internally coherent;
@@ -243,7 +245,7 @@ Verify:
 - allergen/Contains line matches ingredients;
 - variations do not violate locks;
 - Common Issues and Troubleshooting agree;
-- occasion directives do not contradict serving/hold/storage instructions;
+- occasion directives do not contradict seasonal/serving/hold/storage instructions;
 - active special-instruction sections agree with the base recipe and each other.
 
 When `workflow-meal-prep` is active:
@@ -259,7 +261,7 @@ Verify:
 - every direct user request is satisfied or explicitly acknowledged;
 - rejected ingredients/techniques/formats absent;
 - occasion optimize/avoid axes are reflected in method/serving choices;
-- selected modifiers are justified;
+- workflow/seasonal/setting/service/menu modifiers are justified;
 - requested research depth met;
 - make-ahead preference honored;
 - every active special instruction was applied;
