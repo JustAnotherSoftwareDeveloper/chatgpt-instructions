@@ -8,7 +8,7 @@ A playbook answers where to search for category-appropriate information. It does
 
 ---
 
-## Base playbook
+## Playbooks
 
 ### general-shopping
 During discovery, search broadly across source families that may be relevant to the target, including:
@@ -20,8 +20,6 @@ During discovery, search broadly across source families that may be relevant to 
 - seller/listing sources when current price or availability is in scope.
 
 Use this playbook to widen discovery only. Do not infer evidentiary weight from a source family's presence on this list.
-
-`base.md` activates `general-shopping`.
 
 ---
 
@@ -38,4 +36,4 @@ Category playbooks from the previous implementation remain in `archive/source_pl
 
 ## Boundary
 
-This file owns source discovery strategy only. Evidence admissibility, claim matching, weighting, recency, and conflict resolution belong to `research_sources.md`; review interpretation belongs to `reviews.md`; seller legitimacy belongs to `seller_instructions.md`.
+This file owns source discovery strategy only. It does not decide which playbooks Base or a node activates. Evidence admissibility, claim matching, weighting, recency, and conflict resolution belong to `research_sources.md`; review interpretation belongs to `reviews.md`; seller legitimacy belongs to `seller_instructions.md`.
