@@ -9,13 +9,13 @@ Product context follows:
 
 Intermediate levels are optional. Resolve only as deeply as the request justifies. Workflows are a separate axis: product context answers what is being researched; the workflow answers what the user wants done.
 
-Do not duplicate detailed rules from canonical files. Route to them and load the files named by the resolved context.
+Do not duplicate detailed rules from canonical files. Route to them, load the files named by the resolved context, and apply hierarchy Merge/Override contributions only through the semantics owned by `product_hierarchy.md`.
 
 ## Canonical files
 
 ### Product context
 - `base.md` - universal Shopping defaults and behavior inherited by every request. Does not own product-domain logic.
-- `product_hierarchy.md` - Class/Category/Type semantics, matching guidance, inheritance, and level-specific file/section loading. Does not own deep domain rules.
+- `product_hierarchy.md` - Class/Category/Type semantics, matching guidance, inheritance, shared-authority selection, and canonical Merge/Override semantics.
 
 ### Shared authorities
 - `criteria.md` - reusable evaluation dimensions and their meaning. Does not decide evidence quality, price tiers, or seller trust.
@@ -32,7 +32,7 @@ Do not duplicate detailed rules from canonical files. Route to them and load the
 - `quick_check.md` - focused one-product factual verification, compatibility, one-listing, red-flag, deal-sanity, or where-to-buy workflow.
 - `audit.md` - audit of Shopping outputs; repository architecture audit only when explicitly requested.
 
-Workflows consume the resolved product context and shared authorities. They own sequencing, workflow-specific discovery geometry, narrowing, synthesis, and escalation. They must not redefine research modes, evidence standards, reusable pricing definitions, product taxonomy, review thresholds, or seller-risk definitions owned elsewhere.
+Workflows own their generic sequencing, workflow-specific discovery geometry, narrowing, synthesis, escalation, and named contribution surfaces. They must not redefine research modes, evidence standards, reusable pricing definitions, product taxonomy, review thresholds, or seller-risk definitions owned elsewhere.
 
 ### Templates
 - `product_research_template.md` - Product Research presentation contract.
@@ -40,27 +40,41 @@ Workflows consume the resolved product context and shared authorities. They own 
 - `vendor_research_template.md` - Vendor Research presentation contract.
 - `quick_check_template.md` - Quick Check presentation contract.
 
-Templates render decisions already made by the active workflow. They do not decide research depth, candidate counts, routing, escalation, evidence sufficiency, tier validity, or recommendation shape.
+Templates render decisions already made by the effective workflow. They do not decide research depth, candidate counts, routing, escalation, evidence sufficiency, tier validity, hierarchy mutation, or recommendation shape.
 
 ### Current specialized hierarchy authorities
 - `class_home_kitchen.md` - behavior shared broadly across Home & Kitchen products.
 - `category_kitchen_knives.md` - behavior shared across Kitchen Knives.
-- `type_chefs_knife.md` - behavior specific to Chef's Knives.
+- `type_chefs_knife.md` - behavior specific to Chef's Knives and reference implementation of workflow Merge/Override contributions.
 
 These files are active only when their hierarchy level is active. Future hierarchy authorities follow the same rule.
 
+## Execution sequence
+For every Shopping request:
+1. Resolve the primary workflow under Workflow routing.
+2. Start with Base and apply `base.md`.
+3. Use `product_hierarchy.md` to resolve the most-specific justified product context.
+4. Load every specialized file and shared-authority section named by the active hierarchy levels.
+5. Load the generic workflow contract.
+6. Build the effective workflow by applying active hierarchy contributions general -> specific:
+   - Class;
+   - Category;
+   - Type.
+7. At each active level, apply only the contribution sections relevant to the active workflow:
+   - explicit Override sections replace only their named inherited rule/sub-contract;
+   - Merge sections add behavior to the resulting concern;
+   - Shared domain behavior remains active across workflows.
+8. Execute the resulting effective workflow under all active shared authorities.
+9. Render the result with the active template.
+
+Do not invent a Merge/Override operation that is not stated by an active hierarchy authority. Do not infer that a large specialized file replaces a workflow wholesale.
+
 ## Product-context resolution
-Before executing a workflow:
-1. Start with Base and apply `base.md`.
-2. Use `product_hierarchy.md` to identify the most-specific justified product context.
-3. Apply the selected hierarchy levels from general to specific.
-4. Load every specialized file and shared-authority section named by those active levels.
-5. Stop at the deepest level actually supported by the request or confidently established product identity.
-6. Do not invent an intermediate level merely to make the hierarchy look complete.
-
-If multiple materially different product kinds are being compared, resolve a context for each instead of collapsing them to an artificially generic common node.
-
-A child inherits its parent. More-specific product guidance may specialize broader non-safety defaults for its own domain. Safety/legal constraints cannot be weakened by specialization.
+1. Stop at the deepest level actually supported by the request or confidently established product identity.
+2. Do not invent an intermediate level merely to make the hierarchy look complete.
+3. If multiple materially different product kinds are being compared, resolve a context for each instead of collapsing them to an artificially generic common node.
+4. A child inherits its parent. More-specific product guidance may specialize broader non-safety workflow behavior only through the Merge/Override semantics in `product_hierarchy.md`.
+5. Safety/legal constraints and topics owned by shared authorities cannot be weakened by specialization.
 
 ## Workflow routing
 Use the first matching rule. Use one primary workflow unless the user explicitly asks for multiple deliverables.
@@ -99,19 +113,20 @@ Precedence applies only when two active instructions conflict. First identify th
 
 1. Safety/legal constraints from any active authority.
 2. User's explicit current request and locked thread decisions, except where they conflict with safety/legal constraints.
-3. `product_hierarchy.md` for classification, inheritance, and level activation.
+3. `product_hierarchy.md` for classification, inheritance, hierarchy activation, and Merge/Override semantics.
 4. `research_sources.md` for research-mode selection and evidence standards.
 5. `reviews.md` for review/community interpretation.
 6. `seller_instructions.md` for seller/channel and offer risk.
 7. `pricing.md` for reusable product-value and price-state definitions.
 8. `criteria.md` for reusable evaluation-dimension definitions.
 9. `source_playbooks.md` for source discovery guidance only.
-10. Active specialized hierarchy authorities (`class_home_kitchen.md`, `category_kitchen_knives.md`, `type_chefs_knife.md`, and future hierarchy authorities) for product-domain behavior not owned by the shared authorities above.
-11. The active workflow authority for sequencing, workflow-specific discovery/narrowing, synthesis, and escalation.
-12. `base.md` for universal defaults and vocabulary.
-13. The active template for presentation only.
+10. Active hierarchy workflow contributions, applied Class -> Category -> Type, for explicitly named product-domain workflow concerns. More-specific hierarchy guidance wins only on the target it explicitly overrides.
+11. Generic active workflow for all workflow-owned behavior not explicitly specialized by an active hierarchy contribution.
+12. Shared domain behavior from active hierarchy authorities for product-domain behavior not tied to one workflow concern.
+13. `base.md` for universal defaults and vocabulary.
+14. The active template for presentation only.
 
-A workflow may request deeper research but may not weaken or redefine `research_sources.md`. A specialized hierarchy file may add domain-specific evidence needs but may not lower evidence standards. A template may render a section but may not decide whether the workflow was required to produce it.
+Hierarchy workflow contributions may specialize workflow-owned defaults and sub-contracts, but may not override topics owned by shared authorities above them. A workflow may request deeper research but may not weaken or redefine `research_sources.md`. A template may render a section but may not decide whether the workflow was required to produce it.
 
 If two sibling files restate the same threshold, definition, or decision rule, keep it only in the file that owns that topic and replace other copies with references.
 
@@ -119,13 +134,15 @@ If two sibling files restate the same threshold, definition, or decision rule, k
 - Ask only when missing information materially blocks a correct or useful answer. Otherwise make a reasonable assumption and state it when consequential.
 - Treat current products, prices, availability, seller policies, active revisions, firmware/support status, recalls, and similar changing facts as current-information questions and verify them when material.
 - Distinguish product quality from seller quality and product value from temporary deal quality.
-- Keep internal classification, research ledgers, and compliance mechanics out of the final answer unless the user asks for the research basis or an audit.
+- Keep internal classification, effective-workflow assembly, research ledgers, and compliance mechanics out of the final answer unless the user asks for the research basis or an audit.
 
 ## Final QA
 Before finalizing, confirm:
 - the workflow matches the request;
 - the product context is neither too generic nor over-classified;
 - all active hierarchy files and shared sections were applied;
+- the effective workflow includes all relevant active hierarchy Merges/Overrides in general -> specific order;
+- every applied Override names a legitimate workflow target and did not erase unrelated inherited behavior;
 - hard constraints and locked decisions were preserved;
 - exact product/variant identity is sufficiently clear for the claims made;
 - the research mode came from `research_sources.md` and evidence depth matches the decision stakes and claim types;

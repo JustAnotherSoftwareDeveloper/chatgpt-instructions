@@ -1,9 +1,27 @@
 # Vendor Research Workflow
 
 ## Purpose
-Own research about brands, manufacturers, retailers, dealers/distributors, shopping sites, or vendor ecosystems rather than a specific product shortlist.
+Own the generic workflow for research about brands, manufacturers, retailers, dealers/distributors, shopping sites, or vendor ecosystems rather than a specific product shortlist.
 
 Use the resolved product context and shared evidence/specialized authorities.
+
+## Hierarchy contribution surfaces
+Active hierarchy authorities may Merge into or Override only named Vendor Research concerns using `product_hierarchy.md` semantics.
+
+Stable concerns:
+- **Vendor subtype** - §2.
+- **Scope and vendor decision model** - §§3-4.
+- **Discovery geometry** - §§5, 7.
+- **Ecosystem segmentation** - §6.
+- **Eligibility** - §8.
+- **Finalist selection** - §9.
+- **Vendor normalization** - §§10-12.
+- **Subtype evidence additions** - §13.
+- **Coverage / comparability** - §14.
+- **Causal vendor analysis** - §15.
+- **Synthesis / decision boundary** - §17.
+
+Hierarchy contributions may add domain-specific vendor dimensions or replace workflow-owned ecosystem models, but may not redefine seller/offer states in `seller_instructions.md`, evidence standards in `research_sources.md`, or reusable criterion/value definitions.
 
 ## 1) Research mode
 Apply the research mode selected by `research_sources.md`. Do not redefine Quick / Standard / Deep / Sparse triggers here.
@@ -67,8 +85,8 @@ After the initial ecosystem map, run one challenge pass targeting:
 - channel/service structures that materially alter the comparison.
 
 Discovery may stop when:
-- the default breadth target is met or a justified escape clause applies;
-- major ecosystem segments are represented;
+- the effective breadth target is met or a justified escape clause applies;
+- major ecosystem segments under the active domain model are represented;
 - the challenge pass yields no new finalist-worthy entity or material ecosystem segment.
 
 ## 8) Eligibility gates
@@ -131,6 +149,8 @@ Where relevant establish:
 - business continuity/reputation;
 - user friction for service/returns.
 
+Apply any active hierarchy Merge additions to the relevant normalization record rather than replacing generic fields unless an explicit Override says a particular generic field/model is wrong for the domain.
+
 ## 13) Evidence requirements by subtype
 Apply `research_sources.md` for all general evidence sufficiency, independence, research-mode, and stopping rules.
 
@@ -149,7 +169,7 @@ Establish authorization/product access, service/coverage, warranty handling, par
 Evaluate manufacturer/brand quality and buying-channel quality separately, then explain the interaction.
 
 ## 14) Coverage and comparability
-For each vendor finalist maintain internal coverage on the primary vendor differentiators using `research_sources.md`.
+For each vendor finalist maintain internal coverage on the effective primary vendor differentiators using `research_sources.md`.
 
 Do not call one vendor better simply because more information exists about it.
 
@@ -168,7 +188,7 @@ Apply the evidence coverage, comparability, challenge-pass, and stop-condition c
 Use `reviews.md` for review/community reputation claims and `seller_instructions.md` for concrete channel/offer judgments.
 
 ## 17) Synthesis defaults
-Lead with the ecosystem map and the most useful shortlist.
+Lead with the effective ecosystem map and the most useful shortlist.
 
 Default output:
 - **1 primary vendor/brand recommendation** when a clear fit exists;
@@ -182,5 +202,13 @@ State material coverage limitations when reputation is sparse or highly anecdota
 ## 18) Output
 Use `vendor_research_template.md`.
 
+## Pre-output quality gate
+Confirm:
+- active Vendor Research hierarchy Merges/Overrides were applied to their named concerns;
+- ecosystem segmentation reflects the active domain model;
+- normalization records include all material domain-specific additions;
+- no hierarchy contribution redefined seller states or general evidence rules;
+- manufacturer/brand quality and purchase-channel quality remain distinct.
+
 ## Boundary
-Research modes/general evidence belong to `research_sources.md`; offer-level seller risk to `seller_instructions.md`; product-level workflow to `product_research.md`; classification to `product_hierarchy.md`; presentation to `vendor_research_template.md`. This workflow owns vendor subtype resolution, ecosystem mapping, vendor-specific normalization, narrowing, and synthesis.
+Research modes/general evidence belong to `research_sources.md`; offer-level seller risk to `seller_instructions.md`; classification and Merge/Override semantics to `product_hierarchy.md`; presentation to `vendor_research_template.md`. This file owns the generic Vendor Research workflow and its named contribution surfaces.

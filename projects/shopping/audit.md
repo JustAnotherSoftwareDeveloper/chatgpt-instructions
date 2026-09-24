@@ -9,7 +9,7 @@ Audit evaluates compliance with the active canonical contracts. It does **not** 
 ### Self-audit / pre-output audit
 Use when auditing work still being produced in the current execution.
 
-The audit may inspect internal research artifacts that actually exist in the current execution, such as research briefs, candidate records, coverage matrices, challenge-pass results, and robustness checks.
+The audit may inspect internal research artifacts that actually exist in the current execution, such as research briefs, candidate records, coverage matrices, challenge-pass results, effective hierarchy contributions, and robustness checks.
 
 ### Retrospective audit
 Use when auditing a prior answer or artifact.
@@ -29,14 +29,38 @@ Identify:
 - requested deliverable and correct workflow under `instructions.md`;
 - resolved Base / Class / Category / Type under `product_hierarchy.md`;
 - active specialized hierarchy authorities;
+- active workflow-specific Merges/Overrides from those authorities;
+- effective workflow after Class -> Category -> Type contributions;
 - research mode under `research_sources.md`;
 - whether `reviews.md`, `seller_instructions.md`, `pricing.md`, or other shared authorities were materially active;
 - active output template.
 
 Preserve the user's hard constraints and locked decisions when judging the answer.
 
-## 3) Apply canonical workflow contracts by reference
-Audit the active workflow against its own contract rather than copying its thresholds here:
+## 3) Audit hierarchy Merge/Override application
+Apply the semantics in `product_hierarchy.md` by reference.
+
+For self-audit, verify directly that:
+- only hierarchy levels actually resolved for the target contributed behavior;
+- Shared domain behavior remained active across workflows;
+- only contribution sections for the active workflow were applied;
+- every Merge was additive to the inherited concern;
+- every Override named an explicit inherited workflow rule/sub-contract;
+- a more-specific Override replaced only the same named target, not unrelated parent behavior;
+- unmentioned inherited workflow behavior survived;
+- no hierarchy contribution weakened a shared-authority or safety/legal rule;
+- no specialized authority silently acted as a whole-workflow replacement.
+
+For retrospective audit, infer Merge/Override application only from observable output or targeted verification. If the answer does not expose enough process detail, judge whether the **resulting behavior** is consistent with the effective hierarchy contract rather than pretending to inspect hidden mutation steps.
+
+Examples of observable failures:
+- Chef's Knife Product Research uses a generic price-only market map despite an active Type override requiring design-family segmentation;
+- a Kitchen Knife Pricing Tiers answer treats steel name alone as sufficient evidence of a higher tier despite the Category tier-validity merge;
+- a Type override causes unrelated generic discovery/evidence rules to disappear;
+- a Quick Check expands into full Product Research merely because the Type has extensive Product Research contributions.
+
+## 4) Apply canonical workflow contracts by reference
+Audit the effective active workflow against its own contract rather than copying thresholds here:
 - Product Research -> `product_research.md`;
 - Pricing Tiers -> `pricing_tiers.md`;
 - Vendor Research -> `vendor_research.md`;
@@ -51,7 +75,7 @@ For retrospective audit, distinguish:
 
 A missing user-visible research ledger is not evidence that the internal workflow step was skipped when the active template intentionally hides it.
 
-## 4) Apply shared-authority contracts by reference
+## 5) Apply shared-authority contracts by reference
 Check only the authorities that were materially active:
 - `research_sources.md` for research mode, evidence admissibility, claim/source fit, independence, coverage, comparability, conflict handling, challenge pass, and stopping rules;
 - `reviews.md` for review/community interpretation and pattern-strength language;
@@ -59,11 +83,11 @@ Check only the authorities that were materially active:
 - `pricing.md` for price-state definitions, normal-price baseline, deal/value interpretation, and diminishing returns;
 - `criteria.md` for criterion meaning;
 - `source_playbooks.md` for discovery guidance;
-- active hierarchy-specialized files for domain-specific behavior.
+- active hierarchy-specialized files for domain-specific Shared/Merge/Override behavior.
 
-Do not restate their numeric thresholds or definitions in this file. If a finding depends on one, cite/reference the owning authority.
+Do not restate numeric thresholds or canonical definitions in this file. If a finding depends on one, cite/reference the owning authority.
 
-## 5) Analytical-integrity checks
+## 6) Analytical-integrity checks
 Independently of workflow bookkeeping, check whether the answer's reasoning is sound.
 
 ### Decision fit
@@ -72,7 +96,7 @@ Independently of workflow bookkeeping, check whether the answer's reasoning is s
 - Did consequential assumptions remain visible enough to evaluate?
 
 ### Candidate fairness
-- Was an important market/design family obviously omitted?
+- Was an important market/design family under the effective hierarchy model obviously omitted?
 - Was a candidate disadvantaged merely because less information was easy to find?
 - Were finalists meaningfully distinct rather than redundant near-duplicates?
 
@@ -95,14 +119,14 @@ Do not require a causal mechanism when evidence only supports an observation; fl
 - Is it clear what preference/assumption would flip the choice when the decision is close?
 - Does the conclusion rest excessively on one weak, disputed, or non-comparable claim?
 
-## 6) Product identity and current-state checks
+## 7) Product identity and current-state checks
 Check where material:
 - exact model/variant/generation/size/region/condition;
 - no silent mixing of materially different revisions;
 - current price/availability/policy/support facts fresh enough for the conclusion;
 - historical/stable evidence not penalized merely for age when still applicable.
 
-## 7) Review/community checks
+## 8) Review/community checks
 When review/community evidence affects the conclusion, apply `reviews.md` and check for obvious misuse such as:
 - anecdote presented as pattern;
 - repeated retellings counted as independent reports;
@@ -113,7 +137,7 @@ When review/community evidence affects the conclusion, apply `reviews.md` and ch
 
 Use the exact pattern-strength requirements from `reviews.md`; do not duplicate them here.
 
-## 8) Seller / offer checks
+## 9) Seller / offer checks
 When a concrete seller or offer is recommended, apply `seller_instructions.md`.
 
 Check that the answer separates:
@@ -124,38 +148,39 @@ Check that the answer separates:
 
 Verify that material seller/provenance/return/warranty claims are supported through the evidence hierarchy owned by `seller_instructions.md`.
 
-## 9) Pricing checks
-When price/value materially affects the answer, apply `pricing.md` and, if active, `pricing_tiers.md`.
+## 10) Pricing checks
+When price/value materially affects the answer, apply `pricing.md` and, if active, the **effective** `pricing_tiers.md` workflow after hierarchy contributions.
 
 Check for obvious errors such as:
 - MSRP treated as normal street price without support;
 - flash sale/clearance silently treated as permanent market position;
 - incomparable variants/conditions/bundles treated as like-for-like;
-- extra spend described as value without a concrete user-relevant gain.
+- extra spend described as value without a concrete user-relevant gain;
+- hierarchy-specific parallel value tracks forced into a false single ladder.
 
-## 10) Output-contract check
+## 11) Output-contract check
 Apply only the active template.
 
 Check:
-- required presentation blocks supplied by the workflow were rendered clearly;
-- internal research mechanics were not exposed unless requested/audited;
-- the template did not introduce new research or decision logic;
+- required presentation blocks supplied by the effective workflow were rendered clearly;
+- internal research/effective-workflow mechanics were not exposed unless requested/audited;
+- the template did not introduce new research, hierarchy mutation, or decision logic;
 - material uncertainty was not hidden by formatting confidence.
 
-## 11) Severity
+## 12) Severity
 ### Critical
 Could materially mislead the purchase because of wrong identity, incompatibility/safety failure, fabricated/currently false evidence, or a major unsupported conclusion.
 
 ### Major
-Could change the recommendation or purchase decision: wrong workflow/context, missing hard constraint, failed evidence/comparability requirement, omitted major market family, seller/provenance risk, stale/mis-modeled price, or materially shallow/fragile synthesis.
+Could change the recommendation or purchase decision: wrong workflow/context, missing hard constraint, failed evidence/comparability requirement, omitted major market family, incorrect hierarchy Override/Merge application, seller/provenance risk, stale/mis-modeled price, or materially shallow/fragile synthesis.
 
 ### Minor
-Broadly sound with a limited clarity, coverage, caveat, citation, or formatting defect unlikely to change the recommendation.
+Broadly sound with a limited clarity, coverage, caveat, citation, hierarchy-application, or formatting defect unlikely to change the recommendation.
 
 ### Note
 Useful improvement that is not a defect.
 
-## 12) Audit output
+## 13) Audit output
 Default:
 1. Overall status: Pass / Pass with issues / Rework needed.
 2. Findings grouped by Critical / Major / Minor / Notes; omit empty groups.
@@ -164,17 +189,24 @@ Default:
 5. For retrospective audits, label process-only items that cannot be verified as such rather than inventing a pass/fail.
 6. Provide a corrected answer/plan only when requested.
 
-## 13) Repository-maintenance audit
+## 14) Repository-maintenance audit
 Only when explicitly auditing/editing this project, also check:
 - `MAIN.md` is pointer-only;
-- `instructions.md` canonical map and first-match routing are complete;
+- `instructions.md` canonical map, execution sequence, and first-match routing are complete;
 - every rule has one clear owner;
 - sibling files reference canonical rules instead of copying thresholds/definitions;
 - research-mode selection exists only in `research_sources.md`;
 - reusable pricing definitions exist only in `pricing.md`;
 - templates own presentation only;
-- workflows own sequencing/synthesis only and cannot weaken shared-authority standards;
-- hierarchy boundaries are behavior-driven;
+- workflows own generic sequencing/synthesis plus stable named contribution surfaces;
+- `product_hierarchy.md` alone owns Merge/Override semantics;
+- every hierarchy Override names a specific workflow rule/sub-contract rather than an entire workflow;
+- hierarchy Merges are additive and do not silently suppress inherited rules;
+- more-specific overrides affect only the same named target;
+- hierarchy contributions cannot weaken shared-authority or safety/legal rules;
+- specialized authority files separate Shared domain behavior from workflow-specific Merge/Override sections;
+- hierarchy levels omit workflow sections when they have nothing meaningful to contribute;
+- Chef's Knife remains a valid reference implementation rather than special-cased logic embedded in generic workflows;
 - specialized files load only from active hierarchy entries;
 - references point to live files/sections;
 - `archive/` is not treated as deployable ChatGPT Project context;
@@ -182,4 +214,4 @@ Only when explicitly auditing/editing this project, also check:
 - numeric defaults have triggers/stop conditions/escape clauses in their owning file.
 
 ## Boundary
-Audit owns audit mode, observability rules, analytical-integrity diagnosis, severity, and audit presentation. It references all other contracts rather than reimplementing them.
+Audit owns audit mode, observability rules, Merge/Override compliance diagnosis, analytical-integrity diagnosis, severity, and audit presentation. It references all other contracts rather than reimplementing them.

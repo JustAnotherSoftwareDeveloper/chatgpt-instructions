@@ -1,9 +1,25 @@
 # Quick Check Workflow
 
 ## Purpose
-Own focused evaluation or verification of one named product/model/listing: narrow factual checks, specification/compatibility sanity, red flags, a concrete offer/deal, or where-to-buy guidance without expanding into full-market research by default.
+Own the generic focused evaluation or verification of one named product/model/listing: narrow factual checks, specification/compatibility sanity, red flags, a concrete offer/deal, or where-to-buy guidance without expanding into full-market research by default.
 
 Use the resolved product context and active shared/specialized authorities.
+
+## Hierarchy contribution surfaces
+Active hierarchy authorities may Merge into or Override only named Quick Check concerns using `product_hierarchy.md` semantics.
+
+Stable concerns:
+- **Target identity** - §2.
+- **Hard gates** - §3.
+- **Decision questions** - §4.
+- **Evidence application** - §5.
+- **Deal / where-to-buy** - §6.
+- **Outside comparables / escalation** - §7.
+- **Conclusion** - §9.
+
+Quick Check should remain narrow. Hierarchy contributions should usually Merge domain-specific identity fields, hard gates, decision questions, or deal checks rather than replacing the workflow wholesale.
+
+Hierarchy contributions may not redefine evidence standards, seller states, reusable price definitions, or the Quick/Standard/Deep/Sparse modes.
 
 ## 1) Research mode
 Apply the research mode selected by `research_sources.md`. Do not redefine Quick / Standard / Deep / Sparse triggers here.
@@ -22,6 +38,8 @@ For a concrete offer distinguish:
 - included bundle/accessories;
 - regional/version details.
 
+Apply any active hierarchy Merge additions to identity/version fields.
+
 If identity is too uncertain for the requested judgment, state what needs confirmation instead of guessing.
 
 ## 3) Apply hard gates first
@@ -33,6 +51,8 @@ Check constraints that can make the product unsuitable immediately:
 - region/support;
 - strict budget;
 - active domain-specific hard gates.
+
+Apply any active hierarchy hard-gate Merges/Overrides before concluding fit.
 
 State a hard failure early.
 
@@ -47,10 +67,12 @@ Typical questions:
 
 For a purely factual lookup, the relevant question may simply be the exact fact to verify plus any identity/version condition needed to make that fact reliable.
 
+Active hierarchy contributions may specialize which domain questions matter, but do not expand Quick Check into a full category research plan.
+
 If answering responsibly requires more than 4 decision questions, that is a strong signal to escalate to `product_research.md`.
 
 ## 5) Evidence
-Apply the selected evidence packet, claim/source rules, and stop condition from `research_sources.md` to the decision questions above.
+Apply the selected evidence packet, claim/source rules, and stop condition from `research_sources.md` to the effective decision questions above.
 
 Use `reviews.md` when review/community evidence is needed and `seller_instructions.md` when a concrete offer or purchase channel matters.
 
@@ -58,10 +80,11 @@ Do not restate or weaken those authorities here.
 
 ## 6) Deal / where-to-buy check
 When the user asks whether a price/listing/deal is good or where to buy the exact target:
-1. verify the exact variant/condition;
+1. verify the exact variant/condition under the active domain identity rules;
 2. establish the relevant price baseline using `pricing.md`;
 3. apply the offer-comparison procedure and offer states from `seller_instructions.md`;
-4. distinguish product quality, normal product value, seller/channel quality, and temporary deal quality.
+4. apply any domain-specific purchase-channel Merge checks from active hierarchy authorities;
+5. distinguish product quality, normal product value, seller/channel quality, and temporary deal quality.
 
 If the seller authority's price-anomaly trigger fires, apply its diligence rule rather than duplicating that threshold here.
 
@@ -75,22 +98,31 @@ Escalate to `product_research.md` when:
 - contradictory evidence cannot be bounded within Quick scope;
 - the user asks for broad/deep/full market comparison.
 
+Apply any active hierarchy escalation additions without weakening these generic boundaries.
+
 ## 8) Stop condition
 Quick Check may stop when:
-- hard gates are resolved;
-- the <=4 decision questions are verified or explicitly bounded under `research_sources.md`;
-- any price/seller question satisfies the applicable `pricing.md` and `seller_instructions.md` contracts;
+- effective hard gates are resolved;
+- the <=4 effective decision questions are verified or explicitly bounded under `research_sources.md`;
+- any price/seller question satisfies the applicable `pricing.md`, `seller_instructions.md`, and active hierarchy purchase-channel checks;
 - additional research is unlikely to change the narrow answer.
 
 Do not continue merely to accumulate sources.
 
 ## 9) Conclusion
-Answer the narrow question directly.
+Answer the narrow question directly using the effective domain rules.
 
 Do not use a mechanical buy/do-not-buy verdict when an unresolved preference genuinely determines the answer.
 
 ## 10) Output
 Use `quick_check_template.md` for presentation.
 
+## Pre-output quality gate
+Confirm:
+- active Quick Check hierarchy Merges/Overrides were applied to their named concerns;
+- identity/hard-gate checks reflect the active domain context;
+- Quick scope remained narrow;
+- shared evidence, pricing, and seller contracts were not redefined by hierarchy contributions.
+
 ## Boundary
-Quick Check owns narrow-scope sequencing, the decision-question cap, outside-comparable limit, and escalation boundary. Product context comes from `product_hierarchy.md`; evidence from `research_sources.md`; review handling from `reviews.md`; value/price baseline from `pricing.md`; offer risk/comparison from `seller_instructions.md`; presentation from `quick_check_template.md`.
+Quick Check owns the generic narrow-scope sequencing, decision-question cap, outside-comparable limit, escalation boundary, and named contribution surfaces. Product context and Merge/Override semantics come from `product_hierarchy.md`; evidence from `research_sources.md`; review handling from `reviews.md`; value/price baseline from `pricing.md`; offer risk/comparison from `seller_instructions.md`; presentation from `quick_check_template.md`.

@@ -1,9 +1,29 @@
 # Product Research Workflow
 
 ## Purpose
-Own open-ended product research, comparison, shortlist construction, and purchase recommendation behavior.
+Own the generic open-ended product research, comparison, shortlist construction, and purchase recommendation workflow.
 
 Use the product context already resolved by `instructions.md`: Base plus active Class/Category/Type sections and specialized files.
+
+## Hierarchy contribution surfaces
+Active hierarchy authorities may Merge into or Override only named Product Research concerns using the semantics in `product_hierarchy.md`.
+
+Stable concerns:
+- **Scope and decision model** - §§1-3.
+- **Fixed comparison behavior** - §4.
+- **Discovery geometry** - §§5, 8.
+- **Market segmentation** - §6.
+- **Candidate extraction** - §7.
+- **Hard gates and identity** - §§9-10.
+- **Finalist selection** - §11.
+- **Finalist extraction** - §12.
+- **Comparison and evidence use** - §§13-16.
+- **Pricing / seller integration** - §17.
+- **Synthesis / decision boundary** - §§18-19.
+
+An active hierarchy authority may target a narrower rule inside one concern, such as `Market segmentation -> primary segmentation model`. Apply Class -> Category -> Type contributions before executing the affected concern.
+
+Hierarchy contributions may not redefine research modes, general evidence standards, review thresholds, seller-risk states, reusable price-state definitions, or reusable criterion definitions.
 
 ## 1) Scope the decision
 Capture or infer only what changes the viable set or recommendation:
@@ -123,8 +143,8 @@ After the initial pool and segment map are built, perform one challenge pass aim
 - a recurring disqualifier pattern.
 
 Discovery may stop when:
-1. the default breadth target is met or a justified escape clause applies;
-2. meaningful market/design segments are represented;
+1. the effective discovery breadth target is met or a justified escape clause applies;
+2. meaningful market/design segments are represented under the effective segmentation model;
 3. plausible candidates have minimum extraction or a clear hard-gate rejection;
 4. the challenge pass yields no new candidate or segment likely to survive hard gates and change the finalist set.
 
@@ -159,7 +179,7 @@ Use fewer when:
 
 Do not retain dominated or unsuitable products merely to fill slots.
 
-Prefer finalists that collectively represent the most relevant tradeoff/design families, not five near-identical products from the same segment.
+Prefer finalists that collectively represent the most relevant tradeoff/design families under the effective market-segmentation model, not near-identical products from one family.
 
 ## 12) Finalist extraction
 For Standard/Deep work, normalize the evidence needed to answer the research brief for each finalist. At minimum, where applicable capture:
@@ -179,7 +199,7 @@ For Standard/Deep work, normalize the evidence needed to answer the research bri
 
 For Quick fixed comparisons, do not require this full record. Capture only the identity, hard-constraint fit, material comparison questions, price/channel context when in scope, and uncertainties needed for the lightweight decision frame.
 
-Use specialized hierarchy authorities to extend either record for the product domain when applicable.
+Apply any active hierarchy Merge additions to these records.
 
 ## 13) Candidate x criterion evidence coverage
 Apply the finalist coverage matrix from `research_sources.md` when that contract applies.
@@ -263,20 +283,22 @@ If the recommendation is fragile, state the decision boundary/uncertainty rather
 ## 20) Output
 Use `product_research_template.md`.
 
-Keep research briefs, extraction records, coverage matrices, comparability classifications, source-count mechanics, and internal classification out of normal output unless requested or audited.
+Keep research briefs, extraction records, coverage matrices, comparability classifications, effective-workflow mutation mechanics, source-count mechanics, and internal classification out of normal output unless requested or audited.
 
 ## Pre-output quality gate
 Confirm:
 - research mode came from `research_sources.md`;
+- active Product Research hierarchy Merges/Overrides were applied to their named concerns;
+- no hierarchy contribution silently replaced unrelated workflow behavior or shared-authority rules;
 - research brief was defined when Standard/Deep requires it;
-- discovery target met or justified escape clause;
-- market segments actually modeled, not merely named;
-- discovery candidates received minimum extraction or clear hard-gate rejection;
+- effective discovery target met or justified escape clause;
+- market segments were modeled under the effective segmentation rule;
+- discovery candidates received effective minimum extraction or clear hard-gate rejection;
 - challenge pass completed for Standard/Deep open-market research;
-- hard gates applied before preference ranking;
-- 3-5 primary differentiators identified where the full decision model applies;
-- finalist count follows defaults or has a reason not to;
-- finalist extraction matched the selected mode and decision frame;
+- effective hard gates applied before preference ranking;
+- effective primary differentiator defaults were used where applicable;
+- finalist count follows the effective defaults or has a reason not to;
+- finalist extraction matched the selected mode, decision frame, and hierarchy merges;
 - finalist x criterion coverage is adequate or gaps are bounded when the matrix contract applies;
 - comparison evidence is not apples-to-oranges;
 - primary differences are explained causally/mechanistically where supportable;
@@ -289,4 +311,4 @@ Confirm:
 - recommendation reflects user priorities, not generic prestige.
 
 ## Boundary
-Product context comes from `product_hierarchy.md`; evidence from `research_sources.md`; review handling from `reviews.md`; seller risk from `seller_instructions.md`; value logic from `pricing.md`; presentation from `product_research_template.md`.
+Product context and Merge/Override semantics come from `product_hierarchy.md`; evidence from `research_sources.md`; review handling from `reviews.md`; seller risk from `seller_instructions.md`; value logic from `pricing.md`; presentation from `product_research_template.md`. This file owns the generic Product Research workflow and its named contribution surfaces.

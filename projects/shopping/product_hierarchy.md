@@ -1,16 +1,11 @@
 # Product Hierarchy
 
 ## Purpose
-Define the Shopping inheritance context used by every workflow.
+Define the Shopping inheritance context used by every workflow and the merge/override semantics by which product context specializes generic workflow behavior.
 
 Resolve one chain:
 
 `Base -> optional Class -> optional Category -> optional Type`
-
-Each active level inherits its parent and may:
-- add ordinary product-domain directives;
-- select named sections from shared authorities;
-- load one or more specialized files when deeper behavior is needed.
 
 Intermediate levels may be skipped when the natural hierarchy calls for it.
 
@@ -29,9 +24,76 @@ An optional intermediate specialization that factors behavior shared by multiple
 A Category may inherit from Base or a Class.
 
 ### Type
-The narrowest reusable product-kind specialization that materially changes research, evaluation, pricing, or fit behavior.
+The narrowest reusable product-kind specialization that materially changes research, evaluation, pricing, fit, or workflow behavior.
 
 A Type is not a SKU, brand, color, minor form factor, marketing label, or arbitrary retailer category. A Type may inherit from Base, a Class, or a Category.
+
+## Hierarchy contributions
+Each active Class / Category / Type may contribute only the behavior it genuinely owns through one or more of these forms:
+
+1. **Shared domain behavior** - product-domain rules that apply regardless of workflow.
+2. **Shared-authority selections** - named sections from `criteria.md`, `source_playbooks.md`, `pricing.md`, or another shared authority when that authority explicitly supports hierarchy-specific sections.
+3. **Workflow merges** - additive domain behavior for a named concern in the active generic workflow.
+4. **Workflow overrides** - surgical replacement of one explicitly named inherited workflow rule or sub-contract for this product context.
+
+A hierarchy level does not need to contribute to every workflow. Omit empty or artificial contribution sections.
+
+## Merge semantics
+A **Merge** adds product-domain behavior to the inherited workflow concern without disabling inherited behavior.
+
+Use Merge for additions such as:
+- extra candidate/finalist fields;
+- extra hard-gate checks;
+- domain-specific decision questions;
+- extra source paths or evidence roles;
+- additional market distinctions;
+- additional vendor dimensions;
+- additional tier-validity checks;
+- additional synthesis or user-fit reasoning.
+
+Inherited behavior remains active unless a separate explicit Override replaces a specific rule.
+
+## Override semantics
+An **Override** replaces one named inherited rule or sub-contract because leaving that rule active would produce the wrong behavior for this product context.
+
+Every Override must identify its target precisely enough to know what is replaced, for example:
+- `Override: Product Research -> Market segmentation -> primary segmentation model`
+- `Override: Pricing Tiers -> Tier construction -> linear-ladder assumption`
+- `Override: Product Research -> Evaluation model -> default primary differentiators`
+
+Avoid broad targets when a narrower rule can be named. `Override: Product Research` or `Override: Pricing` is invalid because it does not identify the replaced concern.
+
+An Override affects only its named target. Unmentioned inherited workflow behavior remains active.
+
+Overrides may not weaken or replace rules owned by another canonical authority, including:
+- research modes/evidence standards in `research_sources.md`;
+- review interpretation in `reviews.md`;
+- seller/channel risk in `seller_instructions.md`;
+- reusable price-state/value definitions in `pricing.md`;
+- reusable criterion definitions in `criteria.md`;
+- source-discovery ownership/boundaries in `source_playbooks.md`;
+- safety/legal constraints.
+
+Prefer Merge. Use Override only when additive guidance would leave a materially wrong inherited rule active.
+
+## Effective-workflow inheritance
+Apply active hierarchy levels from general to specific:
+
+`Base -> Class -> Category -> Type`
+
+For the active workflow:
+1. start from the generic workflow contract;
+2. apply the active Class contributions;
+3. apply the active Category contributions;
+4. apply the active Type contributions.
+
+At each level:
+- apply any explicit Override to its named target;
+- then apply Merge instructions to the resulting effective concern.
+
+A more-specific Override wins over a less-specific Override only for the same named target. It does not erase sibling rules, unrelated merges, or other workflow sections.
+
+A hierarchy authority should not silently mutate a workflow through unlabeled prose. Product-domain behavior that applies across workflows belongs under Shared domain behavior; workflow-specific behavior belongs under a named Merge or Override for that workflow.
 
 ## Resolution guidance
 1. Use explicit product wording or a confidently established named-model identity first.
@@ -43,17 +105,17 @@ A Type is not a SKU, brand, color, minor form factor, marketing label, or arbitr
 7. For multiple materially different product targets, resolve each independently.
 
 ## Inheritance behavior
-Apply active levels from general to specific.
-
 A child:
 - inherits applicable parent guidance;
-- adds domain-specific behavior;
-- may specialize a broader non-safety default within its own topic;
-- should not restate detailed parent rules.
+- may add shared domain behavior;
+- may select additional shared-authority sections;
+- may Merge into named workflow concerns;
+- may Override explicit inherited workflow rules within its product domain;
+- should not restate detailed parent or shared-authority rules merely for emphasis.
 
 If an entry names shared-authority sections, apply those sections in addition to inherited sections. If it names specialized files, load those files while the level is active.
 
-Keep hierarchy entries concise. Substantial domain knowledge belongs in specialized authority files.
+Keep hierarchy entries concise. Substantial domain knowledge and workflow contributions belong in specialized authority files.
 
 ---
 
@@ -130,4 +192,9 @@ Load:
 - `type_chefs_knife.md`.
 
 ## Expansion rule
-Add new Classes, Categories, and Types only after identifying the shared behavior they own and the parent they naturally inherit from. Do not migrate the legacy taxonomy mechanically.
+Add new Classes, Categories, and Types only after identifying:
+- the shared behavior they own;
+- the parent they naturally inherit from;
+- which workflow concerns, if any, genuinely need Merge or Override behavior.
+
+Do not migrate the legacy taxonomy mechanically and do not add workflow contributions merely to fill a template.
