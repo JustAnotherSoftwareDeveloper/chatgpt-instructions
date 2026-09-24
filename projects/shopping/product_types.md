@@ -25,6 +25,19 @@ Skipped levels are valid. Same-kind chains such as Class -> Class, Category -> C
 
 A request may resolve to Base, a Class, a Category, or a Type. Never force the deepest nominal level merely because a child exists.
 
+### Level semantics
+
+Hierarchy levels exist to capture reusable inherited behavior, not to mirror a retailer catalog.
+
+- **Base**: universal Shopping behavior that applies regardless of product domain.
+- **Class**: broad specialization that earns its existence by providing reusable behavior across multiple downstream product families.
+- **Category**: optional intermediate specialization that factors shared behavior out of multiple Types or provides a useful terminal research context of its own.
+- **Type**: the narrowest reusable product-kind specialization. It should represent a materially distinct research/evaluation behavior, not a SKU, brand, color, minor form factor, or marketing label.
+
+Do not create a Class or Category merely for taxonomic neatness. If an intermediate node does not own meaningful shared hook selections or provide useful fallback classification, omit it.
+
+Do not create a Type when the parent already provides the same effective instructions and the distinction would not materially change research behavior.
+
 ---
 
 ## Resolution model
