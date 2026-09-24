@@ -38,6 +38,16 @@ Each active Class / Category / Type may contribute only the behavior it genuinel
 
 A hierarchy level does not need to contribute to every workflow. Omit empty or artificial contribution sections.
 
+## Specialized-authority structure
+Executable behavior in a specialized Class / Category / Type authority must live under one of:
+- **Shared domain behavior**;
+- a named workflow **Merge**;
+- a named workflow **Override**.
+
+Purpose, explanatory, and Boundary sections may describe ownership, but must not introduce otherwise-unclassified executable behavior.
+
+Do not create free-floating sections such as `Research emphasis`, `Research interpretation`, or `Pricing notes` when the instructions actually belong to a shared authority or named workflow contribution.
+
 ## Merge semantics
 A **Merge** adds product-domain behavior to the inherited workflow concern without disabling inherited behavior.
 
@@ -45,8 +55,7 @@ Use Merge for additions such as:
 - extra candidate/finalist fields;
 - extra hard-gate checks;
 - domain-specific decision questions;
-- extra source paths or evidence roles;
-- additional market distinctions;
+- extra market distinctions;
 - additional vendor dimensions;
 - additional tier-validity checks;
 - additional synthesis or user-fit reasoning.
@@ -59,7 +68,7 @@ An **Override** replaces one named inherited rule or sub-contract because leavin
 Every Override must identify its target precisely enough to know what is replaced, for example:
 - `Override: Product Research -> Market segmentation -> primary segmentation model`
 - `Override: Pricing Tiers -> Tier construction -> linear-ladder assumption`
-- `Override: Product Research -> Evaluation model -> default primary differentiators`
+- `Override: Product Research -> Scope and decision model -> default primary differentiators`
 
 Avoid broad targets when a narrower rule can be named. `Override: Product Research` or `Override: Pricing` is invalid because it does not identify the replaced concern.
 
@@ -75,6 +84,18 @@ Overrides may not weaken or replace rules owned by another canonical authority, 
 - safety/legal constraints.
 
 Prefer Merge. Use Override only when additive guidance would leave a materially wrong inherited rule active.
+
+## Child-delta rule
+Inheritance is the default. A child authority should contain only behavior that is new at that level.
+
+- If a parent Shared rule or Merge should continue unchanged, the child says nothing.
+- If a child adds behavior to the same workflow concern, use a Merge containing only the delta.
+- If a child replaces the same named inherited target, use an Override.
+- Do not restate parent criteria, identity checks, tier dimensions, vendor fields, or Quick Check questions merely to show that they still apply.
+
+When a child Overrides the **same named target** as its parent, the parent's target is replaced for that branch. Therefore:
+- use Merge, not Override, when the child wants the inherited target plus extra behavior;
+- if a true replacement is intended, the child Override must be complete enough for that target and must not silently rely on parent content it just replaced.
 
 ## Effective-workflow inheritance
 Apply active hierarchy levels from general to specific:
