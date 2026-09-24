@@ -50,15 +50,8 @@ Harder/more wear-resistant edges may retain slicing performance longer but can d
 
 Tougher/softer constructions may tolerate rougher use and easier maintenance while requiring more frequent touch-up.
 
-## Maintenance activation triggers
-Elevate maintenance to a **primary differentiator** when any are true:
-- user asks for low/zero maintenance;
-- reactive/carbon/semi-stainless steel is under consideration;
-- sharpening/service burden differs materially among finalists;
-- user does not sharpen and service access/cost differs;
-- line is thin enough that long-term thinning or specialized maintenance is a known ownership issue.
-
-Otherwise treat routine maintenance as secondary unless it changes product fit.
+## Maintenance behavior
+Maintenance differences can materially affect product fit when reactive/carbon/semi-stainless steel, unusual sharpening requirements, service access, or long-term thinning burden are involved.
 
 Consider corrosion/reactivity, drying/oiling/patina needs, handle care, touch-up frequency, sharpening method/service, and long-term thinning where relevant.
 
@@ -75,15 +68,20 @@ One factory-edge test cannot establish long-term sharpening behavior.
 When comparing edge-retention claims, check sharpening angle/finish, test medium/use conditions, hardness/heat treatment, geometry, and whether the knives serve the same purpose.
 
 ## QC and unit variation
-Check QC as a **primary differentiator** when any are true:
-- recurring-signal threshold in `reviews.md` is met for grind/warping/handle/edge defects;
-- maker/line is handmade or known to vary materially by batch/unit;
-- buyer cannot easily inspect/return;
-- premium pricing depends heavily on execution/finish.
+Knife QC can vary by line, maker, batch, and production method.
 
-Otherwise do not inflate isolated cosmetic anecdotes into a dominant criterion.
+Assess as relevant:
+- blade straightness;
+- grind symmetry/consistency;
+- overgrinds/low spots;
+- taper;
+- edge condition;
+- handle fit;
+- spine/choil finish;
+- cladding/core exposure;
+- warping/twisting.
 
-Assess as relevant: blade straightness, grind symmetry/consistency, overgrinds/low spots, taper, edge condition, handle fit, spine/choil finish, cladding/core exposure, warping/twisting.
+Do not inflate isolated cosmetic anecdotes into a dominant quality judgment.
 
 ## Marketing translation
 Do not assume:
@@ -107,13 +105,7 @@ Consider grip style, handle dimensions/material, weight/balance, spine/choil com
 Subjective fit remains preference-dependent unless evidence shows a concrete ergonomic defect.
 
 ## Abuse boundaries
-If the user expects any of the following, elevate robustness/toughness to a hard gate or primary differentiator:
-- bones/joints;
-- frozen food;
-- twisting/prying;
-- scraping with the edge;
-- glass/stone/ceramic boards;
-- dishwasher use.
+Bones/joints, frozen food, twisting/prying, edge-scraping, glass/stone/ceramic boards, and dishwasher use impose demands outside ordinary precision-knife use and can materially increase damage risk.
 
 Do not recommend thin/hard precision geometry as if abuse-tolerant. Do not penalize a precision knife for tasks outside its intended role.
 
@@ -147,6 +139,15 @@ Keep sharp-tool safety practical and proportional. Material/regulatory claims fo
 
 # Product Research contributions
 
+## Merge: Product Research -> Scope and decision model
+Promote knife-specific concerns into workflow roles only when triggered:
+
+- make maintenance a **primary differentiator** when the user requests low/zero maintenance, reactive/carbon/semi-stainless steel is under consideration, sharpening/service burden differs materially, the user does not sharpen and service access/cost differs, or long-term thinning burden is materially different;
+- make QC/consistency a **primary differentiator** when the recurring-signal threshold in `reviews.md` is met for material defects, maker/line variation is known to be meaningful, the buyer cannot easily inspect/return, or premium pricing depends heavily on execution/finish;
+- make robustness/toughness a **hard gate or primary differentiator** when the user's expected use includes bones/joints, frozen food, twisting/prying, edge scraping, very hard boards, dishwasher use, or similarly rough handling.
+
+Otherwise keep those dimensions secondary unless they change fit among finalists.
+
 ## Merge: Product Research -> Candidate extraction
 For plausible knife candidates, add where material:
 - intended knife role;
@@ -160,7 +161,7 @@ For plausible knife candidates, add where material:
 Do not eliminate a candidate merely because precise enthusiast measurements are unavailable; distinguish unknown evidence from a negative product trait.
 
 ## Merge: Product Research -> Hard gates and identity
-Add knife-specific gates/identity checks where material:
+Add knife-specific checks where material:
 - knife role matches the actual cutting task;
 - expected abuse does not exceed the geometry/edge system's reasonable tolerance;
 - maintenance/reactivity burden fits the user's hard requirements;
@@ -289,39 +290,19 @@ For a named knife verify only the variant fields needed for the question, common
 - stated condition for a listing.
 
 ## Merge: Quick Check -> Hard gates
-Add when material:
-- role mismatch;
-- abuse/board mismatch;
-- maintenance/reactivity mismatch;
-- sharpening/service burden that violates a hard requirement.
+If the user's stated hard requirements conflict with the shared knife maintenance or abuse boundaries, treat that conflict as a hard failure for the exact target rather than expanding into full Product Research.
 
 ## Merge: Quick Check -> Decision questions
 Useful knife-specific narrow questions include:
 - Is this the exact steel/length/handle/revision being discussed?
-- Does its geometry/profile fit the user's technique/tasks?
-- Is there a recurring QC/chipping/warping issue that changes the judgment?
+- Does its geometry/profile fit the user's stated technique/tasks?
+- Is there a recurring QC/chipping/warping issue that changes the narrow judgment?
 - Does this seller/channel create provenance or warranty risk?
 
-Use only the subset relevant to the narrow request.
+Use only the subset relevant to the request.
 
 ## Merge: Quick Check -> Deal / where-to-buy
 When a concrete knife listing is in scope, add product/channel provenance checks appropriate to counterfeit, gray-market, regional-version, artisan-maker, or specialist-retailer risk without treating marketplace presence or low price alone as proof of a problem.
 
-# Research interpretation
-For Standard knife recommendations, the evidence set should collectively cover where material:
-- exact dimensions/specification/provenance;
-- independent cutting/geometry/ergonomics evaluation;
-- sharpening/edge/maintenance behavior;
-- QC/ownership signal when it changes the recommendation;
-- current price/channel when in scope.
-
-Do not let multiple sources repeating steel specifications substitute for these different evidence roles.
-
-Prefer synthesis such as:
-- better fit for X technique/maintenance profile;
-- thinner/faster cutter with less abuse tolerance;
-- more robust/easier ownership at some cutting-performance cost;
-- higher price buys QC/finish/craft rather than proportional cutting improvement.
-
 ## Boundary
-Chef's-Knife-specific primary-tool behavior belongs to `type_chefs_knife.md`; broader household behavior to `class_home_kitchen.md`; evidence standards remain in `research_sources.md`; concrete seller/channel risk remains in `seller_instructions.md`; Merge/Override semantics belong to `product_hierarchy.md`.
+Chef's-Knife-specific primary-tool behavior belongs to `type_chefs_knife.md`; broader household behavior to `class_home_kitchen.md`; evidence standards and source-family coverage remain in `research_sources.md` / `source_playbooks.md`; concrete seller/channel risk remains in `seller_instructions.md`; Merge/Override semantics belong to `product_hierarchy.md`.

@@ -7,7 +7,7 @@ Use Chef's Knife sections of `criteria.md`, `source_playbooks.md`, and `pricing.
 
 A Chef's Knife here includes general-purpose Western chef knives and gyuto-style knives serving the same primary-kitchen-knife role.
 
-This Type is the reference implementation for hierarchy workflow Merge/Override behavior.
+This Type is the reference implementation for hierarchy workflow Merge/Override behavior. It should contain only Chef's-Knife-specific deltas beyond inherited Kitchen Knife behavior.
 
 # Shared domain behavior
 
@@ -42,80 +42,39 @@ Use ~200-210 mm / 8 in as the default starting point when unspecified, then adju
 
 Shorter may improve control in small kitchens; longer may improve capacity/slicing. Do not assume longer is more capable.
 
-## Profile and cutting-motion triggers
-### Heavy rocking
-If the user explicitly rocks heavily or repeatedly references curved-profile preference:
-- make profile/belly a **primary differentiator**;
-- avoid very flat profiles likely to fight the technique.
+## Profile and cutting motion
+A more curved profile generally supports rocking; a flatter useful edge generally supports push cutting/chopping and more complete board contact.
 
-### Push-cut / chop dominant
-If the user primarily push-cuts/chops:
-- make flat useful contact region and predictable board contact a **primary differentiator**;
-- do not favor extra belly merely because it is common in Western chef knives.
-
-### Mixed / unspecified
-Use a moderate versatile profile as default and keep profile as a primary differentiator only when finalist differences are large enough to matter.
+Mixed-technique users usually benefit from a versatile middle ground unless their food mix or preferences strongly favor one extreme.
 
 ## Heel clearance and hand fit
-Elevate heel height/handle interaction to a primary differentiator when:
-- user has large hands or explicitly needs clearance;
-- user pinch-grips and models differ materially at heel/choil;
-- user reports knuckle-contact problems;
-- compact/short-height knives are under consideration.
+Heel height, choil/handle geometry, grip, hand size, and board interaction can materially affect knuckle clearance and comfort.
 
-Otherwise treat as a normal ergonomic check.
+Compact or short-height knives deserve closer fit scrutiny for users with large hands or known clearance problems.
 
 ## Tip utility
-Evaluate precision/detail usefulness vs fragility. Fine tips can improve onion/detail/trimming work but may require more care. Robust tips trade some precision for durability.
+Fine tips can improve onion/detail/trimming work but may require more care. Robust tips trade some precision for durability.
 
-Elevate tip behavior only when the user's food/tasks or finalist geometry makes it materially different.
+## Grind and robustness
+Very thin, low-resistance geometry can improve cutting performance in dense produce and careful boneless prep while reducing abuse margin.
 
-## Grind / robustness triggers
-### Precision/thin-cutting preference
-If user explicitly wants laser-like cutting, very low resistance, or mostly careful vegetable/boneless prep:
-- make thinness/cutting resistance a primary differentiator;
-- keep abuse tolerance as an explicit caveat.
+More robust geometry can tolerate rougher use but may increase cutting resistance or wedging.
 
-### Rough-use / abuse signals
-If user expects bones, frozen food, prying, twisting, hard impact, very hard boards, or generally rough handling:
-- make robustness/toughness a hard gate or primary differentiator;
-- do not recommend fragile thin/hard geometry as the ordinary fit;
-- consider whether Chef's Knife is even the correct Type for those tasks.
-
-### Unspecified ordinary home use
-Balance cutting resistance and robustness; do not optimize for an extreme laser or heavy workhorse by default.
-
-## Reactivity / maintenance triggers
-### User explicitly wants carbon/reactive steel
-Remove the stainless/low-reactivity default. Evaluate care burden as an accepted tradeoff rather than an automatic negative.
-
-### User wants very low maintenance / no sharpening interest
-- elevate corrosion resistance, edge-service practicality, and easy professional sharpening/service access;
-- strongly penalize unnecessary maintenance complexity;
-- if user demands dishwasher-safe use, explain that ordinary quality Chef's Knives are a poor match for that requirement rather than pretending a normal recommendation still fits.
-
-### User sharpens and values edge experimentation
-Sharpening response, steel/heat treatment, and geometry can become primary differentiators.
+## Reactivity and maintenance
+Reactive steels can offer desirable sharpening/edge characteristics but require care appropriate to the steel and finish. Stainless or low-reactivity constructions reduce corrosion burden but are not automatically better knives.
 
 ## Weight and balance
-Evaluate relative to control, fatigue, cutting style, and user preference.
-
 Heavier can add momentum/stability; lighter can add agility/lower fatigue. Neither is universally better.
-
-Elevate only when user expresses a preference or finalists differ enough to change handling materially.
 
 ## Handle and grip
 Consider pinch-grip comfort, handle dimensions, Western vs wa consequences, balance shift, wet grip, and hotspots over expected prep duration.
 
 Do not infer ergonomic superiority from premium handle materials.
 
-## Artisan / collector trigger
-If the user explicitly values artisan work, maker identity, craft, rare materials, aesthetics, collector standing, or low-volume production:
-- activate Design / aesthetic / identity as a primary preference dimension;
-- treat provenance and maker identity as material;
-- do not dismiss craft/finish premiums as wasted money merely because raw cutting performance is similar.
+## Artisan / collector value
+Artisan work, maker identity, craft, rare materials, aesthetics, collector standing, or low-volume production can be legitimate value dimensions when the user cares about them.
 
-If those signals are absent, functional value should dominate over collector/artisan premium under the default model.
+If those signals are absent, functional primary-knife value should dominate over collector/artisan premium under the default model.
 
 ## Chef's knife vs adjacent product forms
 Consider redirecting to or adding an adjacent kitchen-knife format only when the use case strongly supports it:
@@ -128,20 +87,6 @@ Consider redirecting to or adding an adjacent kitchen-knife format only when the
 Do not switch product forms casually.
 
 Resolve only to a named Type that actually exists in `product_hierarchy.md`. If the better adjacent format has no live Type authority yet, fall back to the `Kitchen Knives` Category context and evaluate the product form there; do not invent a Type, specialized file, or inherited rules that do not exist.
-
-## Fit questions: when to ask
-Do not ask the full questionnaire.
-
-Ask only when a missing variable would change the viable set or primary differentiators. Highest-value variables are:
-- preferred length/board size;
-- rocking vs push/chop vs mixed;
-- stainless/low-maintenance vs reactive-steel willingness;
-- sharpening/service posture;
-- tolerance for thin/hard/chip-sensitive geometry;
-- weight/balance preference;
-- budget and whether craft/aesthetics are part of value.
-
-If none blocks useful research, use the default consumer model and proceed.
 
 # Product Research contributions
 
@@ -178,25 +123,42 @@ For an ordinary underspecified Chef's Knife purchase, start with these primary d
 
 Treat exact product identity/provenance as a verification requirement when material rather than an automatic primary differentiator.
 
-Promote QC/consistency to a primary differentiator only when the activation triggers in `category_kitchen_knives.md` apply. Promote provenance/channel concerns according to that Category authority and `seller_instructions.md` when the purchase channel is actually in scope.
+Promote QC/consistency only through the inherited Kitchen Knife activation rules. Promote provenance/channel concerns according to inherited Category guidance and `seller_instructions.md` when the purchase channel is actually in scope.
 
-Secondary dimensions become primary only through the triggers in this Type or inherited Category rules.
+## Merge: Product Research -> Scope and decision model
+Use the default consumer model unless the request supplies better information.
+
+Highest-value Chef's-Knife variables are:
+- preferred length/board/workspace;
+- rocking vs push/chop vs mixed cutting motion;
+- primary food/task mix;
+- stainless/low-maintenance vs reactive-steel willingness;
+- sharpening/service posture;
+- tolerance for very thin/hard geometry;
+- weight/balance preference;
+- whether craft/aesthetics are part of value.
+
+Apply these Chef-specific role changes when triggered:
+- heavy rocking preference -> make profile/belly a primary differentiator;
+- push-cut/chop dominant use -> make useful flat contact and predictable board contact a primary differentiator;
+- large hands, pinch grip, or known clearance problems -> elevate heel/handle interaction;
+- explicit laser/very-low-resistance preference -> elevate cutting resistance/thinness while keeping robustness tradeoffs visible;
+- active sharpening/edge experimentation interest -> sharpening response, steel/heat treatment, and geometry may become primary differentiators;
+- explicit artisan/collector intent -> activate design/aesthetic/identity as a meaningful preference dimension.
+
+Inherited Kitchen Knife maintenance, QC, and abuse triggers remain active without restatement.
 
 ## Merge: Product Research -> Hard gates and identity
-When Chef's Knife is active add:
-- primary-knife role fit;
-- cutting-motion/profile incompatibility when severe enough to be disqualifying;
-- length/board/workspace mismatch when hard;
-- abuse expectations that exceed ordinary chef-knife use;
-- maintenance/reactivity constraints;
-- adjacent-product fallback when another knife form is clearly the better role fit.
+Add only Chef's-Knife-specific fit checks beyond the inherited Kitchen Knife gates:
+- primary-knife role mismatch;
+- severe cutting-motion/profile mismatch;
+- hard length/board/workspace mismatch;
+- adjacent-product fallback when another knife form is clearly the better primary tool.
 
 ## Merge: Product Research -> Finalist extraction
 For each serious Chef's Knife finalist in Standard/Deep research, add the following where evidence exists.
 
 ### Role / identity
-- exact model/line/length/variant;
-- maker/manufacturer and provenance;
 - market/design family;
 - intended primary role.
 
@@ -222,65 +184,40 @@ Evaluate across representative tasks where evidence exists:
 - slicing/portioning;
 - fatigue/control over repeated prep.
 
-### Edge / steel / sharpening
-- steel and hardness only when identity is trustworthy;
-- edge stability/chipping/rolling signal;
-- retention evidence with test/use context;
-- sharpening response/service burden;
-- thinning/long-term geometry maintenance when material.
-
-### Ownership
-- corrosion/reactivity;
-- rough-use tolerance;
-- handle/material care;
-- QC pattern;
-- warranty/service/sharpening ecosystem;
-- known batch/revision variation.
-
 ### Fit
 - rocking suitability;
 - push/chop suitability;
 - mixed-technique versatility;
 - heel/hand clearance;
 - balance/weight preference fit;
-- maintenance fit.
+- primary-knife role breadth.
 
-### Value
-- normal street-price posture;
-- current reputable range when in scope;
-- what the premium over nearby finalists actually buys;
-- whether current sale temporarily changes the ranking.
+Inherited Kitchen Knife finalist fields for edge/sharpening, QC, maintenance, provenance, and ownership remain active without duplication.
 
 ## Merge: Product Research -> Comparison and evidence use
-For recommendation-changing Chef's Knife differences, prefer:
-
-`geometry/profile/heat treatment/weight/etc. -> cutting/edge/handling behavior -> tradeoff -> fit for user's foods/technique/maintenance`
+For recommendation-changing Chef's Knife differences, emphasize the Chef-specific path from profile/length/geometry/weight to board interaction, cutting behavior, fatigue/control, and primary-knife fit.
 
 Examples:
 - thinner behind-the-edge geometry may reduce wedging in dense produce while lowering abuse margin;
 - more belly may support rocking but reduce flat board contact for push chopping;
-- harder/wear-resistant edge systems may extend retention while raising sharpening/chipping sensitivity depending on geometry/heat treatment.
+- increased heel height may improve clearance but change agility/feel depending on geometry and balance.
 
 Do not claim a mechanism from steel name, HRC, choil photo, or marketing alone. Separate observation from inference.
 
 ## Merge: Product Research -> Synthesis / decision boundary
 For the top two finalists explicitly know:
-- which primary criterion most separates them;
-- whether the evidence is directly or directionally comparable;
-- why the #1 fits this user's technique/maintenance/value model better;
+- which Chef-specific primary criterion most separates them;
+- why the leading option fits this user's cutting motion, primary-task mix, ergonomics, or value model better;
 - what user preference or assumption would flip the recommendation.
 
-Use technique, maintenance, food mix, robustness preference, and value as the main decision-boundary vocabulary when applicable.
+Inherited Kitchen Knife tradeoff language remains active.
 
 # Pricing Tiers contributions
 
-## Override: Pricing Tiers -> Market segmentation -> primary segmentation model
-For Chef's Knives, combine two views before tier construction:
+## Merge: Pricing Tiers -> Market segmentation
+Keep the inherited Kitchen Knife production/execution/value-family model and add the Chef's-Knife functional/design families from Product Research.
 
-1. **Functional/design family** - the effective Product Research families above.
-2. **Production/value track** inherited from Kitchen Knives - production scale, execution/QC, artisan labor, craft/collector value.
-
-Do not force a single price-based market ladder when similarly priced knives pursue fundamentally different functional or craft value propositions.
+The effective market map should therefore be able to distinguish **what kind of primary knife a product is** from **what production/value track it occupies**. Do not replace the inherited Category segmentation model merely to add this second dimension.
 
 ## Override: Pricing Tiers -> Tier construction -> linear-ladder assumption
 Chef's Knife pricing may contain overlapping or parallel value tracks.
@@ -295,103 +232,59 @@ These tracks are not mandatory categories. Use them only when current evidence s
 A more expensive knife on a craft track is not automatically a higher functional tier than a cheaper performance-oriented knife.
 
 ## Merge: Pricing Tiers -> Tier validity
-For Chef's Knives, a meaningful higher-cost region must identify what the premium actually buys, such as:
-- lower cutting resistance or more deliberate geometry;
-- more consistent QC/execution;
-- profile/taper/finish refinement;
-- ergonomics/handle work;
-- edge/heat-treatment execution in context;
-- service/provenance;
-- maker labor/craft;
-- aesthetics/materials;
-- rarity/collector value.
+Beyond the inherited Kitchen Knife validity checks, ask whether extra spend changes Chef-specific primary-tool behavior such as:
+- cutting resistance across common foods;
+- profile/board-contact fit;
+- heel clearance, balance, or fatigue;
+- versatility as the intended primary knife.
 
-Do not validate a higher region merely because of prestige steel, Damascus, country of origin, or maker reputation.
+A higher-cost region that adds only inherited craft/collector value can still be legitimate, but should not be described as a superior functional Chef's-Knife tier.
 
 ## Merge: Pricing Tiers -> Marginal-spend analysis
-For each relevant step up or competing track, label the premium primarily as one or more of:
-- functional performance;
-- robustness/ownership;
-- consistency/QC;
-- refinement/ergonomics;
-- service/provenance;
-- craft/maker labor;
-- aesthetics/materials;
-- rarity/collector value.
+For Chef's Knives, explicitly distinguish whether extra spend materially improves the user's general-purpose cutting/handling experience or mainly buys the inherited refinement/craft/collector dimensions.
 
-This label should explain the value proposition, not score it.
+## Merge: Pricing Tiers -> Diminishing-returns interpretation
+Keep the inherited Kitchen Knife distinction between functional-return flattening and craft/preference escalation.
 
-## Override: Pricing Tiers -> Diminishing-returns interpretation -> domain manifestation
-Use the shared definition from `pricing.md`, but explicitly distinguish:
-- the point where **functional Chef's Knife returns** flatten for the user's primary criteria;
-- any continuing **craft/refinement/collector value** that remains real but preference-dependent.
-
-The output may therefore identify a functional sweet spot while separately recognizing higher craft-value regions.
+Add one Chef-specific question: where does additional spend stop materially improving this user's **primary-knife** cutting, fit, maintenance, and ownership criteria? Treat that point as the Chef's-Knife functional sweet spot, while preserving higher craft/refinement value when relevant.
 
 # Vendor Research contributions
 
 ## Merge: Vendor Research -> Ecosystem segmentation
-For Chef's Knives, where material distinguish vendors by the part of the primary-knife market they actually serve:
-- Western/generalist production brands;
-- Japanese/gyuto-focused production brands or makers;
-- artisan/low-volume makers;
-- importers/distributors bridging maker and US buyer;
-- specialist knife retailers with meaningful curation/service.
+Within the inherited Kitchen Knife vendor ecosystem, distinguish where useful between vendors focused on:
+- Western/generalist chef knives;
+- Japanese/gyuto-focused production;
+- artisan/low-volume primary knives;
+- specialist retail/import channels with meaningful chef/gyuto curation.
 
-Do not require every vendor ecosystem to contain all of these.
+Do not require every ecosystem to contain all of these.
 
 ## Merge: Vendor Research -> Vendor normalization
-For Chef's-Knife brands/makers add where material:
+For Chef's-Knife brands/makers add only Type-specific dimensions:
 - depth and coherence of chef/gyuto lineup;
 - available lengths/profiles/handle systems;
-- consistency of geometry/execution across the line;
-- whether reputation is model-specific or genuinely representative of the lineup;
-- artisan availability/continuity when low-volume;
-- practical US distribution/service.
+- consistency of primary-knife geometry/execution across the line;
+- whether reputation is model-specific or representative of the chef/gyuto lineup.
 
 For specialist retailers add where material:
 - depth of relevant chef/gyuto inventory rather than raw SKU count;
-- ability to distinguish profile/geometry/use cases;
-- inspection/QC practices;
-- sharpening/thinning/setup services;
-- import/provenance clarity;
-- handling of low-volume or batch-variable knives.
+- ability to distinguish profile/geometry/cutting-motion use cases;
+- handling of low-volume or batch-variable chef/gyuto knives.
+
+Inherited Kitchen Knife provenance, importer, service, inspection, sharpening, and authorization dimensions remain active without restatement.
 
 # Quick Check contributions
 
-## Merge: Quick Check -> Target identity
-For a named Chef's Knife verify only the fields needed for the narrow question, commonly:
-- exact length;
-- steel/core/cladding revision when variant-sensitive;
-- handle style/version;
-- region/import variant;
-- model generation or maker relationship;
-- condition/listing identity.
-
 ## Merge: Quick Check -> Hard gates
-When relevant add:
-- length/board/workspace mismatch;
-- cutting-motion/profile mismatch;
-- maintenance/reactivity mismatch;
-- thin/hard geometry vs known rough use;
-- primary-knife role mismatch.
+Add only Chef's-Knife-specific fit failures beyond inherited Kitchen Knife gates:
+- primary-knife role mismatch;
+- severe profile/cutting-motion mismatch;
+- hard length/board/workspace mismatch.
 
 ## Merge: Quick Check -> Decision questions
-Useful narrow Chef's Knife questions include:
-- Is this exact variant the knife the user thinks it is?
-- Does its profile/geometry fit the user's cutting motion and foods?
-- Does maintenance/edge behavior fit the user?
-- Is a QC/provenance/seller issue material enough to change the judgment?
+When relevant, add one Chef-specific question: does this exact knife's length/profile/geometry fit the user's cutting motion, board, and intended primary-knife role?
 
-Use only the subset needed; do not turn Quick Check into the full finalist record.
-
-## Merge: Quick Check -> Deal / where-to-buy
-When a concrete offer is in scope, pay particular attention to exact length/handle/steel revision, authorized/import status when relevant, low-volume provenance, and specialist-retailer services that may justify a price difference.
-
-# Research emphasis
-Prioritize evidence revealing actual dimensions/profile, grind/cutting behavior, QC, steel/heat-treatment/edge behavior in context, balance/ergonomics, maintenance expectations, current value, and representative-food behavior.
-
-De-emphasize steel marketing, decorative finish, brand prestige, or factory sharpness unless explicitly relevant.
+Inherited Kitchen Knife identity, QC, maintenance, provenance, and deal checks remain active without restatement.
 
 ## Boundary
-This file owns Chef's-Knife-specific shared behavior and explicit workflow Merges/Overrides. Shared metallurgy/sharpening/construction/provenance rules belong to `category_kitchen_knives.md`; reusable criteria/source/pricing definitions remain in their shared authorities; Merge/Override semantics belong to `product_hierarchy.md`.
+This file owns Chef's-Knife-specific shared behavior and explicit workflow deltas only. Shared metallurgy/sharpening/construction/provenance rules belong to `category_kitchen_knives.md`; reusable criteria/source/pricing definitions remain in their shared authorities; Merge/Override semantics and child-delta rules belong to `product_hierarchy.md`.

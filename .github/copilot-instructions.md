@@ -47,6 +47,21 @@ Each authority file owns one topic domain and is the single source of truth for 
 
 Authority files must not duplicate rules from sibling authority files. If file A needs B's behavior, it references B by name — it does not restate B's rules inline.
 
+### Hierarchical specialization authorities
+Some projects, currently Shopping, define a hierarchy such as Base -> Class -> Category -> Type and allow specialized authorities to modify generic workflows.
+
+When a project's hierarchy authority defines Merge/Override semantics, follow that project-specific contract exactly. In particular:
+- **Shared domain behavior** contains only product/domain facts and tradeoffs that apply across workflows.
+- **Merge** is additive behavior for one named workflow concern; inherited behavior remains active.
+- **Override** surgically replaces one explicitly named inherited workflow rule/sub-contract; it does not replace a whole workflow.
+- A child hierarchy authority contains only its **delta**. If the parent rule should continue unchanged, do not copy it into the child.
+- If the child wants parent behavior plus an addition, use Merge. If it Overrides the same target, assume the parent target is replaced and do not silently rely on the removed parent content.
+- Every executable instruction in a specialized hierarchy authority must be classified under Shared domain behavior or a named workflow Merge/Override. Do not hide behavior in free-floating sections such as "Research emphasis" or "Pricing notes".
+- Specialized hierarchy behavior cannot override rules owned by shared authorities such as evidence standards, review interpretation, seller risk, or reusable pricing definitions unless the project explicitly gives it ownership.
+- Do not require every hierarchy level to contribute to every workflow. Omit empty sections.
+
+For Shopping specifically, `product_hierarchy.md` is the canonical owner of these semantics. Read it before editing `class_*.md`, `category_*.md`, or `type_*.md`.
+
 ### Template files
 Template files define output format contracts (required sections, ordering, required fields). They are referenced by the orchestrator and authority files. They do not contain workflow logic.
 
@@ -58,6 +73,8 @@ Template files define output format contracts (required sections, ordering, requ
 Before adding a rule to any file, identify which file already owns that topic domain. Add the rule there. If the rule spans multiple domains, add it to `instructions.md` as a routing/default, then reference the relevant authority files from there.
 
 Violation pattern to avoid: copying a sourcing rule into `options.md` when `meal_sources.md` already owns sourcing.
+
+For hierarchical specialization projects, inheritance itself is also a no-duplication mechanism: child Class/Category/Type authorities must not repeat parent Shared/Merge/Override content merely to show that it still applies.
 
 ### Precedence must be explicit
 `instructions.md` must contain a precedence section that resolves authority collisions. When you edit the orchestrator, keep the precedence list accurate. When you add a new authority file, add it to the precedence list in the correct position.
@@ -112,6 +129,7 @@ Some files carry a date prefix in their internal `#` header (e.g. `# 20260115_in
 4. If you are tightening or relaxing an existing rule: state the change explicitly in the file — do not silently overwrite a rule with an incompatible replacement.
 5. If the file has a date prefix in its internal header (e.g. `# 20260115_authority.md`), update the date to today's date after making significant changes. Do not rename the file itself.
 6. After editing, re-read `instructions.md` to verify the canonical file map entry and precedence position still describe the file accurately.
+7. If the authority is a hierarchical specialization, also re-read the hierarchy contract and parent authority; preserve the child-delta rule and exact Merge/Override target names.
 
 ### Removing or deprecating a rule from an authority file
 1. Search sibling files and `instructions.md` for any reference to the rule being removed. Update or remove those references.
@@ -131,7 +149,7 @@ Some files carry a date prefix in their internal `#` header (e.g. `# 20260115_in
 3. After changing a template, verify that all authority files and `instructions.md` that reference it still describe it correctly.
 
 ### Upgrading instructions.md (orchestrator)
-1. The orchestrator must stay thin. If an edit causes you to write domain logic, stop and put that logic in the appropriate authority file instead.
+1. The orchestrator must stay thin. If an edit causes you to write more than a few sentences of domain logic, stop and put that logic in the appropriate authority file instead.
 2. When adding to the canonical file map, include: file name, single responsibility, and the no-duplication boundary.
 3. When adding to the precedence list, place the new entry in an intentional position and verify there are no new collisions with existing entries.
 4. When adding routing rules, follow first-match order: more specific trigger phrases before general ones. Verify new triggers do not shadow existing ones unintentionally.
@@ -166,6 +184,7 @@ Follow the steps in "Adding a new authority file to an existing project" or "Add
 - Contain only rules within their domain.
 - Reference sibling authority files by name when cross-domain behavior is needed.
 - Do not embed routing logic (that is the orchestrator's job).
+- For hierarchical specialization authorities, follow the project's Shared/Merge/Override structure and include only the level-specific delta.
 
 ---
 
@@ -177,6 +196,7 @@ Follow the steps in "Adding a new authority file to an existing project" or "Add
 - **Refactoring an authority file**: if a file has grown to cover multiple responsibilities, propose a split with a new file and update `instructions.md` accordingly.
 - **Writing trigger phrases**: make triggers specific enough to avoid ambiguity; use first-match order so more specific triggers come before general ones.
 - **Checking precedence lists**: verify every authority file is represented and the ordering is intentional.
+- **Auditing hierarchical specializations**: flag orphan behavior outside Shared/Merge/Override sections, broad overrides, child-parent duplication, or child overrides that still depend on the parent target they replaced.
 
 ---
 
@@ -186,4 +206,5 @@ Follow the steps in "Adding a new authority file to an existing project" or "Add
 - Do not duplicate sourcing rules, formatting rules, or workflow logic across more than one file.
 - Do not invent output sections in a template file that are not backed by workflow logic in an authority file.
 - Do not add absolute paths unless the existing project already uses them.
+- Do not turn hierarchy Merge/Override conventions into a pseudo-runtime, DSL, YAML mutation graph, or code-like execution engine.
 - Do not generate actual recipes, shopping recommendations, or other end-user outputs — this repo defines instructions for an AI, not the AI's outputs.

@@ -42,14 +42,17 @@ Apply the semantics in `product_hierarchy.md` by reference.
 
 For self-audit, verify directly that:
 - only hierarchy levels actually resolved for the target contributed behavior;
-- Shared domain behavior remained active across workflows;
+- every executable instruction in a specialized hierarchy authority is classified as Shared domain behavior, a named Merge, or a named Override;
 - only contribution sections for the active workflow were applied;
 - every Merge was additive to the inherited concern;
-- every Override named an explicit inherited workflow rule/sub-contract;
+- every Override named an explicit inherited workflow rule/sub-contract using the active workflow's canonical concern name;
 - a more-specific Override replaced only the same named target, not unrelated parent behavior;
+- a child that wanted inherited behavior plus a delta used Merge rather than overriding the parent target and then relying on replaced content;
+- child authorities contain only their delta rather than restating inherited parent fields/checks/questions merely for emphasis;
 - unmentioned inherited workflow behavior survived;
 - no hierarchy contribution weakened a shared-authority or safety/legal rule;
-- no specialized authority silently acted as a whole-workflow replacement.
+- no specialized authority silently acted as a whole-workflow replacement;
+- no free-floating behavioral section bypassed the Shared/Merge/Override structure.
 
 For retrospective audit, infer Merge/Override application only from observable output or targeted verification. If the answer does not expose enough process detail, judge whether the **resulting behavior** is consistent with the effective hierarchy contract rather than pretending to inspect hidden mutation steps.
 
@@ -57,10 +60,11 @@ Examples of observable failures:
 - Chef's Knife Product Research uses a generic price-only market map despite an active Type override requiring design-family segmentation;
 - a Kitchen Knife Pricing Tiers answer treats steel name alone as sufficient evidence of a higher tier despite the Category tier-validity merge;
 - a Type override causes unrelated generic discovery/evidence rules to disappear;
+- a child Type duplicates parent identity/QC/vendor rules and creates conflicting variants of the same inherited instruction;
 - a Quick Check expands into full Product Research merely because the Type has extensive Product Research contributions.
 
 ## 4) Apply canonical workflow contracts by reference
-Audit the effective active workflow against its own contract rather than copying thresholds here:
+Audit the effective active workflow against its own contract rather than copying its thresholds here:
 - Product Research -> `product_research.md`;
 - Pricing Tiers -> `pricing_tiers.md`;
 - Vendor Research -> `vendor_research.md`;
@@ -199,12 +203,14 @@ Only when explicitly auditing/editing this project, also check:
 - reusable pricing definitions exist only in `pricing.md`;
 - templates own presentation only;
 - workflows own generic sequencing/synthesis plus stable named contribution surfaces;
-- `product_hierarchy.md` alone owns Merge/Override semantics;
-- every hierarchy Override names a specific workflow rule/sub-contract rather than an entire workflow;
+- `product_hierarchy.md` alone owns Merge/Override semantics and child-delta behavior;
+- every executable hierarchy rule is classified under Shared domain behavior or a named workflow Merge/Override;
+- every hierarchy Override names a specific live workflow rule/sub-contract rather than an entire workflow;
 - hierarchy Merges are additive and do not silently suppress inherited rules;
 - more-specific overrides affect only the same named target;
+- a child that needs a parent target plus extra behavior uses Merge rather than an Override that silently depends on replaced parent content;
+- child hierarchy authorities contain only their delta and do not restate inherited parent rules merely for emphasis;
 - hierarchy contributions cannot weaken shared-authority or safety/legal rules;
-- specialized authority files separate Shared domain behavior from workflow-specific Merge/Override sections;
 - hierarchy levels omit workflow sections when they have nothing meaningful to contribute;
 - Chef's Knife remains a valid reference implementation rather than special-cased logic embedded in generic workflows;
 - specialized files load only from active hierarchy entries;
