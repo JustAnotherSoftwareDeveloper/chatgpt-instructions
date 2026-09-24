@@ -1,9 +1,7 @@
-# MAIN.md
+# Shopping Project Entrypoint
 
-STOP. This file is not the workflow entry point.
+Entrypoint: `instructions.md`.
 
-The authoritative entry point for this project is:
-- [`instructions.md`](instructions.md)
+Read `instructions.md` first. It owns routing, inheritance resolution, precedence, and authority loading for this project.
 
-All project behavior, routing, defaults, and references to other markdown files are defined in `instructions.md`.
-Do not implement logic from `MAIN.md`. Do not add rules here. If something needs to change, change `instructions.md`.
+Do not place workflow logic or product-domain rules in `MAIN.md`.
