@@ -2,9 +2,11 @@
 
 ## Purpose
 
-This file owns evidence admissibility, weighting, recency, breadth, and claim-to-evidence discipline for Shopping research.
+This file owns evidence admissibility, weighting, recency, breadth, conflict handling, and claim-to-evidence discipline for Shopping research.
 
-The previous implementation is preserved at `archive/research_sources.md`. Its detailed rules will be migrated deliberately after the new inheritance architecture is established.
+`base.md` activates this authority for every shopping request.
+
+The previous implementation is preserved at `archive/research_sources.md`. Its detailed rules will be migrated deliberately; archived rules are not active implicitly.
 
 ---
 
@@ -17,7 +19,11 @@ The previous implementation is preserved at `archive/research_sources.md`. Its d
 - Use broad real-world owner/community signal for reliability and long-term-use claims.
 - Treat current prices, availability, policies, firmware/software behavior, and current product revisions as recency-sensitive.
 - State material conflicts, uncertainty, and coverage gaps rather than hiding them.
-- Route review interpretation to `reviews.md`.
-- Route seller/listing legitimacy and purchase-channel risk to `seller_instructions.md`.
+- Route review interpretation to `reviews.md` when review evidence is used.
+- Route seller/listing legitimacy and purchase-channel risk to `seller_instructions.md` when seller evidence is used.
 
-This file will be expanded by migration from the archived authority; do not import archived rules implicitly.
+---
+
+## Boundary
+
+This file decides whether and how sources may support claims. It does not own source-discovery playbooks (`source_playbooks.md`), review-content interpretation (`reviews.md`), seller/channel risk (`seller_instructions.md`), product classification (`product_types.md`), or pricing strategy (`pricing.md`).

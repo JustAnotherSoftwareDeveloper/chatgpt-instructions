@@ -4,7 +4,9 @@
 
 This file owns how Shopping research interprets review evidence, including manipulation/astroturf risk and the difference between isolated anecdotes and repeated owner signal.
 
-The previous detailed implementation is preserved at `archive/reviews.md` and will be migrated deliberately.
+Load this authority when review evidence is used. `research_sources.md` remains responsible for whether a review source is admissible and how much evidentiary weight it receives overall.
+
+The previous detailed implementation is preserved at `archive/reviews.md` and will be migrated deliberately; archived rules are not active implicitly.
 
 ---
 
@@ -17,4 +19,8 @@ The previous detailed implementation is preserved at `archive/reviews.md` and wi
 - Treat suspiciously repetitive, generic, or coordinated review language cautiously.
 - Do not use review volume alone as proof of quality.
 
-Detailed review heuristics should live here, not in product taxonomy or workflows.
+---
+
+## Boundary
+
+This file interprets review content only. General source admissibility and claim mapping belong to `research_sources.md`; seller/channel risk belongs to `seller_instructions.md`; product taxonomy and criteria selection belong elsewhere.

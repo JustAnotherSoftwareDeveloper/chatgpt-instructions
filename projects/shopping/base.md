@@ -4,39 +4,50 @@
 
 `base` is the mandatory root of every Shopping inheritance chain.
 
-It defines only universal behavior that should apply before any product-specific specialization.
+It defines universal defaults and activates the instruction sets that every shopping request starts with. It does not own evidence-policy details or product-domain specialization.
 
 ---
 
-## Base defaults
+## Universal defaults
 
 - Region: USA unless the user specifies otherwise.
 - Currency: USD unless the user specifies otherwise.
-- Condition: new unless the user specifies used/refurbished/open-box.
-- Prefer current, verifiable information when the request depends on current products, prices, availability, policies, versions, or market conditions.
-- Separate candidate discovery from evidence used to support conclusions.
-- Distinguish objective specifications, measured/empirical performance, reliability/durability signals, and subjective preference claims.
-- State material uncertainty and coverage gaps.
+- Condition: new unless the user specifies used, refurbished, or open-box.
 - Preserve explicit user constraints over non-safety defaults.
-- Do not force unnecessary clarification when a reasonable assumption can be stated instead.
+- Ask for clarification only when the missing information materially changes correctness; otherwise make and state a reasonable assumption.
 
 ---
 
-## Base authority hooks
+## Base instruction activation
 
-Every request may draw from these reusable authorities as applicable:
+Base always activates:
 
-- `criteria.md` for evaluation dimensions.
-- `source_playbooks.md` for source-discovery strategy.
-- `pricing.md` for pricing/value analysis.
-- `research_sources.md` for evidence admissibility and weighting.
-- `reviews.md` when review evidence is used.
-- `seller_instructions.md` when purchase-channel/seller advice is in scope.
+### Evaluation criteria
+From `criteria.md`:
+- `value`
+- `reliability`
+- `compatibility`
+- `usability`
 
-Product nodes in `product_types.md` specialize these defaults by selecting or adding named instruction sets and, when necessary, loading specialized authority files.
+### Source discovery
+From `source_playbooks.md`:
+- `general-shopping`
+
+### Pricing strategy
+From `pricing.md`:
+- `general-value`
+
+### Evidence authority
+- `research_sources.md` is always active for evidence admissibility, weighting, recency, breadth, and claim-to-evidence discipline.
+
+Conditional authorities:
+- load `reviews.md` when review evidence is used;
+- load `seller_instructions.md` when seller/channel, current offer, return/warranty, or purchase-risk advice is in scope.
+
+Product nodes in `product_types.md` may add criteria, add/remove discovery playbooks, replace the inherited pricing strategy with a more-specific named strategy, and load specialized live authorities.
 
 ---
 
 ## Boundary
 
-This file does not define product taxonomy, category-specific criteria, category-specific source strategy, seller risk mechanics, or output templates.
+This file does not define product taxonomy, category-specific criteria, source-evidence rules, review heuristics, seller-risk mechanics, category-specific pricing logic, or output formats. Those belong to their canonical authorities.

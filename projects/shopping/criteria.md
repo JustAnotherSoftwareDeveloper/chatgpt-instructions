@@ -2,19 +2,19 @@
 
 ## Purpose
 
-This file owns reusable evaluation-criteria instruction sets selected by product nodes.
+This file owns reusable evaluation-criteria definitions selected by Base and product nodes.
 
-Criteria are named, reusable units. Product nodes should reference criteria IDs rather than duplicating the criterion's meaning and evaluation rules.
+Product nodes reference criterion IDs rather than restating the criterion's meaning or evaluation rules.
 
 ---
 
 ## Base criteria
 
 ### value
-Evaluate whether the product's benefits justify its total purchase and ownership cost for the user's stated use case.
+Evaluate whether the product's benefits justify its purchase price and meaningful ownership costs for the user's stated use case.
 
 ### reliability
-Evaluate expected consistency, failure patterns, durability, and support implications using evidence appropriate to the product.
+Evaluate consistency, failure patterns, durability, and support implications using evidence appropriate to the product.
 
 ### compatibility
 Evaluate hard compatibility constraints before soft preference criteria.
@@ -22,13 +22,21 @@ Evaluate hard compatibility constraints before soft preference criteria.
 ### usability
 Evaluate friction in setup, normal operation, maintenance, and recovery from common failures.
 
+`base.md` activates all four criteria above.
+
 ---
 
 ## Inheritance behavior
 
-- Criteria selected by a parent are inherited.
-- Child nodes may `add` criteria.
-- Child nodes may explicitly `remove` a non-safety criterion when genuinely inapplicable.
-- Safety/compliance criteria introduced by any active authority may not be removed by ordinary product inheritance.
+- Parent-selected criteria are inherited.
+- Child nodes may add criteria by stable ID.
+- Child nodes may remove an inherited non-safety criterion only when genuinely inapplicable.
+- Safety/compliance requirements introduced by any active authority may not be removed by ordinary product inheritance.
 
-Additional criterion sets will be migrated from the archived Shopping implementation as Classes, Categories, and Types are rebuilt.
+Additional criteria should be added here when they are reusable across multiple product nodes. Narrow one-off domain logic belongs in a specialized authority instead.
+
+---
+
+## Boundary
+
+This file defines evaluation dimensions only. It does not classify products, determine source admissibility, define source-discovery playbooks, set pricing strategy, interpret reviews, or evaluate sellers.

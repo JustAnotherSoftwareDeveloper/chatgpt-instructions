@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This file owns reusable pricing and value-analysis instruction sets selected by product nodes and pricing workflows.
+This file owns reusable pricing and value-analysis strategies selected by Base and product nodes.
 
 ---
 
@@ -15,13 +15,26 @@ This file owns reusable pricing and value-analysis instruction sets selected by 
 - Do not recommend a materially worse or riskier product merely to satisfy an arbitrary lower price tier.
 - Explain what additional spend actually unlocks and where diminishing returns begin when evidence supports it.
 
+`base.md` selects `general-value`.
+
 ---
 
 ## Inheritance behavior
 
-- Base provides `general-value`.
-- A product node may `use` a pricing strategy when no more-specific strategy is inherited.
-- A product node may `override` an inherited strategy when its economics are materially different.
-- Category/type-specific pricing logic should live here or in a specialized authority, not inline in `product_types.md`.
+`pricing.strategy` is a single inherited property.
 
-Detailed pricing behavior from the prior Shopping implementation remains under `archive/` for deliberate migration.
+- Base starts with `general-value`.
+- If a Class defines another strategy, it replaces the Base strategy for that branch.
+- A Category may replace the inherited strategy.
+- A Type may replace the inherited strategy.
+- The closest node to the resolved leaf that defines `pricing.strategy` wins.
+
+Do not combine multiple pricing strategies implicitly. If a domain needs composite pricing behavior, define that composite as one named strategy here or load a specialized authority.
+
+Category/type-specific pricing logic belongs here when reusable; narrow specialized economics may live in a dedicated authority referenced by the product node.
+
+---
+
+## Boundary
+
+This file owns product pricing/value strategy. Seller legitimacy, return risk, fulfillment, and offer-channel trust belong to `seller_instructions.md`; product classification belongs to `product_types.md`.

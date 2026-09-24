@@ -4,7 +4,9 @@
 
 This file owns seller/channel evaluation, purchase risk, return/warranty handling, seller-of-record vs fulfillment distinctions, and offer comparison when purchase-channel advice is in scope.
 
-The previous detailed implementation is preserved at `archive/seller_instructions.md` and will be migrated deliberately.
+Load this authority when seller/channel, current offer, return/warranty, or purchase-risk advice is requested or materially affects the recommendation.
+
+The previous detailed implementation is preserved at `archive/seller_instructions.md` and will be migrated deliberately; archived rules are not active implicitly.
 
 ---
 
@@ -17,4 +19,8 @@ The previous detailed implementation is preserved at `archive/seller_instruction
 - Treat unusually cheap offers as requiring stronger verification, not as automatically better value.
 - Keep seller/channel conclusions separate from product-quality conclusions.
 
-Detailed seller policy belongs here, not in product taxonomy, source playbooks, or product workflows.
+---
+
+## Boundary
+
+This file owns seller/channel and offer-level purchase risk only. Product-quality evaluation belongs to the active criteria and specialized authorities; general evidence admissibility belongs to `research_sources.md`; product pricing strategy belongs to `pricing.md`.

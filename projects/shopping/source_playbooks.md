@@ -2,31 +2,40 @@
 
 ## Purpose
 
-This file owns reusable source-discovery playbooks selected by product nodes.
+This file owns reusable source-discovery playbooks selected by Base and product nodes.
 
-A playbook answers where to look for category-appropriate evidence. It does not determine whether a discovered source is admissible evidence; `research_sources.md` owns that decision.
+A playbook answers where to search for category-appropriate information. It does not determine whether a discovered source is admissible evidence; `research_sources.md` owns admissibility, weighting, and claim-to-evidence use.
 
 ---
 
 ## Base playbook
 
 ### general-shopping
-Use a broad source mix appropriate to the claim types involved:
-- primary manufacturer/vendor documentation for objective specifications;
-- standards/regulatory/certification sources when relevant;
-- method-based publications or competent specialists for empirical performance;
-- owner/community evidence for reliability, long-term use, and edge cases;
-- seller/listing sources only for pricing, availability, and purchase-channel facts.
+During discovery, search broadly across source families that may be relevant to the target, including:
+- manufacturer/vendor documentation;
+- standards, regulatory, certification, or recall sources when the category may involve them;
+- specialist publications and method-based testing outlets;
+- competent practitioners or domain experts;
+- owner communities and long-term-use discussions;
+- seller/listing sources when current price or availability is in scope.
 
-Avoid allowing one publication family or one narrative ecosystem to dominate the research basis.
+Use this playbook to widen discovery only. Do not infer evidentiary weight from a source family's presence on this list.
+
+`base.md` activates `general-shopping`.
 
 ---
 
 ## Inheritance behavior
 
-- `general-shopping` is available from Base.
+- Parent-selected playbooks are inherited.
 - Product nodes may add more-specific playbooks.
-- More-specific playbooks specialize discovery; they do not lower evidence standards.
-- A child may explicitly remove an inherited playbook only when it is genuinely irrelevant.
+- More-specific playbooks specialize or widen discovery; they do not lower evidence standards.
+- A child may remove an inherited playbook only when it is genuinely irrelevant to that branch.
 
-Detailed category playbooks from the prior Shopping project remain in `archive/source_playbooks.md` for deliberate migration.
+Category playbooks from the previous implementation remain in `archive/source_playbooks.md` for deliberate migration.
+
+---
+
+## Boundary
+
+This file owns source discovery strategy only. Evidence admissibility, claim matching, weighting, recency, and conflict resolution belong to `research_sources.md`; review interpretation belongs to `reviews.md`; seller legitimacy belongs to `seller_instructions.md`.
