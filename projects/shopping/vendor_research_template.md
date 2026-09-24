@@ -1,34 +1,23 @@
 # Vendor Research Template
 
 ## Purpose
-Define the presentation contract for `vendor_research.md`. This file owns presentation only.
+Define the presentation contract for `vendor_research.md`. This file renders vendor-analysis decisions already made by the workflow.
 
-## Required structure
-### Ecosystem map
-Briefly explain the meaningful vendor/brand families or business models relevant to the user's decision.
+## Ecosystem map
+Render the meaningful vendor/brand families or business models supplied by the workflow and explain why they matter to the user's decision.
 
-Examples may include:
-- mainstream broad-line manufacturers;
-- category specialists;
-- artisan/low-volume makers;
-- direct-only brands;
-- authorized specialist retailers;
-- large general retailers/marketplaces.
-
-Use only families that actually exist in the researched market.
-
-### Recommendation / decision boundary
-Lead with the primary vendor/brand recommendation when justified, or explain why different vendors are best for different buyers.
+## Recommendation / decision boundary
+Lead with the workflow's primary vendor/brand recommendation when one exists, or render the decision boundary when different vendors are best for different buyers.
 
 Include:
 - who it is for;
 - primary reason;
 - main weakness/caveat.
 
-### Shortlist comparison
-When 2 or more finalists are discussed, use one concise comparison table based on the active vendor differentiators rather than generic boilerplate.
+## Shortlist comparison
+When multiple finalists are presented, use one concise comparison table based on the active vendor differentiators supplied by the workflow.
 
-### Finalist tradeoffs
+## Finalist tradeoffs
 For each included vendor/brand state:
 - what it actually is / role in the ecosystem;
 - strongest reason to choose it;
@@ -36,28 +25,25 @@ For each included vendor/brand state:
 - best-fit buyer;
 - why a reasonable buyer may choose another finalist.
 
-### Nearest-rival boundary
-For substantial Standard/Deep research, state:
+## Nearest-rival boundary
+When the workflow requires it, render:
 - why the primary recommendation wins for this user's needs;
 - what operational/business/product-line difference drives that advantage;
 - what user priority or assumption would make the nearest rival preferable.
 
-### Channel / service notes
-Include when material:
-- warranty/service model;
-- authorized/gray/direct distribution consequences;
-- retailer/dealer quality;
-- domestic/regional support practicality;
-- value-added specialist services.
+## Channel / service notes
+Render decision-relevant warranty, service, distribution, regional-support, provenance, or specialist-service consequences supplied by the workflow and active authorities.
 
-### Material uncertainties
-Include unresolved ownership/business relationships, lineup consistency, support/QC evidence gaps, region differences, or sparse reputation evidence that could change the recommendation.
+## Material uncertainties
+Render unresolved ownership/business relationships, lineup consistency, support/QC evidence gaps, region differences, or sparse reputation evidence that could change the recommendation.
 
-### Research basis
+## Research basis
 Provide concise citations/sources. Do not expose internal vendor records, evidence matrices, source-count mechanics, or research briefs unless asked/audited.
 
 ## Formatting
 - Keep brand quality distinct from retailer/channel quality.
-- Do not generalize an entire brand from one flagship SKU without qualification.
 - Prefer concrete business/product-line/service differences over reputation adjectives.
 - Do not emit internal vendor subtype labels unless they help the user understand the result.
+
+## Boundary
+This template owns presentation only. Vendor subtype resolution, ecosystem mapping, shortlist size, nearest-rival requirements, evidence requirements, and recommendation logic belong to `vendor_research.md` and the shared authorities it invokes.

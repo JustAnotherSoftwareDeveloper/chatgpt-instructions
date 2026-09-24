@@ -3,7 +3,7 @@
 ## Purpose
 Define reusable evaluation dimensions that hierarchy levels and workflows may apply without restating their meaning.
 
-Criteria identify what should be evaluated. They do not define evidence standards, source discovery, price tiers, review interpretation, seller risk, or workflow sequencing.
+Criteria identify what should be evaluated. They do not define evidence standards, source discovery, price tiers, review interpretation, seller risk, workflow sequencing, or workflow-specific criterion counts.
 
 ## How workflows use criteria
 Classify active criteria internally as one of:
@@ -12,7 +12,7 @@ Classify active criteria internally as one of:
 - **Secondary / tie-breaker** - useful after primary differentiators are resolved.
 - **Preference / identity dimension** - ranking depends mainly on user taste, aesthetics, craft, community identity, or another explicitly subjective priority.
 
-Product Research should normally use **3-5 primary differentiators** rather than treating every criterion as equally important.
+The active workflow decides how many criteria should occupy each role.
 
 ## General
 ### Constraint fit
@@ -107,4 +107,4 @@ Mass and balance relative to control, momentum, fatigue, and feedback.
 If another knife type materially better matches the actual primary use, do not force Chef's Knife merely because the Type was initially considered.
 
 ## Boundary
-Classification belongs to `product_hierarchy.md`; evidence to `research_sources.md`; discovery to `source_playbooks.md`; pricing/value to `pricing.md`; review handling to `reviews.md`; seller risk to `seller_instructions.md`.
+Classification belongs to `product_hierarchy.md`; evidence to `research_sources.md`; discovery to `source_playbooks.md`; pricing/value to `pricing.md`; review handling to `reviews.md`; seller risk to `seller_instructions.md`; workflow-specific prioritization/counts to the active workflow.

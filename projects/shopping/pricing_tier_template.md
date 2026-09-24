@@ -1,60 +1,49 @@
 # Pricing Tier Template
 
 ## Purpose
-Define the presentation contract for `pricing_tiers.md`. Presentation only; tier construction/research logic remains in the workflow and pricing authorities.
+Define the presentation contract for `pricing_tiers.md`. This file renders tier decisions already made by the workflow.
 
-## Required structure
-### Market map
-Briefly explain the meaningful market/design families and the overall price span considered.
+## Market map
+Render the meaningful market/design families and overall price span supplied by the workflow.
 
-State when important:
-- whether the market is functionally tiered or mostly preference-driven;
-- whether sale/clearance pricing currently distorts normal placement.
+When relevant, surface whether sale/clearance pricing currently distorts normal placement.
 
-### Tier table
-For every valid tier show:
-- tier / approximate normal-current range;
+## Tier table
+For each tier produced by the workflow show:
+- tier / approximate market range;
 - buyer proposition;
 - primary representative;
-- optional alternative only when it represents a different tradeoff;
+- optional alternative when supplied;
 - what materially improves over the tier below;
 - biggest remaining compromise.
 
-Use current-normal price posture rather than MSRP-only placement.
-
-### What each step up buys
-For each adjacent tier explain:
+## What each step up buys
+Render the workflow's adjacent-tier analysis:
 - approximate extra spend;
 - concrete gain(s);
-- what does **not** materially improve;
+- what does not materially improve;
 - which buyer should stop at the lower tier;
 - which buyer should move up.
 
-### Diminishing returns
-Identify the region where additional spend increasingly buys specialization, refinement, craft, aesthetics, rarity, prestige, or other narrower benefits instead of broad improvements in the active primary criteria.
+## Diminishing returns
+Render the diminishing-return region identified under `pricing.md` and explain what additional spend increasingly buys there.
 
-Do not call those benefits irrational when the user values them.
+## Current buying notes
+Render current-price and seller/channel information supplied by the workflow and active authorities for the recommended representatives.
 
-### Current buying notes
-Required because price is in scope.
-
-For recommended representatives, surface only decision-relevant items such as:
-- normal street / typical reputable range;
-- current low reputable offer or notable sale;
-- sale/clearance-dependent tier movement;
-- seller/provenance caveat.
-
-### Research basis
-Provide concise citations/sources. Do not expose internal discovery pools, coverage matrices, or source-count mechanics unless asked/audited.
-
-## Budget-specific requests
-When the user supplied a target/ceiling, clearly identify:
+## Budget-specific note
+When the workflow supplies a budget-specific conclusion, clearly render:
 - best fit at/below budget;
-- whether the budget is below the reasonable market floor;
-- stretch option only when concrete gains justify it.
+- budget-floor warning when applicable;
+- stretch option when the workflow selected one.
+
+## Research basis
+Provide concise citations/sources. Do not expose internal discovery pools, coverage matrices, source-count mechanics, or price-normalization ledgers unless asked/audited.
 
 ## Formatting
 - Prefer one tier table plus concise explanatory prose.
-- Avoid arbitrary round-number bands unsupported by the market.
-- Do not repeat the same product across tiers unless explicitly labeled bridge/sale-dependent/stretch.
-- If the market supports only 1-2 meaningful regions, say so rather than fabricating 3-5 tiers.
+- Keep temporary deal context visually distinct from normal market placement.
+- Do not introduce, split, merge, or reassign tiers in the template.
+
+## Boundary
+This template owns presentation only. Tier construction, tier validity, representative selection, price normalization, diminishing-return logic, and budget decisions belong to `pricing_tiers.md` and `pricing.md`.

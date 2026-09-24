@@ -35,7 +35,7 @@ A dimension that changes ranking among otherwise viable candidates but does not 
 A product whose identity is sufficiently established, that passes known hard constraints, is realistically obtainable for the user when availability matters, and has enough discoverable evidence to evaluate the primary decision criteria.
 
 ### Primary differentiator
-A criterion likely to change the recommendation among viable candidates. Product Research should normally promote only 3-5 criteria to primary differentiators; the rest are secondary or tie-breakers unless the request requires otherwise.
+A criterion likely to change the recommendation among viable candidates. The active workflow decides how many criteria should be promoted to this role.
 
 ## Product identity
 When conclusions depend on exact identity, establish the relevant model/variant/generation/size/region before making variant-sensitive claims.
@@ -59,7 +59,7 @@ Always apply:
 
 Apply conditionally:
 - `reviews.md` whenever hands-on review, owner, forum, community, or retailer-review evidence contributes to a conclusion;
-- `seller_instructions.md` whenever a concrete seller, current offer, returns, warranty channel, provenance, fulfillment, price, or availability affects the answer.
+- `seller_instructions.md` whenever a concrete seller, current offer, returns, warranty channel, provenance, fulfillment, or purchase-channel risk affects the answer.
 
 ## Interaction defaults
 - Do not interrogate the user for details that can be reasonably inferred or handled with a stated assumption.
@@ -70,4 +70,4 @@ Apply conditionally:
 Numeric budgets and thresholds in downstream files are operating defaults, not goals in themselves. Deviate when the market, request, or evidence structure clearly warrants it, but preserve the reason internally and disclose it when the deviation creates a meaningful coverage limitation.
 
 ## Boundary
-Base does not own product classification, domain-specific rules, evidence details, review interpretation, seller policy, workflow sequencing, or presentation.
+Base does not own product classification, domain-specific rules, evidence details, review interpretation, seller policy, workflow sequencing, workflow-specific counts, or presentation.

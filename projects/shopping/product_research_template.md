@@ -1,73 +1,59 @@
 # Product Research Template
 
 ## Purpose
-Define the normal presentation contract for `product_research.md`. This file owns presentation only.
+Define the normal presentation contract for `product_research.md`. This file renders decisions already made by the workflow.
 
-## Required for normal open-market Product Research
-### Recommendation
-Lead with the primary recommendation or the decision boundary when no single winner is justified.
+## Recommendation
+Lead with the workflow's primary recommendation or decision boundary.
 
 Include:
 - who it is for;
 - most important reason;
 - most important caveat.
 
-### Decision drivers
-List the **3-5 primary differentiators** that actually drove the recommendation, plus any hard constraints that materially shaped the field.
+## Decision drivers
+Render the primary differentiators and hard constraints supplied by the workflow. Do not introduce new criteria or counts here.
 
-### Market map
-For Standard/Deep open-market research, briefly explain the **2-5 market/design families** that mattered to the decision and where the finalists sit.
+## Market map
+When the workflow supplies a market/design map, briefly explain the families that mattered and where the finalists sit.
 
-Do not dump the entire discovery pool. The purpose is to show what kinds of products were considered and why the final comparison is representative.
+Do not dump the entire discovery pool.
 
-Omit for narrow fixed comparisons when it adds no value.
+## Comparison
+When multiple finalists are presented, use one concise table or similarly scannable comparison.
 
-### Comparison
-When **2 or more finalists** are discussed, use one concise table or similarly scannable comparison.
-
-Columns should be the active decision drivers, not generic boilerplate.
+Columns should reflect the active decision drivers supplied by the workflow, not generic boilerplate.
 
 Do not show false precision from non-comparable evidence.
 
-### Candidate tradeoffs
+## Candidate tradeoffs
 For every finalist included in the answer state:
 - why choose it;
 - main weakness/tradeoff;
 - best-fit user;
 - who should choose another option.
 
-### Nearest-rival decision boundary
-For substantial Standard/Deep research, explicitly state:
-- why the recommended product beats its closest credible rival **for this user**;
-- the primary tradeoff separating them;
-- what preference, use case, or assumption change would make the rival the better choice.
+## Nearest-rival decision boundary
+When the workflow requires a nearest-rival boundary, render:
+- why the recommended product wins for this user;
+- the primary tradeoff separating it from the closest credible rival;
+- what preference, use case, or assumption change would make the rival preferable.
 
-When there is no single winner, use this section to define the decision boundary between the strongest options instead.
+When there is no single winner, use this section to render the workflow's decision boundary between the strongest options.
 
-### Pricing / buying notes
-Required when budget, current price, deal quality, availability, or where-to-buy is in scope.
+## Pricing / buying notes
+When the workflow places price, deal quality, availability, or where-to-buy in scope, render only decision-relevant pricing and seller/channel information supplied by the active authorities.
 
-When useful distinguish:
-- normal street price / typical reputable range;
-- current deal;
-- sale/clearance dependency;
-- seller/channel caveat.
+## Material uncertainties
+Render unresolved identity, evidence, reliability, version, comparability, or market uncertainty that could change the decision. Omit when the workflow found none material.
 
-### Material uncertainties
-Include any unresolved identity, evidence, reliability, version, comparability, or market uncertainty that could change the decision. Omit only when none remain.
+## Research basis
+Provide concise citations/sources appropriate to the research performed.
 
-### Research basis
-Provide concise citations/sources appropriate to the research performed. Do not expose internal research briefs, candidate records, coverage matrices, source-count ledgers, or excluded-source lists unless asked/audited.
+Do not expose internal research briefs, candidate records, coverage matrices, source-count ledgers, or excluded-source lists unless the user asks for them or requests an audit.
 
-## Normal recommendation shape
-For broad open-market research:
-- 1 primary recommendation when justified;
-- normally 2-3 alternatives representing genuinely different tradeoffs.
-
-Use fewer/more only when the workflow's escape clauses justify it.
-
-## Optional sections
-Use only when first-class to the request:
+## Optional presentation blocks
+Render only when the workflow supplies first-class content for them:
 - Design / aesthetic / identity fit;
 - Compatibility / setup;
 - Maintenance / ownership plan;
@@ -80,3 +66,6 @@ Use only when first-class to the request:
 - Explain recommendation-changing differences causally where useful, not with unsupported adjectives.
 - Do not emit internal hierarchy labels, research modes, coverage cells, comparability labels, or loaded filenames unless explicitly asked.
 - Confidence may be stated at recommendation or material-claim level; do not mechanically label every sentence.
+
+## Boundary
+This template owns presentation only. `product_research.md` owns recommendation shape, market-map requirements, criterion counts, nearest-rival requirements, and workflow decisions.

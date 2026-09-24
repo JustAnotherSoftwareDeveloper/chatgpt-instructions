@@ -5,12 +5,10 @@ Own meaningful price-band, budget-tier, good-better-best, and "what does spendin
 
 Use the resolved product context plus active `pricing.md`, `criteria.md`, `source_playbooks.md`, and evidence authorities.
 
-This workflow constructs live market tiers. It does not define timeless dollar bands.
+This workflow constructs live market tiers. It does not define research modes, reusable price states, seller risk, or timeless dollar bands.
 
 ## 1) Research mode
-Default to **Standard** from `research_sources.md`.
-
-Escalate to Deep for unusually expensive/luxury/collector markets, contradictory market evidence, or explicit deep research.
+Apply the research mode selected by `research_sources.md`. Do not redefine Quick / Standard / Deep / Sparse triggers here.
 
 Pricing/availability is always in scope for this workflow.
 
@@ -31,7 +29,7 @@ For a mature market, default discovery target:
 - cover the credible entry point through premium/mainstream ceiling relevant to the request;
 - include specialty/luxury territory only when it is a real part of the requested market.
 
-Use fewer only when the market or hard constraints are genuinely narrow. Search wider when the market shows additional distinct segments or Deep research is active.
+Use fewer only when the market or hard constraints are genuinely narrow. Search wider when the market shows additional distinct segments or the selected research mode calls for greater depth.
 
 Discovery sources may map products/prices but tier conclusions and representative picks require admissible evidence.
 
@@ -44,29 +42,24 @@ For each segment capture internally:
 - defining traits;
 - primary strengths;
 - structural compromises;
-- normal street-price posture;
+- price posture under `pricing.md`;
 - representative products;
 - whether the user should care about this segment.
 
 Do not assume price itself defines the segment. Two products at the same price may represent different design philosophies, and one design family may span multiple prices.
 
-## 5) Normalize product price states
-For products used to construct the tier map, apply `pricing.md`'s price-state model.
+## 5) Normalize price posture
+Apply the price-state model and normal-price baseline procedure from `pricing.md` to products used in the tier map.
 
-Prefer placement based on **normal street price or current typical reputable range**, not:
-- MSRP nobody normally pays;
-- one flash sale;
-- coupon/member pricing unavailable to the ordinary buyer;
-- clearance of an outgoing generation;
-- suspicious anomaly.
+Tier placement should reflect the product's defensible normal/current market posture, not a misleading list price, one-off promotion, clearance event, or unverified anomaly.
 
-Record sale/clearance positioning separately when it creates a temporary cross-tier value opportunity.
+Record temporary sale/clearance effects separately when they create a cross-tier value opportunity.
 
 ## 6) Initial tier geometry
 Default to **3-5 provisional tiers**.
 
 Do not start from round-number price bands. Derive provisional tiers from:
-- observed normal/current street-price clusters;
+- observed market-price clusters after normalization;
 - meaningful shifts in capability, quality, consistency, ownership burden, support, materials, specialization, craft, or prestige;
 - market/design segment transitions;
 - user budget anchors.
@@ -79,10 +72,10 @@ A normal tier is valid only when all are true:
 2. the region has a coherent buyer/value proposition;
 3. the extra spend over the tier below buys at least one concrete material difference for a plausible buyer;
 4. the boundary is not merely an aesthetically convenient round number;
-5. the distinction remains coherent under normal street-price posture rather than depending entirely on one temporary promotion.
+5. the distinction remains coherent under the normalized price posture from `pricing.md` rather than depending entirely on one temporary promotion.
 
 For each adjacent pair be able to state:
-- approximate additional spend using normal/current reputable ranges;
+- approximate additional spend;
 - concrete gain(s);
 - mechanism/design/ownership reason for those gains where knowable;
 - what does **not** materially improve;
@@ -127,44 +120,31 @@ When user supplies a ceiling/target:
 Do not recommend a materially bad product just to satisfy a low tier.
 
 ## 11) Marginal-spend analysis
-For every step upward, classify what extra spend buys among:
-- broader functional capability;
-- performance consistency;
-- durability/QC;
-- ergonomics;
-- materials/construction;
-- support/service;
-- fit/finish;
-- customization/specialization;
-- aesthetics/craft;
-- rarity/prestige.
+Apply the marginal-value reasoning in `pricing.md` to each adjacent tier.
 
-Then explain the causal/ownership path where supportable:
+For the tier workflow, turn that analysis into a concrete decision boundary:
 
-`extra spend -> design/execution difference -> observed behavior/ownership effect -> buyer who benefits`
+`additional spend -> design/execution difference -> observed behavior/ownership effect -> buyer who benefits`
 
-Separate broadly useful gains from preference-heavy gains.
+State what materially improves, what does not, and which buyer should move up. Do not redefine the reusable value categories or diminishing-returns concept here.
 
 ## 12) Diminishing returns
-Treat diminishing returns as beginning where successive price increases stop producing broad improvement in the primary functional/ownership criteria and increasingly buy secondary preference, fit/finish, craft, specialization, rarity, prestige, or collector value.
+Identify the diminishing-return region using the definition and value logic in `pricing.md`, then explain how it manifests in this specific market.
 
-Do not imply spending past that point is irrational when the user values those attributes.
-
-## 13) Current price and deal context
+## 13) Current offers and buying context
 For representative picks:
+- apply `pricing.md` for price-state interpretation and normal-price baseline;
 - verify current price/availability;
-- distinguish MSRP, normal street, current typical reputable range, current low reputable offer, recurring-sale range when supported, clearance, and anomalies under `pricing.md`;
 - compare at least **2 legitimate current offers** for a recommended pick when market competition exists and buying guidance is included;
-- apply `seller_instructions.md` to concrete offers;
-- do not let a suspicious anomaly define a tier until verified.
+- apply `seller_instructions.md` to concrete offers.
 
-When a temporary sale moves a product below its normal tier, describe it as a sale-dependent cross-tier value rather than silently rebuilding the market around the promotion.
+When a temporary sale changes practical value, describe that effect without silently redefining the product's normal tier.
 
 ## 14) Cross-tier coherence
 Before finalizing:
 - no repeated product across tiers unless explicitly labeled bridge/sale-dependent/stretch;
 - every adjacent tier passes the gain test;
-- every pick fits its tier at normal/current reputable price posture;
+- every pick fits its tier under the normalized price posture;
 - meaningful design segments are not hidden by pure price labels;
 - tiers with only arbitrary boundaries are removed.
 
@@ -172,4 +152,4 @@ Before finalizing:
 Use `pricing_tier_template.md`.
 
 ## Boundary
-Reusable pricing/value logic belongs to `pricing.md`; product evaluation to `product_research.md`; evidence to `research_sources.md`; seller risk to `seller_instructions.md`; presentation to `pricing_tier_template.md`.
+Reusable pricing/value definitions belong to `pricing.md`; research modes/evidence to `research_sources.md`; product evaluation to `product_research.md`; seller risk to `seller_instructions.md`; presentation to `pricing_tier_template.md`. This workflow owns tier construction, refinement, representative selection, and cross-tier synthesis only.

@@ -21,7 +21,7 @@ Do not duplicate detailed rules from canonical files. Route to them and load the
 - `criteria.md` - reusable evaluation dimensions and their meaning. Does not decide evidence quality, price tiers, or seller trust.
 - `source_playbooks.md` - category-appropriate source discovery guidance. Does not decide evidence admissibility or weight.
 - `pricing.md` - reusable product-value and pricing logic. Does not evaluate seller legitimacy or current offer risk.
-- `research_sources.md` - evidence admissibility, claim/source fit, independence, recency, coverage, conflict handling, and claim-to-evidence discipline. Does not interpret review content or seller risk.
+- `research_sources.md` - research-mode selection plus evidence admissibility, claim/source fit, independence, recency, coverage, comparability, conflict handling, and stopping rules. Does not interpret review content or seller risk.
 - `reviews.md` - interpretation of expert, owner, community, and retailer-review evidence. Does not set general source admissibility or seller policy.
 - `seller_instructions.md` - seller/channel and offer-level purchase risk. Does not decide product quality.
 
@@ -32,17 +32,17 @@ Do not duplicate detailed rules from canonical files. Route to them and load the
 - `quick_check.md` - focused one-product, one-listing, red-flag, or deal-sanity workflow.
 - `audit.md` - audit of Shopping outputs; repository architecture audit only when explicitly requested.
 
-Workflows consume the resolved product context and shared authorities. They must not define competing product taxonomies or duplicate sibling authority rules.
+Workflows consume the resolved product context and shared authorities. They own sequencing, workflow-specific discovery geometry, narrowing, synthesis, and escalation. They must not redefine research modes, evidence standards, reusable pricing definitions, product taxonomy, review thresholds, or seller-risk definitions owned elsewhere.
 
 ### Templates
-- `product_research_template.md` - Product Research output contract.
-- `pricing_tier_template.md` - Pricing Tiers output contract.
-- `vendor_research_template.md` - Vendor Research output contract.
-- `quick_check_template.md` - Quick Check output contract.
+- `product_research_template.md` - Product Research presentation contract.
+- `pricing_tier_template.md` - Pricing Tiers presentation contract.
+- `vendor_research_template.md` - Vendor Research presentation contract.
+- `quick_check_template.md` - Quick Check presentation contract.
 
-Templates define presentation only. They contain no research, routing, or decision logic.
+Templates render decisions already made by the active workflow. They do not decide research depth, candidate counts, routing, escalation, evidence sufficiency, tier validity, or recommendation shape.
 
-### Pilot specialized hierarchy authorities
+### Current specialized hierarchy authorities
 - `class_home_kitchen.md` - behavior shared broadly across Home & Kitchen products.
 - `category_kitchen_knives.md` - behavior shared across Kitchen Knives.
 - `type_chefs_knife.md` - behavior specific to Chef's Knives.
@@ -74,9 +74,9 @@ Use the first matching rule. Use one primary workflow unless the user explicitly
 The user's explicit requested deliverable wins when clear and safe.
 
 ## Conditional authority loading
-- `research_sources.md` is active for any externally researched factual recommendation.
+- `research_sources.md` is active for any externally researched factual recommendation and is the sole owner of Quick / Standard / Deep / Sparse mode selection.
 - Load `reviews.md` when review, owner, forum, community, or hands-on-review evidence materially contributes.
-- Load `seller_instructions.md` when seller identity, fulfillment, returns, warranty channel, counterfeit/gray-market risk, current price, availability, or a concrete offer materially affects the answer.
+- Load `seller_instructions.md` when seller identity, fulfillment, returns, warranty channel, counterfeit/gray-market risk, current offer, or purchase-channel risk materially affects the answer.
 - Load hierarchy-specialized files only when their hierarchy level is active.
 
 ## Locked context
@@ -92,24 +92,26 @@ Across follow-ups, preserve relevant resolved context until the user changes it:
 
 A material change in target product may require resolving a new context. Do not silently carry a narrow Type onto a different product kind.
 
-## Precedence
-Precedence resolves genuine collisions; normal ownership should prevent most collisions.
+## Ownership-first precedence
+Precedence applies only when two active instructions conflict. First identify the owner of the disputed topic; an authority outside that topic may not override it merely because it appears higher or lower in a broad list.
 
 1. Safety/legal constraints from any active authority.
 2. User's explicit current request and locked thread decisions, except where they conflict with safety/legal constraints.
-3. Active specialized hierarchy authorities: `class_home_kitchen.md`, `category_kitchen_knives.md`, `type_chefs_knife.md`, and future registered hierarchy authorities, for their owned product-domain topics.
-4. The active workflow authority: `product_research.md`, `pricing_tiers.md`, `vendor_research.md`, `quick_check.md`, or `audit.md`, for workflow behavior.
-5. `product_hierarchy.md` for classification, inheritance, and level activation.
-6. `research_sources.md` for evidence standards.
-7. `reviews.md` for review/community interpretation.
-8. `seller_instructions.md` for seller/channel and offer risk.
-9. `pricing.md` for product-value/pricing logic.
-10. `criteria.md` for evaluation-dimension definitions.
-11. `source_playbooks.md` for discovery guidance only.
-12. `base.md` for universal defaults.
+3. `product_hierarchy.md` for classification, inheritance, and level activation.
+4. `research_sources.md` for research-mode selection and evidence standards.
+5. `reviews.md` for review/community interpretation.
+6. `seller_instructions.md` for seller/channel and offer risk.
+7. `pricing.md` for reusable product-value and price-state definitions.
+8. `criteria.md` for reusable evaluation-dimension definitions.
+9. `source_playbooks.md` for source discovery guidance only.
+10. Active specialized hierarchy authorities (`class_home_kitchen.md`, `category_kitchen_knives.md`, `type_chefs_knife.md`, and future hierarchy authorities) for product-domain behavior not owned by the shared authorities above.
+11. The active workflow authority for sequencing, workflow-specific discovery/narrowing, synthesis, and escalation.
+12. `base.md` for universal defaults and vocabulary.
 13. The active template for presentation only.
 
-A lower authority must not restate or override a higher authority's owned topic. Fix ownership instead of relying on precedence when duplication appears.
+A workflow may request deeper research but may not weaken or redefine `research_sources.md`. A specialized hierarchy file may add domain-specific evidence needs but may not lower evidence standards. A template may render a section but may not decide whether the workflow was required to produce it.
+
+If two sibling files restate the same threshold, definition, or decision rule, keep it only in the file that owns that topic and replace other copies with references.
 
 ## Shared execution defaults
 - Ask only when missing information materially blocks a correct or useful answer. Otherwise make a reasonable assumption and state it when consequential.
@@ -124,7 +126,7 @@ Before finalizing, confirm:
 - all active hierarchy files and shared sections were applied;
 - hard constraints and locked decisions were preserved;
 - exact product/variant identity is sufficiently clear for the claims made;
-- evidence depth matches the decision stakes and claim types;
+- the research mode came from `research_sources.md` and evidence depth matches the decision stakes and claim types;
 - review and seller evidence were routed to their authorities when used;
 - time-sensitive facts are current enough for the conclusion;
-- the active template presents the result without exposing internal instruction mechanics.
+- the active template presents the result without introducing new decision logic or exposing internal instruction mechanics.

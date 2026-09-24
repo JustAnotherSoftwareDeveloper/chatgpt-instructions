@@ -6,9 +6,7 @@ Own research about brands, manufacturers, retailers, dealers/distributors, shopp
 Use the resolved product context and shared evidence/specialized authorities.
 
 ## 1) Research mode
-Default to **Standard** from `research_sources.md`.
-
-Use Deep for high-stakes service/support decisions, luxury/provenance-heavy markets, major reputation conflicts, or explicit deep research.
+Apply the research mode selected by `research_sources.md`. Do not redefine Quick / Standard / Deep / Sparse triggers here.
 
 ## 2) Resolve vendor subtype
 Classify the target as one or more of:
@@ -41,9 +39,9 @@ Do not let generic brand reputation substitute for subtype-specific evidence.
 ## 5) Discovery geometry
 For a broad mature vendor ecosystem, default discovery target:
 - **6-10 plausible vendor/brand entities**;
-- at least **3 meaningful ecosystem/market segments** when they exist (for example value/mainstream, specialist/technical, premium/artisan, direct-only, dealer-oriented, marketplace-heavy).
+- at least **3 meaningful ecosystem/market segments** when they exist.
 
-Use fewer when the ecosystem is genuinely narrow or the user restricts the set. Search wider for Deep research or when new segments keep appearing.
+Use fewer when the ecosystem is genuinely narrow or the user restricts the set. Search wider when new segments keep appearing or the selected research mode calls for greater depth.
 
 Discovery-only sources may enumerate entities but cannot establish quality/reputation by themselves.
 
@@ -91,17 +89,17 @@ Use fewer when hard constraints or market sparsity justify it. Use more only whe
 
 ## 10) Brand / manufacturer normalization record
 For each manufacturer/brand finalist, establish where material:
-- **actual entity relationship:** manufacturer, OEM/ODM customer, private-label/rebrand, artisan maker, licensing brand, or mixed;
-- **category specialization:** how central this product domain is to the company/maker;
-- **product-line architecture:** major families, target segments, overlap, and whether quality is consistent across the line;
-- **design/manufacturing control:** what appears to be designed/manufactured in-house vs sourced/contracted, only when evidence exists;
-- **revision cadence:** stable long-lived models vs frequent/silent revisions;
-- **QC / consistency:** recurring variance, line-specific issues, handmade variation, or evidence of stable execution;
-- **support model:** warranty administration, service/repair path, parts/consumables, software/firmware support where relevant;
-- **distribution model:** direct, authorized dealer, marketplace-heavy, regional importer, gray-market exposure;
-- **domestic/regional practicality:** support and availability for the user's region;
-- **continuity:** evidence of durable category commitment vs opportunistic/relabel behavior;
-- **best-fit buyer** and reason to choose another brand.
+- actual entity relationship: manufacturer, OEM/ODM customer, private-label/rebrand, artisan maker, licensing brand, or mixed;
+- category specialization and how central the domain is to the company/maker;
+- product-line architecture and target segments;
+- design/manufacturing control where evidence exists;
+- revision cadence;
+- QC / consistency;
+- support/service/parts model;
+- distribution model;
+- domestic/regional practicality;
+- continuity in the category;
+- best-fit buyer and reason to choose another brand.
 
 Do not infer all SKUs from the flagship product or overall brand reputation.
 
@@ -113,14 +111,14 @@ For each retailer finalist, establish where material:
 - inventory sourcing/condition clarity;
 - curation quality rather than raw catalog size;
 - pre-sale expertise/advice quality when it is a value proposition;
-- value-added services such as setup, sharpening, fitting, inspection, calibration, installation, or support where relevant;
+- value-added services where relevant;
 - returns/restocking/return-shipping posture;
 - warranty facilitation/RMA behavior;
 - fulfillment/order accuracy signal;
 - regional practicality;
 - exact seller/channel state under `seller_instructions.md` when recommending where to buy.
 
-A specialist retailer can be superior to a large general retailer when the specialist's category expertise, provenance, service, or curation materially benefits the buyer. Do not assume scale equals trust or expertise.
+A specialist retailer can be superior to a large general retailer when category expertise, provenance, service, or curation materially benefits the buyer. Do not assume scale equals trust or expertise.
 
 ## 12) Dealer / distributor / service-network record
 Where relevant establish:
@@ -133,35 +131,25 @@ Where relevant establish:
 - business continuity/reputation;
 - user friction for service/returns.
 
-## 13) Evidence packet by subtype
+## 13) Evidence requirements by subtype
+Apply `research_sources.md` for all general evidence sufficiency, independence, research-mode, and stopping rules.
+
+Add only these vendor-specific requirements where material:
+
 ### Brand/manufacturer
-Where material, obtain:
-- primary lineup/support/warranty documentation;
-- at least **1 independent domain specialist/practitioner** source;
-- owner/community evidence when QC, support, reliability, or reputation changes the conclusion;
-- current market/availability evidence when regional practicality matters.
+Establish primary lineup/support/warranty facts and enough independent domain/owner evidence to support claims about category competence, QC, service, or reputation.
 
 ### Retailer/store/site
-Where material, establish:
-- business identity/category expertise;
-- exact-product/variant accuracy;
-- seller/channel state under `seller_instructions.md`;
-- returns/warranty/service posture;
-- independent reputation/service signal when recommendation depends on it.
+Establish business identity/category expertise, exact-product accuracy, returns/warranty/service posture, and seller/channel state under `seller_instructions.md`.
 
 ### Dealer/distributor/service network
-Where material, establish:
-- authorized/product access status;
-- service competence/coverage;
-- warranty handling;
-- parts/service availability;
-- regional practicality and business continuity/reputation.
+Establish authorization/product access, service/coverage, warranty handling, parts/service availability, regional practicality, and continuity/reputation.
 
 ### Mixed ecosystem
 Evaluate manufacturer/brand quality and buying-channel quality separately, then explain the interaction.
 
 ## 14) Coverage and comparability
-For each vendor finalist maintain internal coverage on the primary vendor differentiators, using Strong/Adequate/Weak/Unknown from `research_sources.md`.
+For each vendor finalist maintain internal coverage on the primary vendor differentiators using `research_sources.md`.
 
 Do not call one vendor better simply because more information exists about it.
 
@@ -172,19 +160,12 @@ For recommendation-changing differences, explain the operational chain where sup
 
 `business/design/distribution model -> observable behavior/service/lineup consequence -> user benefit/tradeoff`
 
-Examples:
-- specialist curation may improve provenance/fit advice but reduce selection or raise price;
-- broad marketplace distribution may improve availability while increasing seller/provenance variability;
-- in-house service infrastructure may reduce ownership friction for service-dependent products.
-
 Distinguish documented business structure from inferred consequences.
 
 ## 16) Evidence completion
-Apply the selected `research_sources.md` mode.
+Apply the evidence coverage, comparability, challenge-pass, and stop-condition contracts in `research_sources.md`.
 
 Use `reviews.md` for review/community reputation claims and `seller_instructions.md` for concrete channel/offer judgments.
-
-Stop when the general evidence stop condition is met, primary-differentiator coverage is adequate/bounded, and additional vendor sources are no longer likely to change eligibility, finalist set, recommendation, or a material caveat.
 
 ## 17) Synthesis defaults
 Lead with the ecosystem map and the most useful shortlist.
@@ -202,4 +183,4 @@ State material coverage limitations when reputation is sparse or highly anecdota
 Use `vendor_research_template.md`.
 
 ## Boundary
-Offer-level seller risk belongs to `seller_instructions.md`; general evidence to `research_sources.md`; product-level workflow to `product_research.md`; classification to `product_hierarchy.md`; presentation to `vendor_research_template.md`.
+Research modes/general evidence belong to `research_sources.md`; offer-level seller risk to `seller_instructions.md`; product-level workflow to `product_research.md`; classification to `product_hierarchy.md`; presentation to `vendor_research_template.md`. This workflow owns vendor subtype resolution, ecosystem mapping, vendor-specific normalization, narrowing, and synthesis.
