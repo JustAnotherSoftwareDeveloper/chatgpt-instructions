@@ -31,6 +31,16 @@ It does not own product-domain criteria, source-discovery rules, evidence policy
 
 No workflow-specific authority or template files are live yet in this scaffold. Section 6 therefore classifies workflow intent only; it must never fall back to `archive/`.
 
+### Registering future specialized authorities
+
+A product node may reference a specialized authority only after that file is registered here as a canonical live authority with:
+- one explicit responsibility;
+- dependencies, if any;
+- a no-duplication boundary;
+- an explicit position in Section 5 precedence.
+
+`authorities.add` is a loading hook, not a bypass around the canonical authority map.
+
 ---
 
 ## 2) Core inheritance model
@@ -62,10 +72,11 @@ For each product target:
 3. Validate that every referenced parent exists, the chain reaches Base, allowed kind relationships are respected, and no cycle exists.
 4. Reverse the chain to obtain inheritance order.
 5. Apply Base first, then each specialization from least specific to most specific.
-6. Load the reusable instruction sets and specialized authorities referenced by the effective chain.
-7. Apply current-thread user constraints and locked decisions subject to safety/legal limits.
+6. Load the reusable instruction sets and registered specialized authorities referenced by the effective chain.
+7. Validate every hook reference before execution; unresolved criterion, playbook, pricing, or authority IDs are architecture errors and must not be silently ignored.
+8. Apply current-thread user constraints and locked decisions subject to safety/legal limits.
 
-If classification ambiguity materially changes the research approach, ask once. Otherwise stop at the deepest unambiguous resolvable node instead of guessing a child.
+If classification ambiguity materially changes the research approach, ask once. Otherwise use the fallback rules in `product_types.md` rather than guessing a child.
 
 If the user materially changes a product target, resolve a new context for that target.
 
@@ -80,7 +91,7 @@ At each node:
 - `remove` deletes inherited non-safety entries at that node;
 - `add` then appends/deduplicates stable IDs;
 - `pricing.strategy` is a single inherited property: the closest node that defines it wins;
-- `authorities` are additive; a child may load additional specialized authorities but must not silently disable an inherited authority.
+- `authorities` are additive; a child may load additional registered specialized authorities but must not silently disable an inherited authority.
 
 If an inherited specialized authority is genuinely invalid for a child, fix the taxonomy boundary rather than using routine child suppression.
 
@@ -94,21 +105,23 @@ Reusable authority files own the meaning and internal behavior of the IDs they d
 
 Do not confuse inheritance construction with conflict precedence.
 
-Apply runtime priority as follows:
-1. Safety-critical and legal/compliance constraints.
+Resolve conflicts in this order:
+1. Safety-critical and legal/compliance constraints from any active authority.
 2. User-explicit constraints and locked decisions in the current thread, except where they conflict with item 1.
-3. The canonical authority for the topic in dispute.
-4. The effective product context produced by Base -> leaf inheritance, where more-specific node selections override less-specific selections according to Section 4.
-5. Workflow/output presentation requirements, which govern deliverable structure but may not weaken evidence, safety, seller-risk, or other domain authorities.
+3. `research_sources.md` for whether a source may support a claim, evidentiary weight, recency, breadth, and conflict handling.
+4. `reviews.md` for interpretation of review content after `research_sources.md` determines that the review evidence is usable.
+5. `seller_instructions.md` for seller/channel legitimacy, fulfillment, return/warranty, and offer-level purchase risk.
+6. Registered specialized authorities, within their declared product-domain responsibility only.
+7. `pricing.md` for pricing/value strategy and interpretation of price differences.
+8. `criteria.md` for the meaning of reusable evaluation criteria selected by the effective product context.
+9. `source_playbooks.md` for discovery guidance only; it cannot override evidence admissibility.
+10. `product_types.md` for classification, inheritance graph, and hook selection only.
+11. `base.md` for universal defaults and Base-level activation only.
+12. Workflow/template presentation requirements, once live, for deliverable structure only; they may not weaken upstream domain authorities.
 
-Authority ownership:
-- `research_sources.md` owns evidence admissibility, weighting, recency, breadth, and claim mapping;
-- `reviews.md` owns review interpretation;
-- `seller_instructions.md` owns seller/channel risk;
-- `criteria.md` owns reusable evaluation-criteria definitions;
-- `pricing.md` owns reusable pricing/value strategies;
-- `source_playbooks.md` owns discovery guidance only;
-- `product_types.md` owns classification and hook selection, not the rules inside the referenced authorities.
+A lower-priority authority must not restate or override a higher-priority authority's owned topic. If two authorities appear to own the same rule, fix the ownership boundary instead of relying on precedence as routine merge logic.
+
+When a new live authority or template is added, update both Section 1 and this precedence model in the same change.
 
 ---
 
@@ -124,7 +137,9 @@ Use first-match logic. More-specific intents come before the general default.
 
 An explicit user request for a workflow intent wins over inference unless safety or the request itself makes that workflow impossible.
 
-During the current architecture-only scaffold phase, these are intent IDs, not references to archived workflow files. Execute using Base + resolved product context + live authorities and the user's requested presentation. When new workflow authorities/templates are added, add them to Section 1 and route these IDs to them explicitly.
+During the current architecture-only scaffold phase, these are intent IDs, not references to archived workflow files. Execute using Base + resolved product context + live authorities and the user's requested presentation. Do not claim a dedicated workflow/template contract exists until its live files are added.
+
+When workflow authorities/templates are introduced, each intent must route to explicit live files, and those files must be added to Section 1 and Section 5 in the same change.
 
 ---
 
@@ -163,6 +178,8 @@ Before finalizing structural edits, verify:
 - every non-base node reaches Base through exactly one parent chain;
 - parent-kind relationships are valid under `product_types.md`;
 - every referenced criterion, playbook, pricing strategy, and specialized authority exists in the live project;
+- every specialized authority is registered in Sections 1 and 5 before any product node references it;
+- structural fallback nodes used during ambiguity resolution exist even when they are not directly matchable;
 - no live file depends on an archived file;
 - authority ownership is not duplicated across live files;
 - routing remains deterministic and first-match;
