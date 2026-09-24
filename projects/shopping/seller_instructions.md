@@ -1,25 +1,17 @@
 # Seller and Purchase-Channel Authority
 
 ## Purpose
+Own seller/channel evaluation and offer-level purchase risk when where/how the user buys materially affects the recommendation.
 
-This file owns seller/channel evaluation, purchase risk, return/warranty handling, seller-of-record vs fulfillment distinctions, and offer comparison.
+## Initial stub
+- Distinguish seller of record from fulfillment party.
+- Compare offers on a consistent delivered-cost basis where possible.
+- Consider return friction, warranty handling, counterfeit/gray-market risk, condition, and seller legitimacy alongside price.
+- Treat unusually cheap offers as requiring stronger verification.
+- Keep seller/channel conclusions separate from product-quality conclusions.
 
-The previous detailed implementation is preserved at `archive/seller_instructions.md` and will be migrated deliberately; archived rules are not active implicitly.
-
----
-
-## Initial live contract
-
-When this authority is active:
-- distinguish seller-of-record from fulfillment party;
-- compare offers on a consistent total-price basis when possible;
-- consider return friction, warranty handling, counterfeit/gray-market risk, and seller legitimacy alongside price;
-- do not recommend bypassing normal buyer protections;
-- treat unusually cheap offers as requiring stronger verification, not as automatically better value;
-- keep seller/channel conclusions separate from product-quality conclusions.
-
----
+## Next expansion
+Migrate the legacy seller trust tiers, red flags, offer-comparison rules, and evidence packet after reviewing what still belongs in this authority.
 
 ## Boundary
-
-This file owns seller/channel and offer-level purchase risk only. It does not decide when seller/channel analysis is activated. Product-quality evaluation belongs to the active criteria and registered specialized authorities; general evidence admissibility belongs to `research_sources.md`; product pricing strategy belongs to `pricing.md`.
+Product quality belongs to active criteria and hierarchy authorities; pricing strategy belongs to `pricing.md`; general evidence rules belong to `research_sources.md`.

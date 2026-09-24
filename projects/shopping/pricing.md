@@ -1,37 +1,19 @@
-# Pricing Authority
+# Pricing Guidance
 
 ## Purpose
+Define reusable pricing/value guidance used by hierarchy levels and pricing workflows.
 
-This file owns reusable pricing and value-analysis strategies selected by Base and product nodes.
+## General
+Compare like-for-like products and conditions, distinguish sticker price from meaningful ownership cost, verify current prices when material, and explain what additional spend actually buys.
 
----
+## Home & Kitchen
+Treat long usable life, maintenance, replaceable parts/consumables, and practical household durability as part of value where relevant.
 
-## Strategies
+## Kitchen Knives
+Separate functional cutting performance from brand, cosmetic, artisan, collector, and luxury premiums. Consider steel, heat treatment, grind, fit/finish, handle materials, origin/labor, and sharpening/maintenance ecosystem when they materially affect value.
 
-### general-value
-- Compare like-for-like configurations and conditions.
-- Distinguish purchase price from meaningful total cost of ownership when relevant.
-- Treat current price and availability as time-sensitive facts that require current verification.
-- Do not recommend a materially worse or riskier product merely to satisfy an arbitrary lower price tier.
-- Explain what additional spend actually unlocks and where diminishing returns begin when evidence supports it.
-
----
-
-## Inheritance behavior
-
-`pricing.strategy` is a single inherited property.
-
-- If a Class defines a strategy, it replaces the inherited strategy for that branch.
-- A Category may replace the inherited strategy.
-- A Type may replace the inherited strategy.
-- The closest node to the resolved leaf that defines `pricing.strategy` wins.
-
-Do not combine multiple pricing strategies implicitly. If a domain needs composite pricing behavior, define that composite as one named strategy here or load a registered specialized authority.
-
-Category/type-specific pricing logic belongs here when reusable; narrow specialized economics may live in a dedicated registered authority referenced by the product node.
-
----
+## Chef's Knife
+Focus on value as a primary general-purpose tool: geometry, execution, comfort, maintenance fit, and versatility matter more than prestige or nominal specifications alone.
 
 ## Boundary
-
-This file owns product pricing/value strategy definitions and their inheritance semantics. It does not decide which strategy Base or a product node selects. Seller legitimacy, return risk, fulfillment, and offer-channel trust belong to `seller_instructions.md`; product classification belongs to `product_types.md`.
+This file owns product pricing/value logic. Seller trust and offer-level purchase risk belong to `seller_instructions.md`.

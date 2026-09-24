@@ -1,39 +1,19 @@
 # Source Playbooks
 
 ## Purpose
+Define where to look for category-appropriate information. Evidence admissibility and weighting remain owned by `research_sources.md`.
 
-This file owns reusable source-discovery playbooks selected by Base and product nodes.
+## General Shopping
+Use a broad mix of primary documentation, competent method-based reviewers/specialists, owner/community evidence, and current seller/listing sources when appropriate to the claim.
 
-A playbook answers where to search for category-appropriate information. It does not determine whether a discovered source is admissible evidence; `research_sources.md` owns admissibility, weighting, and claim-to-evidence use.
+## Home & Kitchen
+Add credible household-use testing, long-term ownership experience, maintenance/cleanability evidence, and specialist sources appropriate to the product.
 
----
+## Kitchen Knives
+Prioritize manufacturer specifications where useful, knife-focused reviewers, sharpening specialists, metallurgy/steel references, experienced cooks, serious enthusiast communities, and long-term ownership reports. Treat affiliate listicles and repeated enthusiast folklore cautiously.
 
-## Playbooks
-
-### general-shopping
-During discovery, search broadly across source families that may be relevant to the target, including:
-- manufacturer/vendor documentation;
-- standards, regulatory, certification, or recall sources when the category may involve them;
-- specialist publications and method-based testing outlets;
-- competent practitioners or domain experts;
-- owner communities and long-term-use discussions;
-- seller/listing sources when current price or availability is in scope.
-
-Use this playbook to widen discovery only. Do not infer evidentiary weight from a source family's presence on this list.
-
----
-
-## Inheritance behavior
-
-- Parent-selected playbooks are inherited.
-- Product nodes may add more-specific playbooks.
-- More-specific playbooks specialize or widen discovery; they do not lower evidence standards.
-- A child may remove an inherited playbook only when it is genuinely irrelevant to that branch.
-
-Category playbooks from the previous implementation remain in `archive/source_playbooks.md` for deliberate migration.
-
----
+## Chef's Knife
+Favor sources that discuss actual cutting geometry, profile, grind, balance, edge behavior, sharpening, and use-case fit rather than nominal steel/spec claims alone.
 
 ## Boundary
-
-This file owns source discovery strategy only. It does not decide which playbooks Base or a node activates. Evidence admissibility, claim matching, weighting, recency, and conflict resolution belong to `research_sources.md`; review interpretation belongs to `reviews.md`; seller legitimacy belongs to `seller_instructions.md`.
+This file guides discovery only. `research_sources.md` decides how discovered sources may support claims.

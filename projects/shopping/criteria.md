@@ -1,40 +1,19 @@
-# Evaluation Criteria Authority
+# Evaluation Criteria
 
 ## Purpose
+Define reusable criteria that product hierarchy levels and workflows may apply without restating their meaning.
 
-This file owns reusable evaluation-criteria definitions selected by Base and product nodes.
+## General
+Start from value, reliability, compatibility, usability, durability, maintenance burden, and meaningful ownership cost. Expand these definitions during the next migration step.
 
-Product nodes reference criterion IDs rather than restating the criterion's meaning or evaluation rules.
+## Home & Kitchen
+Add household-use durability, ergonomics, cleanability, storage/footprint, maintenance, and material/food-contact considerations where relevant.
 
----
+## Kitchen Knives
+Add blade geometry, grind, steel/heat treatment, edge retention, toughness/chipping risk, corrosion resistance, sharpening/maintenance, handle ergonomics, balance, construction, and fit/finish.
 
-## Criteria
-
-### value
-Evaluate whether the product's benefits justify its purchase price and meaningful ownership costs for the user's stated use case.
-
-### reliability
-Evaluate consistency, failure patterns, durability, and support implications using evidence appropriate to the product.
-
-### compatibility
-Evaluate hard compatibility constraints before soft preference criteria.
-
-### usability
-Evaluate friction in setup, normal operation, maintenance, and recovery from common failures.
-
----
-
-## Inheritance behavior
-
-- Parent-selected criteria are inherited.
-- Child nodes may add criteria by stable ID.
-- Child nodes may remove an inherited non-safety criterion only when genuinely inapplicable.
-- Safety/compliance requirements introduced by any active authority may not be removed by ordinary product inheritance.
-
-Additional criteria should be added here when they are reusable across multiple product nodes. Narrow one-off domain logic belongs in a registered specialized authority instead.
-
----
+## Chef's Knife
+Emphasize general-purpose versatility, blade profile, useful length, heel clearance, tip utility, cutting-motion fit, food release, weight, and balance.
 
 ## Boundary
-
-This file defines evaluation dimensions only. It does not classify products, decide which criteria Base or a node activates, determine source admissibility, define source-discovery playbooks, set pricing strategy, interpret reviews, or evaluate sellers.
+This file defines evaluation dimensions only. Product classification belongs to `product_hierarchy.md`; sourcing, pricing, review interpretation, and seller risk belong to their own authorities.

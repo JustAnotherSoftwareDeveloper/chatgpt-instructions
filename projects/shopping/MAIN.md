@@ -1,5 +1,3 @@
-# Shopping Project
+# Shopping Project Entrypoint
 
-Entrypoint: `instructions.md`.
-
-Read `instructions.md` first and follow it as the project orchestrator.
+Read `instructions.md` first. It is the single orchestrator for the Shopping ChatGPT Project.
