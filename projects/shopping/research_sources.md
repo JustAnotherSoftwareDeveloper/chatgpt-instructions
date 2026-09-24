@@ -1,7 +1,7 @@
 # Research Source Authority
 
 ## Purpose
-Own evidence admissibility, claim/source fit, independence, recency, coverage, conflict handling, research depth, stopping rules, and claim-to-evidence discipline.
+Own evidence admissibility, claim/source fit, independence, recency, coverage, comparability, conflict handling, research depth, stopping rules, and claim-to-evidence discipline.
 
 This file governs evidence quality. It does not define category-specific discovery, review-content interpretation, seller/channel risk, workflow sequencing, or presentation.
 
@@ -119,8 +119,6 @@ Prefer transparent method-based testing.
 
 For recommendation-changing performance claims in Standard/Deep research, normally require independent corroboration rather than relying on one non-primary test.
 
-Do not combine unlike measurements or incompatible test protocols as if directly comparable.
-
 ### Reliability / durability / QC
 Prefer a combination of:
 - long-term testing or ownership;
@@ -139,7 +137,66 @@ Use diverse context-rich hands-on perspectives. Scope conclusions to user profil
 ### Current price / availability / policy
 Use recent directly observed seller or primary sources. Check the exact variant/condition and date-sensitive terms.
 
-## 6) Independence and narrative concentration
+## 6) Evidence comparability
+Before using evidence to rank products against one another, classify the comparison.
+
+### Directly comparable
+Use when the compared observations come from substantially equivalent:
+- method/protocol;
+- test conditions;
+- units/definitions;
+- product role/configuration;
+- relevant revision/variant.
+
+Within-source side-by-side testing is preferred when it exists and the method is competent.
+
+### Directionally comparable
+Use when methods/conditions differ but answer essentially the same practical question well enough to support a broad directional conclusion.
+
+Directionally comparable evidence can support conclusions such as "generally more robust" or "likely lower cutting resistance" but should not support fine numeric ranking or tiny claimed differences.
+
+### Not directly comparable
+Use when methodology, conditions, variant, role, units, or normalization differ enough that a product-to-product ranking would be misleading.
+
+Retain the evidence for product-specific context, but do not average, rank, or compare small differences across incompatible results.
+
+### Comparability rule
+If a primary differentiator depends on cross-product evidence that is only directional or non-comparable:
+- seek a common-method comparison when practical;
+- otherwise narrow the claim and reduce confidence;
+- never manufacture precision by converting unlike evidence into a common pseudo-score.
+
+## 7) Candidate x criterion coverage
+For multi-product Standard/Deep research, maintain an internal coverage matrix for **finalists** across the active primary differentiators and material hard gates.
+
+For each candidate/criterion cell classify coverage as:
+- **Strong**: claim-appropriate evidence with good identity/comparability and independent corroboration where normally required;
+- **Adequate**: enough evidence for a bounded decision, with limited gaps;
+- **Weak**: relevant evidence exists but important identity/method/independence gaps remain;
+- **Unknown**: the criterion cannot currently be evaluated responsibly.
+
+Rules:
+- a candidate must not beat another candidate on a primary differentiator solely because the competitor has less evidence;
+- investigate asymmetric coverage before treating missing evidence as poor performance;
+- if a finalist remains Unknown on a criterion capable of flipping the recommendation, research further or expose that uncertainty explicitly;
+- do not require equal source counts per candidate when one source directly compares multiple finalists competently.
+
+This matrix is internal by default; `audit.md` may expose coverage defects.
+
+## 8) Research extraction discipline
+When a source materially informs the decision, capture internally as applicable:
+- exact product/variant/revision;
+- claim or observation contributed;
+- method/use conditions;
+- relevant comparator(s);
+- time horizon;
+- source incentives/relationship where material;
+- whether evidence is direct, directional, or non-comparable to competing evidence;
+- material limitations.
+
+Do not reduce a complex source to "positive" or "negative."
+
+## 9) Independence and narrative concentration
 Do not confuse many links with many perspectives.
 
 Treat as dependent or partially dependent when appropriate:
@@ -152,7 +209,7 @@ Treat as dependent or partially dependent when appropriate:
 
 In Standard/Deep research, recommendation-changing non-primary claims should not rest on one narrative ecosystem when independent alternatives exist.
 
-## 7) Challenge pass and stop condition
+## 10) Challenge pass and stop condition
 ### Challenge pass
 After the normal coverage packet is substantially satisfied, run one deliberate challenge pass aimed at finding one or more of:
 - credible contradictory evidence;
@@ -167,12 +224,13 @@ Deep research may require more than one challenge pass when disagreement persist
 1. The selected mode's normal coverage packet is met **or** a justified exception/coverage limitation is identified.
 2. Every material recommendation-changing claim has an appropriate evidence type.
 3. Exact product/variant identity is locked enough for the claims made, or the remaining uncertainty is bounded.
-4. Material conflicts are resolved or explicitly narrowed/bounded.
-5. The challenge pass yields no new fact, candidate, failure mode, source family, or tradeoff likely to change eligibility, finalists, recommendation, tier placement, seller judgment, or a material caveat.
+4. Finalist x primary-criterion coverage is Adequate or Strong, or a Weak/Unknown cell is explicitly bounded and cannot reasonably be resolved.
+5. Material conflicts are resolved or explicitly narrowed/bounded.
+6. The challenge pass yields no new fact, candidate, failure mode, source family, or tradeoff likely to change eligibility, finalists, recommendation, tier placement, seller judgment, or a material caveat.
 
 Additional sources that merely repeat already-supported claims are not a reason to continue.
 
-## 8) Recency and versioning
+## 11) Recency and versioning
 Classify material claims by temporal sensitivity.
 
 High sensitivity includes price/availability, firmware/app behavior, software compatibility, EOL/support, policies, active revisions, silent component changes, recalls, and current certification.
@@ -181,40 +239,42 @@ Low sensitivity includes stable physical geometry, mature material behavior, his
 
 When sources disagree, check model year, generation, SKU, region, firmware, component revision, test conditions, and source date before treating disagreement as substantive.
 
-## 9) Conflict resolution
+## 12) Conflict resolution
 When credible sources disagree:
 1. isolate the exact disputed claim;
 2. verify variant/version equivalence;
-3. compare source type and methodology appropriate to that claim;
-4. test for different conditions, time horizons, incentives, sample bias, or revision drift;
-5. seek another independent source when the disagreement is material;
-6. if unresolved, narrow the claim and lower confidence instead of forcing consensus.
+3. classify evidence comparability;
+4. compare source type and methodology appropriate to that claim;
+5. test for different conditions, time horizons, incentives, sample bias, or revision drift;
+6. seek another independent or common-method source when the disagreement is material;
+7. if unresolved, narrow the claim and lower confidence instead of forcing consensus.
 
 Do not average incompatible claims into a false middle.
 
-## 10) Claim-to-evidence discipline
+## 13) Claim-to-evidence discipline
 For each recommendation-changing claim, know internally:
 - the claim;
 - supporting/challenging source entities;
 - evidence type;
 - variant/version applicability;
+- comparability class when used cross-product;
 - confidence and remaining gap.
 
 Normal outputs need not expose a formal ledger. Expose deeper mapping when the user requests the basis or invokes `audit.md`.
 
-## 11) Confidence
+## 14) Confidence
 ### High
-Correct identity/version, strong claim/source fit, appropriate independent corroboration, and no material unresolved gap.
+Correct identity/version, strong claim/source fit, appropriate independent corroboration, comparable evidence where ranking is involved, and no material unresolved gap.
 
 ### Medium
-Useful evidence with meaningful gaps, mixed signals, limited long-term coverage, or market/version uncertainty.
+Useful evidence with meaningful gaps, mixed signals, limited long-term coverage, or market/version/comparability uncertainty.
 
 ### Low
-Sparse/weak evidence, unresolved contradictions, uncertain identity, or missing material claim types.
+Sparse/weak evidence, unresolved contradictions, uncertain identity, non-comparable evidence being used only directionally, or missing material claim types.
 
 Confidence may vary by claim.
 
-## 12) Integrity rules
+## 15) Integrity rules
 - Do not fabricate sources, measurements, owner patterns, quotes, or current prices.
 - Do not cite a source for a claim it does not support.
 - Do not convert anecdotes into prevalence estimates.

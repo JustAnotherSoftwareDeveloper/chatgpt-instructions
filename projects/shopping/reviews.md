@@ -98,7 +98,62 @@ Preferred wording:
 - widespread discussion but unclear prevalence;
 - official acknowledgement.
 
-## 6) Channel contamination
+## 6) Pattern diagnostic record
+When a recurring/strong issue materially affects a recommendation, normalize the pattern internally instead of merely counting mentions.
+
+Capture where available:
+- exact symptom/failure behavior;
+- affected model/variant/revision;
+- severity and user consequence;
+- ownership age / use duration / use intensity;
+- operating/environmental conditions;
+- whether reports appear genuinely independent or trace to one original story;
+- evidence artifacts/reproduction;
+- seller/channel contamination possibility;
+- whether the issue changes across revisions/firmware/batches;
+- manufacturer/service acknowledgement or corrective action;
+- current status: active, uncertain, mitigated, fixed, revision-specific, or obsolete.
+
+A recurring pattern whose conditions do not resemble the user's use case may be less decision-relevant than a rarer but directly applicable issue.
+
+## 7) Narrative-origin check
+Before calling multiple posts independent, determine whether they are:
+- separate first-hand experiences;
+- reposts/quotes of one original incident;
+- reactions to one viral story;
+- summaries of the same reviewer/test;
+- separate reports with independently described symptoms/timelines.
+
+Do not count social amplification as independent corroboration.
+
+## 8) Hidden-constraint check
+For domain-specialist reviews, assess whether the source recognizes category-critical constraints.
+
+A reviewer who repeatedly ignores known constraints may still contribute narrow observations but should be downweighted for broad conclusions.
+
+Examples include:
+- compatibility/fitment boundaries;
+- maintenance requirements;
+- revision differences;
+- relevant operating conditions;
+- category-specific failure modes;
+- user technique or environment that materially changes behavior.
+
+Specialized hierarchy authorities define which hidden constraints matter in each domain.
+
+## 9) Method-horizon match
+For each review-derived conclusion ask:
+- Was the product used long enough for this claim?
+- Were the conditions representative of the behavior being claimed?
+- Was there a relevant comparator?
+- Is the observation directly comparable to evidence for competing products?
+
+Examples:
+- a one-week review can establish ergonomics but not multi-year durability;
+- a factory-edge test can describe out-of-box sharpness but not long-term sharpening behavior;
+- one firmware version may not establish current software behavior.
+
+## 10) Channel contamination
 Separate product behavior from seller/channel failures such as:
 - wrong item/variant;
 - opened/used sold as new;
@@ -109,7 +164,7 @@ Separate product behavior from seller/channel failures such as:
 
 Do not count these as product-quality failures until the distinction is reasonably clear. Route channel conclusions to `seller_instructions.md`.
 
-## 7) Preference vs defect
+## 11) Preference vs defect
 Distinguish:
 - objective defect/inconsistency;
 - measurable tradeoff;
@@ -120,14 +175,16 @@ Distinguish:
 
 Preserve the observation and map it to the user's preferences rather than converting it into universal quality.
 
-## 8) Review synthesis
+## 12) Review synthesis
 When review evidence materially affects the recommendation:
 - summarize the recurring pattern rather than individual drama;
+- state conditions/time horizon/revision when they matter;
 - state disagreement or selection bias when material;
 - distinguish established from plausible;
-- connect the pattern to a concrete user consequence.
+- connect the pattern to a concrete user consequence;
+- distinguish symptom evidence from hypothesized cause unless the mechanism is established.
 
 Normal output should not include a manipulation report unless it changes the decision. `audit.md` may expose deeper handling.
 
 ## Boundary
-`research_sources.md` owns general admissibility, coverage, independence, and confidence; `seller_instructions.md` owns seller/channel risk; hierarchy authorities own domain interpretation.
+`research_sources.md` owns general admissibility, coverage, independence, comparability, and confidence; `seller_instructions.md` owns seller/channel risk; hierarchy authorities own domain interpretation.

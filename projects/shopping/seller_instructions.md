@@ -68,7 +68,38 @@ Use when:
 ### Preferred
 An Acceptable offer that has the strongest overall combination of normalized price, returns, warranty/provenance, fulfillment, availability, and the user's risk/convenience preferences among the offers considered.
 
-## 4) Seller identity and fulfillment
+## 4) Seller/provenance verification hierarchy
+Use the strongest available evidence appropriate to the question.
+
+### Level A - direct authoritative verification
+Prefer where available:
+- manufacturer/maker authorized-dealer locator or distributor list;
+- seller's own legal/business/policy pages and protected checkout;
+- manufacturer warranty/channel documentation;
+- official marketplace seller-of-record/fulfillment fields;
+- regulatory/business registry only when legitimacy is genuinely in doubt and relevant.
+
+### Level B - independent category/business corroboration
+Use:
+- established specialist/community references to the retailer;
+- independent service/reputation reports with specific transaction details;
+- long-lived domain presence and consistent contact/business identity.
+
+### Level C - circumstantial signals
+Examples:
+- domain age/appearance;
+- social presence;
+- generic ratings;
+- site polish;
+- low price;
+- marketplace badges not tied to actual seller identity.
+
+Circumstantial signals can trigger more checking but should not override contradictory authoritative evidence.
+
+### Verification rule
+For provenance/warranty-sensitive purchases, do not rely on seller self-description such as "authorized" when a maker/manufacturer verification path exists.
+
+## 5) Seller identity and fulfillment
 Identify when material:
 - seller of record;
 - fulfillment party;
@@ -76,10 +107,11 @@ Identify when material:
 
 Marketplace platform reputation must not substitute for third-party seller identity.
 
-## 5) Offer evaluation dimensions
+## 6) Offer evaluation dimensions
 ### Identity and legitimacy
 - discoverable business identity/contact path;
 - coherent domain/store presence;
+- protected ordinary checkout;
 - no obvious impersonation, typosquat, or copied-policy signals.
 
 ### Product identity and provenance
@@ -111,9 +143,9 @@ Marketplace platform reputation must not substitute for third-party seller ident
 - packaging/shipping risk appropriate to the item.
 
 ### Price realism
-Compare against reputable current offers for the same variant/condition.
+Compare against reputable current offers for the same variant/condition using the price-state model in `pricing.md`.
 
-## 6) Price anomaly trigger
+## 7) Price anomaly trigger
 If an offer is **20% or more below the normal reputable-offer range** for the same variant/condition:
 - do not automatically reject or call it a bargain;
 - perform additional seller/provenance/condition/warranty verification;
@@ -122,27 +154,29 @@ If an offer is **20% or more below the normal reputable-offer range** for the sa
 
 This threshold is a diligence trigger, not proof of fraud.
 
-## 7) Authorized, gray-market, specialist, and marketplace channels
+## 8) Authorized, gray-market, specialist, and marketplace channels
 ### Authorized
-May improve manufacturer warranty/provenance confidence. Do not assume it is always the best value.
+May improve manufacturer warranty/provenance confidence. Verify through authoritative maker/manufacturer evidence when channel status materially matters. Do not assume authorized is always the best value.
 
 ### Gray market / parallel import
 May be legitimate but can change warranty, region, accessories, service, returns, or resale. State the actual consequence rather than rejecting the label itself.
 
 ### Specialist retailer
-May outperform general retail in niche categories through curation, expertise, setup, sharpening, fitting, service, or provenance. Evaluate actual policies and reputation.
+May outperform general retail in niche categories through curation, expertise, setup, sharpening, fitting, service, inspection, or provenance. Evaluate actual policies and reputation.
 
 ### Marketplace
 Evaluate seller of record and fulfillment separately. Platform protection can reduce transaction risk without eliminating counterfeit, wrong-item, or warranty concerns.
 
-## 8) Counterfeit/provenance escalation
+## 9) Counterfeit/provenance escalation
 Increase diligence when the product/category has meaningful counterfeit, clone, relabel, or provenance risk.
 
 Prefer corroboration of exact SKU, authorized status where relevant, maker/brand identity, warranty status, realistic pricing, and domain-community warnings about known counterfeit patterns.
 
+When a counterfeit claim is based on appearance/packaging/community reports, seek maker/authorized-channel confirmation or multiple concrete distinguishing indicators before labeling a specific item counterfeit.
+
 Do not infer counterfeit status solely from low price or marketplace presence.
 
-## 9) Offer comparison procedure
+## 10) Offer comparison procedure
 When a workflow asks where to buy:
 1. eliminate Excluded offers;
 2. distinguish High Risk from Acceptable;
@@ -152,14 +186,15 @@ When a workflow asks where to buy:
 
 There is no universal fixed dollar/percentage premium for safer channels.
 
-## 10) Minimum offer packet
+## 11) Minimum offer packet
 For every recommended concrete offer capture internally:
 - seller of record;
 - fulfillment party;
 - exact variant and condition;
 - normalized current total;
+- price-state context from `pricing.md`;
 - return window and material friction;
-- warranty/provenance posture;
+- warranty/provenance posture and how it was verified;
 - stock/delivery confidence;
 - offer state: Exclude / High Risk / Acceptable / Preferred;
 - material flags;
@@ -168,4 +203,4 @@ For every recommended concrete offer capture internally:
 Normal output should surface only fields that change the purchase decision.
 
 ## Boundary
-Product quality belongs to active criteria/hierarchy authorities; general evidence to `research_sources.md`; review interpretation to `reviews.md`; product-value logic to `pricing.md`.
+Product quality belongs to active criteria/hierarchy authorities; general evidence to `research_sources.md`; review interpretation to `reviews.md`; product-value and price-state logic to `pricing.md`.

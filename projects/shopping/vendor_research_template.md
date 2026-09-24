@@ -3,38 +3,61 @@
 ## Purpose
 Define the presentation contract for `vendor_research.md`. This file owns presentation only.
 
-## Required sections
-### Vendor / ecosystem framing
-State whether the request is primarily about brands/manufacturers, retailers, dealers/distributors, or a mixed ecosystem when that distinction affects the answer.
+## Required structure
+### Ecosystem map
+Briefly explain the meaningful vendor/brand families or business models relevant to the user's decision.
 
-### Recommendation / shortlist
-Lead with the most useful vendor/brand choice or decision boundary.
+Examples may include:
+- mainstream broad-line manufacturers;
+- category specialists;
+- artisan/low-volume makers;
+- direct-only brands;
+- authorized specialist retailers;
+- large general retailers/marketplaces.
 
-Default shape:
-- 1 primary recommendation when justified;
-- normally 2-3 alternatives representing different buyer profiles or ecosystem strengths.
+Use only families that actually exist in the researched market.
 
-### Comparison
-When 2 or more finalists are discussed, use a concise table covering the active vendor criteria rather than generic columns.
+### Recommendation / decision boundary
+Lead with the primary vendor/brand recommendation when justified, or explain why different vendors are best for different buyers.
 
-### Vendor tradeoffs
-For each included finalist state:
-- what it is and where it sits in the market;
-- strongest differentiator;
-- main weakness;
+Include:
+- who it is for;
+- primary reason;
+- main weakness/caveat.
+
+### Shortlist comparison
+When 2 or more finalists are discussed, use one concise comparison table based on the active vendor differentiators rather than generic boilerplate.
+
+### Finalist tradeoffs
+For each included vendor/brand state:
+- what it actually is / role in the ecosystem;
+- strongest reason to choose it;
+- meaningful weakness;
 - best-fit buyer;
-- reason to choose another finalist.
+- why a reasonable buyer may choose another finalist.
 
-### Channel / support caveats
-Required when retailer/dealer/channel quality, returns, warranty, service, provenance, or regional practicality materially affects the recommendation.
+### Nearest-rival boundary
+For substantial Standard/Deep research, state:
+- why the primary recommendation wins for this user's needs;
+- what operational/business/product-line difference drives that advantage;
+- what user priority or assumption would make the nearest rival preferable.
+
+### Channel / service notes
+Include when material:
+- warranty/service model;
+- authorized/gray/direct distribution consequences;
+- retailer/dealer quality;
+- domestic/regional support practicality;
+- value-added specialist services.
 
 ### Material uncertainties
-Include reputation, service, lineup, or market-coverage gaps that could change the conclusion. Omit only when none remain.
+Include unresolved ownership/business relationships, lineup consistency, support/QC evidence gaps, region differences, or sparse reputation evidence that could change the recommendation.
 
 ### Research basis
-Provide concise citations/sources. Do not expose internal discovery/source-count mechanics unless requested/audited.
+Provide concise citations/sources. Do not expose internal vendor records, evidence matrices, source-count mechanics, or research briefs unless asked/audited.
 
 ## Formatting
 - Keep brand quality distinct from retailer/channel quality.
-- Do not force a single winner when different vendors legitimately specialize for different buyers.
-- Do not emit internal hierarchy labels or research-mode names unless explicitly asked.
+- Do not generalize an entire brand from one flagship SKU without qualification.
+- Prefer concrete business/product-line/service differences over reputation adjectives.
+- Do not emit internal vendor subtype labels unless they help the user understand the result.
