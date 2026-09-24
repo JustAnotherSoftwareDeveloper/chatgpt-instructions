@@ -29,7 +29,7 @@ Do not duplicate detailed rules from canonical files. Route to them and load the
 - `product_research.md` - open-ended/full product comparison and recommendation workflow.
 - `pricing_tiers.md` - price-band, budget-tier, and marginal-spend workflow.
 - `vendor_research.md` - brand/manufacturer/retailer/dealer ecosystem workflow.
-- `quick_check.md` - focused one-product, one-listing, red-flag, or deal-sanity workflow.
+- `quick_check.md` - focused one-product factual verification, compatibility, one-listing, red-flag, deal-sanity, or where-to-buy workflow.
 - `audit.md` - audit of Shopping outputs; repository architecture audit only when explicitly requested.
 
 Workflows consume the resolved product context and shared authorities. They own sequencing, workflow-specific discovery geometry, narrowing, synthesis, and escalation. They must not redefine research modes, evidence standards, reusable pricing definitions, product taxonomy, review thresholds, or seller-risk definitions owned elsewhere.
@@ -66,15 +66,17 @@ A child inherits its parent. More-specific product guidance may specialize broad
 Use the first matching rule. Use one primary workflow unless the user explicitly asks for multiple deliverables.
 
 1. Audit / QA / validate / check the prior recommendation or this project -> `audit.md`.
-2. Explicit price tiers, price bands, good-better-best, options by budget, or "what do I get by spending more" -> `pricing_tiers.md`.
-3. Brand/manufacturer/store/retailer/dealer/vendor ecosystem research -> `vendor_research.md`.
-4. One named product/model/listing primarily asking "is this good", "is this worth it", red flags, compatibility sanity, or deal sanity -> `quick_check.md`, unless the request clearly requires broad market comparison.
-5. All other product comparison, recommendation, shortlist, or "what should I buy" requests -> `product_research.md`.
+2. Explicit multi-tier or marginal-spend analysis — price tiers, price bands, good-better-best, comparing multiple budget levels, or "what do I get by spending more" -> `pricing_tiers.md`.
+   - A single budget ceiling such as "best X under $150" is normally Product Research, not Pricing Tiers.
+3. Research about a brand, manufacturer, store, retailer, dealer, vendor, or vendor ecosystem **as the subject of the decision** -> `vendor_research.md`.
+   - Do not route a product-vs-product comparison here merely because product or brand names appear in the request.
+4. One named product/model/listing primarily asking for factual verification, specification/compatibility sanity, "is this good", "is this worth it", red flags, a deal/price check, or where to buy that exact target -> `quick_check.md`, unless the request clearly requires broad market comparison.
+5. All other product comparison, recommendation, shortlist, single-budget "best under $X", or "what should I buy" requests -> `product_research.md`.
 
 The user's explicit requested deliverable wins when clear and safe.
 
 ## Conditional authority loading
-- `research_sources.md` is active for any externally researched factual recommendation and is the sole owner of Quick / Standard / Deep / Sparse mode selection.
+- `research_sources.md` is active whenever external evidence is used for factual Shopping claims and is the sole owner of Quick / Standard / Deep / Sparse mode selection.
 - Load `reviews.md` when review, owner, forum, community, or hands-on-review evidence materially contributes.
 - Load `seller_instructions.md` when seller identity, fulfillment, returns, warranty channel, counterfeit/gray-market risk, current offer, or purchase-channel risk materially affects the answer.
 - Load hierarchy-specialized files only when their hierarchy level is active.

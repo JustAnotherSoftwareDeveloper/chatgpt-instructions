@@ -103,15 +103,17 @@ If fewer than 2 meaningful price/value clusters remain after refinement, collaps
 Within each valid tier:
 - apply hard user constraints before evaluation;
 - normally choose **1 primary representative** plus **0-1 alternative** when the alternative represents a genuinely different design/tradeoff;
-- use `product_research.md` principles for recommendation-changing product conclusions;
+- evaluate recommendation-changing product conclusions using the active `criteria.md`, hierarchy-specialized authorities, `research_sources.md`, `reviews.md` when applicable, and `pricing.md`;
 - do not choose multiple near-identical products merely to populate a tier.
+
+Do not implicitly load or execute `product_research.md` merely to evaluate tier representatives.
 
 A tier may have one representative in a narrow/sparse market.
 
 Representative products should explain the tier, not merely happen to be priced within it.
 
 ## 10) User budgets
-When user supplies a ceiling/target:
+When user supplies a ceiling/target within a tier-analysis request:
 - include credible options at/below it when available;
 - explain if budget is below the reasonable market floor;
 - distinguish best under $X from best value overall;
@@ -135,7 +137,7 @@ Identify the diminishing-return region using the definition and value logic in `
 For representative picks:
 - apply `pricing.md` for price-state interpretation and normal-price baseline;
 - verify current price/availability;
-- compare at least **2 legitimate current offers** for a recommended pick when market competition exists and buying guidance is included;
+- when buying guidance is included, apply the offer-comparison procedure and offer states from `seller_instructions.md`;
 - apply `seller_instructions.md` to concrete offers.
 
 When a temporary sale changes practical value, describe that effect without silently redefining the product's normal tier.
@@ -152,4 +154,4 @@ Before finalizing:
 Use `pricing_tier_template.md`.
 
 ## Boundary
-Reusable pricing/value definitions belong to `pricing.md`; research modes/evidence to `research_sources.md`; product evaluation to `product_research.md`; seller risk to `seller_instructions.md`; presentation to `pricing_tier_template.md`. This workflow owns tier construction, refinement, representative selection, and cross-tier synthesis only.
+Reusable pricing/value definitions belong to `pricing.md`; research modes/evidence to `research_sources.md`; product evaluation to active criteria/hierarchy authorities; seller risk/offer comparison to `seller_instructions.md`; presentation to `pricing_tier_template.md`. This workflow owns tier construction, refinement, representative selection, and cross-tier synthesis only.

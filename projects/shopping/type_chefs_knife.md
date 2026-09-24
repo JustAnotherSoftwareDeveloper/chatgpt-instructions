@@ -135,15 +135,17 @@ If the user explicitly values artisan work, maker identity, craft, rare material
 
 If those signals are absent, functional value should dominate over collector/artisan premium under the default model.
 
-## 13) Chef's knife vs adjacent types
-Consider switching or adding an adjacent Type only when the use case strongly supports it:
+## 13) Chef's knife vs adjacent product forms
+Consider redirecting to or adding an adjacent kitchen-knife format only when the use case strongly supports it:
 - santoku for compact all-purpose preference;
 - nakiri for vegetable-heavy flat/tall profile use where pointed tip is unnecessary;
 - Chinese cleaver for users wanting a tall rectangular general-purpose blade and its technique;
 - petty/utility for unusually small/light prep and active dislike of full-size knives;
 - heavier cleaver/butcher tool for bone/abuse tasks outside normal Chef's Knife use.
 
-Do not switch Types casually.
+Do not switch product forms casually.
+
+Resolve only to a named Type that actually exists in `product_hierarchy.md`. If the better adjacent format has no live Type authority yet, fall back to the `Kitchen Knives` Category context and evaluate the product form there; do not invent a Type, specialized file, or inherited rules that do not exist.
 
 ## 14) Fit questions: when to ask
 Do not ask the full questionnaire.
@@ -164,10 +166,11 @@ For an ordinary underspecified Chef's Knife purchase, start with these primary d
 1. geometry/cutting behavior and primary-knife versatility;
 2. profile/length/ergonomic fit;
 3. maintenance/edge behavior appropriate to the user;
-4. QC/provenance confidence;
-5. value at normal/current price.
+4. value at normal/current price.
 
-Secondary dimensions become primary only through the triggers above.
+Treat exact product identity/provenance as a verification requirement when material rather than an automatic primary differentiator. Promote QC/consistency to a primary differentiator only when the activation triggers in `category_kitchen_knives.md` apply. Promote provenance/channel concerns according to that Category authority and `seller_instructions.md` when the purchase channel is actually in scope.
+
+Secondary dimensions become primary only through the triggers above or inherited Category triggers.
 
 ## 16) Standard Chef's Knife finalist record
 For each serious finalist in Standard/Deep research, capture internally where evidence exists.

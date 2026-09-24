@@ -17,13 +17,7 @@ Capture or infer only what changes the viable set or recommendation:
 Ask only when one missing fact blocks useful research. Otherwise proceed with a stated assumption when consequential.
 
 ## 2) Research mode
-Default to **Standard** from `research_sources.md`.
-
-Use **Quick** only for a narrow fixed comparison or tightly scoped factual check that still belongs here.
-
-Escalate to **Deep** when `research_sources.md` triggers apply.
-
-Use **Sparse** only because credible evidence is unavailable.
+Apply the research mode selected by `research_sources.md`. Do not redefine Quick / Standard / Deep / Sparse triggers here.
 
 ## 3) Build an internal research brief before deep evidence collection
 For Standard/Deep work, define internally:
@@ -66,7 +60,8 @@ Do not let the first sources found redefine the decision model unless they revea
 If the user names a fixed set:
 - evaluate that set;
 - do not run open-market discovery as if the user asked "what should I buy";
-- still build the research brief and coverage matrix for material criteria;
+- for Standard/Deep work, build the research brief and finalist coverage matrix for material criteria;
+- for Quick work, use a lightweight decision frame limited to the material hard constraints and comparison questions, and apply the Quick evidence contract from `research_sources.md` without requiring the full research brief or finalist coverage matrix;
 - add at most **1-2 outside comparables** only when they materially clarify value or expose a major tradeoff, and label them explicitly as comparables.
 
 ## 5) Open-market discovery
@@ -166,8 +161,8 @@ Do not retain dominated or unsuitable products merely to fill slots.
 
 Prefer finalists that collectively represent the most relevant tradeoff/design families, not five near-identical products from the same segment.
 
-## 12) Full finalist extraction
-For each finalist, normalize the evidence needed to answer the research brief. At minimum, where applicable capture:
+## 12) Finalist extraction
+For Standard/Deep work, normalize the evidence needed to answer the research brief for each finalist. At minimum, where applicable capture:
 - exact identity/configuration;
 - market/design segment and intended role;
 - hard-constraint fit;
@@ -182,12 +177,14 @@ For each finalist, normalize the evidence needed to answer the research brief. A
 - user/profile that should choose another finalist;
 - important evidence gaps.
 
-Use specialized hierarchy authorities to extend this record for the product domain.
+For Quick fixed comparisons, do not require this full record. Capture only the identity, hard-constraint fit, material comparison questions, price/channel context when in scope, and uncertainties needed for the lightweight decision frame.
+
+Use specialized hierarchy authorities to extend either record for the product domain when applicable.
 
 ## 13) Candidate x criterion evidence coverage
-Apply the finalist coverage matrix from `research_sources.md`.
+Apply the finalist coverage matrix from `research_sources.md` when that contract applies.
 
-Before ranking:
+Before ranking in Standard/Deep work:
 - every finalist should have Adequate/Strong coverage on each primary differentiator where that differentiator could change the recommendation;
 - investigate asymmetric Weak/Unknown coverage rather than treating missing evidence as inferiority;
 - if a critical gap cannot be resolved, expose it and avoid over-ranking the affected candidate.
@@ -270,22 +267,22 @@ Keep research briefs, extraction records, coverage matrices, comparability class
 
 ## Pre-output quality gate
 Confirm:
-- correct research mode;
-- research brief defined;
+- research mode came from `research_sources.md`;
+- research brief was defined when Standard/Deep requires it;
 - discovery target met or justified escape clause;
 - market segments actually modeled, not merely named;
 - discovery candidates received minimum extraction or clear hard-gate rejection;
 - challenge pass completed for Standard/Deep open-market research;
 - hard gates applied before preference ranking;
-- 3-5 primary differentiators identified;
+- 3-5 primary differentiators identified where the full decision model applies;
 - finalist count follows defaults or has a reason not to;
-- full finalist extraction completed enough for the research brief;
-- finalist x criterion coverage is adequate or gaps are bounded;
+- finalist extraction matched the selected mode and decision frame;
+- finalist x criterion coverage is adequate or gaps are bounded when the matrix contract applies;
 - comparison evidence is not apples-to-oranges;
 - primary differences are explained causally/mechanistically where supportable;
 - variant identity is sufficiently locked;
 - material claims satisfy evidence packets and stop condition;
-- nearest-rival boundary is understood;
+- nearest-rival boundary is understood when required;
 - recommendation survives the robustness check or fragility is disclosed;
 - product and seller judgments are separated;
 - current facts are current enough;

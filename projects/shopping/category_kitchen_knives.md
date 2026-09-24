@@ -117,16 +117,28 @@ Do not recommend thin/hard precision geometry as if abuse-tolerant. Do not penal
 
 Board and technique can materially affect edge durability.
 
-## 11) Provenance activation triggers
-Elevate provenance/authenticity and load `seller_instructions.md` when any are true:
-- concrete seller/listing is being recommended;
-- brand/line is known to be counterfeit-prone or widely gray-marketed;
-- retailer-exclusive/regional variants create identity ambiguity;
-- maker/steel/spec changed across revisions;
-- price anomaly trigger in `seller_instructions.md` fires;
-- handcrafted/low-volume provenance is a material part of value.
+## 11) Product identity, revision, and purchase-channel provenance
+### Product identity / revision verification
+Elevate product identity, version, or maker/provenance verification when any are true:
+- maker, steel, construction, or specifications changed across revisions;
+- retailer-exclusive or regional variants create identity ambiguity;
+- handcrafted/low-volume maker identity is a material part of value;
+- relabel/private-label relationships materially affect what product is actually being evaluated;
+- counterfeit/clone patterns make exact identity uncertain even before a seller is selected.
 
-Verify actual maker/manufacturer/line, exact length/steel/handle/region variant, and channel implications as needed.
+Use `research_sources.md` to verify actual maker/manufacturer/line, exact length/steel/handle/region/revision, and which evidence applies to that identity.
+
+Do **not** load `seller_instructions.md` solely because a model revision or product-identity ambiguity exists independently of a purchase channel.
+
+### Seller / channel provenance
+Load `seller_instructions.md` when any are true:
+- a concrete seller/listing or where-to-buy recommendation is in scope;
+- authorized vs gray-market status changes warranty, support, or provenance;
+- counterfeit risk is tied to the purchase channel or listing;
+- fulfillment/returns/warranty path materially affects the decision;
+- the seller authority's price-anomaly trigger fires for a concrete offer.
+
+Keep product identity/provenance and seller/channel risk related but distinct.
 
 ## 12) Knife research minimum interpretation
 For Standard knife recommendations, ensure the evidence set collectively covers where material:
@@ -151,4 +163,4 @@ Avoid universal rankings that ignore technique, maintenance, board, food mix, an
 Keep sharp-tool safety practical and proportional. Material/regulatory claims follow `research_sources.md`; ordinary handling does not require a safety lecture.
 
 ## Boundary
-Chef's-Knife-specific primary-tool behavior belongs to `type_chefs_knife.md`; broader household behavior to `class_home_kitchen.md`; evidence standards remain in `research_sources.md`.
+Chef's-Knife-specific primary-tool behavior belongs to `type_chefs_knife.md`; broader household behavior to `class_home_kitchen.md`; evidence standards remain in `research_sources.md`; concrete seller/channel risk remains in `seller_instructions.md`.
