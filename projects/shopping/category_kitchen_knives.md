@@ -111,28 +111,17 @@ Do not recommend thin/hard precision geometry as if abuse-tolerant. Do not penal
 
 Board and technique can materially affect edge durability.
 
-## Product identity, revision, and purchase-channel provenance
-### Product identity / revision verification
-Elevate product identity, version, or maker/provenance verification when any are true:
+## Product identity and revision
+Product identity, version, maker, or provenance can require explicit verification when:
 - maker, steel, construction, or specifications changed across revisions;
 - retailer-exclusive or regional variants create identity ambiguity;
 - handcrafted/low-volume maker identity is a material part of value;
 - relabel/private-label relationships materially affect what product is actually being evaluated;
-- counterfeit/clone patterns make exact identity uncertain even before a seller is selected.
+- counterfeit/clone patterns make exact product identity uncertain.
 
 Use `research_sources.md` to verify actual maker/manufacturer/line, exact length/steel/handle/region/revision, and which evidence applies to that identity.
 
-Do **not** load `seller_instructions.md` solely because a model revision or product-identity ambiguity exists independently of a purchase channel.
-
-### Seller / channel provenance
-Load `seller_instructions.md` when any are true:
-- a concrete seller/listing or where-to-buy recommendation is in scope;
-- authorized vs gray-market status changes warranty, support, or provenance;
-- counterfeit risk is tied to the purchase channel or listing;
-- fulfillment/returns/warranty path materially affects the decision;
-- the seller authority's price-anomaly trigger fires for a concrete offer.
-
-Keep product identity/provenance and seller/channel risk related but distinct.
+Product identity/provenance and seller/channel risk are related but distinct. Apply `seller_instructions.md` only when the orchestrator's purchase-channel conditions make that authority active.
 
 ## Safety
 Keep sharp-tool safety practical and proportional. Material/regulatory claims follow `research_sources.md`; ordinary handling does not require a safety lecture.
@@ -199,10 +188,8 @@ Avoid universal "better knife" language when the real difference is user fit.
 
 # Pricing Tiers contributions
 
-## Override: Pricing Tiers -> Market segmentation -> primary segmentation model
-For Kitchen Knives, do **not** use a purely price-led Budget/Midrange/Premium model as the primary explanation of the market.
-
-First map the market by meaningful production/execution/value families that actually exist in the current category, such as:
+## Merge: Pricing Tiers -> Market segmentation
+Add knife-specific production/execution/value families to the generic market map where they are supported, such as:
 - broad mass-market production;
 - enthusiast/specialist production with stronger geometry/execution focus;
 - higher-touch or low-volume production;
@@ -211,7 +198,7 @@ First map the market by meaningful production/execution/value families that actu
 
 These are analytical examples, not mandatory permanent buckets. Discover the actual market structure and allow families to overlap in price.
 
-Price tiers/regions should then explain how spend changes within or across those families rather than pretending all knives sit on one quality ladder.
+Use these families to explain how spend changes within or across the knife market rather than treating Budget/Midrange/Premium labels as the market structure itself.
 
 ## Merge: Pricing Tiers -> Tier validity
 A higher knife tier/region should be justified by one or more concrete changes such as:
@@ -237,12 +224,12 @@ For each meaningful step up, identify whether extra money primarily buys:
 
 Do not disguise craft/collector spend as proportional functional improvement.
 
-## Override: Pricing Tiers -> Diminishing-returns interpretation -> domain manifestation
-Use the shared definition from `pricing.md`, but for Kitchen Knives explicitly separate:
+## Merge: Pricing Tiers -> Diminishing-returns interpretation
+For Kitchen Knives, distinguish where useful between:
 - **functional-return flattening** - additional spend produces smaller gains in cutting/ownership performance;
 - **craft/preference escalation** - spend can continue buying finish, maker labor, aesthetics, materials, rarity, or collector value after functional returns flatten.
 
-Do not describe the second track as irrational when the user values it.
+Apply the reusable definition from `pricing.md`. Do not describe the second track as irrational when the user values it.
 
 # Vendor Research contributions
 

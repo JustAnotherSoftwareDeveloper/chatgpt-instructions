@@ -1,7 +1,7 @@
 # Shopping Audit Workflow
 
 ## Purpose
-Own QA of Shopping outputs and, only when explicitly requested, repository-maintenance QA.
+Own QA of Shopping outputs and, only when explicitly requested, Project instruction-set QA.
 
 Audit evaluates compliance with the active canonical contracts. It does **not** own or restate those contracts.
 
@@ -46,6 +46,7 @@ For self-audit, verify directly that:
 - only contribution sections for the active workflow were applied;
 - every Merge was additive to the inherited concern;
 - every Override named an explicit inherited workflow rule/sub-contract using the active workflow's canonical concern name;
+- an Override actually replaced inherited behavior rather than merely adding a specialization that should have been a Merge;
 - a more-specific Override replaced only the same named target, not unrelated parent behavior;
 - a child that wanted inherited behavior plus a delta used Merge rather than overriding the parent target and then relying on replaced content;
 - child authorities contain only their delta rather than restating inherited parent fields/checks/questions merely for emphasis;
@@ -57,7 +58,7 @@ For self-audit, verify directly that:
 For retrospective audit, infer Merge/Override application only from observable output or targeted verification. If the answer does not expose enough process detail, judge whether the **resulting behavior** is consistent with the effective hierarchy contract rather than pretending to inspect hidden mutation steps.
 
 Examples of observable failures:
-- Chef's Knife Product Research uses a generic price-only market map despite an active Type override requiring design-family segmentation;
+- Chef's Knife Product Research ignores the active Type market-segmentation merge and collapses the field into a generic price-only view;
 - a Kitchen Knife Pricing Tiers answer treats steel name alone as sufficient evidence of a higher tier despite the Category tier-validity merge;
 - a Type override causes unrelated generic discovery/evidence rules to disappear;
 - a child Type duplicates parent identity/QC/vendor rules and creates conflicting variants of the same inherited instruction;
@@ -193,8 +194,8 @@ Default:
 5. For retrospective audits, label process-only items that cannot be verified as such rather than inventing a pass/fail.
 6. Provide a corrected answer/plan only when requested.
 
-## 14) Repository-maintenance audit
-Only when explicitly auditing/editing this project, also check:
+## 14) Project instruction-set audit
+Only when explicitly auditing/editing this Shopping Project instruction set, also check:
 - `MAIN.md` is pointer-only;
 - `instructions.md` canonical map, execution sequence, and first-match routing are complete;
 - every rule has one clear owner;
@@ -206,6 +207,7 @@ Only when explicitly auditing/editing this project, also check:
 - `product_hierarchy.md` alone owns Merge/Override semantics and child-delta behavior;
 - every executable hierarchy rule is classified under Shared domain behavior or a named workflow Merge/Override;
 - every hierarchy Override names a specific live workflow rule/sub-contract rather than an entire workflow;
+- every hierarchy Override replaces something materially incompatible; additive specialization uses Merge;
 - hierarchy Merges are additive and do not silently suppress inherited rules;
 - more-specific overrides affect only the same named target;
 - a child that needs a parent target plus extra behavior uses Merge rather than an Override that silently depends on replaced parent content;

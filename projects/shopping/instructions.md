@@ -30,7 +30,7 @@ Do not duplicate detailed rules from canonical files. Route to them, load the fi
 - `pricing_tiers.md` - price-band, budget-tier, and marginal-spend workflow.
 - `vendor_research.md` - brand/manufacturer/retailer/dealer ecosystem workflow.
 - `quick_check.md` - focused one-product factual verification, compatibility, one-listing, red-flag, deal-sanity, or where-to-buy workflow.
-- `audit.md` - audit of Shopping outputs; repository architecture audit only when explicitly requested.
+- `audit.md` - audit of Shopping outputs; Project instruction-set audit only when explicitly requested.
 
 Workflows own their generic sequencing, workflow-specific discovery geometry, narrowing, synthesis, escalation, and named contribution surfaces. They must not redefine research modes, evidence standards, reusable pricing definitions, product taxonomy, review thresholds, or seller-risk definitions owned elsewhere.
 
