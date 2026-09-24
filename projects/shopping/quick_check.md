@@ -1,86 +1,105 @@
 # Quick Check Workflow
 
 ## Purpose
-Own focused evaluation of one named product/model/listing, a specific offer, compatibility sanity check, red flags, or deal quality without automatically expanding into full-market research.
+Own focused evaluation of one named product/model/listing, a specific offer, compatibility sanity check, red flags, or deal quality without expanding into full-market research by default.
 
-Use the product context already resolved by `instructions.md` and active shared/specialized authorities.
+Use the resolved product context and active shared/specialized authorities.
 
-## 1) Confirm what is being checked
-Establish the exact product/variant/listing when material.
+## 1) Research mode
+Use **Quick** from `research_sources.md` by default.
 
-If the user supplies a link or offer, distinguish:
+Escalate to Product Research when the question cannot be responsibly answered within Quick Check's scope.
+
+## 2) Confirm exact target
+Lock exact product/variant/listing when material.
+
+For a concrete offer distinguish:
 - product identity;
-- seller/fulfillment;
+- seller of record;
+- fulfillment;
 - condition;
 - current price;
-- included accessories/bundle;
+- included bundle/accessories;
 - regional/version details.
 
-If identity is too uncertain for the requested judgment, say what needs confirmation rather than guessing.
+If identity is too uncertain for the requested judgment, state what needs confirmation instead of guessing.
 
-## 2) Start with the user's hard requirements
-Check the few constraints that can immediately make the product unsuitable:
+## 3) Apply hard gates first
+Check constraints that can make the product unsuitable immediately:
 - compatibility;
 - size/fit;
 - must-have features;
 - maintenance tolerance;
 - region/support;
 - strict budget;
-- other active domain-specific hard gates.
+- active domain-specific hard gates.
 
-A hard failure should be stated early.
+State a hard failure early.
 
-## 3) Verify the decision-relevant product claims
-Use `research_sources.md` and active hierarchy guidance to check the small number of claims that can materially change the answer.
+## 4) Decision-question cap
+Identify no more than **4 recommendation-changing questions** that need evidence to answer the user's narrow request.
 
-Typically this includes some combination of:
-- objective product identity/specification;
-- major quality/performance characteristic;
-- recurring reliability/QC concern;
-- important maintenance/support issue;
-- relevant domain-specific weakness.
+Typical questions:
+- Is this the correct/exact product and does it meet the hard requirements?
+- Does the major quality/performance characteristic match the user's use?
+- Is there a recurring reliability/QC/maintenance problem that changes the judgment?
+- Is this concrete price/channel actually good enough to recommend?
 
-Do not recreate a full-market research exercise when these checks are sufficient.
+If answering responsibly requires more than 4 decision questions, that is a strong signal to escalate to `product_research.md`.
 
-Apply `reviews.md` when review/community evidence materially contributes.
+## 5) Default evidence packet
+For those decision questions:
+- objective identity/spec/compatibility -> primary/official evidence when available;
+- quality/performance -> at least **1 competent independent empirical/specialist/practitioner source**;
+- reliability/QC -> owner/community evidence when this is one of the material questions;
+- deal/channel -> current seller evidence under `seller_instructions.md`.
 
-## 4) Deal / seller check when relevant
-If the user asks whether a price/listing/deal is good:
-- verify current market context sufficiently to know whether the price is normal, strong, or suspicious;
-- apply `seller_instructions.md` to seller/channel/returns/warranty/provenance;
-- distinguish "good product" from "good deal".
+Use the rest of the Quick evidence budget only where it can change the conclusion.
 
-A low price cannot rescue a product that fails the user's needs.
+## 6) Deal check
+When the user asks whether a price/listing/deal is good:
+1. verify the exact variant/condition;
+2. compare the user's offer against **at least 2 legitimate current comparable offers** when the market supports them;
+3. normalize item price + mandatory shipping/fees and note materially different bundle/condition terms;
+4. apply `seller_instructions.md` to seller/returns/warranty/provenance;
+5. distinguish "good product" from "good deal".
 
-## 5) Use comparables sparingly
-A Quick Check may mention one or two nearby comparables when they are necessary to explain value or reveal a major tradeoff.
+If the offer is >=20% below the normal reputable-offer range, apply the seller price-anomaly trigger rather than automatically calling it a bargain.
 
-Do not silently turn the answer into an open-ended shortlist.
+## 7) Outside comparables
+Quick Check may introduce **up to 2 outside product comparables** when necessary to explain value or a major tradeoff.
 
 Escalate to `product_research.md` when:
-- the user is actually deciding across the broader market;
-- several alternatives must be evaluated to judge the product responsibly;
-- exact product identity remains materially ambiguous;
-- contradictory evidence requires broader research;
-- the user asks for a deep/full comparison.
+- more than 2 outside comparables are needed;
+- the broader market position must be mapped to judge the product;
+- exact identity remains materially ambiguous after reasonable checking;
+- contradictory evidence cannot be bounded within the Quick evidence budget;
+- the user asks for deep/full comparison.
 
-## 6) Conclusion
-Answer the user's narrow question directly.
+## 8) Stop condition
+Quick Check may stop when:
+- hard gates are resolved;
+- the <=4 decision questions are verified or explicitly bounded;
+- any deal question has enough current comparable/seller context;
+- additional research is unlikely to change the narrow answer.
 
-Communicate as applicable:
-- suitability / deal sanity;
+Do not continue merely to accumulate sources.
+
+## 9) Conclusion
+Answer the narrow question directly.
+
+Default output content:
+- direct judgment/decision boundary;
 - confidence;
-- the 2-4 most important reasons;
-- the most important caveat or unknown;
-- seller/price note if in scope;
-- whether broader Product Research is warranted.
+- **2-4** most important reasons;
+- primary caveat/unknown;
+- deal/seller note when in scope;
+- broader-research note only when escalation is actually warranted.
 
-Do not use a mechanical buy/do-not-buy verdict when the answer depends on preferences the user has not established; state the decision boundary instead.
+Do not use a mechanical buy/do-not-buy verdict when an unresolved preference genuinely determines the answer.
 
-## 7) Output
+## 10) Output
 Use `quick_check_template.md`.
 
-Keep source-count/compliance machinery internal unless requested or audited.
-
 ## Boundary
-This workflow does not replace broad market research. Product context comes from `product_hierarchy.md`; evidence standards from `research_sources.md`; review interpretation from `reviews.md`; offer risk from `seller_instructions.md`; presentation from `quick_check_template.md`.
+Quick Check does not replace broad market research. Product context comes from `product_hierarchy.md`; evidence from `research_sources.md`; review handling from `reviews.md`; offer risk from `seller_instructions.md`; presentation from `quick_check_template.md`.

@@ -3,188 +3,152 @@
 ## Purpose
 Own behavior shared across Kitchen Knives when the `Kitchen Knives` Category is active.
 
-Use the Kitchen Knives sections of `criteria.md`, `source_playbooks.md`, and `pricing.md` alongside this file.
+Use Kitchen Knives sections of `criteria.md`, `source_playbooks.md`, and `pricing.md` alongside this file.
 
-This authority treats a knife as an interacting system of geometry, steel/heat treatment, sharpening, construction, ergonomics, maintenance, and intended use.
+Treat a knife as an interacting system of geometry, steel/heat treatment, sharpening, construction, ergonomics, maintenance, provenance, and intended use.
 
 ## 1) Do not steel-shop
-Steel name alone is not a sufficient quality ranking.
+Steel name alone is not a quality ranking.
 
 Evaluate, as applicable:
-- blade geometry and grind;
+- blade geometry/grind;
 - heat-treatment/hardness execution;
-- edge geometry and sharpening state;
-- steel's relevant toughness, wear, corrosion, and sharpening characteristics;
+- edge geometry/sharpening state;
+- steel toughness/wear/corrosion/sharpening characteristics;
 - QC consistency;
 - user technique and maintenance.
 
-A modest steel with excellent geometry/heat treatment can be a better cutting tool than a prestige steel with poor execution.
-
-Do not infer heat-treatment quality merely from a nominal HRC claim.
+A modest steel with excellent geometry/heat treatment can be a better cutting tool than a prestige steel with poor execution. Do not infer heat-treatment quality from nominal HRC alone.
 
 ## 2) Geometry is first-class
-For cutting behavior, distinguish:
+Distinguish where evidence permits:
 - spine/blade thickness;
 - behind-the-edge thickness;
 - primary grind shape;
 - distal taper;
 - edge angle/bevel geometry;
 - blade height/profile;
-- convexity/hollow/flat characteristics where relevant.
+- convex/hollow/flat characteristics.
 
-Use these to reason about:
-- cutting resistance and wedging;
-- food release;
-- steering;
-- robustness;
-- ease of sharpening/thinning;
-- suitability for dense/hard foods.
+Use these to reason about cutting resistance, wedging, food release, steering, robustness, sharpening/thinning, and suitability for dense foods.
 
-Do not equate factory sharpness with good geometry. A knife can arrive very sharp and still cut poorly through thick/dense food because of geometry behind the edge.
+Factory sharpness is not a substitute for underlying geometry.
 
-## 3) Balance edge retention, toughness, and sharpenability
-Do not optimize one property in isolation.
+## 3) Edge tradeoff model
+Do not optimize edge retention, toughness, or sharpenability in isolation.
 
-Harder/more wear-resistant edges may offer longer slicing retention but can increase sharpening effort or reduce abuse tolerance depending on steel/geometry/heat treatment.
-
-Tougher/softer constructions may tolerate rougher use and easier maintenance while requiring more frequent touch-up.
-
-Map the tradeoff to the user's:
+Map the tradeoff to:
 - cutting technique;
-- foods;
-- board;
+- food mix;
+- cutting board;
 - sharpening ability/willingness;
 - tolerance for chipping, rolling, staining, or maintenance.
 
-## 4) Maintenance model
-Before recommending a knife, understand the likely maintenance burden.
+Harder/more wear-resistant edges may retain slicing performance longer but can demand more sharpening effort or offer less abuse tolerance depending on steel/geometry/heat treatment.
 
-Consider:
-- stainless vs semi-stainless/carbon/reactive behavior;
-- drying/oiling/patina needs;
-- handle care;
-- edge touch-up frequency;
-- whether the user sharpens at home, uses a service, or wants minimal maintenance;
-- whether thinning may become relevant over long ownership;
-- whether proprietary/serrated/special geometry complicates maintenance.
+Tougher/softer constructions may tolerate rougher use and easier maintenance while requiring more frequent touch-up.
 
-Do not recommend a maintenance-sensitive knife to a low-maintenance user without making the tradeoff explicit.
+## 4) Maintenance activation triggers
+Elevate maintenance to a **primary differentiator** when any are true:
+- user asks for low/zero maintenance;
+- reactive/carbon/semi-stainless steel is under consideration;
+- sharpening/service burden differs materially among finalists;
+- user does not sharpen and service access/cost differs;
+- line is thin enough that long-term thinning or specialized maintenance is a known ownership issue.
+
+Otherwise treat routine maintenance as secondary unless it changes product fit.
+
+Consider corrosion/reactivity, drying/oiling/patina needs, handle care, touch-up frequency, sharpening method/service, and long-term thinning where relevant.
 
 ## 5) Sharpening and edge claims
 Separate:
-- factory edge quality;
-- underlying steel/heat treatment;
-- blade geometry;
+- factory edge;
+- underlying geometry;
+- steel/heat treatment;
 - sharpening response;
 - long-term edge retention.
 
-One factory edge test cannot establish long-term sharpening behavior.
+One factory-edge test cannot establish long-term sharpening behavior.
 
-When comparing edge retention claims, check:
-- sharpening angle/finish;
-- test medium/use conditions;
-- hardness/heat-treatment differences;
-- geometry differences;
-- whether the comparison is actually same-purpose.
+When comparing edge-retention claims, check sharpening angle/finish, test medium/use conditions, hardness/heat treatment, geometry, and whether the knives serve the same purpose.
 
-Avoid treating a single edge-retention test as a universal ranking of knives.
+## 6) QC and unit variation
+Check QC as a **primary differentiator** when any are true:
+- recurring-signal threshold in `reviews.md` is met for grind/warping/handle/edge defects;
+- maker/line is handmade or known to vary materially by batch/unit;
+- buyer cannot easily inspect/return;
+- premium pricing depends heavily on execution/finish.
 
-## 6) Construction and QC
-Assess as relevant:
-- blade straightness;
-- grind symmetry and consistency;
-- overgrinds/low spots;
-- distal taper consistency;
-- edge condition;
-- handle fit and installation;
-- spine/choil finishing;
-- cladding/core exposure where applicable;
-- warping/twisting;
-- variability between units.
+Otherwise do not inflate isolated cosmetic anecdotes into a dominant criterion.
 
-QC matters more when the line/maker has meaningful unit variation or when the user cannot inspect/return easily.
+Assess as relevant: blade straightness, grind symmetry/consistency, overgrinds/low spots, taper, edge condition, handle fit, spine/choil finish, cladding/core exposure, warping/twisting.
 
-## 7) Forged, stamped, Damascus, layers, and marketing language
+## 7) Marketing translation
 Do not assume:
-- forged is inherently superior to stamped;
-- more Damascus layers improve cutting performance;
-- decorative cladding predicts core-steel execution;
-- "Japanese" or "German" alone predicts geometry/quality;
-- "professional" means appropriate for the user's use;
-- high hardness automatically means better.
+- forged > stamped;
+- more Damascus layers improve cutting;
+- decorative cladding predicts core execution;
+- Japanese/German origin alone predicts geometry/quality;
+- "professional" means suitable for this user;
+- higher hardness automatically means better.
 
-Translate construction/marketing terms into actual user consequences.
+Translate marketing terms into observable user consequences.
 
 ## 8) Japanese vs Western framing
-Use these as broad traditions, not rigid quality tiers.
+Use these as broad traditions, not quality tiers. Modern products cross boundaries in geometry, hardness, profile, handles, maintenance, sharpening, and abuse tolerance.
 
-Common tendencies may include differences in:
-- geometry/thinness;
-- hardness;
-- profile;
-- handle styles;
-- maintenance expectations;
-- sharpening conventions;
-- toughness/abuse tolerance.
+Evaluate the actual model.
 
-Modern products often cross these boundaries. Evaluate the specific knife rather than stereotyping origin.
+## 9) Ergonomics and technique
+Consider grip style, handle dimensions/material, weight/balance, spine/choil comfort, hand size, board size/height, cutting motion, and expected prep volume.
 
-## 9) Ergonomics and technique fit
-Consider:
-- grip style, especially pinch vs handle-heavy grip;
-- handle dimensions/shape/material;
-- weight and balance;
-- spine/choil comfort;
-- hand size;
-- board height and size;
-- dominant cutting motion;
-- fatigue during expected prep volume.
+Subjective fit remains preference-dependent unless evidence shows a concrete ergonomic defect.
 
-Subjective fit should be described as preference/use-case dependent unless there is a concrete ergonomic defect.
-
-## 10) Use and abuse boundaries
-Clarify whether the user expects tasks such as:
+## 10) Abuse boundaries
+If the user expects any of the following, elevate robustness/toughness to a hard gate or primary differentiator:
 - bones/joints;
 - frozen food;
-- hard squash;
 - twisting/prying;
-- scraping the board with the edge;
-- very hard/glass/stone boards;
+- scraping with the edge;
+- glass/stone/ceramic boards;
 - dishwasher use.
 
-Do not recommend a thin/hard edge as if it is abuse-tolerant. Conversely, do not penalize a thin precision knife for failing tasks outside its intended use.
+Do not recommend thin/hard precision geometry as if abuse-tolerant. Do not penalize a precision knife for tasks outside its intended role.
 
-Board choice and technique can materially affect edge durability.
+Board and technique can materially affect edge durability.
 
-## 11) Provenance, makers, and model identity
-Knife markets can contain:
-- house brands;
-- OEM/rebrands;
-- regional model names;
-- retailer exclusives;
-- maker lines with changing steels/specs;
-- counterfeit versions of prominent brands;
-- handcrafted products with batch variation.
+## 11) Provenance activation triggers
+Elevate provenance/authenticity and load `seller_instructions.md` when any are true:
+- concrete seller/listing is being recommended;
+- brand/line is known to be counterfeit-prone or widely gray-marketed;
+- retailer-exclusive/regional variants create identity ambiguity;
+- maker/steel/spec changed across revisions;
+- price anomaly trigger in `seller_instructions.md` fires;
+- handcrafted/low-volume provenance is a material part of value.
 
-When provenance matters:
-- establish actual maker/manufacturer/line where possible;
-- distinguish brand marketing from production identity;
-- verify exact length/steel/handle/region variants;
-- apply `seller_instructions.md` for channel/authenticity risk.
+Verify actual maker/manufacturer/line, exact length/steel/handle/region variant, and channel implications as needed.
 
-## 12) Research synthesis
-When evaluating knives, prefer conclusions such as:
-- "better fit for a user who wants X maintenance/technique/profile";
-- "stronger cutting geometry but less abuse tolerance";
-- "better value if craft/finish is not important";
-- "higher price mainly buys QC/finish/artisan work rather than a proportional cutting-performance gain".
+## 12) Knife research minimum interpretation
+For Standard knife recommendations, ensure the evidence set collectively covers where material:
+- exact dimensions/specification/provenance;
+- independent cutting/geometry/ergonomics evaluation;
+- sharpening/edge/maintenance behavior;
+- QC/ownership signal when it changes the recommendation;
+- current price/channel when in scope.
 
-Avoid universal knife rankings that ignore technique, maintenance, board, food mix, and user preference.
+Do not let multiple sources repeating steel specifications substitute for these different evidence roles.
 
-## 13) Safety
-Keep knife safety practical and proportional.
+## 13) Synthesis language
+Prefer conclusions such as:
+- better fit for X technique/maintenance profile;
+- thinner/faster cutter with less abuse tolerance;
+- more robust/easier ownership at some cutting-performance cost;
+- higher price buys QC/finish/craft rather than proportional cutting improvement.
 
-Material safety or regulatory claims should follow `research_sources.md`. Ordinary sharp-tool handling does not require turning a shopping answer into a safety lecture.
+Avoid universal rankings that ignore technique, maintenance, board, food mix, and preference.
+
+## 14) Safety
+Keep sharp-tool safety practical and proportional. Material/regulatory claims follow `research_sources.md`; ordinary handling does not require a safety lecture.
 
 ## Boundary
-This file owns shared Kitchen Knife behavior. Chef's-Knife-specific primary-tool profile/length/technique behavior belongs to `type_chefs_knife.md`; broader household behavior belongs to `class_home_kitchen.md`; evidence standards remain in `research_sources.md`.
+Chef's-Knife-specific primary-tool behavior belongs to `type_chefs_knife.md`; broader household behavior to `class_home_kitchen.md`; evidence standards remain in `research_sources.md`.

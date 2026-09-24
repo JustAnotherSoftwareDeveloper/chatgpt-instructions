@@ -1,117 +1,185 @@
 # Shopping Audit Workflow
 
 ## Purpose
-Own QA of Shopping outputs. Repository-architecture checks are included only when the user is explicitly auditing or editing this project.
+Own QA of Shopping outputs. Repository-architecture checks apply only when explicitly auditing/editing this project.
 
-Audit diagnoses whether the prior output followed the active Shopping contracts. It does not automatically rerun the entire shopping workflow unless the user asks for a corrected result.
+Audit compares execution against the active Shopping contracts. It does not rerun the whole shopping task unless the user asks for correction.
 
-## 1) Shopping-output audit
-Check all applicable areas.
+## 1) Routing and context
+Check:
+- correct workflow selected;
+- Base applied;
+- Class/Category/Type resolution justified;
+- required specialized files/shared sections loaded;
+- narrow context not incorrectly carried to another product;
+- hard user constraints and locked decisions preserved.
 
-### Routing
-- Was the correct workflow used for the user's request?
-- Did a one-product question incorrectly become full research, or vice versa?
-- Did a vendor or pricing-tier request route correctly?
+## 2) Research-mode audit
+Identify which mode should have applied under `research_sources.md`: Quick / Standard / Deep / Sparse.
 
-### Product context
-- Was Base applied?
-- Was the Class/Category/Type resolution justified by the request/product identity?
-- Was the context too generic, over-specific, or carried incorrectly from a prior turn?
-- Were the required specialized hierarchy files and shared sections applied?
+Check:
+- was the selected depth appropriate to the task?
+- if research fell below the normal evidence budget, was there a valid escape clause or genuine sparse-coverage reason?
+- was Sparse used only because credible evidence was unavailable, not merely to save work?
 
-### User constraints
-- Were hard requirements distinguished from preferences?
-- Were budget, compatibility, region, condition, use case, and accepted/rejected candidates preserved?
-- Did the answer silently override an explicit user decision?
+Do not fail an answer merely because it used a different raw source count when claim coverage and stop conditions were satisfied.
 
-### Product identity / variant lock
-- Were model, generation, size, region, configuration, and condition clear enough for the claims made?
-- Did the output mix evidence from materially different variants?
+## 3) Discovery-contract audit
+### Product Research
+For an open mature market, check whether default discovery was achieved or a valid escape clause existed:
+- 8-12 plausible candidates;
+- >=4 makers/brands where supported;
+- >=3 material market/design/value segments where they exist;
+- challenge pass performed;
+- normally 3-5 finalists after hard gates.
 
-### Discovery adequacy
-For open-ended research:
-- Was the market searched broadly enough to expose meaningful alternatives and segments?
-- Was narrowing premature?
-- Were weak candidates padded into the pool, or important classes of alternatives missed?
+### Pricing Tiers
+Check:
+- 10-15 credible current-product market scan where supported;
+- >=4 makers where supported;
+- provisional 3-5 tier geometry;
+- every tier passed the validity test;
+- refinement/challenge pass performed;
+- adjacent-tier gain test is concrete rather than round-number segmentation.
 
-Do not judge adequacy by a fixed candidate count; judge whether the discovery was sufficient for the decision.
+### Vendor Research
+Check:
+- 6-10 plausible vendor/brand entities where supported;
+- >=3 meaningful ecosystem segments where they exist;
+- challenge pass performed;
+- normally 3-5 deep finalists.
 
-### Evidence adequacy
-Apply `research_sources.md`:
-- Did each material claim use an appropriate source type?
-- Was there enough independent corroboration for purchase-changing claims?
-- Was one narrative ecosystem or non-primary source over-relied upon?
-- Were discovery-only sources improperly used as evidence?
-- Were high-risk/high-consequence claims researched deeply enough?
-- Were coverage limitations disclosed when evidence was sparse?
+### Quick Check
+Check:
+- scope stayed narrow;
+- <=4 recommendation-changing questions;
+- no more than 2 outside product comparables before escalation;
+- broader-market research was not silently performed under Quick Check.
 
-### Review/community handling
-Apply `reviews.md`:
-- Were anecdotes converted into unsupported prevalence claims?
-- Were product issues separated from seller/channel contamination?
-- Were version, time horizon, incentives, domain competence, and manipulation signals handled appropriately?
-- Were preference-sensitive observations presented as preferences rather than universal defects?
+## 4) Hard-gate and criteria audit
+Check:
+- hard constraints applied before preference/value ranking;
+- Product Research normally identified 3-5 primary differentiators;
+- secondary criteria did not overwhelm the decision;
+- explicit aesthetic/identity/craft priorities were not silently subordinated;
+- dominated or already-disqualified candidates were not retained merely to fill slots.
 
-### Seller / offer handling
-When concrete offers were part of the answer, apply `seller_instructions.md`:
-- Were seller of record, fulfillment, condition, exact variant, returns, warranty, provenance, and meaningful channel risks handled sufficiently?
-- Was the cheapest offer treated as best without adequate risk comparison?
-- Was product quality kept separate from seller quality?
+## 5) Product identity / variant lock
+Check:
+- model, generation, size, region, configuration, and condition were clear enough for claims;
+- evidence from materially different variants was not mixed;
+- unresolved identity uncertainty was bounded.
 
-### Pricing freshness and value logic
-- Were current prices current enough for the recommendation?
-- Were MSRP, normal street price, sale price, and anomalies distinguished where material?
-- Did tier/value conclusions explain what extra spend buys rather than merely sort by price?
+## 6) Evidence-packet audit
+Apply `research_sources.md` by claim type.
 
-### Synthesis
-- Does the recommendation actually follow from the evidence and active criteria?
-- Are major tradeoffs visible?
-- Is confidence proportionate to evidence quality?
-- Was a forced winner declared where the decision is genuinely preference-dependent?
+Check material claims for:
+- primary/official evidence for objective facts when available;
+- independent empirical/specialist/practitioner support for recommendation-changing performance/quality claims;
+- owner/community/long-term evidence when reliability, QC, maintenance, or real-world usability changes the decision;
+- current seller evidence when price/availability/channel is material;
+- independence rather than multiple artifacts from one narrative ecosystem.
 
-### Output contract
-- Does the answer follow the active template at an appropriate level of detail?
-- Did internal research/compliance scaffolding leak into a normal shopping response without being requested?
+For Standard/Deep work, check that the challenge pass deliberately sought contradiction, omissions, failure modes, or missing source families.
 
-## 2) Audit severity
-Classify findings by consequence rather than stylistic preference.
+## 7) Research stop-condition audit
+Research is complete only if:
+- normal coverage packet was met or exception documented;
+- material recommendation-changing claims had appropriate evidence;
+- identity was locked/bounded;
+- material conflicts were resolved/bounded;
+- challenge pass produced no new information likely to change eligibility, finalists, recommendation, tier placement, seller judgment, or material caveat.
 
+Flag both under-research and pointless source accumulation.
+
+## 8) Review/community audit
+Apply `reviews.md`.
+
+Check:
+- isolated anecdotes were not called recurring;
+- `Recurring signal` met >=3 independent first-hand reports plus the cross-platform/artifact/reproduction condition;
+- `Strong/widespread` language met the >=10 distributed reports, independent reproduction, or official-acknowledgement condition;
+- no prevalence percentage was inferred without representative denominator data;
+- version/time horizon/domain competence/incentives/manipulation were handled;
+- product defects were separated from channel contamination;
+- preference-sensitive observations were not universalized.
+
+## 9) Seller / offer audit
+When concrete offers were included, apply `seller_instructions.md`.
+
+Check each recommended offer has a defensible state:
+- Exclude / High Risk / Acceptable / Preferred.
+
+Check:
+- seller of record and fulfillment;
+- exact variant/condition;
+- normalized total;
+- return/warranty/provenance posture;
+- stock/delivery confidence;
+- price-anomaly trigger when >=20% below normal reputable range;
+- at least 2 Acceptable offers compared when buying guidance was given and the market supported them.
+
+Ensure cheapest != automatically best and product quality != seller quality.
+
+## 10) Pricing-tier audit
+Check:
+- tier exists because of real market/value proposition, not round number;
+- ordinary tier normally has >=2 credible products unless legitimate specialty sparsity applies;
+- each adjacent tier states additional spend, concrete gain, what does not materially improve, and who should move up;
+- diminishing-return region is tied to primary functional/ownership criteria rather than vague luxury language;
+- current prices are fresh enough.
+
+## 11) Chef's Knife pilot audit
+When Chef's Knife is active, check:
+- default consumer model used only when user context did not override it;
+- technique/maintenance/abuse/artisan triggers changed criterion priority appropriately;
+- default primary criteria were not treated as immutable when explicit user needs differed;
+- steel name/prestige did not substitute for geometry/heat treatment/edge/fit evidence;
+- role-fit redirection occurred only when another knife format materially better matched the use case.
+
+## 12) Output-contract audit
+Check active template:
+- required sections present;
+- comparison table used when required;
+- normal recommendation/alternative counts followed or valid exception existed;
+- material uncertainties disclosed;
+- internal hierarchy/research-mode/source-count mechanics did not leak unless requested/audited.
+
+## 13) Severity
 ### Critical
-The output could materially mislead the purchase decision because of wrong product identity, safety/legal failure, incompatible product, fabricated/currently false evidence, or a major unsupported conclusion.
+Could materially mislead purchase because of wrong identity, incompatibility/safety failure, fabricated/currently false evidence, or major unsupported conclusion.
 
 ### Major
-A substantial research/routing/evidence gap could change the recommendation: premature narrowing, wrong workflow, major source dependence, missing seller risk, stale current-market facts, or omitted hard constraint.
+Gap could change recommendation: wrong workflow, premature narrowing, missing hard constraint, failed evidence packet/stop condition, major source dependence, seller risk, stale market facts.
 
 ### Minor
-The answer is broadly sound but has a limited clarity, coverage, caveat, citation, or formatting defect unlikely to change the recommendation.
+Broadly sound with limited clarity, coverage, caveat, citation, or formatting defect unlikely to change recommendation.
 
 ### Note
-An improvement or observation that is not a defect.
+Improvement that is not a defect.
 
-## 3) Audit output
-Default to a compact report:
-
+## 14) Audit output
+Default:
 1. Overall status: Pass / Pass with issues / Rework needed.
-2. Findings grouped by Critical, Major, Minor, Notes; omit empty groups.
-3. For each issue: what happened, why it matters, owning authority/workflow, and concrete fix.
-4. Material uncertainties or missing evidence.
-5. If requested, a corrected execution plan or corrected answer.
+2. Findings grouped by Critical / Major / Minor / Notes; omit empty groups.
+3. For each issue: what happened, why it matters, owning file, concrete fix.
+4. Material missing evidence/uncertainty.
+5. Corrected plan/answer only when requested.
 
-Do not reproduce internal file mechanics unless the user is explicitly auditing this project architecture.
-
-## 4) Repository-maintenance audit
-Only when explicitly auditing/editing the Shopping project, also check:
-- `MAIN.md` remains pointer-only;
-- `instructions.md` canonical map is complete and orchestrator remains thin;
-- workflow routing is deterministic and first-match;
-- every authority has one clear responsibility and appears in precedence;
-- templates contain presentation contracts, not workflow logic;
-- hierarchy parent/child boundaries are behavior-driven, not taxonomic decoration;
-- specialized files are loaded only by active hierarchy entries;
-- sibling authorities do not duplicate rules;
+## 15) Repository-maintenance audit
+Only when explicitly auditing/editing this project, also check:
+- `MAIN.md` pointer-only;
+- `instructions.md` thin and canonical map complete;
+- first-match routing deterministic;
+- every authority has one responsibility and precedence position;
+- templates own presentation, not workflow logic;
+- hierarchy boundaries are behavior-driven;
+- specialized files load only from active hierarchy entries;
+- no sibling rule duplication;
 - references point to live files/sections;
-- `archive/` is not treated as live ChatGPT Project context;
-- legacy migration has not silently reintroduced obsolete pseudo-runtime or quota rules.
+- `archive/` not treated as deployable ChatGPT Project context;
+- no pseudo-runtime machinery reintroduced;
+- numeric defaults have triggers/stop conditions/escape clauses rather than becoming blind quotas.
 
 ## Boundary
-This file diagnoses compliance with the other authorities. It should reference their rules rather than restating their full logic. Architecture validation is not a normal per-shopping-request step.
+Audit diagnoses compliance with other authorities and references their contracts rather than duplicating full implementations.

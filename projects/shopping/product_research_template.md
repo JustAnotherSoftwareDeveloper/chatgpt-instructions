@@ -1,49 +1,57 @@
 # Product Research Template
 
 ## Purpose
-Define the normal output structure for `product_research.md`. This file owns presentation only.
+Define the normal presentation contract for `product_research.md`. This file owns presentation only.
 
-Use only sections that materially help the user; omit empty or irrelevant sections.
-
-## Required order
+## Required for normal open-market Product Research
 ### Recommendation
-Lead with the primary recommendation or, when no universal winner exists, the decision boundary between the strongest options.
+Lead with the primary recommendation or the decision boundary when no single winner is justified.
 
-Include a concise statement of who the recommendation is for and its most important caveat.
+Include:
+- who it is for;
+- most important reason;
+- most important caveat.
 
-### What matters for this purchase
-Summarize the few active criteria and hard constraints that actually drive the decision.
+### Decision drivers
+List the **3-5 primary differentiators** that actually drove the recommendation, plus any hard constraints that materially shaped the field.
 
 ### Comparison
-Use a concise table or similarly scannable comparison when multiple finalists are evaluated.
+When **2 or more finalists** are discussed, use one concise table or similarly scannable comparison.
 
-Compare only decision-relevant dimensions from the active criteria. Do not force generic columns that do not apply.
+Columns should be the active decision drivers, not generic boilerplate.
 
 ### Candidate tradeoffs
-For each serious finalist included in the answer, state:
-- strongest reasons to choose it;
-- most important weakness/tradeoff;
-- who it best fits;
-- who should avoid it or choose an alternative.
+For every finalist included in the answer state:
+- why choose it;
+- main weakness/tradeoff;
+- best-fit user;
+- who should choose another option.
 
 ### Pricing / buying notes
-Include only when current price, deal quality, availability, retailer/channel, warranty, or seller risk materially affects the decision.
+Required when budget, current price, deal quality, availability, or where-to-buy is in scope. Include only decision-relevant seller/channel facts.
 
-### Important uncertainties
-Include material unresolved evidence, variant, version, reliability, or market uncertainties that could change the recommendation.
+### Material uncertainties
+Include any unresolved identity, evidence, reliability, version, or market uncertainty that could change the decision. Omit only when none remain.
 
 ### Research basis
-Provide concise citations/sources appropriate to the research performed. Do not expose internal source-count compliance, discovery ledgers, excluded-source lists, or claim maps unless the user asks for them or invokes `audit.md`.
+Provide concise citations/sources appropriate to the research performed. Do not expose internal source-count ledgers or excluded-source lists unless asked/audited.
+
+## Normal recommendation shape
+For broad open-market research:
+- 1 primary recommendation when justified;
+- normally 2-3 alternatives representing genuinely different tradeoffs.
+
+Use fewer/more only when the workflow's escape clauses justify it.
 
 ## Optional sections
-Use when the user's request makes them first-class concerns:
+Use only when first-class to the request:
 - Design / aesthetic / identity fit;
-- Compatibility / setup notes;
+- Compatibility / setup;
 - Maintenance / ownership plan;
 - Why not the obvious alternatives;
 - Current deal snapshot.
 
 ## Formatting
-- Prefer concise prose plus one useful comparison table over repetitive candidate profiles.
-- Do not emit an internal classification label, workflow name, or list of loaded instruction files unless explicitly asked.
-- Confidence may be stated per recommendation or per material uncertain claim when useful; do not add a confidence field mechanically to every sentence.
+- Prefer concise prose plus one useful comparison table over repetitive profiles.
+- Do not emit internal hierarchy labels, research modes, or loaded filenames unless explicitly asked.
+- Confidence may be stated at recommendation or material-claim level; do not mechanically label every sentence.

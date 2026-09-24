@@ -3,147 +3,154 @@
 ## Purpose
 Own behavior specific to Chef's Knives when the `Chef's Knife` Type is active.
 
-Use the Chef's Knife sections of `criteria.md`, `source_playbooks.md`, and `pricing.md` alongside this file, plus all inherited Kitchen Knife guidance.
+Use Chef's Knife sections of `criteria.md`, `source_playbooks.md`, and `pricing.md`, plus inherited Kitchen Knife guidance.
 
 A Chef's Knife here includes general-purpose Western chef knives and gyuto-style knives serving the same primary-kitchen-knife role.
 
-## 1) Primary-knife role
-Evaluate the knife first as the user's main general-purpose kitchen knife.
+## 1) Default consumer model
+For an underspecified ordinary Chef's Knife shopping request, assume unless contradicted:
+- home cook;
+- one primary general-purpose knife;
+- approximately **8 in / 200-210 mm**;
+- mixed ordinary cutting motion;
+- wood or plastic cutting board;
+- no bones, frozen food, prying, or dishwasher use;
+- stainless or low-reactivity favored;
+- moderate-to-low maintenance preference;
+- functional value matters more than collector/artisan prestige.
 
-A strong Chef's Knife should handle the user's common mix of tasks without creating unnecessary specialist compromises.
+These are working defaults, not claims about the user. Replace them immediately when the request or locked context says otherwise.
 
-Typical tasks may include:
-- vegetables and herbs;
-- onions/garlic;
-- boneless proteins;
-- slicing/portioning;
-- general prep and detail work appropriate to the tip.
+## 2) Primary-knife role
+Evaluate first as the user's main general-purpose knife for common vegetables/herbs, onions/garlic, boneless proteins, slicing/portioning, and normal detail work.
 
-Do not force the Type when the user's real primary tasks are better served by another format.
+Do not force the Type when the real primary tasks are better served by another format.
 
-## 2) Length
-Treat nominal length as a fit dimension, not a prestige hierarchy.
+## 3) Length
+Treat length as fit, not prestige.
 
-Common primary-knife sizes around 8 inches / 200-210 mm are broadly versatile, but evaluate:
-- board size;
-- counter/workspace;
-- user's hand/control preference;
-- storage;
+Use ~200-210 mm / 8 in as the default starting point when unspecified, then adjust for:
+- board size/workspace/storage;
+- hand/control preference;
 - prep volume;
-- whether longer length improves slicing/capacity or merely adds unwieldiness.
+- slicing capacity;
+- explicit compact/long-blade preference.
 
-Shorter knives may improve control in small kitchens; longer knives may improve capacity and slicing for large prep.
+Shorter may improve control in small kitchens; longer may improve capacity/slicing. Do not assume longer is more capable.
 
-Do not assume the longest knife is the most capable.
+## 4) Profile and cutting-motion triggers
+### Heavy rocking
+If the user explicitly rocks heavily or repeatedly references curved-profile preference:
+- make profile/belly a **primary differentiator**;
+- avoid very flat profiles likely to fight the technique.
 
-## 3) Blade height and heel clearance
-Evaluate actual heel height and handle/choil interaction relative to:
-- user's hand size;
-- pinch grip or handle grip;
-- knuckle clearance;
-- board contact.
+### Push-cut / chop dominant
+If the user primarily push-cuts/chops:
+- make flat useful contact region and predictable board contact a **primary differentiator**;
+- do not favor extra belly merely because it is common in Western chef knives.
 
-A nominally correct length can still fit poorly if height/handle geometry is wrong for the user.
+### Mixed / unspecified
+Use a moderate versatile profile as default and keep profile as a primary differentiator only when finalist differences are large enough to matter.
 
-## 4) Profile and cutting motion
-Map edge profile to technique.
+## 5) Heel clearance and hand fit
+Elevate heel height/handle interaction to a primary differentiator when:
+- user has large hands or explicitly needs clearance;
+- user pinch-grips and models differ materially at heel/choil;
+- user reports knuckle-contact problems;
+- compact/short-height knives are under consideration.
 
-### Rocking-oriented users
-May prefer enough belly/curve to maintain smooth board contact through a rock motion without excessive tip lift or accordion cuts.
+Otherwise treat as a normal ergonomic check.
 
-### Push-cut / chop-oriented users
-May prefer a flatter useful edge section and predictable board contact.
+## 6) Tip utility
+Evaluate precision/detail usefulness vs fragility. Fine tips can improve onion/detail/trimming work but may require more care. Robust tips trade some precision for durability.
 
-### Mixed technique
-Often benefits from a moderate profile that supports both without being extreme.
+Elevate tip behavior only when the user's food/tasks or finalist geometry makes it materially different.
 
-Do not describe profile as universally better/worse without reference to cutting motion.
+## 7) Grind / robustness override triggers
+### Precision/thin-cutting preference
+If user explicitly wants laser-like cutting, very low resistance, or mostly careful vegetable/boneless prep:
+- make thinness/cutting resistance a primary differentiator;
+- keep abuse tolerance as an explicit caveat.
 
-## 5) Tip geometry
-Consider:
-- precision and maneuverability;
-- onion/detail work;
-- trimming;
-- piercing;
-- fragility/robustness;
-- how the tip transitions into the main edge profile.
+### Rough-use / abuse signals
+If user expects bones, frozen food, prying, twisting, hard impact, very hard boards, or generally rough handling:
+- make robustness/toughness a hard gate or primary differentiator;
+- do not recommend fragile thin/hard geometry as the ordinary fit;
+- consider whether Chef's Knife is even the correct Type for those tasks.
 
-A fine tip can be highly useful but may require more care. A robust tip may sacrifice some precision.
+### Unspecified ordinary home use
+Balance cutting resistance and robustness; do not optimize for an extreme laser or heavy workhorse by default.
 
-## 6) Grind and food behavior
-For a primary knife, assess whether the grind balances:
-- low cutting resistance;
-- adequate robustness for the user's foods/technique;
-- acceptable wedging in dense foods;
-- food release appropriate to the user's common ingredients.
+## 8) Reactivity / maintenance override triggers
+### User explicitly wants carbon/reactive steel
+Remove the stainless/low-reactivity default. Evaluate care burden as an accepted tradeoff rather than an automatic negative.
 
-Very thin "laser" geometry can feel exceptional in many foods but may offer less abuse tolerance and sometimes weaker food release.
+### User wants very low maintenance / no sharpening interest
+- elevate corrosion resistance, edge-service practicality, and easy professional sharpening/service access;
+- strongly penalize unnecessary maintenance complexity;
+- if user demands dishwasher-safe use, explain that ordinary quality Chef's Knives are a poor match for that requirement rather than pretending a normal recommendation still fits.
 
-Thicker/convex workhorse grinds may provide more robustness or food separation while giving up some effortless cutting feel.
+### User sharpens and values edge experimentation
+Sharpening response, steel/heat treatment, and geometry can become primary differentiators.
 
-Treat these as different tool personalities, not an automatic quality ladder.
+## 9) Weight and balance
+Evaluate relative to control, fatigue, cutting style, and user preference.
 
-## 7) Weight and balance
-Evaluate overall mass and balance relative to:
-- control;
-- fatigue;
-- cutting style;
-- user's strength/preference;
-- whether the knife feels blade-forward, neutral, or handle-heavy.
+Heavier can add momentum/stability; lighter can add agility/lower fatigue. Neither is universally better.
 
-Heavier can provide momentum and stability; lighter can provide agility and lower fatigue. Neither is universally superior.
+Elevate only when user expresses a preference or finalists differ enough to change handling materially.
 
-## 8) Handle and grip fit
-For primary-knife use, consider:
-- pinch-grip comfort;
-- handle length/diameter;
-- Western vs wa-style handle consequences;
-- balance shift from handle construction;
-- wet/slippery handling where relevant;
-- hotspots over longer prep sessions.
+## 10) Handle and grip
+Consider pinch-grip comfort, handle dimensions, Western vs wa consequences, balance shift, wet grip, and hotspots over expected prep duration.
 
-Do not assume a premium handle material improves ergonomics.
+Do not infer ergonomic superiority from premium handle materials.
 
-## 9) Chef knife vs gyuto terminology
-Treat gyuto as a Japanese general-purpose knife broadly analogous in role to a Western chef's knife, while recognizing common differences in geometry/profile/weight/handle/steel tendencies.
+## 11) Artisan / collector override
+If the user explicitly values artisan work, maker identity, craft, rare materials, aesthetics, collector standing, or low-volume production:
+- activate Design / aesthetic / identity as a primary preference dimension;
+- treat provenance and maker identity as material;
+- do not dismiss craft/finish premiums as wasted money merely because raw cutting performance is similar.
 
-Do not assume all gyuto are thin, hard, flat, or wa-handled, and do not assume all Western chef knives are thick/soft/rocking-oriented.
+If those signals are absent, functional value should dominate over collector/artisan premium under the default model.
 
-Evaluate the actual model.
+## 12) Chef's knife vs adjacent types
+Consider switching or adding an adjacent Type only when the use case strongly supports it:
+- santoku for compact all-purpose preference;
+- nakiri for vegetable-heavy flat/tall profile use where pointed tip is unnecessary;
+- Chinese cleaver for users wanting a tall rectangular general-purpose blade and its technique;
+- petty/utility for unusually small/light prep and active dislike of full-size knives;
+- heavier cleaver/butcher tool for bone/abuse tasks outside normal Chef's Knife use.
 
-## 10) When another knife type may fit better
-Consider redirecting the user when the use case strongly favors another primary format, for example:
-- santoku for a shorter/compact all-purpose preference;
-- nakiri for vegetable-heavy users who want a flat, tall profile and do not need a pointed tip;
-- Chinese cleaver for users who want a tall rectangular general-purpose blade and understand its technique;
-- petty/utility for users whose prep is very small/light and who actively dislike full-size chef knives;
-- heavier cleaver/butcher tools for abuse/bone tasks outside normal Chef's Knife use.
+Do not switch Types casually.
 
-Do not switch Types casually; do it when the user's task/fit signals materially support the alternative.
+## 13) Fit questions: when to ask
+Do not ask the full questionnaire.
 
-## 11) Recommendation fit questions
-When missing information matters, the most useful Chef's-Knife fit variables are usually:
-- approximate preferred length / board size;
-- rocking vs push/chop vs mixed technique;
-- stainless/low-maintenance vs willingness to care for reactive steel;
-- home sharpening vs service/no-sharpening preference;
+Ask only when a missing variable would change the viable set or primary differentiators. Highest-value variables are:
+- preferred length/board size;
+- rocking vs push/chop vs mixed;
+- stainless/low-maintenance vs reactive-steel willingness;
+- sharpening/service posture;
 - tolerance for thin/hard/chip-sensitive geometry;
 - weight/balance preference;
 - budget and whether craft/aesthetics are part of value.
 
-Ask only for the subset that can materially change the recommendation.
+If none blocks useful research, use the default consumer model and proceed.
 
-## 12) Research and comparison emphasis
-For Chef's Knife research, prioritize evidence that reveals:
-- actual dimensions/profile;
-- grind/geometry and cutting behavior;
-- QC consistency;
-- steel/heat-treatment/edge behavior in context;
-- balance and ergonomics;
-- maintenance expectations;
-- user-fit differences between otherwise credible knives.
+## 14) Default criterion priorities
+For an ordinary underspecified Chef's Knife purchase, start with these primary differentiators unless the request overrides them:
+1. geometry/cutting behavior and primary-knife versatility;
+2. profile/length/ergonomic fit;
+3. maintenance/edge behavior appropriate to the user;
+4. QC/provenance confidence;
+5. value at current price.
 
-De-emphasize comparisons based mainly on steel marketing, decorative finish, brand prestige, or factory sharpness unless those are explicit user priorities.
+Secondary dimensions become primary only through the triggers above.
+
+## 15) Research emphasis
+Prioritize evidence revealing actual dimensions/profile, grind/cutting behavior, QC, steel/heat-treatment/edge behavior in context, balance/ergonomics, maintenance expectations, and current value.
+
+De-emphasize steel marketing, decorative finish, brand prestige, or factory sharpness unless explicitly relevant.
 
 ## Boundary
-This file owns only Chef's-Knife-specific fit and primary-tool behavior. Shared knife metallurgy, sharpening, construction, provenance, and maintenance rules belong to `category_kitchen_knives.md`.
+This file owns Chef's-Knife-specific primary-tool fit and defaults. Shared metallurgy/sharpening/construction/provenance rules belong to `category_kitchen_knives.md`.

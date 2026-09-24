@@ -1,41 +1,46 @@
 # Pricing Tier Template
 
 ## Purpose
-Define the output structure for `pricing_tiers.md`. This file owns presentation only.
+Define the presentation contract for `pricing_tiers.md`. This file owns presentation only.
 
-Use only tiers justified by the live market and user request.
-
-## Required order
+## Required sections
 ### Market map
-Briefly explain the current market shape and where the meaningful price/value transitions appear.
+Briefly explain the observed market structure and number of valid tiers.
 
-### Meaningful tiers
-For each tier, show:
-- tier name / buyer intent;
-- observed price range or representative current range;
-- representative pick(s);
-- what the buyer gets at this level;
-- major compromise(s);
-- who should stop here vs spend more.
+### Tier comparison
+Use a table with, at minimum:
+- tier / current price region;
+- buyer/value proposition;
+- primary representative;
+- optional alternative when it represents a different tradeoff;
+- what the step up buys.
 
-A table is preferred when it makes cross-tier differences clearer.
+### Tier details
+For each tier state:
+- why the representative fits the tier;
+- main drawback / reason to skip;
+- who should buy at this tier;
+- who should move up or stay lower.
 
-### What improves as spending rises
-Explain the material gains between adjacent tiers.
+### What spending more buys
+For every adjacent tier, summarize:
+- approximate additional spend;
+- concrete gains;
+- what does not materially improve.
 
 ### Diminishing returns
-Identify where additional spend becomes narrower, preference-heavy, prestige/craft/rarity driven, or otherwise less broadly functional.
+Identify the region where additional spend increasingly buys preference, finish, craft, specialization, rarity, prestige, or collector value rather than broad functional/ownership gains.
 
-### Best fit by budget / use case
-Translate the tier map into practical buying guidance, especially around any user-supplied ceiling or target.
+### Pricing / buying notes
+Required. Distinguish normal street price from MSRP, sale/coupon pricing, and suspicious anomalies. Include seller/channel caveats only when they affect a pick.
 
-### Current-price caveats
-Include sale-dependent placement, unusual pricing, availability, or seller-channel caveats when they materially affect the tiers.
+### Material uncertainties
+Include market/price/evidence limitations that could move a product between tiers. Omit only when none remain.
 
 ### Research basis
-Provide concise citations/sources appropriate to the analysis. Do not expose internal discovery or evidence-compliance machinery unless requested or audited.
+Provide concise citations/sources. Keep internal discovery/evidence ledgers out of normal output unless requested/audited.
 
 ## Formatting
-- Do not force a fixed number of tiers.
-- Do not use arbitrary round-number bands unless they correspond to real market/value breakpoints.
-- Do not repeat the same product across tiers unless explicitly labeled as a sale-dependent or bridge option.
+- Default 3-5 tiers; if workflow collapses to fewer, explain the market reason briefly.
+- Do not create empty tiers or repeat the same product across tiers without an explicit bridge/sale/stretch label.
+- Current prices should be clearly identifiable as current observations, not timeless bands.

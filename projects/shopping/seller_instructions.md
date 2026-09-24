@@ -1,51 +1,84 @@
 # Seller and Purchase-Channel Authority
 
 ## Purpose
-Own seller/channel evaluation and offer-level purchase risk when where/how the user buys materially affects the recommendation.
+Own seller/channel evaluation and offer-level purchase risk when where/how the user buys affects the recommendation.
 
 This file evaluates a concrete offer or channel. It does not decide which product is best.
 
 ## 1) Separate product quality from offer quality
-For every concrete offer, distinguish:
-- the product/model/variant itself;
+For every concrete offer distinguish:
+- exact product/model/variant;
 - seller of record;
 - fulfillment party;
 - condition;
-- current price and included items;
-- returns/warranty path;
+- normalized current price;
+- included items/bundle;
+- returns;
+- warranty/support path;
 - provenance/authorized-channel status where relevant.
 
 A good product can be a bad offer. A trustworthy seller does not make a poor product good.
 
 ## 2) Comparable offer basis
-When comparing seller offers, normalize enough to make the comparison fair.
-
-Use, when available:
+Normalize offers using:
 - item price;
 - mandatory shipping;
 - mandatory fees;
 - required membership assumptions;
-- included accessories/bundles that materially differ;
+- materially different included accessories;
 - condition differences.
 
-Taxes may be excluded from cross-seller comparison unless the user asks for tax-inclusive totals or reliable location-specific tax is available.
+Taxes may be excluded from cross-seller comparison unless requested or reliably available.
 
-Do not hide meaningful return shipping, restocking, or warranty costs merely because they are not charged at checkout.
+Do not ignore meaningful return-shipping, restocking, or warranty costs merely because they are not charged at checkout.
 
-## 3) Seller identity and fulfillment
-Identify, when material:
-- who receives the payment / is seller of record;
-- who fulfills/ships the item;
-- whether the transaction occurs directly, through a marketplace, or through an authorized dealer network.
+## 3) Offer states
+Do not use a universal ranking of big-box vs marketplace vs specialist vs brand-direct. Classify each concrete offer instead.
 
-Marketplace platform reputation must not be substituted for third-party seller identity.
+### Exclude
+Default to exclusion when one or more material problems remain unresolved:
+- seller identity cannot be reasonably established;
+- off-platform/unprotected payment is required or pressured;
+- model/variant/condition information is materially contradictory;
+- listing says new while fine print indicates used/open-box/refurbished/"new other";
+- credible counterfeit/impersonation evidence exists;
+- warranty representation conflicts materially with manufacturer/authorized-channel terms;
+- return terms are undiscoverable or transaction terms materially contradict advertised terms.
 
-## 4) Evaluate offers on dimensions, not a universal seller ranking
-There is no fixed rule that big-box, marketplace, specialist, or brand-direct is always better.
+The user may explicitly accept some non-fraud risks, but do not recommend bypassing ordinary buyer protection.
 
-Evaluate:
+### High Risk
+Use when the purchase may be legitimate but has a meaningful unresolved risk such as:
+- provenance or manufacturer warranty materially unclear;
+- difficult/international return path relative to item value;
+- major return restrictions/restocking friction;
+- sparse/poor seller history for an expensive item;
+- price anomaly plus weak provenance/protection;
+- gray-market implications not fully resolved.
+
+### Acceptable
+Use when:
+- seller and product identity are established;
+- ordinary protected payment exists;
+- condition is clear;
+- return policy is known;
+- warranty/provenance posture is understood enough for the decision;
+- no unresolved major red flag remains.
+
+### Preferred
+An Acceptable offer that has the strongest overall combination of normalized price, returns, warranty/provenance, fulfillment, availability, and the user's risk/convenience preferences among the offers considered.
+
+## 4) Seller identity and fulfillment
+Identify when material:
+- seller of record;
+- fulfillment party;
+- direct vs marketplace vs dealer network.
+
+Marketplace platform reputation must not substitute for third-party seller identity.
+
+## 5) Offer evaluation dimensions
 ### Identity and legitimacy
-- discoverable business identity and contact path;
+- discoverable business identity/contact path;
 - coherent domain/store presence;
 - no obvious impersonation, typosquat, or copied-policy signals.
 
@@ -53,97 +86,86 @@ Evaluate:
 - exact model/SKU/variant/size/region;
 - stated condition;
 - authorized-dealer status when it affects warranty/provenance;
-- counterfeit or gray-market exposure where relevant;
+- counterfeit/gray-market exposure;
 - serial/warranty limitations when disclosed.
 
 ### Buyer protection and returns
 - return window;
-- restocking or return-shipping burden;
-- domestic vs difficult international returns when material;
+- restocking fee;
+- return-shipping burden;
+- domestic vs international return path;
 - condition restrictions;
-- marketplace/platform protection;
-- DOA/damage process for fragile or expensive goods.
+- platform protection;
+- DOA/damage process when relevant.
 
 ### Warranty and support
 - manufacturer warranty eligibility;
-- seller-only warranty vs manufacturer support;
-- regional/international warranty limitations;
-- whether the seller meaningfully facilitates service/RMA.
+- seller-only vs manufacturer warranty;
+- regional limitations;
+- seller facilitation of service/RMA.
 
 ### Fulfillment and stock confidence
-- credible in-stock status;
-- expected ship/delivery window;
+- credible stock state;
+- concrete ship/delivery window;
 - backorder/preorder ambiguity;
 - packaging/shipping risk appropriate to the item.
 
 ### Price realism
-- compare against normal current market pricing;
-- unusually low prices require more identity/provenance verification rather than automatic rejection or acceptance.
+Compare against reputable current offers for the same variant/condition.
 
-## 5) Red flags
-Exclude or clearly warn on offers with material unresolved problems such as:
-- off-platform payment pressure or payment methods that remove normal buyer protection;
-- seller identity that cannot be reasonably established;
-- contradictory model/variant/condition information;
-- no discoverable return policy for a meaningful purchase;
-- new-condition listing whose fine print indicates used/open-box/refurbished status;
-- suspected counterfeit or misleading "OEM" identity;
-- warranty representation that conflicts with manufacturer/authorized-channel terms;
-- a price anomaly combined with weak provenance or protection;
-- returns that are impractical relative to the item's value/risk without being clearly disclosed.
+## 6) Price anomaly trigger
+If an offer is **20% or more below the normal reputable-offer range** for the same variant/condition:
+- do not automatically reject or call it a bargain;
+- perform additional seller/provenance/condition/warranty verification;
+- seek a credible explanation such as authorized clearance, discontinued generation, open-box condition, coupon, or documented sale;
+- classify unexplained anomaly + weak provenance/protection as High Risk or Exclude depending on severity.
 
-Do not recommend bypassing normal buyer protections to obtain a lower price.
+This threshold is a diligence trigger, not proof of fraud.
 
-## 6) Authorized, gray-market, and specialist channels
-Treat channel type as a tradeoff, not a moral label.
-
-### Authorized channel
-May offer stronger manufacturer warranty/provenance confidence, but may cost more.
+## 7) Authorized, gray-market, specialist, and marketplace channels
+### Authorized
+May improve manufacturer warranty/provenance confidence. Do not assume it is always the best value.
 
 ### Gray market / parallel import
-May be legitimate but can change warranty, region, included accessories, service, resale, or return risk. State the actual consequence rather than using "gray market" as a blanket rejection.
+May be legitimate but can change warranty, region, accessories, service, returns, or resale. State the actual consequence rather than rejecting the label itself.
 
 ### Specialist retailer
-May be particularly strong in enthusiast/niche categories because of expertise, curation, service, sharpening/setup, or access to makers. Evaluate actual policies and reputation rather than assuming major retail is safer/better.
+May outperform general retail in niche categories through curation, expertise, setup, sharpening, fitting, service, or provenance. Evaluate actual policies and reputation.
 
 ### Marketplace
-Assess seller-of-record and fulfillment separately. Platform protection can reduce transaction risk without eliminating counterfeit, wrong-item, or warranty concerns.
+Evaluate seller of record and fulfillment separately. Platform protection can reduce transaction risk without eliminating counterfeit, wrong-item, or warranty concerns.
 
-## 7) Counterfeit-prone or provenance-sensitive products
+## 8) Counterfeit/provenance escalation
 Increase diligence when the product/category has meaningful counterfeit, clone, relabel, or provenance risk.
 
-Prefer corroboration of:
-- exact SKU/model;
-- authorized-dealer status where relevant;
-- maker/brand identity;
-- warranty status;
-- realistic pricing;
-- specialist/community warnings about known counterfeit patterns.
+Prefer corroboration of exact SKU, authorized status where relevant, maker/brand identity, warranty status, realistic pricing, and domain-community warnings about known counterfeit patterns.
 
 Do not infer counterfeit status solely from low price or marketplace presence.
 
-## 8) Offer recommendation
-When the workflow asks where to buy:
-- prefer the best risk-adjusted offer, not automatically the cheapest;
-- explain material differences in price, returns, warranty, provenance, or fulfillment;
-- include more than one seller option when useful and genuinely competitive;
-- do not force a second seller merely to satisfy a quota.
+## 9) Offer comparison procedure
+When a workflow asks where to buy:
+1. eliminate Excluded offers;
+2. distinguish High Risk from Acceptable;
+3. compare Acceptable offers on normalized total plus return/warranty/provenance/fulfillment differences;
+4. prefer the Preferred offer that best matches the user's risk/convenience posture rather than automatically choosing the cheapest;
+5. when at least 2 Acceptable current offers exist and the answer includes buying guidance, compare at least 2 unless the user restricts the seller set.
 
-The acceptable premium for a safer/easier channel is context-dependent. Consider product cost, return likelihood, counterfeit risk, warranty value, item fragility, and user preference rather than applying a fixed dollar or percentage formula.
+There is no universal fixed dollar/percentage premium for safer channels.
 
-## 9) Current-offer evidence
-For a concrete recommendation, capture internally as applicable:
+## 10) Minimum offer packet
+For every recommended concrete offer capture internally:
 - seller of record;
 - fulfillment party;
-- exact product/variant and condition;
-- current normalized price;
-- return window/friction;
+- exact variant and condition;
+- normalized current total;
+- return window and material friction;
 - warranty/provenance posture;
 - stock/delivery confidence;
+- offer state: Exclude / High Risk / Acceptable / Preferred;
 - material flags;
-- when the offer was checked.
+- check date.
 
-Normal output should surface only the fields that change the purchase decision. `audit.md` may inspect the deeper offer basis.
+Normal output should surface only fields that change the purchase decision.
 
 ## Boundary
-Product quality belongs to active criteria and hierarchy authorities; general evidence standards belong to `research_sources.md`; review interpretation belongs to `reviews.md`; reusable product-value logic belongs to `pricing.md`.
+Product quality belongs to active criteria/hierarchy authorities; general evidence to `research_sources.md`; review interpretation to `reviews.md`; product-value logic to `pricing.md`.

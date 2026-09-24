@@ -1,252 +1,227 @@
 # Research Source Authority
 
 ## Purpose
-Own evidence admissibility, claim/source fit, independence, recency, coverage, conflict handling, uncertainty, and claim-to-evidence discipline for Shopping research.
+Own evidence admissibility, claim/source fit, independence, recency, coverage, conflict handling, research depth, stopping rules, and claim-to-evidence discipline.
 
-This file governs evidence quality. It does not define category-specific discovery, review-content interpretation, seller/channel risk, workflow steps, or output formatting.
+This file governs evidence quality. It does not define category-specific discovery, review-content interpretation, seller/channel risk, workflow sequencing, or presentation.
 
 ## 1) Evidence model
 ### Source artifact vs source entity
-- A **source artifact** is a specific page, document, video, post, thread, dataset, or listing.
-- A **source entity** is the responsible publisher/author/organization/creator.
+- A **source artifact** is a page, document, video, post, thread, dataset, listing, or other specific item.
+- A **source entity** is the responsible publisher, author, organization, creator, seller, or owner population.
 
-Multiple artifacts from the same entity may be useful, but they do not create independent corroboration by themselves.
-
-Collapse syndicated, mirrored, paraphrased, or citation-ring content to the underlying information origin when assessing independence.
+Multiple artifacts from one entity may be useful but do not create independent corroboration. Collapse syndicated, mirrored, paraphrased, embargo-derived, citation-ring, or same-creator cross-posted content to the underlying information origin when judging independence.
 
 ### Discovery vs evidence
-Discovery sources may help:
-- identify candidates;
-- map terminology;
-- locate primary documents;
-- discover market segments or known issues.
+Discovery sources may identify candidates, terminology, market segments, known issues, and primary documents. They do not automatically qualify as evidence.
 
-Discovery alone does not make a source suitable evidence for a conclusion.
-
-Do not use search snippets, affiliate roundups, copied lists, or unverified marketplace text as evidence merely because they were useful for discovery.
+Do not use search snippets, copied roundups, affiliate listicles without original work, or unverified marketplace text to support recommendation-changing claims merely because they helped discovery.
 
 ## 2) Admissibility before weight
-Evaluate whether a source is usable for the claim before deciding how much weight to give it.
+A source must fit the claim before its weight matters.
 
-A source may be inadmissible for one claim and useful for another. Examples:
-- manufacturer documentation may be excellent for supported dimensions but weak evidence of real-world durability;
-- owner reports may be useful for recurring failure modes but not authoritative for official specifications;
-- seller listings may establish current offer terms but should not override primary product documentation.
-
-Weighting cannot rescue a source that is fundamentally mismatched to the claim.
-
-## 3) Source families and best uses
-### Primary / official
 Examples:
-- manufacturer manuals, datasheets, compatibility lists, warranty terms, support bulletins, release notes;
-- standards, certification, regulatory, recall, and official registry sources.
+- manufacturer documentation can be authoritative for supported dimensions but weak evidence of real-world durability;
+- owner reports can reveal recurring failures but are not authoritative for official specifications;
+- seller listings can establish a current offer but should not override primary product documentation.
 
-Best for:
-- objective specifications;
-- documented compatibility and support boundaries;
-- warranty/policy language;
-- safety/compliance/recall facts.
+Weighting cannot rescue a fundamentally mismatched source.
 
-Limit:
-- manufacturer marketing is not independent evidence of comparative performance, reliability, or value.
+## 3) Research modes
+Research modes set normal operating budgets. They are not quota goals; claim coverage and stop conditions determine completion.
+
+### Quick
+Default for `quick_check.md`, narrow factual questions, and tightly scoped 1-2 product checks.
+
+Normal evidence budget: **2-4 independent entities**.
+
+Expected coverage, where relevant:
+- primary/official source for identity, specification, or compatibility;
+- at least 1 competent independent empirical/specialist/practitioner source when quality/performance matters;
+- owner/community evidence when reliability/QC/long-term ownership is one of the decision-changing questions;
+- seller evidence when price/deal/channel is in scope.
+
+### Standard
+Default for ordinary Product Research, Pricing Tiers, and Vendor Research.
+
+Normal evidence budget: **5-8 independent entities**.
+
+Expected coverage, where relevant:
+- at least 1 primary/official entity for objective facts;
+- at least 2 independent empirical/specialist/practitioner entities for recommendation-changing performance/quality claims;
+- owner/community or long-term evidence for reliability, QC, maintenance, or usability claims;
+- current seller evidence when current price or availability changes the decision.
+
+When owner/community evidence materially drives a reliability/QC conclusion, prefer evidence from **at least 2 independent populations or platforms** when available.
+
+### Deep
+Activate when one or more are true:
+- user explicitly requests deep/exhaustive research;
+- safety, compatibility, fitment, or failure consequences are unusually high;
+- the purchase is expensive and long-lived relative to the category/user;
+- counterfeit/provenance/revision risk is substantial;
+- enthusiast/luxury execution or provenance materially drives value;
+- credible evidence is contradictory;
+- a workflow or specialized authority explicitly escalates depth.
+
+Normal evidence budget: **8-12 independent entities**.
+
+Expected behavior:
+- satisfy Standard coverage with greater independence;
+- intentionally seek disagreement/disconfirming evidence;
+- seek long-term or domain-native evidence where available;
+- reduce dependence on any single non-primary entity or narrative ecosystem;
+- use 2-3 current seller offers when current price/channel is material and the market supports it.
+
+### Sparse
+Use only because credible evidence is genuinely unavailable, not to save work.
+
+Use the strongest available evidence and explicitly state:
+- which normal coverage expectations could not be met;
+- what remains unverified;
+- how the limitation affects confidence;
+- what evidence would most change the conclusion when useful.
+
+## 4) Source families and best uses
+### Primary / official
+Examples: manufacturer manuals/specifications, compatibility lists, warranty/support terms, standards, certification, regulatory, recall, official registries.
+
+Best for objective specifications, documented compatibility, official support boundaries, safety/compliance status, recalls, and policy language.
+
+Manufacturer marketing is not independent proof of comparative performance, reliability, or value.
 
 ### Method-based publications / specialists
-Best for:
-- measured or repeatable performance;
-- structured comparisons;
-- documented tests;
-- category-specific evaluation where methodology is visible.
-
-Assess whether the test conditions actually match the claim and user use case.
+Best for measured or repeatable performance, structured comparisons, documented testing, and category-specific evaluation with visible methodology.
 
 ### Domain experts / experienced practitioners
-Best for:
-- nuanced tradeoffs;
-- technical interpretation;
-- maintenance/service realities;
-- hands-on behavior difficult to reduce to benchmarks.
+Best for nuanced tradeoffs, service/maintenance realities, technical interpretation, and behaviors not captured well by benchmark-style testing.
 
-Require demonstrated competence, specificity, and clear context. Expertise does not eliminate incentive or preference bias.
+Require demonstrated competence, specificity, and relevant context.
 
-### Owner/community evidence
-Best for:
-- long-term reliability and wear;
-- unit variation and QC patterns;
-- workflow friction;
-- edge cases and compatibility reality;
-- newly emerging issues;
-- preference-sensitive experience.
+### Owner / community evidence
+Best for long-term reliability, QC variation, maintenance/workflow friction, emerging issues, compatibility reality, and preference-sensitive experience.
 
-Use patterns and specificity, not isolated anecdotes or raw star averages.
-
-Review/community interpretation is governed by `reviews.md`.
+Interpret under `reviews.md`; patterns matter more than isolated anecdotes or raw ratings.
 
 ### Seller / listing evidence
-Best for:
-- current price;
-- stock/availability;
-- included accessories/condition;
-- shipping, return, and offer-specific terms.
+Best for current price, stock, exact offer/condition, included items, shipping, returns, and offer-specific terms.
 
-Seller/channel interpretation is governed by `seller_instructions.md`.
+Interpret under `seller_instructions.md`.
 
-A seller listing should not be the sole support for a disputed technical product claim when better sources are available.
-
-## 4) Match evidence to claim type
+## 5) Claim-type evidence rules
 ### Objective specifications / compatibility
-Prefer primary or official documentary evidence.
+Prefer primary/official evidence. One unambiguous authoritative primary source may be sufficient.
 
-If primary evidence is unavailable or ambiguous, corroborate with independent technically competent sources and state uncertainty if material.
+If primary evidence is unavailable or ambiguous, use at least 2 independent technically competent non-retailer sources and mark uncertainty when material.
 
 ### Measured / repeatable performance
-Prefer transparent method-based testing or technically competent sources that disclose enough conditions to interpret the result.
+Prefer transparent method-based testing.
 
-Do not combine unlike measurements as if they were directly comparable.
+For recommendation-changing performance claims in Standard/Deep research, normally require independent corroboration rather than relying on one non-primary test.
+
+Do not combine unlike measurements or incompatible test protocols as if directly comparable.
 
 ### Reliability / durability / QC
-Prefer a mix of:
-- long-term testing where available;
-- broad, independent owner/community signal;
+Prefer a combination of:
+- long-term testing or ownership;
+- independent owner/community signal;
 - repair/service evidence where relevant;
-- official acknowledgements, bulletins, warranty changes, or recalls when applicable.
+- official acknowledgement, bulletin, warranty change, revision, or recall when applicable.
 
-Do not infer a numerical failure rate from self-selected online reports unless a credible dataset actually supports one.
+Do not estimate numerical failure rates from self-selected online reports without a representative dataset.
 
 ### Safety / compliance
-Prefer authoritative standards, regulatory, certification, recall, and primary documentation.
-
-Community reports can identify a possible issue but are not proof of regulatory or safety status.
+Prefer authoritative standards/regulatory/certification/recall plus applicable primary documentation. Community reports may identify a possible issue but are not proof of regulatory status.
 
 ### Subjective fit / comfort / taste / aesthetics
-Use diverse, context-rich hands-on or owner perspectives.
-
-Scope conclusions to preferences: "better for X" is usually more defensible than universal "best" claims.
+Use diverse context-rich hands-on perspectives. Scope conclusions to user profiles or preferences rather than universal superiority.
 
 ### Current price / availability / policy
-Use recent, directly observed seller or primary sources. Time-stamp mentally or in output when the fact is likely to change quickly.
-
-## 5) Research depth by decision risk
-Do not use fixed URL quotas. Gather enough independent evidence to cover the material claim types and decision risks.
-
-### Quick / narrow
-Appropriate for a focused factual or one-product sanity question with low ambiguity.
-
-Aim to verify the few claims that can change the answer, using the strongest source type for each.
-
-### Standard purchase research
-Appropriate for ordinary recommendations and comparisons.
-
-Cover, where material:
-- primary/documentary facts;
-- independent performance or expert evidence;
-- real-world ownership/reliability signal;
-- current market evidence when price/availability matters.
-
-Use multiple independent source entities across the important claim types. Do not pad the research with low-value sources to hit a count.
-
-### Deep / high-consequence
-Increase breadth and triangulation when the decision involves one or more of:
-- high cost relative to the category/user;
-- long ownership horizon;
-- safety or significant compatibility risk;
-- counterfeit/gray-market exposure;
-- high unit variation or known revision risk;
-- enthusiast/luxury purchases where execution and provenance matter;
-- contradictory or sparse evidence;
-- explicit user request for deep research.
-
-Deep research should reduce dependence on any single non-primary source and intentionally seek disagreement, long-term evidence, and domain-native expertise.
-
-### Sparse coverage
-When credible evidence is genuinely limited:
-- use the strongest available evidence;
-- do not manufacture breadth with weak sources;
-- explicitly state what could not be verified;
-- narrow the conclusion and confidence accordingly;
-- identify what evidence would most change the answer when useful.
+Use recent directly observed seller or primary sources. Check the exact variant/condition and date-sensitive terms.
 
 ## 6) Independence and narrative concentration
-Do not confuse multiple links with multiple independent perspectives.
+Do not confuse many links with many perspectives.
 
-Treat as non-independent or partially dependent when appropriate:
-- syndicated articles;
+Treat as dependent or partially dependent when appropriate:
+- syndicated/rehosted content;
 - copied tests;
-- embargo-day coverage repeating the same briefing;
-- multiple channels/accounts from the same reviewer;
-- publications in the same editorial network repeating one analysis;
-- many community comments deriving from one viral claim rather than independent experience.
+- press-release/embargo coverage repeating one briefing;
+- multiple channels from the same reviewer;
+- one editorial network repeating one analysis;
+- community discussion that traces back to one viral claim rather than independent experience.
 
-For meaningful conclusions, avoid letting one non-primary entity or one narrative ecosystem dominate when independent alternatives exist.
+In Standard/Deep research, recommendation-changing non-primary claims should not rest on one narrative ecosystem when independent alternatives exist.
 
-## 7) Recency and versioning
+## 7) Challenge pass and stop condition
+### Challenge pass
+After the normal coverage packet is substantially satisfied, run one deliberate challenge pass aimed at finding one or more of:
+- credible contradictory evidence;
+- omitted alternatives or market segments;
+- recurring failure modes;
+- a relevant source family not yet represented;
+- revision/variant differences that could explain apparent consensus.
+
+Deep research may require more than one challenge pass when disagreement persists.
+
+### Research may stop only when
+1. The selected mode's normal coverage packet is met **or** a justified exception/coverage limitation is identified.
+2. Every material recommendation-changing claim has an appropriate evidence type.
+3. Exact product/variant identity is locked enough for the claims made, or the remaining uncertainty is bounded.
+4. Material conflicts are resolved or explicitly narrowed/bounded.
+5. The challenge pass yields no new fact, candidate, failure mode, source family, or tradeoff likely to change eligibility, finalists, recommendation, tier placement, seller judgment, or a material caveat.
+
+Additional sources that merely repeat already-supported claims are not a reason to continue.
+
+## 8) Recency and versioning
 Classify material claims by temporal sensitivity.
 
-### High temporal sensitivity
-Examples:
-- current price and availability;
-- firmware/app behavior;
-- software compatibility;
-- support/EOL status;
-- seller policies;
-- active revisions or silent component changes;
-- recalls and current certification status.
+High sensitivity includes price/availability, firmware/app behavior, software compatibility, EOL/support, policies, active revisions, silent component changes, recalls, and current certification.
 
-Prefer recent, version-aware evidence.
+Low sensitivity includes stable physical geometry, mature material behavior, historical construction, and long-established characteristics not changed by revision.
 
-### Low temporal sensitivity
-Examples:
-- stable physical geometry;
-- mature material properties;
-- historical construction methods;
-- long-established ownership characteristics that have not changed by revision.
+When sources disagree, check model year, generation, SKU, region, firmware, component revision, test conditions, and source date before treating disagreement as substantive.
 
-Prefer quality and applicability over superficial recency.
-
-When sources disagree, check model year, generation, SKU, region, firmware, component revision, test conditions, and source date before treating the disagreement as substantive.
-
-## 8) Conflict handling
+## 9) Conflict resolution
 When credible sources disagree:
-1. Identify the exact claim in dispute.
-2. Check product/variant/version equivalence.
-3. Compare source type and methodology appropriate to that claim.
-4. Look for different test conditions, use patterns, time horizons, incentives, sample bias, or revision drift.
-5. Seek an additional independent source when the disagreement matters to the recommendation.
-6. If unresolved, narrow the claim and present the uncertainty instead of forcing a consensus.
+1. isolate the exact disputed claim;
+2. verify variant/version equivalence;
+3. compare source type and methodology appropriate to that claim;
+4. test for different conditions, time horizons, incentives, sample bias, or revision drift;
+5. seek another independent source when the disagreement is material;
+6. if unresolved, narrow the claim and lower confidence instead of forcing consensus.
 
 Do not average incompatible claims into a false middle.
 
-## 9) Claim-to-evidence discipline
-For every recommendation-changing claim, know internally:
-- what the claim is;
-- which source entities support or challenge it;
-- what kind of evidence they provide;
-- how current/variant-specific the evidence is;
-- how confident the claim should be.
+## 10) Claim-to-evidence discipline
+For each recommendation-changing claim, know internally:
+- the claim;
+- supporting/challenging source entities;
+- evidence type;
+- variant/version applicability;
+- confidence and remaining gap.
 
-The normal final answer does not need to expose a formal claim ledger. Provide citations or a concise research basis appropriate to the output. Expose deeper claim/source mapping when the user requests the basis or invokes `audit.md`.
+Normal outputs need not expose a formal ledger. Expose deeper mapping when the user requests the basis or invokes `audit.md`.
 
-## 10) Confidence
-Use confidence as a summary of evidence quality and coverage, not rhetorical certainty.
-
+## 11) Confidence
 ### High
-Strong claim/source fit, independent corroboration where needed, correct variant/version, and no material unresolved gaps.
+Correct identity/version, strong claim/source fit, appropriate independent corroboration, and no material unresolved gap.
 
 ### Medium
-Useful evidence with meaningful gaps, mixed signals, limited long-term coverage, or some version/market uncertainty.
+Useful evidence with meaningful gaps, mixed signals, limited long-term coverage, or market/version uncertainty.
 
 ### Low
-Sparse or weak evidence, unresolved contradictions, uncertain product identity, strong temporal sensitivity without current verification, or major missing claim types.
+Sparse/weak evidence, unresolved contradictions, uncertain identity, or missing material claim types.
 
-Confidence may vary by claim within the same product.
+Confidence may vary by claim.
 
-## 11) Research integrity rules
-- Do not fabricate sources, quotes, measurements, owner patterns, or current prices.
-- Do not cite a source for a claim it does not actually support.
-- Do not convert repeated anecdotes into a known prevalence rate.
-- Do not treat affiliate status alone as disqualifying; evaluate original work, methodology, incentives, and corroboration.
-- Do not treat primary/vendor claims as independent validation of themselves.
-- Do not let a source playbook lower these evidence standards.
-- If browsing/current verification is unavailable when a material current fact is required, state the limitation and avoid pretending the fact was checked.
+## 12) Integrity rules
+- Do not fabricate sources, measurements, owner patterns, quotes, or current prices.
+- Do not cite a source for a claim it does not support.
+- Do not convert anecdotes into prevalence estimates.
+- Affiliate status alone is not disqualifying; assess original work, method, incentives, and corroboration.
+- Primary/vendor claims are not independent validation of themselves.
+- A source playbook cannot lower these standards.
+- If required current verification is unavailable, state the limitation and avoid pretending it was checked.
 
 ## Boundary
-`source_playbooks.md` owns where to look; `reviews.md` owns interpretation of review/community content; `seller_instructions.md` owns seller/channel and offer risk; workflows decide how research is sequenced and synthesized.
+`source_playbooks.md` owns where to look; `reviews.md` owns review/community interpretation; `seller_instructions.md` owns seller/channel risk; workflows own sequencing and synthesis.

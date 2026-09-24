@@ -1,42 +1,40 @@
 # Vendor Research Template
 
 ## Purpose
-Define the output structure for `vendor_research.md`. This file owns presentation only.
+Define the presentation contract for `vendor_research.md`. This file owns presentation only.
 
-Use only sections relevant to the resolved vendor subtype and user goal.
+## Required sections
+### Vendor / ecosystem framing
+State whether the request is primarily about brands/manufacturers, retailers, dealers/distributors, or a mixed ecosystem when that distinction affects the answer.
 
-## Required order
-### Ecosystem overview
-State what kind of vendor research is being performed: brand/manufacturer, retailer/store, dealer/distributor, or mixed ecosystem.
+### Recommendation / shortlist
+Lead with the most useful vendor/brand choice or decision boundary.
 
-Summarize the main market segments or vendor archetypes that matter to the user.
+Default shape:
+- 1 primary recommendation when justified;
+- normally 2-3 alternatives representing different buyer profiles or ecosystem strengths.
 
-### Recommended vendors / brands
-Present a small set of genuinely distinct candidates.
+### Comparison
+When 2 or more finalists are discussed, use a concise table covering the active vendor criteria rather than generic columns.
 
-For each, include:
-- what the entity is;
-- strongest reason to consider it;
-- most important weakness/tradeoff;
-- price/value posture;
-- support/channel note when relevant;
-- who it best fits.
+### Vendor tradeoffs
+For each included finalist state:
+- what it is and where it sits in the market;
+- strongest differentiator;
+- main weakness;
+- best-fit buyer;
+- reason to choose another finalist.
 
-A comparison table is preferred when several candidates are evaluated on the same dimensions.
+### Channel / support caveats
+Required when retailer/dealer/channel quality, returns, warranty, service, provenance, or regional practicality materially affects the recommendation.
 
-### Important differences
-Explain the decision boundaries between the strongest candidates: specialization, support, price posture, channel model, aesthetics/craft, product consistency, or other active criteria.
-
-### Shopping-channel notes
-Include only when retailer/dealer legitimacy, authorized status, gray market, returns, warranty, service, or where-to-buy materially affects the answer.
-
-### Important uncertainties
-State material reputation, coverage, service, or market gaps that could change the conclusion.
+### Material uncertainties
+Include reputation, service, lineup, or market-coverage gaps that could change the conclusion. Omit only when none remain.
 
 ### Research basis
-Provide concise citations/sources appropriate to the research. Keep internal source-count and compliance machinery out of the normal output unless requested or audited.
+Provide concise citations/sources. Do not expose internal discovery/source-count mechanics unless requested/audited.
 
 ## Formatting
-- Do not force one universal winner when vendors serve different buyer profiles.
-- Keep brand/manufacturer quality separate from retailer/channel quality.
-- Do not turn vendor research into a SKU-by-SKU product shortlist unless the user asks for that deliverable.
+- Keep brand quality distinct from retailer/channel quality.
+- Do not force a single winner when different vendors legitimately specialize for different buyers.
+- Do not emit internal hierarchy labels or research-mode names unless explicitly asked.

@@ -3,25 +3,26 @@
 ## Purpose
 Define reusable evaluation dimensions that hierarchy levels and workflows may apply without restating their meaning.
 
-Criteria identify what should be evaluated. They do not define evidence standards, source discovery, price tiers, review interpretation, seller risk, or workflow steps.
+Criteria identify what should be evaluated. They do not define evidence standards, source discovery, price tiers, review interpretation, seller risk, or workflow sequencing.
+
+## How workflows use criteria
+Classify active criteria internally as one of:
+- **Hard gate** - failure disqualifies the candidate.
+- **Primary differentiator** - likely to change the recommendation among viable candidates.
+- **Secondary / tie-breaker** - useful after primary differentiators are resolved.
+- **Preference / identity dimension** - ranking depends mainly on user taste, aesthetics, craft, community identity, or another explicitly subjective priority.
+
+Product Research should normally use **3-5 primary differentiators** rather than treating every criterion as equally important.
 
 ## General
-Use only dimensions relevant to the request; do not mechanically score every product on every item.
-
 ### Constraint fit
 Whether the product satisfies non-negotiable compatibility, size, platform, use-case, safety, availability, or other hard requirements.
 
-Hard failures normally disqualify a product before softer tradeoffs are considered.
-
 ### Functional performance
-How well the product performs the job the user actually needs, including the conditions under which that performance holds.
-
-Do not substitute headline specifications for demonstrated or practically relevant performance.
+How well the product performs the job the user actually needs, including relevant operating conditions. Do not substitute headline specifications for demonstrated/practical performance.
 
 ### Reliability and durability
-Expected consistency, failure modes, wear behavior, repair/replacement burden, and confidence in long-term ownership.
-
-Separate known recurring patterns from isolated anecdotes or unknown prevalence.
+Expected consistency, failure modes, wear behavior, repair/replacement burden, and confidence in long-term ownership. Separate recurring patterns from isolated anecdotes and unknown prevalence.
 
 ### Usability and ergonomics
 Setup burden, control quality, comfort, workflow friction, accessibility, maintenance interaction, and day-to-day fit.
@@ -30,88 +31,80 @@ Setup burden, control quality, comfort, workflow friction, accessibility, mainte
 Physical, electrical, software, accessory, consumable, platform, or workflow compatibility where relevant.
 
 ### Maintainability and serviceability
-Cleaning, routine maintenance, repairability, replacement parts, consumables, sharpening/service needs, update/support posture, and realistic user upkeep.
+Cleaning, routine maintenance, repairability, parts/consumables, sharpening/service needs, update/support posture, and realistic user upkeep.
 
 ### Ownership cost
-Purchase price plus meaningful accessories, required consumables, subscriptions, maintenance, replacement parts, and foreseeable ownership costs.
-
-Do not invent TCO components that are immaterial to the category.
+Purchase price plus meaningful required accessories, consumables, subscriptions, maintenance, service, and replacement costs. Do not invent immaterial TCO components.
 
 ### Design / aesthetic / identity fit
-Use as a first-class criterion when the user's intent includes appearance, design language, collector appeal, craft, brand identity, enthusiast credibility, or emotional value.
-
-Do not silently subordinate an explicitly important aesthetic/identity requirement to pure utility.
+Use as a first-class criterion when appearance, design language, collector appeal, craft, brand identity, enthusiast credibility, or emotional value is explicit or strongly implied.
 
 ### Value
-The quality and usefulness the user receives for the money, considering the active criteria and ownership horizon.
-
-Value is not synonymous with lowest price.
+Quality/usefulness received for money across the active criteria and ownership horizon. Value is not synonymous with lowest price.
 
 ## Home & Kitchen
 In addition to applicable General criteria, consider:
-- household-use durability and realistic frequency of use;
-- ergonomics during ordinary home use rather than only professional workflows;
-- cleaning and maintenance burden;
-- storage/footprint and kitchen-space fit;
-- food-contact/material concerns when relevant;
-- replaceable parts or consumables when they materially affect ownership;
-- visual fit when the item is exposed or display-worthy.
+- household-use durability/frequency;
+- home ergonomics rather than default professional assumptions;
+- cleaning/maintenance burden;
+- storage/footprint;
+- food-contact/material concerns when material;
+- replaceable parts/consumables;
+- visible-object aesthetics when the user cares.
 
 ## Kitchen Knives
-In addition to inherited criteria, consider the knife as an interacting cutting system rather than a steel/spec list.
+Treat the knife as an interacting cutting system rather than a steel/spec list.
 
 ### Geometry and grind
-Blade thickness, behind-the-edge geometry, taper, grind shape, and how those affect cutting resistance, wedging, food release, and robustness.
+Blade thickness, behind-the-edge geometry, taper, grind shape, edge geometry, and resulting cutting resistance, wedging, food release, and robustness.
 
 ### Steel and heat treatment
-Steel family, hardness/heat treatment, and execution as they affect edge stability, wear resistance, toughness, corrosion resistance, and sharpenability.
-
-Do not infer overall knife quality from steel name alone.
+Steel family, hardness/heat treatment, and execution as they affect edge stability, wear, toughness, corrosion, and sharpenability. Do not infer knife quality from steel name alone.
 
 ### Edge behavior
-Useful edge retention, resistance to rolling/chipping, response to touch-ups, and ease of restoring the edge for the intended user.
+Useful edge retention, rolling/chipping resistance, touch-up response, and ease of restoring the edge for the intended user.
 
 ### Toughness and abuse tolerance
-Tolerance for hard contact, twisting, dense foods, poor boards, bones, frozen food, or other misuse relevant to the user's habits.
+Tolerance for hard contact, twisting, dense foods, poor boards, bones/frozen food, or misuse relevant to the user's habits.
 
 ### Corrosion and care
-Rust/staining sensitivity, drying/oiling needs, dishwasher prohibition, handle care, and whether the required maintenance matches the user.
+Rust/staining sensitivity, drying/oiling/patina needs, handle care, and maintenance fit.
 
 ### Ergonomics and balance
-Handle shape/size/material, grip options, spine/choil comfort, weight distribution, balance point, and fatigue.
+Handle geometry/material, grip options, spine/choil comfort, weight distribution, balance, and fatigue.
 
 ### Construction and finish
-Fit/finish, handle installation, grind consistency, edge condition, blade straightness, distal taper where relevant, and quality-control consistency.
+Fit/finish, handle installation, grind consistency, edge condition, blade straightness, taper, and QC consistency.
 
 ### Provenance and authenticity
-Actual maker/manufacturer, country/line identity, authorized distribution, counterfeit or gray-market exposure, and whether marketing claims map to a known product.
+Actual maker/manufacturer, line identity, authorized distribution, counterfeit/gray-market exposure, and whether marketing claims map to a known product.
 
 ## Chef's Knife
 In addition to inherited Kitchen Knife criteria, emphasize:
 
 ### Primary-knife versatility
-How well the knife covers the user's everyday general-purpose tasks without unnecessary specialist compromise.
+Coverage of the user's normal general-purpose prep without unnecessary specialist compromise.
 
-### Length and usable board fit
-Blade length, board size, workspace, storage, user comfort, and whether the length provides useful capacity rather than excess bulk.
+### Length and board fit
+Blade length relative to board, workspace, storage, prep volume, and user control.
 
 ### Profile and cutting motion
-Belly/flatness, edge profile, contact length, and fit for rocking, push cutting, chopping, draw slicing, or mixed technique.
+Belly/flatness/contact length and fit for rocking, push cutting, chopping, draw slicing, or mixed technique.
 
 ### Heel clearance and handle interaction
-Knuckle clearance, heel height, handle/choil geometry, grip style, and board contact.
+Knuckle clearance, heel height, grip, choil/handle geometry, and board contact.
 
 ### Tip utility
-Tip geometry and usefulness for detail work, onions, trimming, piercing, and other common primary-knife tasks.
+Precision/detail usefulness vs fragility/robustness.
 
 ### Food release
-How grind and blade geometry behave with common foods; treat this as preference- and food-dependent rather than a universal ranking.
+Grind/geometry behavior with common foods; treat as food- and preference-dependent.
 
 ### Weight and balance
-Overall mass and balance relative to the user's preferred control, power, fatigue, and feedback.
+Mass and balance relative to control, momentum, fatigue, and feedback.
 
 ### Role fit
-When another knife type such as santoku, nakiri, Chinese cleaver, petty, or specialist knife would better match the user's actual use, do not force a Chef's Knife recommendation merely because this Type was initially considered.
+If another knife type materially better matches the actual primary use, do not force Chef's Knife merely because the Type was initially considered.
 
 ## Boundary
-This file defines evaluation dimensions only. Product classification belongs to `product_hierarchy.md`; evidence standards to `research_sources.md`; discovery to `source_playbooks.md`; value/pricing interpretation to `pricing.md`; review interpretation to `reviews.md`; seller risk to `seller_instructions.md`.
+Classification belongs to `product_hierarchy.md`; evidence to `research_sources.md`; discovery to `source_playbooks.md`; pricing/value to `pricing.md`; review handling to `reviews.md`; seller risk to `seller_instructions.md`.

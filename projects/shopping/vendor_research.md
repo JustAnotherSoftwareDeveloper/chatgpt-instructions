@@ -1,127 +1,130 @@
 # Vendor Research Workflow
 
 ## Purpose
-Own research about a brand, manufacturer, retailer, dealer/distributor, shopping site, or vendor ecosystem rather than a specific product recommendation.
+Own research about brands, manufacturers, retailers, dealers/distributors, shopping sites, or vendor ecosystems rather than a specific product shortlist.
 
-Use the resolved product context when the vendor request belongs to a known domain. Apply the same shared evidence and specialized authorities as relevant.
+Use the resolved product context and shared evidence/specialized authorities.
 
-## 1) Resolve vendor subtype
-Identify what kind of entity the user is asking about:
-- brand / manufacturer;
-- retailer / store / shopping site;
-- authorized dealer / distributor / service network;
-- mixed vendor ecosystem.
+## 1) Research mode
+Default to **Standard** from `research_sources.md`.
 
-State or make the distinction clear in the answer when it changes the evaluation.
+Use Deep for high-stakes service/support decisions, luxury/provenance-heavy markets, major reputation conflicts, or explicit deep research.
 
-Do not confuse brand quality with retailer quality simply because one sells the other.
+## 2) Resolve vendor subtype
+Classify the target as one or more of:
+- brand/manufacturer;
+- retailer/store/site;
+- authorized dealer/distributor/service network;
+- mixed ecosystem.
 
-## 2) Scope the user's goal
+Do not collapse brand quality and retailer quality into one judgment.
+
+## 3) Scope the user's goal
 Capture or infer:
-- category or product domain;
+- product category/domain;
 - region;
-- budget/value posture;
-- whether product quality, shopping channel, support/service, enthusiast reputation, aesthetics/identity, or all of these are in scope;
-- hard constraints such as domestic service, authorized-only, direct-only, brick-and-mortar, or marketplace avoidance.
+- value/budget posture;
+- whether product quality, shopping channel, support/service, enthusiast reputation, aesthetics/identity, or all are in scope;
+- hard channel constraints such as domestic service, authorized-only, direct-only, brick-and-mortar, marketplace avoidance.
 
-## 3) Discover the ecosystem
-Use active `source_playbooks.md` sections to identify the meaningful vendors/brands/channels and how the market is segmented.
+## 4) Discovery geometry
+For a broad mature vendor ecosystem, default discovery target:
+- **6-10 plausible vendor/brand entities**;
+- at least **3 meaningful ecosystem/market segments** when they exist (for example value/mainstream, specialist/technical, premium/artisan, direct-only, dealer-oriented, marketplace-heavy).
 
-Search broadly enough to understand the real ecosystem, but do not pad the set with marginal entities to hit a quota.
+Use fewer when the ecosystem is genuinely narrow or the user restricts the set. Search wider for Deep research or when new segments keep appearing.
 
-For discovery, identify where relevant:
-- value/mainstream specialists;
-- enthusiast or technical specialists;
-- premium/luxury/artisan players;
-- direct-to-consumer vs dealer-oriented brands;
-- reputable specialist retailers;
-- gray-market/marketplace patterns;
-- regional/service constraints.
+Discovery-only sources may enumerate entities but cannot establish quality/reputation by themselves.
 
-## 4) Apply eligibility gates
-Before deep comparison, remove or qualify entities that fail material requirements such as:
-- not meaningfully active in the requested category;
-- unavailable to the user/region;
-- seller/business legitimacy cannot be established when shopping-channel trust is central;
-- lineup does not match the user's use case or price posture;
-- service/warranty constraints fail a hard requirement.
+## 5) Discovery challenge pass and stop condition
+After the initial ecosystem map, run one challenge pass targeting:
+- omitted niche/value/premium specialists;
+- category-native vendors missed by generic search;
+- credible criticism of likely finalists;
+- channel/service structures that materially alter the comparison.
 
-Apply `seller_instructions.md` when retailer/dealer/channel quality is materially evaluated.
+Discovery may stop when:
+- the default breadth target is met or a justified escape clause applies;
+- major ecosystem segments are represented;
+- the challenge pass yields no new finalist-worthy entity or material ecosystem segment.
 
-## 5) Evaluation by vendor subtype
-### Brand / manufacturer
-Consider as applicable:
-- lineup relevance and consistency;
-- product execution across the category;
-- manufacturing/product identity transparency;
-- support, warranty, parts/service posture;
-- QC/reliability reputation;
-- innovation or specialization that matters to the user;
-- pricing/value posture;
-- aesthetics, craft, enthusiast standing, or collector identity when relevant.
+## 6) Eligibility gates
+Apply before deep comparison:
+1. category relevance;
+2. realistic regional availability/access;
+3. business identity/legitimacy when channel trust is central;
+4. lineup relevance to the user's use/value posture;
+5. hard service/warranty/channel requirements;
+6. obvious unresolved scam/relabel/provenance problems.
 
-Do not infer every product from brand reputation; distinguish broad brand patterns from specific SKU quality.
+Use `seller_instructions.md` for retailer/dealer/channel states.
 
-### Retailer / store / site
-Consider:
-- category expertise and curation;
-- legitimacy/business clarity;
+## 7) Finalist target
+Deeply evaluate **3-5 vendor/brand finalists** in a broad mature ecosystem.
+
+Use fewer when hard constraints or market sparsity justify it. Use more only when distinct vendor families genuinely survive and the user asks for broader mapping.
+
+## 8) Evidence packet by subtype
+### Brand/manufacturer
+Where material, obtain:
+- primary lineup/support/warranty documentation;
+- at least **1 independent domain specialist/practitioner** source;
+- owner/community evidence when QC, support, reliability, or reputation changes the conclusion;
+- current market/availability evidence when regional practicality matters.
+
+Do not infer every SKU from brand reputation.
+
+### Retailer/store/site
+Where material, establish:
+- business identity/category expertise;
 - exact-product/variant accuracy;
-- authorized-channel status when relevant;
-- pricing competitiveness;
-- returns, shipping, warranty facilitation, and service;
-- counterfeit/gray-market exposure;
-- useful specialist services such as setup, sharpening, fitting, installation, or technical support where relevant.
+- seller/channel state under `seller_instructions.md`;
+- returns/warranty/service posture;
+- independent reputation/service signal when recommendation depends on it.
 
-Use `seller_instructions.md` for offer/channel specifics rather than duplicating its rules.
-
-### Dealer / distributor / service network
-Consider:
-- authorized status and product access;
-- service competence and geographic coverage;
+### Dealer/distributor/service network
+Where material, establish:
+- authorized/product access status;
+- service competence/coverage;
 - warranty handling;
 - parts/service availability;
-- business continuity/reputation;
-- regional practicality.
+- regional practicality and business continuity/reputation.
 
 ### Mixed ecosystem
-Separate brand/manufacturer quality from buying-channel quality, then explain how they interact.
+Evaluate manufacturer/brand quality and buying-channel quality separately, then explain the interaction.
 
-## 6) Evidence plan
-Apply `research_sources.md` proportionally to the decision.
-
-Seek, where material:
-- primary/vendor-controlled information for documented lineup, warranty, service, and policies;
-- independent category-specialist or practitioner evidence;
-- owner/community evidence for long-term reputation, service experience, QC patterns, and category standing;
-- current seller/channel evidence when recommending where to shop.
-
-Apply `reviews.md` when review/community evidence materially contributes.
-
-Do not treat vendor-controlled marketing as independent proof of reputation or product superiority.
-
-## 7) Normalize finalists
-For each serious vendor/brand candidate, understand:
+## 9) Evaluation dimensions
+For each finalist understand:
 - what the entity actually is;
-- its relevant lineup/market segment;
+- relevant lineup/market position;
 - strongest differentiators;
 - meaningful weaknesses;
-- pricing/value posture;
+- value posture;
 - support/service/channel posture;
-- who it is best for;
-- reasons a user might reasonably choose another vendor.
+- who it best fits;
+- why a reasonable buyer might choose another finalist.
 
-## 8) Synthesis
-Lead with the useful ecosystem map and the most relevant recommendations.
+Treat aesthetics/craft/collector identity as first-class only when user intent makes them relevant.
 
-Default to a small set of genuinely distinct vendors/brands representing different strengths or buyer profiles. Do not force a single winner when the ecosystem has legitimate specialization.
+## 10) Evidence completion
+Apply the selected `research_sources.md` mode.
 
-State confidence and material coverage limitations when evidence is sparse or reputation is highly anecdotal.
+Use `reviews.md` for review/community reputation claims and `seller_instructions.md` for concrete channel/offer judgments.
 
-## 9) Output
+Stop when the general evidence stop condition is met and additional vendor sources are no longer likely to change eligibility, finalist set, recommendation, or a material caveat.
+
+## 11) Synthesis defaults
+Lead with the ecosystem map and the most useful shortlist.
+
+Default output:
+- **1 primary vendor/brand recommendation** when a clear fit exists;
+- **2-3 alternatives** representing different strengths/buyer profiles;
+- no forced winner when specialization means different vendors are legitimately best for different buyers.
+
+State material coverage limitations when reputation is sparse or highly anecdotal.
+
+## 12) Output
 Use `vendor_research_template.md`.
 
-Keep detailed evidence-compliance mechanics internal unless requested or audited.
-
 ## Boundary
-Offer-level seller risk belongs to `seller_instructions.md`; general evidence standards to `research_sources.md`; product-level recommendation workflow to `product_research.md`; product classification to `product_hierarchy.md`; presentation to `vendor_research_template.md`.
+Offer-level seller risk belongs to `seller_instructions.md`; general evidence to `research_sources.md`; product-level workflow to `product_research.md`; classification to `product_hierarchy.md`; presentation to `vendor_research_template.md`.
