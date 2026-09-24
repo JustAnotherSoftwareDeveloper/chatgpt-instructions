@@ -123,5 +123,115 @@ Do not pay a premium for specialization that undermines the user's primary use u
 
 When researching live price tiers, let `pricing_tiers.md` discover current market clusters and meaningful breakpoints. Do not hard-code timeless dollar bands here.
 
+## 10) Major Appliances
+Interpret appliance value over the realistic ownership horizon, not just checkout price.
+
+Material value drivers may include:
+- core category performance and usable capacity;
+- energy/water use where meaningful;
+- noise and everyday ergonomics;
+- parts availability, repairability, and service-network access;
+- warranty execution and platform continuity;
+- installation requirements and delivery complexity.
+
+Count required installation kits, accessories, delivery/haul-away, and realistic service burden when they materially change effective cost. Do not pay a reliability premium based only on broad brand reputation without model/family evidence.
+
+Treat added electronics/features as value only when the user benefits enough to justify the added complexity and ownership exposure.
+
+## 11) Smart Home / Networking
+Connected-device value includes the system and lifecycle, not just hardware capability.
+
+Account for:
+- required hubs/controllers/subscriptions;
+- local processing vs cloud/account dependence;
+- support/EOL horizon;
+- interoperability and API/integration quality;
+- network-management capability and hardware headroom where relevant;
+- security/update track record.
+
+A cheaper device can become poor value if it requires recurring service fees, creates ecosystem lock-in, or has a short support life. Conversely, do not assume local-first or enterprise-like configurability is worth paying for when the user values simple managed convenience.
+
+## 12) Audio / Headphones / Speakers
+Separate technical/acoustic value from tuning preference and luxury/craft value.
+
+Higher spend may buy:
+- lower distortion or greater clean output in demanding use;
+- more controlled acoustics/directivity;
+- better fit/comfort/build;
+- better active features/connectivity;
+- replaceable parts/serviceability;
+- premium materials/finish.
+
+Do not price-rank one deliberate tuning target over another as universally superior. As gross technical limitations diminish, user fit, room/system interaction, and preference may dominate small measured improvements.
+
+## 13) Automotive Accessories
+Evaluate the installed system cost rather than the boxed accessory alone when installation is material.
+
+Account for:
+- vehicle-specific hardware/adapters;
+- professional installation/programming/calibration;
+- fitment-return risk;
+- maintenance/replacement parts;
+- whether higher spend buys verified engineering, load capability, integration, durability, or support.
+
+A low sticker price is not good value if exact fitment is uncertain or required installation erases the savings.
+
+## 14) Software / Services / Developer Tools
+Use a representative usage scenario rather than sticker price when commercial models differ.
+
+Account for:
+- seats/users;
+- usage/compute/storage/request meters;
+- required feature/support tier;
+- deployment/hosting cost;
+- minimum commits and overages;
+- required add-ons;
+- migration/export/egress costs when material;
+- engineering/operator time saved or created.
+
+Treat lock-in cost concretely through migration friction, not as a generic penalty. A higher-priced managed product can be better value when it materially reduces engineering/operations burden; a lower-cost or open-source option can be better when the user can absorb that work and values control.
+
+Do not compare free/community, team, usage-metered, and enterprise plans as if posted monthly prices represented equivalent capability or scale.
+
+## 15) Furniture / Home Decor
+Separate construction/ownership value from design/craft/brand value.
+
+Functional price drivers may include:
+- frame/joinery/material execution;
+- comfort/ergonomics;
+- finish/QC consistency;
+- repairability/refinishability;
+- modularity/customization;
+- durable hardware/upholstery;
+- delivery/assembly/service quality.
+
+Design authorship, custom work, special materials, and artisan execution can justify premiums when the user values them, but do not present visual similarity or brand name alone as evidence of longer life.
+
+For bulky items include material delivery, assembly, damage-claim, return-pickup, and restocking costs in practical value.
+
+## 16) Cookware / Kitchen Equipment
+Interpret value through task fit, construction, lifecycle, and maintenance.
+
+Higher spend may buy:
+- better thermal execution or warping resistance;
+- more durable handles/hardware;
+- better QC and finish;
+- longer-lived cooking surfaces;
+- broader cooktop/oven compatibility;
+- easier parts/service/refinishing;
+- craft/aesthetic value.
+
+Do not use layer count, metal prestige, celebrity branding, or nominal oven temperature alone as proof of value. A replaceable/wear-prone coating may have a different rational ownership horizon from durable stainless or restorable seasoned surfaces.
+
+## 17) Watches / Enthusiast Luxury Goods
+Maintain separate value lenses where useful:
+- **functional/tool value** - practical performance, robustness, serviceability, wearability;
+- **craft/finishing value** - design, materials, finishing, handwork, movement execution;
+- **collector/identity value** - provenance, history, scarcity, maker/brand significance, enthusiast appeal.
+
+Do not require a craft- or collector-driven premium to produce proportional functional improvement. Conversely, do not treat prestige language or scarcity alone as proof of quality.
+
+Include expected service burden and acquisition-channel/warranty consequences when material to ownership value. For pre-owned/vintage items, condition and service history can be as important to value as the nominal reference.
+
 ## Boundary
 This file owns product pricing/value interpretation only. Current offer risk and seller quality belong to `seller_instructions.md`; tier construction belongs to `pricing_tiers.md`; product criteria belong to `criteria.md`.

@@ -212,6 +212,182 @@ Apply:
 Load:
 - `type_chefs_knife.md`.
 
+---
+
+## Category: Major Appliances
+Parent: Home & Kitchen
+
+Use when:
+- the purchase is a large durable household appliance whose installation, serviceability, parts access, delivery, repair economics, or long ownership horizon materially affect the decision.
+
+Optimize:
+- core task performance;
+- exact installation fit;
+- serviceability and parts/network support;
+- ownership-horizon reliability rather than feature count.
+
+Apply:
+- Major Appliances section of `criteria.md`;
+- Major Appliances section of `source_playbooks.md`;
+- Major Appliances section of `pricing.md`.
+
+Load:
+- `category_major_appliances.md`.
+
+---
+
+## Category: Furniture / Home Decor
+Parent: Home & Kitchen
+
+Use when:
+- furniture construction, dimensions, comfort, materials, finish, spatial fit, delivery, repairability, or aesthetics materially affect the purchase.
+
+Optimize:
+- construction and ergonomic fit;
+- room/access fit;
+- durable ownership and repairability;
+- aesthetics/design when they matter to the user.
+
+Apply:
+- Furniture / Home Decor section of `criteria.md`;
+- Furniture / Home Decor section of `source_playbooks.md`;
+- Furniture / Home Decor section of `pricing.md`.
+
+Load:
+- `category_furniture_home_decor.md`.
+
+---
+
+## Category: Cookware / Kitchen Equipment
+Parent: Home & Kitchen
+
+Use when:
+- cookware or durable kitchen equipment behavior depends materially on construction, thermal behavior, cooking surface, kitchen compatibility, maintenance, or repeated-use durability.
+
+Optimize:
+- task-appropriate cooking behavior;
+- construction/lifecycle rather than marketing materials alone;
+- ergonomic and kitchen compatibility;
+- maintenance fit.
+
+Apply:
+- Cookware / Kitchen Equipment section of `criteria.md`;
+- Cookware / Kitchen Equipment section of `source_playbooks.md`;
+- Cookware / Kitchen Equipment section of `pricing.md`.
+
+Load:
+- `category_cookware_kitchen_equipment.md`.
+
+---
+
+## Category: Smart Home / Networking
+Parent: Base
+
+Use when:
+- connected-device protocols, controllers, local/cloud architecture, network topology, firmware lifecycle, security posture, or interoperability materially affect the purchase.
+
+Optimize:
+- real interoperability in the user's system;
+- resilient architecture and lifecycle support;
+- network/topology fit where relevant;
+- security/update posture.
+
+Apply:
+- Smart Home / Networking section of `criteria.md`;
+- Smart Home / Networking section of `source_playbooks.md`;
+- Smart Home / Networking section of `pricing.md`.
+
+Load:
+- `category_smart_home_networking.md`.
+
+---
+
+## Category: Audio / Headphones / Speakers
+Parent: Base
+
+Use when:
+- acoustic performance, tuning, listening preference, fit/comfort, room interaction, active/wireless behavior, or measurement methodology materially affect the purchase.
+
+Optimize:
+- evidence-appropriate acoustic performance;
+- tuning and fit for the actual listener/use;
+- active-system ownership quality where applicable;
+- preference-aware decision boundaries.
+
+Apply:
+- Audio / Headphones / Speakers section of `criteria.md`;
+- Audio / Headphones / Speakers section of `source_playbooks.md`;
+- Audio / Headphones / Speakers section of `pricing.md`.
+
+Load:
+- `category_audio.md`.
+
+---
+
+## Category: Automotive Accessories
+Parent: Base
+
+Use when:
+- exact vehicle fitment, installation, integrated vehicle-system behavior, load/rating limits, or vehicle-specific evidence materially affect the purchase.
+
+Optimize:
+- exact fitment and integration;
+- appropriate installation burden;
+- operationally appropriate ratings/requirements;
+- vehicle-platform-specific evidence.
+
+Apply:
+- Automotive Accessories section of `criteria.md`;
+- Automotive Accessories section of `source_playbooks.md`;
+- Automotive Accessories section of `pricing.md`.
+
+Load:
+- `category_automotive_accessories.md`.
+
+---
+
+## Category: Software / Services / Developer Tools
+Parent: Base
+
+Use when:
+- the purchase/selection is software, SaaS, a hosted service, API, developer tool, or commercially evaluated open-source product and lifecycle, licensing, reliability, integration, portability, or usage-based economics materially affect the decision.
+
+Optimize:
+- workflow/capability fit;
+- operational and project/vendor maturity;
+- licensing and effective cost under realistic usage;
+- portability and manageable dependency risk.
+
+Apply:
+- Software / Services / Developer Tools section of `criteria.md`;
+- Software / Services / Developer Tools section of `source_playbooks.md`;
+- Software / Services / Developer Tools section of `pricing.md`.
+
+Load:
+- `category_software_services_developer_tools.md`.
+
+---
+
+## Category: Watches / Enthusiast Luxury Goods
+Parent: Base
+
+Use when:
+- watch movement/serviceability, finishing/craft, provenance, acquisition channel, enthusiast/collector value, or long-term ownership materially affect the purchase.
+
+Optimize:
+- explicit separation of functional, craft, and collector value;
+- movement/mechanism and serviceability where applicable;
+- finishing/provenance evidence;
+- ownership fit rather than prestige alone.
+
+Apply:
+- Watches / Enthusiast Luxury Goods section of `criteria.md`;
+- Watches / Enthusiast Luxury Goods section of `source_playbooks.md`;
+- Watches / Enthusiast Luxury Goods section of `pricing.md`.
+
+Load:
+- `category_watches_enthusiast_luxury.md`.
+
 ## Expansion rule
 Add new Classes, Categories, and Types only after identifying:
 - the shared behavior they own;

@@ -106,5 +106,157 @@ Mass and balance relative to control, momentum, fatigue, and feedback.
 ### Role fit
 If another knife type materially better matches the actual primary use, do not force Chef's Knife merely because the Type was initially considered.
 
+## Major Appliances
+In addition to applicable Home & Kitchen criteria, consider:
+
+### Installation fit
+Exact dimensions, clearances, access path, hookups, venting, and configuration needed for the installation.
+
+### Core task performance
+The appliance's actual cleaning, cooling, cooking, drying, washing, capacity, noise, or other category-native performance under representative use.
+
+### Serviceability and parts access
+Parts availability, diagnostic/repair practicality, technician availability, service-network depth, and expected downtime burden.
+
+### Ownership-horizon reliability
+Recurring component/model-family failure patterns and repair economics over the expected ownership period, not brand reputation alone.
+
+### Resource efficiency
+Energy/water use and operating cost where material, interpreted alongside capacity/performance rather than as an isolated badge.
+
+### Delivery / installation execution
+Use when delivery, installation, haul-away, or damage handling materially changes the ownership experience; keep retailer/installer execution distinct from product defects.
+
+## Smart Home / Networking
+### Real interoperability
+Whether the required features work through the user's actual protocols, controllers, platforms, APIs, and device topology rather than merely appearing on a compatibility/logo list.
+
+### Local / cloud resilience
+Which functions survive internet/vendor-cloud interruption, which require an account/subscription, and what local fallback exists.
+
+### Lifecycle support
+Firmware quality, update cadence, end-of-life posture, API continuity, and support for installed hardware generations.
+
+### Security posture
+Relevant vulnerability history, remediation behavior, authentication/update design, exposure model, and independent security evidence.
+
+### Network / topology fit
+For infrastructure products, fit to wired/wireless backhaul, coverage geometry, client/workload mix, VLAN/SSID/PoE needs, management model, and radio environment.
+
+### Integration quality
+Automation reliability, API/SDK quality, event/state exposure, configuration depth, and troubleshooting visibility where relevant.
+
+## Audio / Headphones / Speakers
+### Acoustic performance
+Measured and observed frequency response, distortion/output limits, directivity, isolation, latency, or other relevant acoustic/electroacoustic behavior under comparable conditions.
+
+### Tuning / preference fit
+Whether the product's voicing and presentation match the listener's preferences and use. Treat deliberate tuning differences separately from execution defects.
+
+### Fit / comfort / placement
+Headphone seal, comfort, clamp and placement sensitivity; or speaker positioning, room interaction, listening distance, and dispersion fit.
+
+### Active-system quality
+For wireless/active products: firmware/app behavior, battery aging, connectivity/codecs, ANC/transparency, and update/support history.
+
+### Serviceability
+Replaceable pads/cables/batteries/components, repair access, and long-term support where material.
+
+## Automotive Accessories
+### Exact vehicle fitment
+Compatibility with the actual year/make/model/trim/body/package and relevant connectors, mounts, clearances, sensors, or factory systems.
+
+### Installation / integration burden
+Required mechanical/electrical work, programming/calibration, special tools, reversibility, and installer competence.
+
+### Operational criticality
+Consequences of failure and any category-relevant ratings, standards, load limits, or official requirements.
+
+### Vehicle-system interaction
+Effects on factory electronics, sensors/cameras, driver-assistance systems, wheel/tire or suspension geometry, loads, and other integrated vehicle behavior.
+
+### Durability in vehicle conditions
+Heat, vibration, weather, contamination, repeated load, and other relevant operating stresses.
+
+## Software / Services / Developer Tools
+### Capability fit
+Required features, workflows, APIs, integrations, platform/runtime support, deployment model, and operational limits.
+
+### Developer / operator experience
+Documentation, API/CLI design, local development, debugging/observability, upgrade ergonomics, automation, and day-to-day workflow friction.
+
+### Reliability / operational maturity
+Incident history, uptime behavior, release/change management, support response, and production-use maturity.
+
+### Security / governance posture
+Security advisories and response, access controls, auditability, data handling/residency, and other user-required governance capabilities.
+
+### Licensing / commercial fit
+License rights/restrictions, seat/usage rules, feature gates, support tiers, minimum commitments, and expected cost scaling.
+
+### Portability / lock-in
+Export completeness, migration path, proprietary formats/APIs, deployment coupling, switching downtime, and realistic exit cost.
+
+### Project / ecosystem health
+Maintainer/vendor continuity, issue and release activity, ecosystem maturity, extension/integration health, and concentration risk where relevant.
+
+## Furniture / Home Decor
+In addition to applicable Home & Kitchen criteria, consider:
+
+### Construction / materials
+Frame, joinery, substrate, veneer/solid/composite use, upholstery/foam/hardware, finish, and how construction maps to wear, stability, and repairability.
+
+### Spatial fit
+Room/access dimensions, clearance, circulation, modular configuration, and delivery path.
+
+### Ergonomic fit
+Seat/table/storage dimensions, support, reach, load, and intended-duration comfort where relevant.
+
+### Finish / visual consistency
+Color, finish, texture, proportion, design language, and production variation when appearance is material.
+
+### Repairability / restoration
+Replaceable hardware/components, refinishing/reupholstery feasibility, and expected long-term maintainability.
+
+### Delivery / damage burden
+Packaging, freight damage, assembly, room-of-choice/white-glove service, claim handling, and large-item return logistics when material.
+
+## Cookware / Kitchen Equipment
+In addition to applicable Home & Kitchen criteria, consider:
+
+### Construction / thermal behavior
+Material stack/body construction as it affects responsiveness, heat distribution/retention, warping resistance, weight, and cooking behavior.
+
+### Cooking-surface behavior
+Release/sticking, browning/searing, durability, coating/seasoning lifecycle, and suitability to intended foods/techniques.
+
+### Handle / hardware ergonomics
+Attachment, balance, grip, heat transfer, lid/handle usability, and durability.
+
+### Kitchen compatibility
+Cooktop/base fit, induction behavior where relevant, oven/broiler limits, dishwasher/utensil constraints, dimensions, and storage.
+
+### Maintenance / lifecycle
+Seasoning, polishing, coating wear, cleaning restrictions, replacement parts/surfaces, and realistic service life.
+
+## Watches / Enthusiast Luxury Goods
+### Functional / tool performance
+Timekeeping or other core function, robustness, wearability, water/use constraints, and practical ownership performance.
+
+### Movement / mechanism quality
+Actual movement/caliber/source, execution/modification, serviceability, parts access, and maintenance implications where applicable.
+
+### Finishing / craft
+Case, dial, hands, bracelet/strap, clasp, tactile execution, alignment, movement finishing, design authorship, and handwork where relevant.
+
+### Provenance / authenticity
+Reference identity, production/revision history, condition/service history for pre-owned goods, and confidence in authenticity/origin.
+
+### Service ecosystem
+Service access, parts policy, expected service burden, manufacturer/independent support, and long-horizon practicality.
+
+### Collector / identity fit
+Historical relevance, maker/brand significance, scarcity, enthusiast reception, design identity, and emotional/collector appeal when the user values them.
+
 ## Boundary
 Classification belongs to `product_hierarchy.md`; evidence to `research_sources.md`; discovery to `source_playbooks.md`; pricing/value to `pricing.md`; review handling to `reviews.md`; seller risk to `seller_instructions.md`; workflow-specific prioritization/counts to the active workflow.

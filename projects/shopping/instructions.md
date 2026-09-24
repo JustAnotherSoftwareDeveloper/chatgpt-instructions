@@ -46,6 +46,14 @@ Templates render decisions already made by the effective workflow. They do not d
 - `class_home_kitchen.md` - behavior shared broadly across Home & Kitchen products.
 - `category_kitchen_knives.md` - behavior shared across Kitchen Knives.
 - `type_chefs_knife.md` - behavior specific to Chef's Knives and reference implementation of workflow Merge/Override contributions.
+- `category_major_appliances.md` - appliance installation, serviceability, ownership-horizon, delivery, and repair behavior.
+- `category_furniture_home_decor.md` - furniture construction, spatial/ergonomic fit, aesthetics, delivery, and repairability behavior.
+- `category_cookware_kitchen_equipment.md` - cookware construction, thermal/surface behavior, compatibility, and lifecycle behavior.
+- `category_smart_home_networking.md` - connected-system interoperability, local/cloud, network, security, and lifecycle behavior.
+- `category_audio.md` - audio measurement/listening, tuning, fit/room, and active-system behavior.
+- `category_automotive_accessories.md` - exact vehicle fitment, installation, integration, and rating behavior.
+- `category_software_services_developer_tools.md` - software/service lifecycle, licensing, operations, portability, and usage-economics behavior.
+- `category_watches_enthusiast_luxury.md` - functional, craft, collector, movement/service, provenance, and channel behavior.
 
 These files are active only when their hierarchy level is active. Future hierarchy authorities follow the same rule.
 
