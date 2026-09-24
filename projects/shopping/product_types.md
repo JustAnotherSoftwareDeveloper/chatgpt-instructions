@@ -1,10 +1,10 @@
-# Product Type Registry
+# Product Classification Registry
 
 ## Purpose
 
 This file owns Shopping product classification and the inheritance registry.
 
-A resolved product node determines which reusable instruction sets and specialized authorities are inherited. Product-domain rule implementations belong in the referenced authority files, not inline here.
+A resolved product node determines which reusable instruction sets and registered specialized authorities are inherited. Product-domain rule implementations belong in the referenced authority files, not inline here.
 
 ---
 
@@ -27,19 +27,56 @@ A request may resolve to Base, a Class, a Category, or a Type. Never force the d
 
 ---
 
-## Resolution rules
+## Resolution model
+
+Classification has two distinct concepts:
+
+- **direct candidate matching**: deciding which nodes the request itself supports;
+- **structural fallback**: backing up to an ancestor when several matched descendants remain materially ambiguous.
+
+A structural parent does not need direct matching metadata in order to serve as a fallback ancestor.
+
+### Direct candidate matching
 
 For each materially distinct product target:
-1. Start from explicit product wording and intent.
-2. Prefer an explicitly named product kind over generic keyword inference.
-3. Resolve only as deeply as the request supports.
-4. If multiple children are plausible and choosing among them materially changes research behavior, either stop at the deepest common resolvable parent or ask once when a narrower answer is necessary.
-5. Never invent an intermediate Class or Category merely to complete the hierarchy.
-6. If a node has no matching metadata, it may serve as a structural parent but must not be selected directly from a request.
-7. Every non-base node must eventually reach `base` through its parent chain.
-8. Cycles and missing parents are invalid.
+1. Start from explicit product wording, known product identity, and stated use-case intent.
+2. Apply `match.excludes` first; an exclusion vetoes that node for the current target.
+3. Prefer candidates in this order:
+   - explicit canonical/alias product-kind match;
+   - exact specific multi-word keyword/phrase match;
+   - multiple independent specific keyword matches;
+   - one specific keyword supported by a discriminating cue.
+4. `match.cues` may disambiguate or strengthen a candidate but should not normally create a leaf candidate by themselves.
+5. Generic or collision-prone words must not select a narrow node without additional support.
+6. A known named model/SKU may resolve to a node when its product identity is established confidently, even if the user's wording omits the generic product-kind term.
+7. A node with no usable matching metadata may be a structural ancestor but must not originate as a direct candidate.
+
+Do not use opaque numeric scoring. The ordered evidence tiers above are the canonical comparison rule.
+
+### Choosing among candidates
+
+- If one supported candidate is a descendant of another supported candidate on the same chain, prefer the more specific descendant when its match evidence is at least as strong.
+- If candidates on different branches remain plausible and the distinction materially changes research behavior, use their deepest common ancestor as a structural fallback when that ancestor is informative enough for the request.
+- A structural fallback ancestor may be used even when it has no direct `match` metadata; this is fallback traversal, not direct selection.
+- If the only common ancestor is too generic to answer correctly, ask once for the missing distinction.
+- If ambiguity does not materially change the answer, use the deepest safe common ancestor and state the assumption only when useful.
+- If no non-Base node is justified, resolve to `base`.
+
+Never invent an intermediate Class or Category merely to complete the hierarchy.
 
 For a request comparing materially different kinds of products, resolve a separate inheritance chain for each target rather than collapsing them to a generic shared ancestor.
+
+---
+
+## Graph validity
+
+Every non-base node must:
+- reference an existing parent;
+- obey the allowed parent-kind relationships above;
+- eventually reach `base`;
+- participate in no cycle.
+
+Node IDs are globally unique within this registry.
 
 ---
 
@@ -54,6 +91,7 @@ id: <stable-id>
 kind: class|category|type
 parent: <node-id>
 match:
+  names: []
   keywords: []
   cues: []
   excludes: []
@@ -69,17 +107,25 @@ authorities:
   add: []
 ```
 
-Only include fields a node needs. `match` is required only when the node may be selected directly from user wording.
+Only include fields a node needs.
+
+`match` is required only when the node may originate as a direct candidate. A structural-only node may omit it.
+
+Matching fields:
+- `names`: canonical product-kind names and unambiguous aliases;
+- `keywords`: specific product terms or phrases used for direct candidate matching;
+- `cues`: secondary intent/context signals used mainly for disambiguation;
+- `excludes`: terms or contexts that disqualify an otherwise plausible match.
 
 Hook semantics:
 - `criteria.add/remove` references IDs defined in `criteria.md`.
 - `source_playbooks.add/remove` references IDs defined in `source_playbooks.md`.
 - `pricing.strategy` references one strategy ID defined in `pricing.md`; the closest node defining a strategy wins.
-- `authorities.add` references live specialized authority files. Authorities are additive.
+- `authorities.add` references specialized authority files that are already registered as canonical live authorities in `instructions.md`. Authorities are additive.
 
-All hook references must resolve to live project files/IDs. Archived files and IDs are not valid dependencies.
+All hook references must resolve before execution. Missing IDs/files are architecture errors; do not silently ignore them and do not substitute archived definitions.
 
-Nodes should contain only matching metadata and hook selections. If a node needs substantial domain logic, create or use a specialized authority and reference it through `authorities.add`.
+Nodes should contain only matching metadata and hook selections. If a node needs substantial domain logic, create or use a specialized authority, register that authority in `instructions.md`, then reference it through `authorities.add`.
 
 ---
 
