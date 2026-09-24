@@ -1,7 +1,5 @@
-# Shopping Project Entrypoint
+# Shopping Project
 
 Entrypoint: `instructions.md`.
 
-Read `instructions.md` first. It owns routing, inheritance resolution, precedence, and authority loading for this project.
-
-Do not place workflow logic or product-domain rules in `MAIN.md`.
+Read `instructions.md` first and follow it as the project orchestrator.
