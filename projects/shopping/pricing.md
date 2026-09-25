@@ -7,6 +7,14 @@ This file explains how to interpret price and value. It does not evaluate seller
 
 Domain-specific value logic belongs in the active entries of `class.md`, `category.md`, and `type.md` as named Pricing contributions under the composition rules in `product_hierarchy.md`.
 
+## Hierarchy contribution surface
+The canonical hierarchy target exposed by this authority is:
+- `Pricing -> Value interpretation`
+
+Registry entries may **Merge** domain-specific value interpretation into this target. The Merge is additive to the generic price-state, marginal-value, and diminishing-returns semantics below.
+
+This authority exposes no hierarchy Override target. Registry entries may not replace the generic price-state model, deal-quality definitions, marginal-value semantics, diminishing-returns definition, or silently invent alternate Pricing contribution targets.
+
 ## 1) General Value
 - Compare like-for-like products, conditions, configurations, and included accessories.
 - Distinguish product quality, product value, seller quality, and temporary deal quality.
