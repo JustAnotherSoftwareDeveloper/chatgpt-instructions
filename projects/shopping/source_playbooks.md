@@ -7,6 +7,14 @@ Evidence admissibility, independence, weighting, coverage, comparability, and st
 
 Domain-specific discovery guidance belongs in the active entries of `class.md`, `category.md`, and `type.md` as named Source Playbooks contributions under the composition rules in `product_hierarchy.md`.
 
+## Hierarchy contribution surface
+The canonical hierarchy target exposed by this authority is:
+- `Source Playbooks -> Discovery guidance`
+
+Registry entries may **Merge** domain-specific discovery guidance into this target. The Merge is additive to the General Shopping playbook below.
+
+This authority exposes no hierarchy Override target. Registry entries may not replace the generic discovery boundary, determine evidence admissibility, or silently invent alternate Source Playbooks contribution targets.
+
 ## Standard playbook shape
 A domain-specific Source Playbooks contribution may cover, where applicable:
 - primary/documentary sources;
