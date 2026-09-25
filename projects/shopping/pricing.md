@@ -209,7 +209,7 @@ Design authorship, custom work, special materials, and artisan execution can jus
 
 For bulky items include material delivery, assembly, damage-claim, return-pickup, and restocking costs in practical value.
 
-## 16) Cookware / Kitchen Equipment
+## 16) Cookware
 Interpret value through task fit, construction, lifecycle, and maintenance.
 
 Higher spend may buy:
@@ -223,7 +223,7 @@ Higher spend may buy:
 
 Do not use layer count, metal prestige, celebrity branding, or nominal oven temperature alone as proof of value. A replaceable/wear-prone coating may have a different rational ownership horizon from durable stainless or restorable seasoned surfaces.
 
-## 17) Watches / Enthusiast Luxury Goods
+## 17) Watches
 Maintain separate value lenses where useful:
 - **functional/tool value** - practical performance, robustness, serviceability, wearability;
 - **craft/finishing value** - design, materials, finishing, handwork, movement execution;
@@ -231,7 +231,7 @@ Maintain separate value lenses where useful:
 
 Do not require a craft- or collector-driven premium to produce proportional functional improvement. Conversely, do not treat prestige language or scarcity alone as proof of quality.
 
-Include expected service burden and acquisition-channel/warranty consequences when material to ownership value. For pre-owned/vintage items, condition and service history can be as important to value as the nominal reference.
+Include expected service burden and acquisition-channel/warranty consequences when material to ownership value. For pre-owned/vintage watches, condition and service history can be as important to value as the nominal reference.
 
 ## Boundary
 This file owns product pricing/value interpretation only. Current offer risk and seller quality belong to `seller_instructions.md`; tier construction belongs to `pricing_tiers.md`; product criteria belong to `criteria.md`.

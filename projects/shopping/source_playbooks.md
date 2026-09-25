@@ -28,6 +28,8 @@ For the resolved product context:
 5. Ensure the research brief's primary differentiators have plausible source paths before deep collection.
 6. Evaluate discovered sources under `research_sources.md`, `reviews.md`, and `seller_instructions.md` as applicable.
 
+Discovery guidance below identifies promising source families and search paths. It does not itself decide whether a discovered source can support a claim.
+
 ## General Shopping
 ### Primary / documentary
 Look for:
@@ -92,9 +94,10 @@ Depending on product, seek cooks, instructors, repair professionals, tradespeopl
 Seek long-term cleaning, maintenance, storage, durability, and household-use experience.
 
 ### Source traps
-- professional/commercial workflows treated as automatically superior for home use;
-- lifestyle content making material/safety claims without authoritative support;
-- durability inferred from weight, price, metal construction, or "professional" branding alone.
+De-prioritize:
+- professional/commercial sources that do not address home-use constraints;
+- lifestyle content making material/safety claims without underlying authoritative references;
+- content that treats weight, price, metal construction, or "professional" branding as the main durability evidence.
 
 ## Major Appliances
 ### Primary / documentary
@@ -105,42 +108,43 @@ Seek:
 - CPSC/official recall records.
 
 ### Method / test
-Seek standardized testing for the category's actual job: cleaning, cooling stability, capacity, energy/water use, noise, cycle performance, temperature behavior, or other relevant outputs.
+Seek standardized testing for the appliance family's actual job: cleaning, cooling stability, capacity, energy/water use, noise, cycle performance, temperature behavior, or other relevant outputs.
 
 ### Practitioner / repair
-Seek appliance technicians and repair/service sources with model/family experience. They are particularly useful for recurring component failures, parts access, serviceability, and whether a failure is economical to repair.
+Seek appliance technicians and repair/service sources with exact model, family, or component-platform experience.
 
 ### Owner / community
-Use long-term owner populations for recurring model-family issues, noise/usability, service experience, and failures that appear after lab-review windows. Keep delivery/installer complaints separate from product defects.
+Seek long-term owner populations for model/family failures, noise/usability, and post-review-window behavior. When delivery/install/service experience matters, also seek those populations separately so `reviews.md` can interpret channel contamination correctly.
 
 ### Market / seller
-For large appliances, include delivery/install/haul-away terms, damaged-unit exchange process, regional service coverage, and retailer coordination with manufacturer warranty.
+Seek delivery/install/haul-away terms, damaged-unit exchange process, regional service coverage, and retailer coordination with manufacturer warranty.
 
 ### Useful query families
 - `<model> service manual parts diagram`
 - `<model> repair technician common failure`
-- `<model> long term reliability compressor pump control board`
+- `<model> long term reliability <major component or failure mode>`
 - `<model> installation clearance dimensions`
 - `<model> energy noise test`
 
 ### Source traps
-- chain-retailer brand-comparison articles used as independent reliability evidence;
-- brand-wide reliability claims projected onto unlike product families;
-- star averages that combine delivery, installer, and product failures;
-- feature count treated as quality without ownership-horizon evidence.
+De-prioritize:
+- chain-retailer brand-comparison articles without original model-level evidence;
+- brand-wide reliability sources that do not identify relevant appliance families;
+- review pages where delivery/install and product experience cannot be distinguished when reliability is the research question;
+- feature-count listicles without ownership-horizon evidence.
 
 ## Furniture / Home Decor
 ### Primary / documentary
 Seek exact dimensions/configurations, materials/construction disclosures, care instructions, warranty, delivery/return terms, and relevant GREENGUARD/FSC/formaldehyde-related certifications when material.
 
 ### Practitioner / expert
-Interior designers can inform spatial/aesthetic fit; furniture makers, upholsterers, and repair/restoration professionals can inform construction, repairability, finish, joinery, and long-horizon durability.
+Seek interior designers for spatial/aesthetic fit and furniture makers, upholsterers, or repair/restoration professionals for construction, repairability, finish, joinery, and long-horizon ownership questions.
 
 ### Owner / community
-Use real setup photos and long-term ownership reports for scale, finish/color variation, wear, comfort, assembly, freight damage, and claim handling.
+Seek real setup photos and long-term ownership reports for scale, finish/color variation, wear, comfort, and assembly. Separately seek freight/delivery and claim-handling experiences when buying-channel quality matters.
 
 ### Market / seller
-For bulky products inspect delivery service level, freight/room-of-choice/white-glove options, assembly, return pickup/restocking, made-to-order terms, and damage resolution.
+For bulky products seek delivery service level, freight/room-of-choice/white-glove options, assembly, return pickup/restocking, made-to-order terms, and damage-resolution documentation.
 
 ### Useful query families
 - `<model> frame construction joinery materials`
@@ -150,36 +154,41 @@ For bulky products inspect delivery service level, freight/room-of-choice/white-
 - `<brand> furniture repair restoration`
 
 ### Source traps
-- style/lifestyle coverage used as durability evidence;
-- material names without construction context;
-- retailer photography treated as reliable color/scale evidence;
-- freight damage silently counted as construction failure.
+De-prioritize:
+- style/lifestyle coverage with no construction or ownership evidence;
+- sources using material names without construction context;
+- retailer photography as the only real-world scale/color source;
+- mixed product/freight complaint pages when the question requires one of those signals specifically.
 
-## Cookware / Kitchen Equipment
+## Cookware
 ### Primary / documentary
-Seek manufacturer construction/material documentation, dimensions, handle attachment, cooktop compatibility, oven/broiler limits, care instructions, warranty, and authoritative material/food-contact information when relevant.
+Seek manufacturer construction/material documentation, dimensions, handle attachment, cooktop compatibility, oven/broiler limits, care instructions, and warranty.
+
+When material/coating composition or food-contact safety is a decision question, seek authoritative documentation appropriate to the claim. For PTFE/PFAS-related constraints, explicitly seek exact coating/composition disclosures and relevant regulatory or authoritative safety material rather than relying on broad "non-toxic", "PFOA-free", or similar marketing.
 
 ### Method / test
-Seek repeatable cooking tests that map to the claim: heat distribution/responsiveness, searing/browning, sticking/release, pouring, handle temperature, warping, coating/surface durability, and cleanup after repeated use.
+Seek repeatable cooking tests for heat distribution/responsiveness, searing/browning, sticking/release, pouring, handle temperature, warping, coating/surface durability, and cleanup after repeated use.
 
 ### Practitioner / expert
-Professional cooks, instructors, food-science/culinary-equipment testers, and repair/refinishing specialists can answer task-specific questions when their method and use context are clear.
+Seek professional cooks, instructors, food-science/cookware testers, and repair/refinishing specialists for task-specific use questions.
 
 ### Owner / community
-Cast iron/carbon steel and similar enthusiast communities are useful for seasoning, restoration, maintenance, warping, handle/hardware longevity, and long-term surface behavior.
+Cast iron/carbon steel and similar enthusiast communities are useful discovery sources for seasoning, restoration, maintenance, warping, handle/hardware longevity, and long-term surface behavior.
 
 ### Useful query families
 - `<model> heat distribution responsiveness cooking test`
 - `<model> warping handle rivet durability`
 - `<model> nonstick coating long term`
+- `<model> PTFE PFAS coating material disclosure`
 - `<model> induction oven limit manual`
 - `<model> seasoning restoration long term`
 
 ### Source traps
-- celebrity/influencer endorsements without performance testing;
-- layer count or metal name treated as a complete performance model;
-- one cooking task generalized to every use;
-- brand safety marketing used without authoritative corroboration.
+De-prioritize:
+- celebrity/influencer endorsements with no original cooking tests;
+- sources organized primarily around layer count or metal-name prestige;
+- testing based on one narrow cooking task when the research question is broader;
+- brand material/safety marketing without discoverable underlying documentation.
 
 ## Kitchen Knives
 Use multiple epistemic perspectives rather than many sources repeating the same steel/spec narrative.
@@ -293,10 +302,10 @@ Seek manufacturer compatibility matrices, manuals, firmware/release notes, SDK/A
 For networking hardware seek exact hardware-revision specifications, supported management features, PoE/radio/port capabilities, and software-support lifecycle.
 
 ### Method / test
-Seek lab or technically transparent testing for throughput, range, roaming, latency, radio behavior, power, reliability, and interoperability. For security claims seek independent technical/security research and vulnerability records.
+Seek lab or technically transparent testing for throughput, range, roaming, latency, radio behavior, power, reliability, and interoperability. For security questions seek independent technical/security research and vulnerability records in addition to vendor material.
 
 ### Practitioner / community
-Network engineers, smart-home integrators, Home Assistant/platform communities, and technically strong owner forums are useful for multi-device integration, firmware regressions, controller quirks, and long-running deployments.
+Seek network engineers, smart-home integrators, Home Assistant/platform communities, and technically strong owner forums for multi-device integration, firmware regressions, controller quirks, and long-running deployments.
 
 ### Useful query families
 - `<model> firmware regression release notes`
@@ -307,24 +316,24 @@ Network engineers, smart-home integrators, Home Assistant/platform communities, 
 - `<vendor> end of life support policy`
 
 ### Source traps
-- protocol logo treated as proof every desired feature interoperates;
-- manufacturer security claims used without independent corroboration;
-- peak PHY/link rates treated as real application throughput;
-- old reviews used after major firmware/hardware revisions without checking current behavior;
-- setup failures attributed to the endpoint without considering controller/network context.
+De-prioritize:
+- compatibility pages containing only protocol logos when feature-level interoperability is the question;
+- vendor-only security material when independent security evidence exists;
+- throughput pages centered on advertised PHY/link rates rather than tested behavior;
+- reviews that do not identify the hardware/firmware revision when that distinction is material.
 
 ## Audio / Headphones / Speakers
 ### Primary / documentary
 Seek manufacturer technical specifications, manuals, firmware notes, codec/connectivity documentation, replaceable-component/service information, and relevant Bluetooth/codec certification sources.
 
 ### Measurement / method
-Seek published measurement methodology and data for frequency response, distortion, output/compression, directivity, latency, isolation/ANC, battery, or other relevant metrics. Prefer common-method comparisons when small differences matter.
+Seek published methodology and data for frequency response, distortion, output/compression, directivity, latency, isolation/ANC, battery, or other relevant metrics. When small cross-product differences matter, intentionally seek common-method measurements.
 
 ### Listening / practitioner
-Use reviewers with disclosed listening conditions, comparison references, and sufficient listening time. Acoustic engineers, experienced reviewers, studio practitioners, and trained listeners can be useful when their claims match their competence.
+Seek reviewers with disclosed listening conditions, comparison references, and enough use context to identify what was actually heard or experienced. Acoustic engineers, experienced reviewers, studio practitioners, and trained listeners can be useful source families.
 
 ### Owner / community
-Use headphone/speaker communities for fit/comfort, pad wear, long-term failures, firmware, battery aging, and preference patterns. Treat tuning preference as preference unless a concrete defect is established.
+Seek headphone/speaker communities for fit/comfort, pad wear, long-term failures, firmware, battery aging, and preference-sensitive ownership experience.
 
 ### Useful query families
 - `<model> frequency response distortion measurement`
@@ -334,20 +343,21 @@ Use headphone/speaker communities for fit/comfort, pad wear, long-term failures,
 - `<model> vs <model> same rig measurement`
 
 ### Source traps
-- uncontrolled listening prose used as proof of measurable superiority;
-- measurements from unlike rigs compared as if directly interchangeable;
-- one target curve treated as universal preference;
-- unboxing/short-listen content used as long-term ownership evidence.
+De-prioritize:
+- measurement sources that do not disclose the rig/method when exact comparisons matter;
+- short-listen/unboxing content for long-horizon ownership questions;
+- sources that give preference claims without enough listener/use context;
+- listening-only sources when the research question specifically requires a measurable quantity.
 
 ## Automotive Accessories
 ### Primary / documentary
 Seek OEM vehicle documentation, manufacturer fitment guides, exact part numbers, installation manuals, load/rating documentation, and category-relevant DOT/SAE/ECE/NHTSA or other official material where applicable.
 
 ### Method / installation
-Seek exact-vehicle or platform-specific installation verification. For performance claims, prefer relevant measured tests such as load, stopping, output, temperature, or other category-native methods.
+Seek exact-vehicle or platform-specific installation verification. For performance questions, seek relevant measured tests such as load, stopping, output, temperature, or other category-native methods.
 
 ### Practitioner / community
-Professional mechanics/installers and make/model-specific owner communities are especially valuable for trim/package differences, connector/mounting issues, calibration, and recurring install problems.
+Seek professional mechanics/installers and make/model-specific owner communities for trim/package differences, connector/mounting issues, calibration, and recurring install problems.
 
 ### Useful query families
 - `<part number> <year make model trim> fitment`
@@ -357,10 +367,11 @@ Professional mechanics/installers and make/model-specific owner communities are 
 - `<product> sensor camera compatibility`
 
 ### Source traps
-- generic vehicle-class fitment claims;
-- one trim/year generalized to another without checking the changed interface;
-- retailer fitment widget used as the sole source for consequential compatibility;
-- performance claims without relevant installation/testing context.
+De-prioritize:
+- generic vehicle-class fitment pages when exact trim/package fit matters;
+- installation reports that do not identify the relevant year/trim/interface;
+- retailer fitment widgets as the only source path for consequential compatibility;
+- performance pages that omit installation/test context.
 
 ## Software / Services / Developer Tools
 ### Primary / documentary
@@ -370,7 +381,7 @@ Seek official docs, API/SDK references, changelogs/release notes, status/inciden
 Seek reproducible benchmarks, code-level evaluations, architecture analysis, independent security assessments, and migration/production writeups with enough environment detail to judge applicability.
 
 ### Practitioner / project health
-Use engineers with documented production use, public issue trackers, GitHub/project history, maintainer discussions, Stack Overflow/domain communities, and postmortems for real operational and developer-experience signal.
+Seek engineers with documented production use, public issue trackers, GitHub/project history, maintainer discussions, Stack Overflow/domain communities, and postmortems for operational and developer-experience signal.
 
 ### Useful query families
 - `<tool> changelog breaking changes migration`
@@ -381,13 +392,14 @@ Use engineers with documented production use, public issue trackers, GitHub/proj
 - `<project> github issues release cadence maintainers`
 
 ### Source traps
-- vendor competitive-comparison pages treated as independent evidence;
-- anonymous aggregate software-review scores carrying recommendation weight;
-- benchmark wins outside the user's workload/environment;
-- feature announcements used without verifying current docs/availability;
-- stars/download counts treated as project health by themselves.
+De-prioritize:
+- vendor competitive-comparison pages when independent comparison is available;
+- anonymous aggregate software-review pages without useful detail;
+- benchmark pages that omit workload/environment details;
+- feature-announcement coverage without current docs/changelog verification paths;
+- popularity-only pages when project health is the research question.
 
-## Watches / Enthusiast Luxury Goods
+## Watches
 ### Primary / documentary
 Seek exact reference/caliber specifications, manufacturer service/warranty documentation, official product history where relevant, and COSC or equivalent certification sources for claims that depend on them.
 
@@ -395,10 +407,10 @@ Seek exact reference/caliber specifications, manufacturer service/warranty docum
 Seek dedicated horology publications, watchmakers, movement teardown/service sources, and reviewers who document finishing, movement architecture, accuracy, wearability, and direct comparisons.
 
 ### Owner / collector
-Use long-term ownership communities for service experience, bracelet/clasp wear, QC, real-world accuracy, comfort, and sustained collector reception. Distinguish short-term hype from durable ownership signal.
+Seek long-term ownership communities for service experience, bracelet/clasp wear, QC, real-world accuracy, comfort, and sustained collector reception. Include discussion spanning different ownership horizons when collector reception matters.
 
 ### Channel / provenance
-For pre-owned/vintage research, include established dealers, auction catalog documentation, authentication/service specialists, and provenance/condition records appropriate to the object.
+For pre-owned/vintage research, seek established dealers, auction catalog documentation, authentication/service specialists, and provenance/condition records appropriate to the watch.
 
 ### Useful query families
 - `<reference> caliber movement service`
@@ -408,11 +420,12 @@ For pre-owned/vintage research, include established dealers, auction catalog doc
 - `<reference> authenticity condition guide`
 
 ### Source traps
+De-prioritize:
 - generalist luxury listicles;
-- retailer editorial used as independent brand evaluation;
-- prestige or "in-house" language without movement detail;
-- short-term social enthusiasm treated as long-term ownership evidence;
-- condition/provenance omitted in used/vintage price comparisons.
+- retailer editorial as the only brand-evaluation source;
+- sources using prestige or "in-house" language without movement detail;
+- short social-hype content without ownership or technical context;
+- used/vintage price sources that omit condition/provenance.
 
 ## Boundary
 This file guides discovery only. `research_sources.md` determines evidence sufficiency/comparability; `reviews.md` interprets review/community content; `seller_instructions.md` evaluates seller/channel evidence.

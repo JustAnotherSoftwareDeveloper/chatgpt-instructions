@@ -218,7 +218,10 @@ Load:
 Parent: Home & Kitchen
 
 Use when:
-- the purchase is a large durable household appliance whose installation, serviceability, parts access, delivery, repair economics, or long ownership horizon materially affect the decision.
+- the purchase is an ordinary freestanding or built-in major household appliance such as refrigeration, laundry, dishwashing, or cooking equipment;
+- installation, serviceability, parts access, delivery, repair economics, or long ownership horizon materially affect the decision.
+
+Do not use this Category for whole-building mechanical/electrical/plumbing systems that require system design, such as central HVAC, whole-home water treatment, or similar infrastructure, unless a future hierarchy entry explicitly covers them.
 
 Optimize:
 - core task performance;
@@ -258,25 +261,27 @@ Load:
 
 ---
 
-## Category: Cookware / Kitchen Equipment
+## Category: Cookware
 Parent: Home & Kitchen
 
 Use when:
-- cookware or durable kitchen equipment behavior depends materially on construction, thermal behavior, cooking surface, kitchen compatibility, maintenance, or repeated-use durability.
+- the target is cookware or a cooking vessel/surface whose behavior depends materially on construction, thermal behavior, cooking surface, kitchen compatibility, maintenance, or repeated-use durability.
+
+Do not route powered countertop appliances here merely because they are kitchen equipment.
 
 Optimize:
 - task-appropriate cooking behavior;
 - construction/lifecycle rather than marketing materials alone;
 - ergonomic and kitchen compatibility;
-- maintenance fit.
+- maintenance and material/coating fit.
 
 Apply:
-- Cookware / Kitchen Equipment section of `criteria.md`;
-- Cookware / Kitchen Equipment section of `source_playbooks.md`;
-- Cookware / Kitchen Equipment section of `pricing.md`.
+- Cookware section of `criteria.md`;
+- Cookware section of `source_playbooks.md`;
+- Cookware section of `pricing.md`.
 
 Load:
-- `category_cookware_kitchen_equipment.md`.
+- `category_cookware.md`.
 
 ---
 
@@ -368,11 +373,13 @@ Load:
 
 ---
 
-## Category: Watches / Enthusiast Luxury Goods
+## Category: Watches
 Parent: Base
 
 Use when:
-- watch movement/serviceability, finishing/craft, provenance, acquisition channel, enthusiast/collector value, or long-term ownership materially affect the purchase.
+- the target is a watch and movement/serviceability, finishing/craft, provenance, acquisition channel, collector value, or long-term ownership materially affect the purchase.
+
+Do not generalize this Category to unrelated luxury or collector goods.
 
 Optimize:
 - explicit separation of functional, craft, and collector value;
@@ -381,12 +388,12 @@ Optimize:
 - ownership fit rather than prestige alone.
 
 Apply:
-- Watches / Enthusiast Luxury Goods section of `criteria.md`;
-- Watches / Enthusiast Luxury Goods section of `source_playbooks.md`;
-- Watches / Enthusiast Luxury Goods section of `pricing.md`.
+- Watches section of `criteria.md`;
+- Watches section of `source_playbooks.md`;
+- Watches section of `pricing.md`.
 
 Load:
-- `category_watches_enthusiast_luxury.md`.
+- `category_watches.md`.
 
 ## Expansion rule
 Add new Classes, Categories, and Types only after identifying:

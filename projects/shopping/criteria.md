@@ -119,13 +119,13 @@ The appliance's actual cleaning, cooling, cooking, drying, washing, capacity, no
 Parts availability, diagnostic/repair practicality, technician availability, service-network depth, and expected downtime burden.
 
 ### Ownership-horizon reliability
-Recurring component/model-family failure patterns and repair economics over the expected ownership period, not brand reputation alone.
+Recurring component/model-family failure patterns and repair economics over the expected ownership period.
 
 ### Resource efficiency
 Energy/water use and operating cost where material, interpreted alongside capacity/performance rather than as an isolated badge.
 
-### Delivery / installation execution
-Use when delivery, installation, haul-away, or damage handling materially changes the ownership experience; keep retailer/installer execution distinct from product defects.
+### Delivery / installation burden
+Delivery, installation, haul-away, damage handling, and related ownership friction when material.
 
 ## Smart Home / Networking
 ### Real interoperability
@@ -138,7 +138,7 @@ Which functions survive internet/vendor-cloud interruption, which require an acc
 Firmware quality, update cadence, end-of-life posture, API continuity, and support for installed hardware generations.
 
 ### Security posture
-Relevant vulnerability history, remediation behavior, authentication/update design, exposure model, and independent security evidence.
+Relevant vulnerability history, remediation behavior, authentication/update design, exposure model, and security track record.
 
 ### Network / topology fit
 For infrastructure products, fit to wired/wireless backhaul, coverage geometry, client/workload mix, VLAN/SSID/PoE needs, management model, and radio environment.
@@ -148,10 +148,10 @@ Automation reliability, API/SDK quality, event/state exposure, configuration dep
 
 ## Audio / Headphones / Speakers
 ### Acoustic performance
-Measured and observed frequency response, distortion/output limits, directivity, isolation, latency, or other relevant acoustic/electroacoustic behavior under comparable conditions.
+Frequency response, distortion/output limits, directivity, isolation, latency, or other relevant acoustic/electroacoustic behavior.
 
 ### Tuning / preference fit
-Whether the product's voicing and presentation match the listener's preferences and use. Treat deliberate tuning differences separately from execution defects.
+Whether the product's voicing and presentation match the listener's preferences and use.
 
 ### Fit / comfort / placement
 Headphone seal, comfort, clamp and placement sensitivity; or speaker positioning, room interaction, listening distance, and dispersion fit.
@@ -221,7 +221,7 @@ Replaceable hardware/components, refinishing/reupholstery feasibility, and expec
 ### Delivery / damage burden
 Packaging, freight damage, assembly, room-of-choice/white-glove service, claim handling, and large-item return logistics when material.
 
-## Cookware / Kitchen Equipment
+## Cookware
 In addition to applicable Home & Kitchen criteria, consider:
 
 ### Construction / thermal behavior
@@ -239,9 +239,12 @@ Cooktop/base fit, induction behavior where relevant, oven/broiler limits, dishwa
 ### Maintenance / lifecycle
 Seasoning, polishing, coating wear, cleaning restrictions, replacement parts/surfaces, and realistic service life.
 
-## Watches / Enthusiast Luxury Goods
+### Material / coating constraints
+Food-contact material composition, coatings/linings, intended-use temperature limits, and user-specific material restrictions when they materially affect fit, including explicit PTFE/PFAS-related constraints when relevant.
+
+## Watches
 ### Functional / tool performance
-Timekeeping or other core function, robustness, wearability, water/use constraints, and practical ownership performance.
+Timekeeping, robustness, wearability, water/use constraints, and practical ownership performance.
 
 ### Movement / mechanism quality
 Actual movement/caliber/source, execution/modification, serviceability, parts access, and maintenance implications where applicable.
@@ -250,7 +253,7 @@ Actual movement/caliber/source, execution/modification, serviceability, parts ac
 Case, dial, hands, bracelet/strap, clasp, tactile execution, alignment, movement finishing, design authorship, and handwork where relevant.
 
 ### Provenance / authenticity
-Reference identity, production/revision history, condition/service history for pre-owned goods, and confidence in authenticity/origin.
+Reference identity, production/revision history, condition/service history for pre-owned watches, and confidence in authenticity/origin.
 
 ### Service ecosystem
 Service access, parts policy, expected service burden, manufacturer/independent support, and long-horizon practicality.
