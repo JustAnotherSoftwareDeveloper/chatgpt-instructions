@@ -3,10 +3,10 @@
 ## Purpose
 Own the generic open-ended product research, comparison, shortlist construction, and purchase recommendation workflow.
 
-Use the product context already resolved by `instructions.md`: Base plus active Class/Category/Type sections and specialized files.
+Use the product context already resolved by `instructions.md`: Base plus the active Class/Category/Type registry entries in the resolved inheritance chain.
 
 ## Hierarchy contribution surfaces
-Active hierarchy authorities may Merge into or Override only named Product Research concerns using the semantics in `product_hierarchy.md`.
+Active hierarchy entries may Merge into or Override only named Product Research concerns using the semantics in `product_hierarchy.md`.
 
 Stable concerns:
 - **Scope and decision model** - §§1-3.
@@ -21,9 +21,9 @@ Stable concerns:
 - **Pricing / seller integration** - §17.
 - **Synthesis / decision boundary** - §§18-19.
 
-An active hierarchy authority may target a narrower rule inside one concern, such as `Market segmentation -> primary segmentation model`. Apply Class -> Category -> Type contributions before executing the affected concern.
+An active hierarchy entry may target a narrower rule inside one concern, such as `Market segmentation -> primary segmentation model`. Apply Class -> Category -> Type contributions before executing the affected concern.
 
-Hierarchy contributions may not redefine research modes, general evidence standards, review thresholds, seller-risk states, reusable price-state definitions, or reusable criterion definitions.
+Hierarchy contributions may not redefine research modes, general evidence standards, review thresholds, seller-risk states, generic price-state definitions, or generic criterion-role/meaning semantics.
 
 ## 1) Scope the decision
 Capture or infer only what changes the viable set or recommendation:
@@ -69,7 +69,7 @@ For each primary differentiator define:
 - evidence type(s) desired;
 - what would constitute a material advantage/disadvantage for this user;
 - comparability requirements;
-- relevant hierarchy/specialized authority.
+- relevant hierarchy registry contribution.
 
 ### Known unknowns
 List facts or uncertainties most capable of flipping the recommendation.
@@ -243,7 +243,7 @@ Do not manufacture consensus.
 
 ## 17) Current pricing and sellers
 If the user provides a budget or asks about current price, deal quality, availability, or where to buy:
-- apply the price-state model in `pricing.md`;
+- apply the price-state model in `pricing.md` plus any active hierarchy Pricing contributions;
 - verify current pricing;
 - normalize offers fairly;
 - apply `seller_instructions.md`;
@@ -311,4 +311,4 @@ Confirm:
 - recommendation reflects user priorities, not generic prestige.
 
 ## Boundary
-Product context and Merge/Override semantics come from `product_hierarchy.md`; evidence from `research_sources.md`; review handling from `reviews.md`; seller risk from `seller_instructions.md`; value logic from `pricing.md`; presentation from `product_research_template.md`. This file owns the generic Product Research workflow and its named contribution surfaces.
+Product context and Merge/Override semantics come from `product_hierarchy.md`; live product-domain deltas come from the active entries in `class.md`, `category.md`, and `type.md`; evidence from `research_sources.md`; review handling from `reviews.md`; seller risk from `seller_instructions.md`; generic value logic from `pricing.md`; presentation from `product_research_template.md`. This file owns the generic Product Research workflow and its named contribution surfaces.
