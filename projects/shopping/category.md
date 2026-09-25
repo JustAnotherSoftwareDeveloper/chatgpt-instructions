@@ -1457,7 +1457,7 @@ Apply `research_sources.md` to these fields.
 
 ## Pricing Tiers contributions
 
-### Override: Pricing Tiers -> Tier construction -> single purchase-price ladder assumption
+### Override: Pricing Tiers -> Tier construction -> linear-ladder assumption
 Replace a single unit-price ladder with a normalized **usage-and-entitlement cost surface** when software pricing cannot be meaningfully compared by one sticker price.
 
 Use the representative-usage normalization defined in this Category's Pricing contribution, then construct meaningful value regions from comparable effective cost and capability for those scenarios.
