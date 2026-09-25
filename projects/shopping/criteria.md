@@ -7,6 +7,14 @@ Criteria identify what should be evaluated. They do not define evidence standard
 
 Domain-specific evaluation dimensions belong in the active entries of `class.md`, `category.md`, and `type.md` as named Criteria contributions under the composition rules in `product_hierarchy.md`.
 
+## Hierarchy contribution surface
+The canonical hierarchy target exposed by this authority is:
+- `Criteria -> Evaluation dimensions`
+
+Registry entries may **Merge** additional domain-specific evaluation dimensions into this target. The Merge is additive to the generic dimensions and role semantics below.
+
+This authority exposes no hierarchy Override target. Registry entries may not replace generic criterion-role semantics or silently invent alternate Criteria contribution targets.
+
 ## How workflows use criteria
 Classify active criteria internally as one of:
 - **Hard gate** - failure disqualifies the candidate.
