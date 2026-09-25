@@ -1,7 +1,7 @@
 # Product Hierarchy
 
 ## Purpose
-Define the Shopping inheritance context used by every workflow and the merge/override semantics by which product context specializes generic workflow behavior.
+Define the Shopping inheritance model, registry contract, and Merge/Override semantics by which product context specializes generic Shopping behavior.
 
 Resolve one chain:
 
@@ -9,9 +9,16 @@ Resolve one chain:
 
 Intermediate levels may be skipped when the natural hierarchy calls for it.
 
+Actual supported nodes live only in:
+- `class.md` for Classes;
+- `category.md` for Categories;
+- `type.md` for Types.
+
+This file defines how those nodes work. It is not a second registry of supported products.
+
 ## Level semantics
 ### Base
-Universal Shopping behavior. Always active.
+Universal Shopping behavior. Always active through `base.md`.
 
 ### Class
 A broad specialization justified only when it provides behavior reusable across multiple downstream product families.
@@ -28,30 +35,64 @@ The narrowest reusable product-kind specialization that materially changes resea
 
 A Type is not a SKU, brand, color, minor form factor, marketing label, or arbitrary retailer category. A Type may inherit from Base, a Class, or a Category.
 
+## Registry contract
+Each node is defined completely in exactly one entry in the registry matching its level.
+
+Every entry must provide:
+- a unique canonical node name in its heading;
+- `Parent`;
+- an explicit `Inheritance` chain from Base through the node;
+- enough `Match` guidance to resolve the node without another registry;
+- only the domain behavior and contributions genuinely owned by that level.
+
+An entry may also provide `Optimize`, Boundary, explanatory, or other non-executable metadata when useful.
+
+### Atomic-addition rule
+Adding a supported node should normally require one edit only:
+- add a Class to `class.md`;
+- add a Category to `category.md`;
+- add a Type to `type.md`.
+
+Do not duplicate the supported-node list in `instructions.md`, this file, shared authorities, or workflow files.
+
+If adding a node requires changing generic hierarchy semantics, workflow contribution surfaces, or another canonical contract, make that separate architectural change explicitly rather than encoding a hidden dependency.
+
+### Retrieval-friendly identity
+Each registry entry must be self-identifying. Use the canonical heading form:
+- `# CLASS: <name>`;
+- `# CATEGORY: <name>`;
+- `# TYPE: <name>`.
+
+Keep `Parent` and `Inheritance` adjacent to the heading so a retrieved entry retains its routing context even when the rest of the registry is not in context.
+
 ## Hierarchy contributions
-Each active Class / Category / Type may contribute only the behavior it genuinely owns through one or more of these forms:
+Each active Class / Category / Type may contribute only behavior it genuinely owns through one or more of these forms:
 
 1. **Shared domain behavior** - product-domain rules that apply regardless of workflow.
-2. **Shared-authority selections** - named sections from `criteria.md`, `source_playbooks.md`, `pricing.md`, or another shared authority when that authority explicitly supports hierarchy-specific sections.
-3. **Workflow merges** - additive domain behavior for a named concern in the active generic workflow.
-4. **Workflow overrides** - surgical replacement of one explicitly named inherited workflow rule or sub-contract for this product context.
+2. **Shared-authority contributions** - additive or explicitly targeted specialization of an extensible concern owned by `criteria.md`, `source_playbooks.md`, `pricing.md`, or another shared authority.
+3. **Workflow Merges** - additive domain behavior for a named concern in the active generic workflow.
+4. **Workflow Overrides** - surgical replacement of one explicitly named inherited workflow rule or sub-contract for this product context.
 
-A hierarchy level does not need to contribute to every workflow. Omit empty or artificial contribution sections.
+A hierarchy level does not need to contribute to every authority or workflow. Omit empty or artificial contribution sections.
 
-## Specialized-authority structure
-Executable behavior in a specialized Class / Category / Type authority must live under one of:
+## Specialized-entry structure
+Executable behavior in a Class / Category / Type registry entry must live under one of:
 - **Shared domain behavior**;
+- **Shared-authority contributions** using a named Merge or Override target;
 - a named workflow **Merge**;
 - a named workflow **Override**.
 
-Purpose, explanatory, and Boundary sections may describe ownership, but must not introduce otherwise-unclassified executable behavior.
+Purpose, Match, Optimize, Inheritance, explanatory, and Boundary sections may describe routing or ownership, but must not introduce otherwise-unclassified executable behavior.
 
 Do not create free-floating sections such as `Research emphasis`, `Research interpretation`, or `Pricing notes` when the instructions actually belong to a shared authority or named workflow contribution.
 
 ## Merge semantics
-A **Merge** adds product-domain behavior to the inherited workflow concern without disabling inherited behavior.
+A **Merge** adds product-domain behavior to the inherited named concern without disabling inherited behavior.
 
 Use Merge for additions such as:
+- additional criteria/evaluation dimensions;
+- domain-specific source-discovery guidance;
+- domain-specific value interpretation;
 - extra candidate/finalist fields;
 - extra hard-gate checks;
 - domain-specific decision questions;
@@ -72,333 +113,76 @@ Every Override must identify its target precisely enough to know what is replace
 
 Avoid broad targets when a narrower rule can be named. `Override: Product Research` or `Override: Pricing` is invalid because it does not identify the replaced concern.
 
-An Override affects only its named target. Unmentioned inherited workflow behavior remains active.
+An Override affects only its named target. Unmentioned inherited behavior remains active.
+
+Shared-authority Overrides are allowed only when the owning shared authority exposes a replaceable sub-contract or default. They may not replace that authority's canonical vocabulary, safety/evidence semantics, or ownership boundary merely because the registry entry is more specific.
 
 Overrides may not weaken or replace rules owned by another canonical authority, including:
 - research modes/evidence standards in `research_sources.md`;
 - review interpretation in `reviews.md`;
 - seller/channel risk in `seller_instructions.md`;
-- reusable price-state/value definitions in `pricing.md`;
-- reusable criterion definitions in `criteria.md`;
-- source-discovery ownership/boundaries in `source_playbooks.md`;
+- generic price-state/value definitions in `pricing.md`;
+- generic criterion-role/meaning semantics in `criteria.md`;
+- generic source-discovery ownership/boundaries in `source_playbooks.md`;
 - safety/legal constraints.
 
 Prefer Merge. Use Override only when additive guidance would leave a materially wrong inherited rule active.
 
 ## Child-delta rule
-Inheritance is the default. A child authority should contain only behavior that is new at that level.
+Inheritance is the default. A child entry should contain only behavior that is new at that level.
 
 - If a parent Shared rule or Merge should continue unchanged, the child says nothing.
-- If a child adds behavior to the same workflow concern, use a Merge containing only the delta.
+- If a child adds behavior to the same concern, use a Merge containing only the delta.
 - If a child replaces the same named inherited target, use an Override.
-- Do not restate parent criteria, identity checks, tier dimensions, vendor fields, or Quick Check questions merely to show that they still apply.
+- Do not restate parent criteria, identity checks, tier dimensions, vendor fields, source guidance, pricing guidance, or Quick Check questions merely to show that they still apply.
 
 When a child Overrides the **same named target** as its parent, the parent's target is replaced for that branch. Therefore:
 - use Merge, not Override, when the child wants the inherited target plus extra behavior;
 - if a true replacement is intended, the child Override must be complete enough for that target and must not silently rely on parent content it just replaced.
 
-## Effective-workflow inheritance
+## Effective-context inheritance
 Apply active hierarchy levels from general to specific:
 
 `Base -> Class -> Category -> Type`
 
-For the active workflow:
-1. start from the generic workflow contract;
+For each applicable shared authority and the active workflow:
+1. start from the generic authority/workflow contract;
 2. apply the active Class contributions;
 3. apply the active Category contributions;
 4. apply the active Type contributions.
 
-At each level:
+At each level and named concern:
 - apply any explicit Override to its named target;
 - then apply Merge instructions to the resulting effective concern.
 
-A more-specific Override wins over a less-specific Override only for the same named target. It does not erase sibling rules, unrelated merges, or other workflow sections.
+A more-specific Override wins over a less-specific Override only for the same named target. It does not erase sibling rules, unrelated merges, or other workflow/authority sections.
 
-A hierarchy authority should not silently mutate a workflow through unlabeled prose. Product-domain behavior that applies across workflows belongs under Shared domain behavior; workflow-specific behavior belongs under a named Merge or Override for that workflow.
+A registry entry should not silently mutate a workflow or shared authority through unlabeled prose. Product-domain behavior that applies across workflows belongs under Shared domain behavior; authority-specific behavior belongs under Shared-authority contributions; workflow-specific behavior belongs under a named Merge or Override for that workflow.
 
 ## Resolution guidance
 1. Use explicit product wording or a confidently established named-model identity first.
-2. Prefer the deepest entry whose product meaning is actually supported.
+2. Search the three registries for the deepest entry whose product meaning is actually supported.
 3. Do not force a Type merely because one exists; broader parent contexts are valid terminal resolutions.
 4. Do not invent missing intermediate levels. If a Type naturally inherits directly from a Class or Base, use that relationship.
 5. If two plausible entries are on the same inheritance chain, choose the more specific one only when the request or product identity supports it.
 6. If materially different branches remain plausible and the distinction changes the research, ask one focused question or stay at the deepest safe common parent.
 7. For multiple materially different product targets, resolve each independently.
-
-## Inheritance behavior
-A child:
-- inherits applicable parent guidance;
-- may add shared domain behavior;
-- may select additional shared-authority sections;
-- may Merge into named workflow concerns;
-- may Override explicit inherited workflow rules within its product domain;
-- should not restate detailed parent or shared-authority rules merely for emphasis.
-
-If an entry names shared-authority sections, apply those sections in addition to inherited sections. If it names specialized files, load those files while the level is active.
-
-Keep hierarchy entries concise. Substantial domain knowledge and workflow contributions belong in specialized authority files.
-
----
-
-## Base
-Always active.
-
-Apply:
-- `base.md`.
-
----
-
-## Class: Home & Kitchen
-Parent: Base
-
-Use when:
-- the purchase is primarily household or kitchen equipment, tools, furnishings, or durable goods and Home/Kitchen-specific ownership concerns materially affect the decision.
-
-Optimize:
-- practical household fit;
-- durable everyday ownership;
-- ergonomics, maintenance, storage, and material suitability where relevant.
-
-Apply:
-- Home & Kitchen section of `criteria.md`;
-- Home & Kitchen section of `source_playbooks.md`;
-- Home & Kitchen section of `pricing.md`.
-
-Load:
-- `class_home_kitchen.md`.
-
----
-
-## Category: Kitchen Knives
-Parent: Home & Kitchen
-
-Use when:
-- kitchen cutlery characteristics such as blade geometry, grind, steel/heat treatment, edge behavior, sharpening, maintenance, knife ergonomics, or provenance materially affect the purchase.
-
-Optimize:
-- cutting performance appropriate to use;
-- durability and maintenance fit;
-- geometry/steel/heat-treatment balance rather than spec-sheet prestige;
-- trustworthy product identity and provenance.
-
-Apply:
-- Kitchen Knives section of `criteria.md`;
-- Kitchen Knives section of `source_playbooks.md`;
-- Kitchen Knives section of `pricing.md`.
-
-Load:
-- `category_kitchen_knives.md`.
-
----
-
-## Type: Chef's Knife
-Parent: Kitchen Knives
-
-Use when:
-- the target is a general-purpose chef's knife;
-- the target is a gyuto-style knife serving the same primary general-purpose role;
-- a named model is confidently known to be this product type even if the user does not explicitly say "chef's knife".
-
-Optimize:
-- primary-knife versatility;
-- fit to the user's cutting motion, board, hand, food mix, and maintenance tolerance;
-- geometry, profile, length, weight, and balance as an integrated tool.
-
-Apply:
-- Chef's Knife section of `criteria.md`;
-- Chef's Knife section of `source_playbooks.md`;
-- Chef's Knife section of `pricing.md`.
-
-Load:
-- `type_chefs_knife.md`.
-
----
-
-## Category: Major Appliances
-Parent: Home & Kitchen
-
-Use when:
-- the purchase is an ordinary freestanding or built-in major household appliance such as refrigeration, laundry, dishwashing, or cooking equipment;
-- installation, serviceability, parts access, delivery, repair economics, or long ownership horizon materially affect the decision.
-
-Do not use this Category for whole-building mechanical/electrical/plumbing systems that require system design, such as central HVAC, whole-home water treatment, or similar infrastructure, unless a future hierarchy entry explicitly covers them.
-
-Optimize:
-- core task performance;
-- exact installation fit;
-- serviceability and parts/network support;
-- ownership-horizon reliability rather than feature count.
-
-Apply:
-- Major Appliances section of `criteria.md`;
-- Major Appliances section of `source_playbooks.md`;
-- Major Appliances section of `pricing.md`.
-
-Load:
-- `category_major_appliances.md`.
-
----
-
-## Category: Furniture / Home Decor
-Parent: Home & Kitchen
-
-Use when:
-- furniture construction, dimensions, comfort, materials, finish, spatial fit, delivery, repairability, or aesthetics materially affect the purchase.
-
-Optimize:
-- construction and ergonomic fit;
-- room/access fit;
-- durable ownership and repairability;
-- aesthetics/design when they matter to the user.
-
-Apply:
-- Furniture / Home Decor section of `criteria.md`;
-- Furniture / Home Decor section of `source_playbooks.md`;
-- Furniture / Home Decor section of `pricing.md`.
-
-Load:
-- `category_furniture_home_decor.md`.
-
----
-
-## Category: Cookware
-Parent: Home & Kitchen
-
-Use when:
-- the target is cookware or a cooking vessel/surface whose behavior depends materially on construction, thermal behavior, cooking surface, kitchen compatibility, maintenance, or repeated-use durability.
-
-Do not route powered countertop appliances here merely because they are kitchen equipment.
-
-Optimize:
-- task-appropriate cooking behavior;
-- construction/lifecycle rather than marketing materials alone;
-- ergonomic and kitchen compatibility;
-- maintenance and material/coating fit.
-
-Apply:
-- Cookware section of `criteria.md`;
-- Cookware section of `source_playbooks.md`;
-- Cookware section of `pricing.md`.
-
-Load:
-- `category_cookware.md`.
-
----
-
-## Category: Smart Home / Networking
-Parent: Base
-
-Use when:
-- connected-device protocols, controllers, local/cloud architecture, network topology, firmware lifecycle, security posture, or interoperability materially affect the purchase.
-
-Optimize:
-- real interoperability in the user's system;
-- resilient architecture and lifecycle support;
-- network/topology fit where relevant;
-- security/update posture.
-
-Apply:
-- Smart Home / Networking section of `criteria.md`;
-- Smart Home / Networking section of `source_playbooks.md`;
-- Smart Home / Networking section of `pricing.md`.
-
-Load:
-- `category_smart_home_networking.md`.
-
----
-
-## Category: Audio / Headphones / Speakers
-Parent: Base
-
-Use when:
-- acoustic performance, tuning, listening preference, fit/comfort, room interaction, active/wireless behavior, or measurement methodology materially affect the purchase.
-
-Optimize:
-- evidence-appropriate acoustic performance;
-- tuning and fit for the actual listener/use;
-- active-system ownership quality where applicable;
-- preference-aware decision boundaries.
-
-Apply:
-- Audio / Headphones / Speakers section of `criteria.md`;
-- Audio / Headphones / Speakers section of `source_playbooks.md`;
-- Audio / Headphones / Speakers section of `pricing.md`.
-
-Load:
-- `category_audio.md`.
-
----
-
-## Category: Automotive Accessories
-Parent: Base
-
-Use when:
-- exact vehicle fitment, installation, integrated vehicle-system behavior, load/rating limits, or vehicle-specific evidence materially affect the purchase.
-
-Optimize:
-- exact fitment and integration;
-- appropriate installation burden;
-- operationally appropriate ratings/requirements;
-- vehicle-platform-specific evidence.
-
-Apply:
-- Automotive Accessories section of `criteria.md`;
-- Automotive Accessories section of `source_playbooks.md`;
-- Automotive Accessories section of `pricing.md`.
-
-Load:
-- `category_automotive_accessories.md`.
-
----
-
-## Category: Software / Services / Developer Tools
-Parent: Base
-
-Use when:
-- the purchase/selection is software, SaaS, a hosted service, API, developer tool, or commercially evaluated open-source product and lifecycle, licensing, reliability, integration, portability, or usage-based economics materially affect the decision.
-
-Optimize:
-- workflow/capability fit;
-- operational and project/vendor maturity;
-- licensing and effective cost under realistic usage;
-- portability and manageable dependency risk.
-
-Apply:
-- Software / Services / Developer Tools section of `criteria.md`;
-- Software / Services / Developer Tools section of `source_playbooks.md`;
-- Software / Services / Developer Tools section of `pricing.md`.
-
-Load:
-- `category_software_services_developer_tools.md`.
-
----
-
-## Category: Watches
-Parent: Base
-
-Use when:
-- the target is a watch and movement/serviceability, finishing/craft, provenance, acquisition channel, collector value, or long-term ownership materially affect the purchase.
-
-Do not generalize this Category to unrelated luxury or collector goods.
-
-Optimize:
-- explicit separation of functional, craft, and collector value;
-- movement/mechanism and serviceability where applicable;
-- finishing/provenance evidence;
-- ownership fit rather than prestige alone.
-
-Apply:
-- Watches section of `criteria.md`;
-- Watches section of `source_playbooks.md`;
-- Watches section of `pricing.md`.
-
-Load:
-- `category_watches.md`.
+8. After resolving the deepest node, follow its declared `Inheritance` chain and apply each matching registry entry general -> specific.
+9. A named Class/Category/Type that does not exist in the corresponding registry is not a live hierarchy node. Do not invent it.
+
+## Inheritance validation
+A node's declared metadata must be internally consistent:
+- `Parent` must be Base or a live node in the appropriate registry;
+- `Inheritance` must begin with Base, end with the node itself, and contain the declared Parent immediately before the node;
+- inheritance chains must be acyclic;
+- a child may skip Class or Category when the natural hierarchy calls for it.
+
+If registry metadata conflicts, do not guess silently. For instruction-set audit treat it as a structural defect; during ordinary shopping work stay at the deepest unambiguous valid parent.
 
 ## Expansion rule
 Add new Classes, Categories, and Types only after identifying:
 - the shared behavior they own;
 - the parent they naturally inherit from;
-- which workflow concerns, if any, genuinely need Merge or Override behavior.
+- which shared-authority or workflow concerns, if any, genuinely need Merge or Override behavior.
 
-Do not migrate the legacy taxonomy mechanically and do not add workflow contributions merely to fill a template.
+Do not migrate legacy taxonomy mechanically and do not add contributions merely to fill a template.
