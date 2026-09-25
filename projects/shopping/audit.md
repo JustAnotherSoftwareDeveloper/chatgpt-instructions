@@ -28,31 +28,35 @@ When necessary to determine whether a material conclusion is supportable, perfor
 Identify:
 - requested deliverable and correct workflow under `instructions.md`;
 - resolved Base / Class / Category / Type under `product_hierarchy.md`;
-- active specialized hierarchy authorities;
-- active workflow-specific Merges/Overrides from those authorities;
-- effective workflow after Class -> Category -> Type contributions;
+- active entries from `class.md`, `category.md`, and `type.md` along the declared inheritance chain;
+- active shared-authority and workflow Merges/Overrides from those entries;
+- effective shared authorities and workflow after Class -> Category -> Type contributions;
 - research mode under `research_sources.md`;
 - whether `reviews.md`, `seller_instructions.md`, `pricing.md`, or other shared authorities were materially active;
 - active output template.
 
 Preserve the user's hard constraints and locked decisions when judging the answer.
 
-## 3) Audit hierarchy Merge/Override application
+## 3) Audit hierarchy registry and Merge/Override application
 Apply the semantics in `product_hierarchy.md` by reference.
 
 For self-audit, verify directly that:
+- the deepest resolved node exists in the registry matching its level;
+- every active node appears exactly once in its registry;
+- each active entry's `Parent` exists and agrees with its declared `Inheritance` chain;
+- each `Inheritance` chain begins at Base, ends at the node, and is acyclic;
 - only hierarchy levels actually resolved for the target contributed behavior;
-- every executable instruction in a specialized hierarchy authority is classified as Shared domain behavior, a named Merge, or a named Override;
-- only contribution sections for the active workflow were applied;
+- every executable hierarchy instruction is classified as Shared domain behavior, a named shared-authority Merge/Override, or a named workflow Merge/Override;
+- only contribution sections relevant to the active authority/workflow were applied;
 - every Merge was additive to the inherited concern;
-- every Override named an explicit inherited workflow rule/sub-contract using the active workflow's canonical concern name;
+- every Override named an explicit inherited rule/sub-contract using the owning authority/workflow's canonical concern name;
 - an Override actually replaced inherited behavior rather than merely adding a specialization that should have been a Merge;
 - a more-specific Override replaced only the same named target, not unrelated parent behavior;
 - a child that wanted inherited behavior plus a delta used Merge rather than overriding the parent target and then relying on replaced content;
-- child authorities contain only their delta rather than restating inherited parent fields/checks/questions merely for emphasis;
-- unmentioned inherited workflow behavior survived;
+- child entries contain only their delta rather than restating inherited parent fields/checks/questions merely for emphasis;
+- unmentioned inherited behavior survived;
 - no hierarchy contribution weakened a shared-authority or safety/legal rule;
-- no specialized authority silently acted as a whole-workflow replacement;
+- no registry entry silently acted as a whole-workflow or whole-authority replacement;
 - no free-floating behavioral section bypassed the Shared/Merge/Override structure.
 
 For retrospective audit, infer Merge/Override application only from observable output or targeted verification. If the answer does not expose enough process detail, judge whether the **resulting behavior** is consistent with the effective hierarchy contract rather than pretending to inspect hidden mutation steps.
@@ -85,10 +89,10 @@ Check only the authorities that were materially active:
 - `research_sources.md` for research mode, evidence admissibility, claim/source fit, independence, coverage, comparability, conflict handling, challenge pass, and stopping rules;
 - `reviews.md` for review/community interpretation and pattern-strength language;
 - `seller_instructions.md` for seller/channel classification, offer risk, provenance, and price-anomaly diligence;
-- `pricing.md` for price-state definitions, normal-price baseline, deal/value interpretation, and diminishing returns;
-- `criteria.md` for criterion meaning;
-- `source_playbooks.md` for discovery guidance;
-- active hierarchy-specialized files for domain-specific Shared/Merge/Override behavior.
+- `pricing.md` for generic price-state definitions, normal-price baseline, deal/value interpretation, and diminishing returns;
+- `criteria.md` for generic criterion meaning and role semantics;
+- `source_playbooks.md` for generic discovery guidance;
+- active entries in `class.md`, `category.md`, and `type.md` for product-domain Shared behavior and shared-authority/workflow contributions.
 
 Do not restate numeric thresholds or canonical definitions in this file. If a finding depends on one, cite/reference the owning authority.
 
@@ -154,7 +158,7 @@ Check that the answer separates:
 Verify that material seller/provenance/return/warranty claims are supported through the evidence hierarchy owned by `seller_instructions.md`.
 
 ## 10) Pricing checks
-When price/value materially affects the answer, apply `pricing.md` and, if active, the **effective** `pricing_tiers.md` workflow after hierarchy contributions.
+When price/value materially affects the answer, apply `pricing.md`, active hierarchy Pricing contributions, and, if active, the **effective** `pricing_tiers.md` workflow after hierarchy contributions.
 
 Check for obvious errors such as:
 - MSRP treated as normal street price without support;
@@ -201,25 +205,31 @@ Only when explicitly auditing/editing this Shopping Project instruction set, als
 - every rule has one clear owner;
 - sibling files reference canonical rules instead of copying thresholds/definitions;
 - research-mode selection exists only in `research_sources.md`;
-- reusable pricing definitions exist only in `pricing.md`;
+- generic reusable pricing definitions exist only in `pricing.md`;
+- generic criterion-role/meaning semantics exist only in `criteria.md`;
+- generic source-discovery semantics exist only in `source_playbooks.md`;
 - templates own presentation only;
 - workflows own generic sequencing/synthesis plus stable named contribution surfaces;
-- `product_hierarchy.md` alone owns Merge/Override semantics and child-delta behavior;
-- every executable hierarchy rule is classified under Shared domain behavior or a named workflow Merge/Override;
-- every hierarchy Override names a specific live workflow rule/sub-contract rather than an entire workflow;
+- `product_hierarchy.md` alone owns registry structure, Merge/Override semantics, and child-delta behavior;
+- supported Classes exist only in `class.md`, Categories only in `category.md`, and Types only in `type.md`;
+- every registry node has one canonical entry, a live Parent, and a valid acyclic `Inheritance` chain;
+- adding an ordinary new node should require editing only its one registry file;
+- no per-node `class_*.md`, `category_*.md`, or `type_*.md` file remains as live authority;
+- domain-specific criteria, source-discovery guidance, and value interpretation live in the owning registry entry rather than generic shared-authority files;
+- every executable hierarchy rule is classified under Shared domain behavior, a named shared-authority Merge/Override, or a named workflow Merge/Override;
+- every hierarchy Override names a specific live rule/sub-contract rather than an entire workflow/authority;
 - every hierarchy Override replaces something materially incompatible; additive specialization uses Merge;
 - hierarchy Merges are additive and do not silently suppress inherited rules;
 - more-specific overrides affect only the same named target;
 - a child that needs a parent target plus extra behavior uses Merge rather than an Override that silently depends on replaced parent content;
-- child hierarchy authorities contain only their delta and do not restate inherited parent rules merely for emphasis;
-- hierarchy contributions cannot weaken shared-authority or safety/legal rules;
-- hierarchy levels omit workflow sections when they have nothing meaningful to contribute;
+- child hierarchy entries contain only their delta and do not restate inherited parent rules merely for emphasis;
+- hierarchy contributions cannot weaken canonical shared-authority or safety/legal rules;
+- hierarchy levels omit workflow/authority sections when they have nothing meaningful to contribute;
 - Chef's Knife remains a valid reference implementation rather than special-cased logic embedded in generic workflows;
-- specialized files load only from active hierarchy entries;
 - references point to live files/sections;
 - `archive/` is not treated as deployable ChatGPT Project context;
 - no pseudo-runtime machinery is introduced;
 - numeric defaults have triggers/stop conditions/escape clauses in their owning file.
 
 ## Boundary
-Audit owns audit mode, observability rules, Merge/Override compliance diagnosis, analytical-integrity diagnosis, severity, and audit presentation. It references all other contracts rather than reimplementing them.
+Audit owns audit mode, observability rules, registry and Merge/Override compliance diagnosis, analytical-integrity diagnosis, severity, and audit presentation. It references all other contracts rather than reimplementing them.
